@@ -1,24 +1,36 @@
-# README
+# Best practices pour travailler ensemble...
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## On crée sa branche
 
-Things you may want to cover:
+* git checkout -b « ma-branche »
+* Git push (on a un message d’erreur qui nous indique la bonne commande > on copie ce message)
 
-* Ruby version
+C’est bon, on peut travailler en sérénité sur sa branche !
 
-* System dependencies
+Une fois qu'on est content de notre boulot :
 
-* Configuration
+* git add [tous les dossiers modifiés]
+* git commit -m « nouvelle modif sur ma-branche »
+* Git push (pas besoin de préciser le nom de la branche, par défaut c’est la branche qui est poussée)
 
-* Database creation
+## Il est l'heure de merger sa branche
 
-* Database initialization
+Vous êtes contents de votre boulot ? On merge avec sa branche, mais avant...
 
-* How to run the test suite
+* On revient sur master : git checkout master
+* On va chercher les dernières modifs faites sur master : git pull --prune (on élage les branches en local)
+* On retourne sur notre branche : Git checkout -
+* On merge master avec notre branche : git merge master
+* On vérifie si tout va bien : Rail s > si tout marche, on revient sur master et on merge tout !
+	* Git checkout master
+	* Git merge -ma branche
+	* Git push origin master 
 
-* Services (job queues, cache servers, search engines, etc.)
+A ce moment, si un message chelou s’affiche, keskonfé ???
+* Appuyer "i"
+* Ecrire le message de merge "Merge of master and ma-branche"
+* Appuyer sur "esc"
+* Ecrire ":wq"
+* Appuyer sur enter
+* branch -d ma-branche On supprime sa branche, c'est plus clean :)
 
-* Deployment instructions
-
-* ...
