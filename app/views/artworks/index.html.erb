@@ -6,9 +6,47 @@
     </li>
 </header>
 
+<div id="mapid"></div>
+
+<script type="text/javascript">
+
+  map = L.map('mapid').setView([ 48.8879012, 2.384519], 17)
+
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+      maxZoom: 18
+  }).addTo(map)
+
+
+  var arr = <%= @artworks.to_json.html_safe %>
+  console.log(arr)
+
+  for (var i=0; i < arr.length; i+=1){
+    
+    var customPopup = "<b>"+arr[i].title+"</b>";
+    
+    // specify popup options 
+    var customOptions =
+        {
+        'maxWidth': '500',
+        'className' : 'custom'
+        }
+
+        var myMarker = L.marker([arr[i].lat,arr[i].long]).addTo(map);
+    myMarker.bindPopup(customPopup,customOptions).openPopup()
+
+    }
+
+</script>
+
+
 <div class="display">
-    <h1>Artworks#index</h1>
-    <p>Find me in app/views/artworks/index.html.erb</p>
+
+    <% @artworks.each do |artwork|%>
+    <p> <%= artwork.title %> </p>
+    <p> <%= artwork.description %> </p>
+    <p> <%= artwork.artists.first.pseudo %> </p>
+    <% end %>
 
 
 </div>
