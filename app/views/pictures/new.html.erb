@@ -1,2 +1,7 @@
 <h1>Pictures#new</h1>
 <p>Find me in app/views/pictures/new.html.erb</p>
+
+<%= form_tag (pictures_path) do %>
+<%= file_field_tag(:img_url) %>
+<p> <%= submit_tag 'Valider', class: "btn btn-primary"%></p>
+<% end %>

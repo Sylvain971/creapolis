@@ -8,8 +8,22 @@ class PicturesController < ApplicationController
   end
 
   def create
+  	@picture = Picture.new(pictures_params)
+  	if @picture.save
+  		redirect_to @picture
+  	else
+  		render 'new'
+  	end
   end
 
   def destroy
+  	@artwork = Artwork.find(params[:id])
+  	@artwork.destroy
+  	redirect_to pictures_path
+  end
+
+  private
+  def pictures_params
+  	params.permit(:img_url)
   end
 end
