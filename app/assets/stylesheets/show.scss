@@ -62,23 +62,18 @@
   list-style: none;
 }
 
-.user_tabs a{
+.user_tabs svg{
   color: white;
   font-size: 4vh;
 }
 
-
 .user_pictures {
-
   display: flex;
   flex-wrap: wrap;
-  border-left: 0.5vw;
-  border-right: 0.5vw;
-
 }
 .user_pictures img{
   width: 32vw;
-  border: 0.5vw white solid;
+  border: 0.8vw white solid;
 }
 
 .user_map{

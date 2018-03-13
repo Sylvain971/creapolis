@@ -73,15 +73,19 @@ header li{
     left: 0;
 }
 
-.tab2 {background-color: blue;}
-.tab3 {background-color: orange;}
-.tab4 {background-color: black;}
-.tab5 {background-color: green;}
+.bottom_menu .tab2 {background-color: blue;}
+.bottom_menu .tab3 {background-color: orange;}
+.bottom_menu .tab4 {background-color: black;}
+.bottom_menu .tab5 {background-color: green;}
 
 /* Hide image form and show up the camera in white instead */
 .add-image {
-	 position: absolute;
-	 opacity: 0;
+  position: absolute;
+  opacity: 0;
+  left: 40%;
+  top: 1px;
+  height: 6vh;
+  width: 20%;
 }
 
 .fa-camera {
@@ -90,10 +94,10 @@ header li{
 
 /* -------- La carte --- */
 
-#map_index { 
+#map_index {
   margin-top: 8vh;
   margin-bottom: 6vh;
-  height: 100vh;
+  height: 86vh;
 }
 
 .custom_popum {
@@ -103,4 +107,3 @@ header li{
 .container{
   margin-top: 8vh;
 }
-
