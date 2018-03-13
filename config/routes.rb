@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'pictures/new'
+
+  get 'pictures/show'
+
+  get 'pictures/create'
+
+  get 'pictures/destroy'
+
 	resources :artworks
   devise_for :users
 	root "artworks#index"
