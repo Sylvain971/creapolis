@@ -6,49 +6,44 @@
     </li>
 </header>
 
-<div id="mapid"></div>
+<% if user_signed_in? %> 
+<div id="map_index"></div>
 
 <script type="text/javascript">
 
-  map = L.map('mapid').setView([ 48.8879012, 2.384519], 17)
+map = L.map('map_index').setView([ 48.8879012, 2.384519], 17)
 
-  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-      maxZoom: 18
-  }).addTo(map)
+// Need to change tile to Mapbox or other 
 
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+  maxZoom: 18
+}).addTo(map)
 
-  var arr = <%= @artworks.to_json.html_safe %>
-  console.log(arr)
+var arr = <%= @artworks.to_json.html_safe %>
 
-  for (var i=0; i < arr.length; i+=1){
+for (var i=0; i < arr.length; i+=1){
 
-    var customPopup = "<b>"+arr[i].title+"</b>";
+  var customPopup = "<b>"+arr[i].title+"</b>";
 
-    // specify popup options
-    var customOptions =
-        {
-        'maxWidth': '500',
-        'className' : 'custom'
-        }
+  // specify popup options
+  var customOptions =
+      {
+      'maxWidth': '500',
+      'className' : 'custom_popup',
+      };
 
-        var myMarker = L.marker([arr[i].lat,arr[i].long]).addTo(map);
-    myMarker.bindPopup(customPopup,customOptions).openPopup()
+  var myMarker = L.marker([arr[i].lat,arr[i].long]).addTo(map);
+  myMarker.bindPopup(customPopup,customOptions).openPopup()
 
-    }
+}
 
 </script>
 
-
-<div class="display">
-
-    <% @artworks.each do |artwork|%>
-    <p> <%= artwork.title %> </p>
-    <p> <%= artwork.description %> </p>
-
-    <% end %>
-
-
+<% else %>
+<div class="container">
+<%= link_to "Connectez-vous", new_user_session_path %>
+<%= link_to "Je m'inscris", new_user_registration_path%>
 </div>
-
+<% end %>
 <%= render 'layouts/bottom_menu' %>
