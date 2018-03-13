@@ -11,7 +11,7 @@ class ArtworksController < ApplicationController
   def create
   	@artwork = Artwork.new(artworks_params)
   		if @artwork.save
-  			redirect_to @artwork, notice: 'Votre oeuvre a bien été ajoutée'
+  			redirect_to pictures_new_path, notice: 'Votre oeuvre a bien été ajoutée'
   		else
   			render 'new'
   		end

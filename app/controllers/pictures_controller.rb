@@ -9,11 +9,13 @@ class PicturesController < ApplicationController
 
   def create
   	@picture = Picture.new(pictures_params)
-  	if @picture.save
-  		redirect_to @picture
-  	else
-  		render 'new'
-  	end
+  	if user_signed_in?
+  		@picture.user = current_user
+	  	@picture.save
+	  	redirect_to @picture
+	  else
+	  		render 'new'
+	  end
   end
 
   def destroy
