@@ -1,4 +1,53 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<!-- PArtie du haut -->
+<div class="user_top">
+
+  <div class="user_menu">
+  </div>
+
+  <div class="user_avatar_row">
+  </div>
+  <div class="user_pseudo">
+    Toto Streetartist
+  </div>
+  <div class="user_stats">
+      <div>
+        1452 photos
+      </div>
+
+      <div>
+        35 villes
+      </div>
+
+      <div>
+        11 pays
+      </div>
+
+  </div>
+  <div class="user_tabs">
+      <li><%= link_to content_tag(:i, nil, class: 'fab fa-microsoft'), root_path %>
+            <div class="tab">
+
+            </div>
+      </li>
+
+      <li><%= link_to content_tag(:i, nil, class: 'fas fa-map-pin'), root_path %>
+            <div class="tab">
+
+            </div>
+      </li>
+  </div>
+
+
+</div>
+<!-- FIN partie du haut -->
+
+<!-- Partie du bas -->
+<div class="user_pictures">
+
+</div>
+
+
+
+<!-- FIN Partie du bas -->
 
 <%= render 'layouts/bottom_menu' %>
