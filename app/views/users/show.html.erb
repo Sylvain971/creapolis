@@ -16,7 +16,7 @@
   </div>
   <div class="user_stats">
       <div>
-        1452
+        <%= current_user.pictures.count %>
         <br>photos
       </div>
 
@@ -51,18 +51,14 @@
 
 <!-- Partie du bas -->
 <div class="user_pictures">
-  <%= image_tag 'image1.jpg' %>
-  <%= image_tag 'image2.jpg' %>
-  <%= image_tag 'image3.jpg' %>
-  <%= image_tag 'image2.jpg' %>
-  <%= image_tag 'image3.jpg' %>
-  <%= image_tag 'image1.jpg' %>
-  <%= image_tag 'image3.jpg' %>
-  <%= image_tag 'image1.jpg' %>
-  <%= image_tag 'image2.jpg' %>
-  <%= image_tag 'image1.jpg' %>
-  <%= image_tag 'image3.jpg' %>
-  <%= image_tag 'image1.jpg' %>
+
+  <% if current_user.pictures.count == 0 %>
+      <p> Vous n'avez pas encore proposé d'images.</p>
+  <% else %>
+      <% current_user.pictures.each do |picture| %>
+      <%= image_tag picture.img_url %>
+      <% end %>
+  <% end %>
 </div>
 
 <div class="user_map">
