@@ -83,14 +83,28 @@ header li{
 #map_index { 
   margin-top: 8vh;
   margin-bottom: 6vh;
-  height: 100vh;
-}
-
-.custom_popum {
-
+  height: 86vh;
 }
 
 .container{
   margin-top: 8vh;
+  color: blue;
+}
+
+#feature_infos {
+  width: 100%;
+  position: absolute;
+  top: 70vh;
+  right: 0px;
+  padding: 5px;
+  border: 1px solid grey;
+  z-index: 999;
+  left: 0;
+  bottom: 6vh;
+  background-color: white;
+}
+#info {
+    font-weight:bold;
+    color:red;
 }
 
