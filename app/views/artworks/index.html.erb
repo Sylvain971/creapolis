@@ -11,8 +11,9 @@
 
 <script type="text/javascript">
 
+
 map = L.map('map_index').setView([ 48.8879012, 2.384519], 17)
-var h = {}
+
 // Need to change tile to Mapbox or other 
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -20,9 +21,18 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
   maxZoom: 18
 }).addTo(map)
 
-var arr = <%= @artworks.to_json.html_safe %>
+
+
+
+var arr = <%= @artworks_js.html_safe %>
+
+
+
+
+console.log(arr)
 
 var markers = {};
+console.log(arr)
 
 for (var i=0; i < arr.length; i++){
 
@@ -43,10 +53,9 @@ for (var i=0; i < arr.length; i++){
         return v.id == id;
         }) || {}
 
-       // alert('Here is the markers ID: ' + a.title + '. Use it as you wish.')
 
         var x = document.getElementById("feature_infos");
-        x.innerHTML = a.title
+        x.innerHTML = a.users[0].pseudo
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {
@@ -54,6 +63,7 @@ for (var i=0; i < arr.length; i++){
         }
 
 });
+
 </script>
 
 <div id="feature_infos" style="display:none"> 
