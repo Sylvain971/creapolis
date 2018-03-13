@@ -22,10 +22,10 @@
   console.log(arr)
 
   for (var i=0; i < arr.length; i+=1){
-    
+
     var customPopup = "<b>"+arr[i].title+"</b>";
-    
-    // specify popup options 
+
+    // specify popup options
     var customOptions =
         {
         'maxWidth': '500',
@@ -51,35 +51,4 @@
 
 </div>
 
-
-
-
-<div class="bottom_menu">
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-map-marker-alt'), root_path %>
-          <div class="tab tab1">
-
-          </div>
-    </li>
-    <li><%= link_to content_tag(:i, nil, class: 'fab fa-cloudsmith'), root_path %>
-      <div class="tab tab2">
-
-      </div>
-    </li>
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-camera'), root_path %>
-      <div class="tab tab3">
-
-      </div>
-    </li>
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-search'), root_path %>
-      <div class="tab tab4">
-
-      </div>
-    </li>
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-user'), root_path %>
-      <div class="tab tab5">
-
-      </div>
-    </li>
-    </li>
-
-</div>
+<%= render 'layouts/bottom_menu' %>
