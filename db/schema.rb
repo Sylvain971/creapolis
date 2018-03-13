@@ -10,28 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180312192306) do
-
-  create_table "artists", force: :cascade do |t|
-    t.string "pseudo"
-    t.string "firstname"
-    t.string "name"
-    t.string "country"
-    t.string "bio"
-    t.string "website"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "artists_artworks", id: false, force: :cascade do |t|
-    t.integer "artist_id", null: false
-    t.integer "artwork_id", null: false
-  end
-
-  create_table "artists_pictures", id: false, force: :cascade do |t|
-    t.integer "artist_id", null: false
-    t.integer "picture_id", null: false
-  end
+ActiveRecord::Schema.define(version: 20180313103701) do
 
   create_table "artworks", force: :cascade do |t|
     t.string "title"
@@ -42,12 +21,19 @@ ActiveRecord::Schema.define(version: 20180312192306) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "artworks_users", id: false, force: :cascade do |t|
+    t.integer "artwork_id", null: false
+    t.integer "user_id", null: false
+  end
+
   create_table "pictures", force: :cascade do |t|
     t.string "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "artwork_id"
+    t.integer "user_id"
     t.index ["artwork_id"], name: "index_pictures_on_artwork_id"
+    t.index ["user_id"], name: "index_pictures_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,6 +49,11 @@ ActiveRecord::Schema.define(version: 20180312192306) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "pseudo"
+    t.string "firstname"
+    t.string "name"
+    t.string "country"
+    t.boolean "artist", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
