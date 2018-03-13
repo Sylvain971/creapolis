@@ -10,8 +10,14 @@
 
       </div>
     </li>
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-camera'), root_path %>
+    <!-- Image upload with a form --> 
+    <li>
+    	<%= form_tag () do %>
+    	<%= file_field_tag(:item_image, class: 'add-image') %>
+    	<% end %>
+    	<span class= 'fas fa-camera')></span>
       <div class="tab tab3">
+      
 
       </div>
     </li>
@@ -20,11 +26,10 @@
 
       </div>
     </li>
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-user'), user_profile_path(current_user) %>
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-user')%>
       <div class="tab tab5">
 
       </div>
     </li>
     </li>
-
 </div>

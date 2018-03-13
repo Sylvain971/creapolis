@@ -78,6 +78,16 @@ header li{
 .tab4 {background-color: black;}
 .tab5 {background-color: green;}
 
+/* Hide image form and show up the camera in white instead */
+.add-image {
+	 position: absolute;
+	 opacity: 0;
+}
+
+.fa-camera {
+	color: white;
+}
+
 /* -------- La carte --- */
 
 #map_index { 
