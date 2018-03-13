@@ -4,7 +4,7 @@ class ArtworksController < ApplicationController
   end
 
   def show
-  	@artworks = Artwork.find(params[:id])
+  	@artwork = Artwork.find(params[:id])
   end
 
   def new
