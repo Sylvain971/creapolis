@@ -32,6 +32,14 @@ header li{
   justify-content: center;
 }
 
+/* -------- LOGIN and SIGNUP  --- */
+
+.connection{
+  height: 92vh;
+  background-image: url(/assets/image_fond.jpg);
+  background-size: cover;
+}
+
 /* -------- Partie centrale de l'app  --- */
 .display{
   margin-top: 8vh;
@@ -101,11 +109,8 @@ header li{
 
 }
 
-
-
 .container{
   margin-top: 8vh;
-  color: blue;
 }
 
 #feature_infos {
