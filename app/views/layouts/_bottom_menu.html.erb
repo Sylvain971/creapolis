@@ -12,7 +12,7 @@
     </li>
     <!-- Image upload with a form --> 
     <li>
-    	<%= form_tag (img_url_path) do %>
+    	<%= form_tag () do %>
     	<%= file_field_tag(:item_image, class: 'add-image') %>
     	<% end %>
     	<span class= 'fas fa-camera')></span>
@@ -32,9 +32,4 @@
       </div>
     </li>
     </li>
-<script>
-	jQuery(document).ready(function($){
-    $('.add-image').submit();
-});
-</script>
 </div>
