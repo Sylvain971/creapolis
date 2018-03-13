@@ -1,2 +1,21 @@
-<h1>Artworks#new</h1>
-<p>Find me in app/views/artworks/new.html.erb</p>
+<div class="field input">
+  <%= label_tag "Nom de l'oeuvre", "Titre :" %>
+  <%= text_field_tag(:title) %>
+</div>
+<br>
+<div class="field input">
+  <%= label_tag 'description', "Description :"  %>
+  <%= text_area_tag(:description) %>
+</div>
+<br>
+<div class="field input">
+  <%= label_tag 'price', "Prix souhaité (en euros):"  %>
+  <%= number_field_tag(:price) %>
+</div>
+<br>
+<div class="field input">
+  <%= label_tag 'image', "Lien de l'image" %>
+  <%= file_field_tag(:item_image) %>
+</div>
+<br><br>
+<p> <%= submit_tag 'Valider', class: "btn btn-primary"%></p>
