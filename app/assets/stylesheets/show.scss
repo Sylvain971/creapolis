@@ -1,0 +1,81 @@
+.user_top{
+  padding: 0 15px;
+  height: 46vh;
+  background-image: url(/assets/image_fond.jpg);
+  background-size: cover;
+}
+
+.user_menu{
+  width: 100%;
+  background-color: rgba(255,255,255,0);
+  height: 8vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+
+.user_menu a {
+  color: white;
+  font-size: 4vh;
+}
+
+.user_avatar_row {
+  display: flex;
+  position: relative;
+  top: -3vh;
+  justify-content: center;
+}
+.user_avatar_row img {
+  height:90px;
+  width: 90px;
+  border-radius: 50px;
+}
+
+.user_pseudo{
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.user_stats{
+  display: flex;
+  margin: 0 14px 15px;
+  border-top: #80808066 1px solid;
+}
+
+.user_stats div{
+  width: 33.3%;
+  text-align: center;
+  padding: 10px;
+}
+.user_stats div:nth-child(2) {
+    border-left: #80808066 1px solid;
+    border-right:#80808066 1px solid;
+}
+
+.user_tabs{
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.user_tabs svg{
+  color: white;
+  font-size: 4vh;
+}
+
+.user_pictures {
+  display: flex;
+  flex-wrap: wrap;
+}
+.user_pictures img{
+  width: 32vw;
+  border: 0.8vw white solid;
+}
+
+.user_map{
+  display: none;
+}

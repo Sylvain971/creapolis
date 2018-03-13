@@ -1,4 +1,65 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<!-- PArtie du haut -->
+<div class="user_top">
+
+  <div class="user_menu">
+      <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
+      </li>
+      <li><%= link_to content_tag(:i, nil, class: 'fab fa-whmcs'), root_path %>
+      </li>
+  </div>
+
+  <div class="user_avatar_row">
+      <%= image_tag 'image1.jpg' %>
+  </div>
+  <div class="user_pseudo">
+    Toto Streetartist
+  </div>
+  <div class="user_stats">
+      <div>
+        <%= current_user.pictures.count %>
+        <br>photos
+      </div>
+
+      <div>
+        35
+        <br>Villes
+      </div>
+
+      <div>
+        11
+        <br>Pays
+      </div>
+
+  </div>
+  <div class="user_tabs">
+      <li class="tab1"><i class='fab fa-microsoft'></i>
+      </li>
+      <li class="tab2"><i class='fas fa-map-marker-alt'></i>
+      </li>
+  </div>
+
+
+</div>
+<!-- FIN partie du haut -->
+
+<!-- Partie du bas -->
+<div class="user_pictures">
+
+  <% if current_user.pictures.count == 0 %>
+      <p> Vous n'avez pas encore proposé d'images.</p>
+  <% else %>
+      <% current_user.pictures.each do |picture| %>
+      <%= image_tag picture.img_url %>
+      <% end %>
+  <% end %>
+</div>
+
+<div class="user_map">
+  <p>Emplacement de la carte indiquant l'Emplacement des photos partagées
+  </p>
+</div>
+
+
+<!-- FIN Partie du bas -->
 
 <%= render 'layouts/bottom_menu' %>
