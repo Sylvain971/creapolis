@@ -2,36 +2,44 @@
 <div class="user_top">
 
   <div class="user_menu">
+      <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
+      </li>
+      <li><%= link_to content_tag(:i, nil, class: 'fab fa-whmcs'), root_path %>
+      </li>
   </div>
 
   <div class="user_avatar_row">
+      <%= image_tag 'image1.jpg' %>
   </div>
   <div class="user_pseudo">
     Toto Streetartist
   </div>
   <div class="user_stats">
       <div>
-        1452 photos
+        1452
+        <br>photos
       </div>
 
       <div>
-        35 villes
+        35
+        <br>Villes
       </div>
 
       <div>
-        11 pays
+        11
+        <br>Pays
       </div>
 
   </div>
   <div class="user_tabs">
       <li><%= link_to content_tag(:i, nil, class: 'fab fa-microsoft'), root_path %>
-            <div class="tab">
+            <div class="user_tab">
 
             </div>
       </li>
 
-      <li><%= link_to content_tag(:i, nil, class: 'fas fa-map-pin'), root_path %>
-            <div class="tab">
+      <li><%= link_to content_tag(:i, nil, class: 'fas fa-map-marker-alt'), root_path %>
+            <div class="user_tab">
 
             </div>
       </li>
@@ -43,9 +51,22 @@
 
 <!-- Partie du bas -->
 <div class="user_pictures">
-
+  <%= image_tag 'image1.jpg' %>
+  <%= image_tag 'image2.jpg' %>
+  <%= image_tag 'image3.jpg' %>
+  <%= image_tag 'image2.jpg' %>
+  <%= image_tag 'image3.jpg' %>
+  <%= image_tag 'image1.jpg' %>
+  <%= image_tag 'image3.jpg' %>
+  <%= image_tag 'image1.jpg' %>
+  <%= image_tag 'image2.jpg' %>
+  <%= image_tag 'image1.jpg' %>
+  <%= image_tag 'image3.jpg' %>
+  <%= image_tag 'image1.jpg' %>
 </div>
 
+<div class="user_map">
+</div>
 
 
 <!-- FIN Partie du bas -->
