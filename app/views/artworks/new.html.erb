@@ -1,21 +1,26 @@
 <div class="field input">
-  <%= label_tag "Nom de l'oeuvre", "Titre :" %>
+  <%= label_tag "nom", "Nom de l'œuvre:" %>
   <%= text_field_tag(:title) %>
 </div>
 <br>
 <div class="field input">
-  <%= label_tag 'description', "Description :"  %>
+  <%= label_tag 'description', "Description de l'oeuvre:"  %>
   <%= text_area_tag(:description) %>
 </div>
 <br>
 <div class="field input">
-  <%= label_tag 'price', "Prix souhaité (en euros):"  %>
-  <%= number_field_tag(:price) %>
+  <%= label_tag 'lat', "Latitude"  %>
+  <%= number_field_tag(:lat) %>
 </div>
 <br>
 <div class="field input">
-  <%= label_tag 'image', "Lien de l'image" %>
+  <%= label_tag 'long', "Longitude"  %>
+  <%= number_field_tag(:long) %>
+</div>
+<div class="field input">
   <%= file_field_tag(:item_image) %>
 </div>
 <br><br>
 <p> <%= submit_tag 'Valider', class: "btn btn-primary"%></p>
+
+<%= render 'layouts/bottom_menu' %>
