@@ -12,7 +12,7 @@
 <script type="text/javascript">
 
 map = L.map('map_index').setView([ 48.8879012, 2.384519], 17)
-
+var h = {}
 // Need to change tile to Mapbox or other 
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -22,23 +22,45 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
 var arr = <%= @artworks.to_json.html_safe %>
 
-for (var i=0; i < arr.length; i+=1){
+var markers = {};
 
-  var customPopup = "<b>"+arr[i].title+"</b>";
+for (var i=0; i < arr.length; i++){
 
-  // specify popup options
-  var customOptions =
-      {
-      'maxWidth': '500',
-      'className' : 'custom_popup',
-      };
+  var test = arr[i];
 
-  var myMarker = L.marker([arr[i].lat,arr[i].long]).addTo(map);
-  myMarker.bindPopup(customPopup,customOptions).openPopup()
+  markers[test.id] = L.marker([test.lat,test.long]).addTo(map);
+
+  markers[test.id]._icon.id = test.id;
+
 
 }
 
+  $('.leaflet-marker-icon').on('click', function(e) {
+     // Use the event to find the clicked element
+     var el = $(e.srcElement || e.target),
+         id = el.attr('id');
+        a = arr.find(function(v) {
+        return v.id == id;
+        }) || {}
+
+       // alert('Here is the markers ID: ' + a.title + '. Use it as you wish.')
+
+        var x = document.getElementById("feature_infos");
+        x.innerHTML = a.title
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+
+});
 </script>
+
+<div id="feature_infos" style="display:none"> 
+  <span id="heading">Clickresult: </span>
+  <span id="info"></span>
+</div>
+
 
 <% else %>
 <div class="container">
