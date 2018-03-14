@@ -4,17 +4,18 @@ class PicturesController < ApplicationController
   end
 
   def show
-  	@picture = Picture.find(paramas[:id])
+  	@picture = Picture.find(params[:id])
   end
 
   def create
   	@picture = Picture.new(pictures_params)
-  	if user_signed_in?
+  	if
   		@picture.user = current_user
+  		@picture.artwork = current_user.artworks.last
 	  	@picture.save
 	  	redirect_to @picture
 	  else
-	  		render 'new'
+	  	render 'new'
 	  end
   end
 
