@@ -49,7 +49,7 @@
       <p> Vous n'avez pas encore proposé d'images.</p>
   <% else %>
       <% current_user.pictures.each do |picture| %>
-      <%= image_tag picture.img_url %>
+      <%= image_tag picture.img_url, style:"height:100px"%>
       <% end %>
   <% end %>
 </div>

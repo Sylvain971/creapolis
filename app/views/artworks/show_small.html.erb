@@ -11,7 +11,10 @@
 
 <script type="text/javascript">
 
-map = L.map('map_index', {doubleClickZoom: false}).setView([ 48.8879012, 2.384519], 17)
+var test = <%= @artwork_js.html_safe %>
+console.log(test)
+
+map = L.map('map_index').setView([ test.lat, test.long], 17)
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
@@ -21,7 +24,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 var arr = <%= @artworks_js.html_safe %>
 
 var markers = {};
-console.log(arr)
+
 
 for (var i=0; i < arr.length; i++){
   var test = arr[i];
@@ -36,20 +39,16 @@ for (var i=0; i < arr.length; i++){
     return v.id == id;
     }) || {}
 
-    window.open("/artworks/show_small/"+ id,"_parent");
-
+    window.open("/artworks/show_small/"+id,"_parent");
 
 });
 
 </script>
 
-
-
-<div id="feature_infos" style="display:none">
-  <%= image_tag "image1.jpg", width:"150px", id:"image"%>
-  <p id="info"></p>
-  <a id="link_to_artwork" href="test">Lien vers la page de l'oeuvre</a>
-  
+<div id="feature_infos">
+  <%= link_to image_tag((@artwork.pictures.first.img_url), width:"120px", id:"image"), artwork_path(@artwork) %>
+  <p id="info"> Picture by @<%= @artwork.pictures.first.user.pseudo %> </p>
+  <p id="info"> <%= @artwork.users.first.pseudo %> </p>  
 </div>
 
 

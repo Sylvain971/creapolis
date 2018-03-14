@@ -73,18 +73,6 @@ header li{
   height: 25vh;
   background-color: antiquewhite;
 }
-.bottom_menu li:hover .tab {
-    display: block;
-    position: fixed;
-    width: 100vw;
-    bottom: 6vh;
-    left: 0;
-}
-
-.bottom_menu .tab2 {background-color: blue;}
-.bottom_menu .tab3 {background-color: orange;}
-.bottom_menu .tab4 {background-color: black;}
-.bottom_menu .tab5 {background-color: green;}
 
 /* Hide image form and show up the camera in white instead */
 .add-image {
@@ -125,6 +113,7 @@ header li{
   bottom: 6vh;
   background-color: white;
 }
+
 #info {
     font-weight:bold;
     color:red;
