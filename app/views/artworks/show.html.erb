@@ -40,7 +40,11 @@
     <div class="col-sm-9">
 
 <!-- Image artwork -->
-      <%= image_tag('image1.jpg', class: "img-responsive") %>
+      <!-- <%= image_tag('image1.jpg', class: "img-responsive") %> -->
+      
+      
+        <%= image_tag @artwork.pictures.first.img_url , class: "img-responsive" %>
+      
 <!-- Image artwork -->
 
       <br>
