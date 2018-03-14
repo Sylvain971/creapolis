@@ -101,6 +101,37 @@ header li{
   margin-top: 8vh;
 }
 
+<<<<<<< HEAD
+/* ---------- test de mise en forme pop up -- */
+
+.popup-container {  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border : 6px;
+  border-style: solid; 
+  border-color: red;
+}
+
+.artwork-image-likes {
+  display: flex;
+  flex-direction: row;
+  border : 4px;
+  border-style: solid; 
+ border-color: yellow;
+}
+
+.artwork-infos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border : 4px;
+  border-style: solid;
+  border-color: green;
+
+=======
 #feature_infos {
   width: 100%;
   position: absolute;
@@ -117,4 +148,5 @@ header li{
 #info {
     font-weight:bold;
     color:red;
+>>>>>>> 940b32fcbf1c378bfa558a57a7b9d84fc3e80bd5
 }
