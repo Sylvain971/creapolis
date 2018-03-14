@@ -1,62 +1,56 @@
-<header>
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
-    </li>
-    <div class="header_title">Creapolis</div>
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-plus'), root_path %>
-    </li>
-</header>
+<div class="body-container">
+  <% if user_signed_in? %>
+  <div id="map_index"></div>
 
-<% if user_signed_in? %>
-<div id="map_index"></div>
+  <script type="text/javascript">
 
-<script type="text/javascript">
+  map = L.map('map_index', {doubleClickZoom: false}).setView([ 48.8879012, 2.384519], 17)
 
-map = L.map('map_index', {doubleClickZoom: false}).setView([ 48.8879012, 2.384519], 17)
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+    maxZoom: 18
+  }).addTo(map)
 
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-  maxZoom: 18
-}).addTo(map)
+  var arr = <%= @artworks_js.html_safe %>
 
-var arr = <%= @artworks_js.html_safe %>
+  var markers = {};
+  console.log(arr)
 
-var markers = {};
-console.log(arr)
+  for (var i=0; i < arr.length; i++){
+    var test = arr[i];
+    markers[test.id] = L.marker([test.lat,test.long]).addTo(map);
+    markers[test.id]._icon.id = test.id;
+  }
 
-for (var i=0; i < arr.length; i++){
-  var test = arr[i];
-  markers[test.id] = L.marker([test.lat,test.long]).addTo(map);
-  markers[test.id]._icon.id = test.id;
-}
+    $('.leaflet-marker-icon').on('click', function(e) {
+      var el = $(e.srcElement || e.target),
+      id = el.attr('id');
+      a = arr.find(function(v) {
+      return v.id == id;
+      }) || {}
 
-  $('.leaflet-marker-icon').on('click', function(e) {
-    var el = $(e.srcElement || e.target),
-    id = el.attr('id');
-    a = arr.find(function(v) {
-    return v.id == id;
-    }) || {}
-
-    window.open("/artworks/show_small/"+ id,"_parent");
+      window.open("/artworks/show_small/"+ id,"_parent");
 
 
-});
+  });
 
-</script>
+  </script>
 
 
-<% else %>
-<div class="container connection">
-  <!-- formulaire pour se connecter -->
-  <div class="box_connection_top">
-    <%= render "layouts/login" %>
-    <br><br>
-    <%= link_to "Mot de passe oublié ?", new_user_password_path %><br/>
+  <% else %>
+  <div class="container connection">
+    <!-- formulaire pour se connecter -->
+    <div class="box_connection_top">
+      <%= render "layouts/login" %>
+      <br><br>
+      <%= link_to "Mot de passe oublié ?", new_user_password_path %><br/>
+    </div>
+    <div class="box_connection_bottom">
+          <%= link_to "Créer un compte", new_user_registration_path%>
+    </div>
+    <!-- FIN formulaire pour se connecter -->
+
   </div>
-  <div class="box_connection_bottom">
-        <%= link_to "Créer un compte", new_user_registration_path%>
-  </div>
-  <!-- FIN formulaire pour se connecter -->
-
+  <% end %>
 </div>
-<% end %>
 <%= render 'layouts/bottom_menu' %>

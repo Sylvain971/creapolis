@@ -11,8 +11,10 @@ class ArtworksController < ApplicationController
 
   def create
   	@artwork = Artwork.new(artworks_params)
+  	@artwork.lat = @artwork.lat.to_f
+  	@artwork.long = @artwork.long.to_f
+  	@artwork.users << current_user
   		if 
-  			@artwork.users << current_user
   			@artwork.save
   			redirect_to pictures_new_path, notice: 'Votre oeuvre a bien été ajoutée'
   		else
@@ -52,7 +54,7 @@ class ArtworksController < ApplicationController
 
 	private
 	def artworks_params
-		params.permit(:title, :description, :lat, :long)
+		params.permit(:title, :description, :lat, :long, :artist)
 	end
 
 end
