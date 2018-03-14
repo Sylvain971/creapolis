@@ -32,30 +32,40 @@
 <style>
 /* ---------- test de mise en forme pop up -- */
 
+body {
+	margin: 0;
+	padding:0;
+	background-color: blue;
+}
 	.popup-container {  
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
+		height: 30%;
 		width: 100%;
-		margin-left: none;
-		margin-right: none;
 		border : 1px;
-		border-style: solid; 
+		border-style: solid;
+		background-color: rgba(255, 255, 255, 0.35); 
 	}
 
 	.artwork-image-likes {
 		display: flex;
 		flex-direction: column;
-		width: 48%;
-		border : 4px;
+		justify-content: center;
+		align-items: flex-start;
+		width: 350px;
+		min-width: 75%;
+		height: 100%;
+		min-height: 45%;
+		border : 2px;
 		border-style: solid; 
 		border-color: yellow;
 	}
 
 	.responsive {
-    	max-width: 100%;
-    	height: auto;
+		max-width: 350px;
+		width: 75%;
 	}
 
 	.artwork-image {
@@ -65,11 +75,11 @@
 	.artwork-infos {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		width: 48%;
-		height : height 95%;
-		border : 4px;
+		justify-content: flex-start;
+		align-items: flex-start;
+		width: 45%;
+		height : 100%;
+		border : 2px;
 		border-style: solid;
 		border-color: green;
 	}

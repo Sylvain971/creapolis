@@ -32,6 +32,14 @@ header li{
   justify-content: center;
 }
 
+/* -------- LOGIN and SIGNUP  --- */
+
+.connection{
+  height: 92vh;
+  background-image: url(/assets/image_fond.jpg);
+  background-size: cover;
+}
+
 /* -------- Partie centrale de l'app  --- */
 .display{
   margin-top: 8vh;
@@ -73,15 +81,19 @@ header li{
     left: 0;
 }
 
-.tab2 {background-color: blue;}
-.tab3 {background-color: orange;}
-.tab4 {background-color: black;}
-.tab5 {background-color: green;}
+.bottom_menu .tab2 {background-color: blue;}
+.bottom_menu .tab3 {background-color: orange;}
+.bottom_menu .tab4 {background-color: black;}
+.bottom_menu .tab5 {background-color: green;}
 
 /* Hide image form and show up the camera in white instead */
 .add-image {
-	 position: absolute;
-	 opacity: 0;
+  position: absolute;
+  opacity: 0;
+  left: 40%;
+  top: 1px;
+  height: 6vh;
+  width: 20%;
 }
 
 .fa-camera {
@@ -90,13 +102,10 @@ header li{
 
 /* -------- La carte --- */
 
-#map_index { 
+#map_index {
   margin-top: 8vh;
   margin-bottom: 6vh;
-  height: 100vh;
-}
-
-.custom_popum {
+  height: 86vh;
 
 }
 
@@ -104,6 +113,7 @@ header li{
   margin-top: 8vh;
 }
 
+<<<<<<< HEAD
 /* ---------- test de mise en forme pop up -- */
 
 .popup-container {  
@@ -133,4 +143,21 @@ header li{
   border-style: solid;
   border-color: green;
 
+=======
+#feature_infos {
+  width: 100%;
+  position: absolute;
+  top: 70vh;
+  right: 0px;
+  padding: 5px;
+  border: 1px solid grey;
+  z-index: 999;
+  left: 0;
+  bottom: 6vh;
+  background-color: white;
+}
+#info {
+    font-weight:bold;
+    color:red;
+>>>>>>> 940b32fcbf1c378bfa558a57a7b9d84fc3e80bd5
 }
