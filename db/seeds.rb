@@ -26,7 +26,7 @@ artwork3 = Artwork.create(title:"Une incroyable oeuvre d'art", lat: "48.8897424"
 picture1 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/v1521038222/image1.jpg", artwork: artwork1, user: user_regular)
 picture2 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/v1521038228/image2.jpg", artwork: artwork2, user: user_regular)
 picture3 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/v1521038233/image3.jpg", artwork: artwork3, user: user_regular)
-#picture4 = Picture.create(img_url: "image1-1.png", artwork: artwork1, user: user_regular2)
+picture4 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/v1521038233/image3.jpg", artwork: artwork1, user: user_regular2)
 
 
 
