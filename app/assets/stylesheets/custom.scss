@@ -2,6 +2,14 @@ body{
   margin :0;
 }
 
+h1,h2,h3,h4,h5,h6, header, p, div, ul, li {
+  font-family: 'Lato', sans-serif;
+}
+
+p, div {
+  font-size: 1.1rem;
+}
+
 /* -------- Barre de header --- */
 
 header {
@@ -17,7 +25,7 @@ header {
 }
 
 .header_title{
-  font: 1rem white;
+  color: white;
   line-height: 8vh;
 }
 header a {
@@ -33,7 +41,7 @@ header li{
 }
 
 /* -------- LOGIN and SIGNUP  --- */
-
+/* VOir egalement la feuille css Connection pour tous les codes liés */
 .connection{
   height: 92vh;
   background-image: url(/assets/image_fond.jpg);
