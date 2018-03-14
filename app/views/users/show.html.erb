@@ -1,4 +1,7 @@
+<% if current_user == @user %>
+
 <!-- Partie du haut -->
+
 <div class="user_top">
 
   <div class="user_menu">
@@ -47,12 +50,14 @@
 
   <% if current_user.pictures.count == 0 %>
       <p> Vous n'avez pas encore proposé d'images.</p>
-    <% else %>
-      <% current_user.pictures.each do |picture| %>
-
-      <%= image_tag picture.img_url %>
-    <% end %>
-
+  <% else %>
+        <div class="row">
+          <% current_user.pictures.each do |picture| %>
+            <div class="col-xs-4">
+              <%= image_tag picture.img_url, class: "img-responsive" %>
+            </div>
+          <% end %>
+        </div>
   <% end %>
 
 </div>
@@ -64,5 +69,9 @@
 
 
 <!-- FIN Partie du bas -->
+
+<% else %>
+  <p> Veuillez vous connecter pour accéder à votre profil </p>
+<% end %>
 
 <%= render 'layouts/bottom_menu' %>

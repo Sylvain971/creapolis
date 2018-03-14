@@ -2,7 +2,7 @@
 .box_connection {
   /* Avec les flex
   width: 50%;
-  */
+
   height: 52vh;
   display: flex;
   justify-content: space-evenly;
@@ -12,6 +12,7 @@
   border-radius : 10px;
   background-color: #f2f2f2;
   width: 45%;
+  */
 }
 .box_connection_top{
   height: 75%;
@@ -29,7 +30,7 @@
 .box_connection_top input{
   border: 3px solid aliceblue;
   margin: 5px;
-  width: 50vw;
+  width: 65vw;
   height: 6vh;
   text-align: center;
 }
@@ -55,6 +56,7 @@
 .actions{
   margin-top: 4vh;
   margin-bottom: 2vh;
+  padding: 0 5px;
   input{
     width: 100%;
     margin: 0;
