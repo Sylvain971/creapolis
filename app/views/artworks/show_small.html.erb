@@ -45,11 +45,23 @@ for (var i=0; i < arr.length; i++){
 
 </script>
 
-<div id="feature_infos">
-  <%= link_to image_tag((@artwork.pictures.first.img_url), width:"120px", id:"image"), artwork_path(@artwork) %>
-  <p id="info"> Picture by @<%= @artwork.pictures.first.user.pseudo %> </p>
-  <p id="info"> <%= @artwork.users.first.pseudo %> </p>  
+<div class = "popup-container">
+  <div class ="artwork-image-likes">
+      <%= link_to image_tag((@artwork.pictures.first.img_url), width:"120px", id:"image"), artwork_path(@artwork) %>
+  </div>
+
+  <div class = "artwork-infos">
+    <div class = "artwork-description">
+        <p><i class="fas fa-user"></i> <%= @artwork.users.first.pseudo%></p>
+        <p><i class="fas fa-paint-brush"></i>Graffiti</p>
+        <p><i class="fas fa-check-circle"></i>  Visible </i></p>
+    </div>
+    <div class = "hastags">
+      <p>#graffiti #parisisbeautiful #colorful #Ilovestreetart #crazycat</p>
+    </div>
+  </div>
 </div>
+
 
 
 <% else %>
