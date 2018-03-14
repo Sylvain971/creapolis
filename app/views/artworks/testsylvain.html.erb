@@ -1,0 +1,79 @@
+
+
+<!-- The pop up -->
+<div class = "popup-container">
+	<div class ="artwork-image-likes">
+			<!-- <%= artwork.picture %> -->
+			<img src="http://jenikya.com/blog/beastie2016.jpg" class= "artwork-image, responsive">
+		<!-- <% if picture.likes.count >= 1 %> -->
+			<p><i class="fas fa-heart"></i> <!-- <%= picture.likes.count %> -->  320 coups de coeur</p>
+		 <!-- <% else %>
+			<p><i class="far fa-heart"></i> 0 coup de coeur </p>
+		<%end%> -->
+	</div>
+
+	<div class = "artwork-infos">
+		<div class = "artwork-description">
+				<p><i class="fas fa-user"></i> <!--<%= artwork.artist %><-->  Datcha l'artiste</p>
+				<p><i class="fas fa-paint-brush"></i> <!-- <%= artwork.technic %> -->  Graffiti</p>
+			<!-- last item to be written correctly -->
+				<p><i class="fas fa-check-circle"></i>  Visible </i></p>
+		</div>
+
+		<div class = "hastags">
+				<p><!-- <%= artwork.hastags %> -->  #graffiti #parisisbeautiful #colorful #Ilovestreetart #crazycat</p>
+		<div>
+	</div>
+
+</div>
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+<style>
+/* ---------- test de mise en forme pop up -- */
+
+	.popup-container {  
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		margin-left: none;
+		margin-right: none;
+		border : 1px;
+		border-style: solid; 
+	}
+
+	.artwork-image-likes {
+		display: flex;
+		flex-direction: column;
+		width: 48%;
+		border : 4px;
+		border-style: solid; 
+		border-color: yellow;
+	}
+
+	.responsive {
+    	max-width: 100%;
+    	height: auto;
+	}
+
+	.artwork-image {
+
+	}
+
+	.artwork-infos {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 48%;
+		height : height 95%;
+		border : 4px;
+		border-style: solid;
+		border-color: green;
+	}
+
+
+
+</style>
