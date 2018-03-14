@@ -1,0 +1,244 @@
+/*NEW*/
+
+/*User datas*/
+.user_avatar_small {
+width: 50px;
+height: 50px;
+background-color: red;
+border-radius: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ul,li{
+	list-style-type: none;
+	list-style-position: inside;
+	display: inline-block;
+}
+
+/*Top bar global */
+.artwork_top_global{
+  width: auto;
+  /*background-color: rgba(255,255,255,0);*/
+  background-color: #ccc;
+  height: 8vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding: 0 15px;
+}
+
+
+/*Top bar inside */
+.user_menu_artwork{
+  width: 100%;
+  background-color: rgba(255,255,255,0);
+  /*background-color: red;*/
+  height: 8vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.user_menu_artwork a {
+  color: white;
+  font-size: 4vh;
+}
+
+
+
+
+.artwork_user_pseudo{
+  text-align: center;
+  font-weight: bold;
+  /*background-color: green;*/
+  align-items: center;
+}
+
+
+/*Artwork_global*/
+.artwork_global{
+width: 100%;
+height: auto;
+background-color: yellow;
+}
+
+/*Artwork_shoot*/
+.artwork_shoot{
+width: 100%;
+height: 235px;
+background-color: orange;
+}
+
+.artwork_shoot img{
+width: 100%;
+height: 100%;
+}
+
+
+/*Action toolbar*/
+.action_toolbar{
+width: 100%;
+height: 35px;
+background-color: blue;
+display: flex;
+}
+
+
+.artwork_item_group_left{left: 0; width: auto;display: flex;}
+.artwork_item_group_right{position:absolute;right: 0; width: auto;display: flex}
+
+.artwork_item_left, .artwork_item_right{
+width: 35px;
+height: 35px;
+background-color: yellow;
+align-items: stretch;
+margin: 0 5px 0 0;
+}
+
+.artwork_item_right{margin: 0 0 0 5px;}
+
+
+
+/*Artwork_info*/
+.artwork_info{
+width: 100%;
+height: 60px;
+/*background-color: brown;*/
+display: flex;
+justify-content: space-between;
+
+}
+
+.artwork_info ul {
+margin-left: -30px;
+}
+
+.artwork_info_group_left{
+width: 50%;
+height: auto;
+/*background-color: #657845;*/
+display: flex;
+flex-wrap: wrap;
+}
+
+.artwork_info_group_right{
+width: 50%;
+height: 60px;
+/*background-color: purple;*/
+flex-wrap: wrap;
+}
+
+/*List of infos type*/
+.artwork_info_artist{
+width: 100%;
+height: 50%;
+/*background-color: orange;*/
+display: flex;
+align-items: center;
+}
+
+.artwork_info_tech{
+width: 100%;
+height: 50%;
+/*background-color: blue;*/
+display: flex;
+align-items: center;
+}
+
+.artwork_info_place{
+width: 100%;
+height: 50%;
+/*background-color: #fe52fe;*/
+display: flex;
+align-items: center;
+}
+
+.artwork_info_status{
+width: 100%;
+height: 50%;
+/*background-color: pink;*/
+display: flex;
+align-items: center;
+}
+
+
+/*.artwork_info_group_left ul li,
+.artwork_info_group_right ul li {
+	list-style-type: none;
+	list-style-position: inside;
+	display: inline-block;
+}
+*/
+/*.info{
+	align-items: center;
+	background-color: #469878;
+	width: 100%;
+	height: 100%;
+}
+
+.info ul li{
+	
+}*/
+
+textarea {
+	width: 100%;
+}
+
+.textwrapper
+{
+  border:1px solid #999999;
+  margin:5px 0;
+  padding:3px;
+}
+
+.comment-area{
+	margin-bottom: 50px;
+	width: auto;
+	height: auto;
+}
+
+
+
+
+
+
+/*Artwork_Comment*/
+.artwork_comment{
+width: 100%;
+height: 60px;
+background-color: grey;
+}
+
+/*Artwork_Comment*/
+.artwork_add_comment{
+width: 100%;
+height: auto;
+background-color: red;
+}
+
+.artwork_read_comment{
+width: 100%;
+height: 60px;
+background-color: green;
+}
+
+
+
