@@ -1,0 +1,89 @@
+
+
+<!-- The pop up -->
+<div class = "popup-container">
+	<div class ="artwork-image-likes">
+			<!-- <%= artwork.picture %> -->
+			<img src="http://jenikya.com/blog/beastie2016.jpg" class= "artwork-image, responsive">
+		<!-- <% if picture.likes.count >= 1 %> -->
+			<p><i class="fas fa-heart"></i> <!-- <%= picture.likes.count %> -->  320 coups de coeur</p>
+		 <!-- <% else %>
+			<p><i class="far fa-heart"></i> 0 coup de coeur </p>
+		<%end%> -->
+	</div>
+
+	<div class = "artwork-infos">
+		<div class = "artwork-description">
+				<p><i class="fas fa-user"></i> <!--<%= artwork.artist %><-->  Datcha l'artiste</p>
+				<p><i class="fas fa-paint-brush"></i> <!-- <%= artwork.technic %> -->  Graffiti</p>
+			<!-- last item to be written correctly -->
+				<p><i class="fas fa-check-circle"></i>  Visible </i></p>
+		</div>
+
+		<div class = "hastags">
+				<p><!-- <%= artwork.hastags %> -->  #graffiti #parisisbeautiful #colorful #Ilovestreetart #crazycat</p>
+		<div>
+	</div>
+
+</div>
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+<style>
+/* ---------- test de mise en forme pop up -- */
+
+body {
+	margin: 0;
+	padding:0;
+	background-color: blue;
+}
+	.popup-container {  
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		height: 30%;
+		width: 100%;
+		border : 1px;
+		border-style: solid;
+		background-color: rgba(255, 255, 255, 0.35); 
+	}
+
+	.artwork-image-likes {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		width: 350px;
+		min-width: 75%;
+		height: 100%;
+		min-height: 45%;
+		border : 2px;
+		border-style: solid; 
+		border-color: yellow;
+	}
+
+	.responsive {
+		max-width: 350px;
+		width: 75%;
+	}
+
+	.artwork-image {
+
+	}
+
+	.artwork-infos {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		width: 45%;
+		height : 100%;
+		border : 2px;
+		border-style: solid;
+		border-color: green;
+	}
+
+
+
+</style>

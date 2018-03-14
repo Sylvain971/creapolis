@@ -24,6 +24,13 @@ class ArtworksController < ApplicationController
   	@artwork= Artwork.find(params[:id])
   end
 
+  def show_small
+    @artwork= Artwork.find(params[:id])
+    @artwork_js = @artwork.to_json
+    @artworks = Artwork.all
+    @artworks_js = @artworks.to_json(include: [:users, :pictures])
+  end
+
   def edit
   	@artwork = Artwork.find(params[:id])
   end
