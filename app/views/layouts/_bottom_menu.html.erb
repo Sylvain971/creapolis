@@ -1,8 +1,7 @@
-
+<%if user_signed_in?%>
 <div class="bottom_menu">
     <li><%= link_to content_tag(:i, nil, class: 'fas fa-map-marker-alt'), root_path %>
           <div class="tab tab1">
-
           </div>
     </li>
     <li><%= link_to content_tag(:i, nil, class: 'fab fa-cloudsmith'), root_path %>
@@ -10,8 +9,14 @@
 
       </div>
     </li>
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-camera'), root_path %>
+    <!-- Image upload with a form -->
+    <li>
+    	<%= form_tag (pictures_path) do %>
+    	<%= file_field_tag(:img_url, class: 'add-image') %>
+    	<% end %>
+    	<span class= 'fas fa-camera')></span>
       <div class="tab tab3">
+
 
       </div>
     </li>
@@ -20,11 +25,11 @@
 
       </div>
     </li>
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-user'), user_profile_path(current_user) %>
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-user'), user_profile_path(current_user)%>
       <div class="tab tab5">
 
       </div>
     </li>
     </li>
-
 </div>
+<%end%>

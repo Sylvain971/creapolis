@@ -6,44 +6,94 @@
     </li>
 </header>
 
-<% if user_signed_in? %> 
+<% if user_signed_in? %>
 <div id="map_index"></div>
 
 <script type="text/javascript">
 
+
 map = L.map('map_index').setView([ 48.8879012, 2.384519], 17)
 
-// Need to change tile to Mapbox or other 
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
   maxZoom: 18
 }).addTo(map)
 
-var arr = <%= @artworks.to_json.html_safe %>
 
-for (var i=0; i < arr.length; i+=1){
 
-  var customPopup = "<b>"+arr[i].title+"</b>";
 
-  // specify popup options
-  var customOptions =
-      {
-      'maxWidth': '500',
-      'className' : 'custom_popup',
-      };
+var arr = <%= @artworks_js.html_safe %>
 
-  var myMarker = L.marker([arr[i].lat,arr[i].long]).addTo(map);
-  myMarker.bindPopup(customPopup,customOptions).openPopup()
+
+
+
+console.log(arr)
+
+var markers = {};
+console.log(arr)
+
+for (var i=0; i < arr.length; i++){
+
+  var test = arr[i];
+
+  markers[test.id] = L.marker([test.lat,test.long]).addTo(map);
+
+  markers[test.id]._icon.id = test.id;
+
 
 }
 
+  $('.leaflet-marker-icon').on('click', function(e) {
+     // Use the event to find the clicked element
+     var el = $(e.srcElement || e.target),
+         id = el.attr('id');
+        a = arr.find(function(v) {
+        return v.id == id;
+        }) || {}
+
+
+        var x = document.getElementById("feature_infos");
+        x.innerHTML = a.users[0].pseudo
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+
+});
+
 </script>
 
+<div id="feature_infos" style="display:none">
+  <span id="heading">Clickresult: </span>
+  <span id="info"></span>
+</div>
+
+
 <% else %>
-<div class="container">
-<%= link_to "Connectez-vous", new_user_session_path %>
-<%= link_to "Je m'inscris", new_user_registration_path%>
+<div class="container connection">
+
+  <!-- formulaire pour se connecter -->
+  <div class="box_connection_top">
+        <H2>Se connecter</h2>
+        <%= form_tag new_user_session_path do %>
+          <%= text_field_tag 'user[email]', value="Adresse Email" %>
+          <%= password_field_tag 'user[password]', value="Mot de passe" %>
+          <br>
+          <%= check_box_tag 'user[remember_me]'%>
+          <%= label_tag 'user[remember_me]', 'Se souvenir de moi' %>
+          <br><br>
+          <%= submit_tag 'Se connecter'%>
+         <% end %>
+         <br><br>
+         <%= link_to "Mot de passe oublié ?", new_user_password_path %><br/>
+  </div>
+  <div class="box_connection_bottom">
+        <%= link_to "Créer un compte", new_user_registration_path%>
+  </div>
+  <!-- FIN formulaire pour se connecter -->
+
 </div>
 <% end %>
 <%= render 'layouts/bottom_menu' %>

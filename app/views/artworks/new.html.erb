@@ -1,2 +1,37 @@
-<h1>Artworks#new</h1>
-<p>Find me in app/views/artworks/new.html.erb</p>
+<%= form_tag (artworks_path) do %>
+	<% if @artwork.errors.any? %>
+		<div id="error_explanation">
+		  <h2>
+		    <%= pluralize(@artwork.errors.count, "error") %> prohibited
+		    this user from being saved:
+		  </h2>
+		    <% @artwork.errors.full_messages.each do |msg| %>
+		      <p><%= msg %></p>
+		    <% end %>
+		</div>
+	<% end %>
+
+	<div class="field input">
+	  <%= label_tag "nom", "Nom de l'œuvre:" %>
+	  <%= text_field_tag(:title) %>
+	</div>
+	<br>
+	<div class="field input">
+	  <%= label_tag 'description', "Description de l'oeuvre:"  %>
+	  <%= text_area_tag(:description) %>
+	</div>
+	<br>
+	<div class="field input">
+	  <%= label_tag 'lat', "Latitude"  %>
+	  <%= number_field_tag(:lat) %>
+	</div>
+	<br>
+	<div class="field input">
+	  <%= label_tag 'long', "Longitude"  %>
+	  <%= number_field_tag(:long) %>
+	</div>
+	<br><br>
+	<p> <%= submit_tag 'Valider', class: "btn btn-primary"%></p>
+<% end %>
+
+	<%= render 'layouts/bottom_menu' %>

@@ -10,7 +10,8 @@ user_regular = User.create(pseudo: "Nico", email:"nico@gmail.com", password: "co
 
 user_dacruz = User.create(pseudo: "Dacruz", email:"dacruz@gmail.com", password:"coucou", artist: true)
 user_ren = User.create(pseudo: "Ren", email: "ren@gmail.com", password:"coucou", artist: true)
-user_sanetwo = User.create(pseudo: "Sanetwo", email: "ren@gmail.com", password:"coucou", artist: true)
+user_sanetwo = User.create(pseudo: "Sanetwo", email: "sanetwo@gmail.com", password:"coucou", artist: true)
+
 
 artwork1 = Artwork.create(title:"Une super oeuvre d'art", lat: "48.8879012", long: "2.384519")
 artwork2 = Artwork.create(title:"Une chouette oeuvre d'art", lat: "48.8897974", long: "2.3846279")

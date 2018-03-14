@@ -4,7 +4,7 @@
   <div class="user_menu">
       <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
       </li>
-      <li><%= link_to content_tag(:i, nil, class: 'fab fa-whmcs'), root_path %>
+      <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt'), destroy_user_session_path, method: :delete  %>
       </li>
   </div>
 
@@ -16,7 +16,7 @@
   </div>
   <div class="user_stats">
       <div>
-        1452
+        <%= current_user.pictures.count %>
         <br>photos
       </div>
 
@@ -32,16 +32,9 @@
 
   </div>
   <div class="user_tabs">
-      <li><%= link_to content_tag(:i, nil, class: 'fab fa-microsoft'), root_path %>
-            <div class="user_tab">
-
-            </div>
+      <li class="tab1"><i class='fab fa-microsoft'></i>
       </li>
-
-      <li><%= link_to content_tag(:i, nil, class: 'fas fa-map-marker-alt'), root_path %>
-            <div class="user_tab">
-
-            </div>
+      <li class="tab2"><i class='fas fa-map-marker-alt'></i>
       </li>
   </div>
 
@@ -51,21 +44,19 @@
 
 <!-- Partie du bas -->
 <div class="user_pictures">
-  <%= image_tag 'image1.jpg' %>
-  <%= image_tag 'image2.jpg' %>
-  <%= image_tag 'image3.jpg' %>
-  <%= image_tag 'image2.jpg' %>
-  <%= image_tag 'image3.jpg' %>
-  <%= image_tag 'image1.jpg' %>
-  <%= image_tag 'image3.jpg' %>
-  <%= image_tag 'image1.jpg' %>
-  <%= image_tag 'image2.jpg' %>
-  <%= image_tag 'image1.jpg' %>
-  <%= image_tag 'image3.jpg' %>
-  <%= image_tag 'image1.jpg' %>
+
+  <% if current_user.pictures.count == 0 %>
+      <p> Vous n'avez pas encore proposé d'images.</p>
+  <% else %>
+      <% current_user.pictures.each do |picture| %>
+      <%= image_tag picture.img_url %>
+      <% end %>
+  <% end %>
 </div>
 
 <div class="user_map">
+  <p>Emplacement de la carte indiquant l'Emplacement des photos partagées
+  </p>
 </div>
 
 

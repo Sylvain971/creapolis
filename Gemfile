@@ -16,6 +16,7 @@ gem "paperclip", "~> 5.2.1"
 gem 'aws-sdk', '~> 2.3'
 gem 'mailjet'
 gem 'leaflet-rails'
+gem 'rgeo-geojson'
 
 
 group :development, :test do
