@@ -1,11 +1,3 @@
-<header>
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
-    </li>
-    <div class="header_title">Creapolis</div>
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-plus'), root_path %>
-    </li>
-</header>
-
 <% if user_signed_in? %>
 <div id="map_index"></div>
 

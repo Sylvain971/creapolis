@@ -1,5 +1,5 @@
-<p> Vous vous apprêtez à créer une oeuvre qui n'apparaît pas sur la carte. Si vous souhaitez ajouter une photo d'une oeuvre qui existe déjà, retournez sur la page de la carte </p>
 
+<div class="form-new-artwork">
 <%= form_tag (artworks_path) do %>
 	<% if @artwork.errors.any? %>
 		<div id="error_explanation">
@@ -12,6 +12,8 @@
 		    <% end %>
 		</div>
 	<% end %>
+
+	<p> Vous vous apprêtez à créer une oeuvre qui n'apparaît pas sur la carte. Si vous souhaitez ajouter une photo d'une oeuvre qui existe déjà, retournez sur la page de la carte </p>
 
 	<div class="field input">
 	  <%= label_tag "nom", "Nom de l'œuvre (si vous le connaissez !)" %>
@@ -41,4 +43,4 @@
 	<p> <%= submit_tag 'Valider', class: "btn btn-primary"%></p>
 <% end %>
 
-	
+	</div>

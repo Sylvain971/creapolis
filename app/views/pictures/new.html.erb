@@ -1,3 +1,4 @@
+<div class="form-new-artwork">
 <p>Veuillez ajouter la photo associée à l'oeuvre. La création de l'oeuvre doit être validée par les modérateurs</p>
 
 <%= form_tag (pictures_path), multipart: true do %>
@@ -7,3 +8,4 @@
 <%= file_field_tag(:img_url) %>
 <p> <%= submit_tag 'Valider', class: "btn btn-primary"%></p>
 <% end %>
+</div>
