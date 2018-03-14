@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user_regular = User.create(pseudo: "Nico", email:"nico@gmail.com", password: "coucou")
+user_regular2 = User.create(pseudo: "Samba", email:"samba@gmail.com", password: "coucou")
+
 
 user_dacruz = User.create(pseudo: "Dacruz", email:"dacruz@gmail.com", password:"coucou", artist: true)
 user_ren = User.create(pseudo: "Ren", email: "ren@gmail.com", password:"coucou", artist: true)
@@ -20,6 +22,7 @@ artwork3 = Artwork.create(title:"Une incroyable oeuvre d'art", lat: "48.8897424"
 picture1 = Picture.create(img_url: "image1.jpg", artwork: artwork1, user: user_regular)
 picture2 = Picture.create(img_url: "image2.jpg", artwork: artwork2, user: user_regular)
 picture3 = Picture.create(img_url: "image3.jpg", artwork: artwork3, user: user_regular)
+picture4 = Picture.create(img_url: "image1-1.png", artwork: artwork1, user: user_regular2)
 
 
 
