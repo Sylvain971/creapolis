@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Artworks</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-</head>
-<body>
-
 <div class="container-fluid">
   <div class="row content">
 
@@ -44,9 +34,82 @@
 <!-- Image artwork -->
 
 
+
+
+
 <!-- Slideshow -->
         
+    <div class="">
+
+      <div class="mySlides">
+        <%= image_tag 'image1.jpg', class: "img-responsive" %>
+      </div>
+
+      <div class="mySlides">
+        <%= image_tag 'image2.jpg', class: "img-responsive" %>
+      </div>
+
+      <div class="mySlides">
+        <%= image_tag 'image3.jpg', class: "img-responsive" %>
+      </div>
+        
+
+      <div class="mySlides">
+        <%= image_tag 'image1.jpg', class: "img-responsive" %>
+      </div>
+
+      <div class="mySlides">
+        <%= image_tag 'image2.jpg', class: "img-responsive" %>
+      </div>
+
+      <div class="mySlides">
+        <%= image_tag 'image3.jpg', class: "img-responsive" %>
+      </div>
+
+
+      <div class="mySlides">
+        <%= image_tag 'image1.jpg', class: "img-responsive" %>
+      </div>
+
+ <br>
+
+  <div class="test">
+    <div class="column">
+      <%= image_tag("image1.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
+    </div>
+
+    <div class="column">
+      <%= image_tag("image2.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(2)")%>
+    </div>
+    <div class="column">
+      <%= image_tag("image3.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(3)")%>
+    </div>
+
+    <div class="column">
+      <%= image_tag("image1.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
+    </div>
+    <div class="column">
+      <%= image_tag("image2.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(2)")%>
+      <!-- <img class="demo cursor" src="img_nature.jpg" style="width:25%" onclick="currentSlide(5)" alt="Nature and sunrise"> -->
+    </div>
+    <div class="column">
+      <%= image_tag("image3.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
+    </div>
+
+    <div class="column">
+      <%= image_tag("image1.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
 <!-- Slideshow -->
+
+
 
 
 
@@ -227,6 +290,3 @@ function showSlides(n) {
 <!-- Script slideshow artwork -->
 
 
-
-</body>
-</html>
