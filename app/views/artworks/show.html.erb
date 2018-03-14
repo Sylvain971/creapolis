@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Artworks</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -40,16 +40,20 @@
     <div class="col-sm-9">
 
 <!-- Image artwork -->
-      <!-- <%= image_tag('image1.jpg', class: "img-responsive") %> -->
-      
-      
         <%= image_tag @artwork.pictures.first.img_url , class: "img-responsive" %>
-      
 <!-- Image artwork -->
 
+
+<!-- Slideshow -->
+        
+<!-- Slideshow -->
+
+
+
+
+
+
       <br>
-
-
 
       <div class="btn-group">
 
@@ -185,5 +189,44 @@
 </div>
 
 <%= render 'layouts/bottom_menu' %>
+
+
+
+
+<!-- Script slideshow artwork -->
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+<!-- Script slideshow artwork -->
+
+
+
 </body>
 </html>
