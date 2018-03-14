@@ -117,7 +117,7 @@ header li{
   z-index: 999;
   position: absolute;
   top: 70vh;
-  right: 0px;
+  bottom: 6vh;
   padding: 1vh;
 
   display: flex;
@@ -145,14 +145,6 @@ header li{
   align-items: flex-start;
   width: 70%;
   height : 100%;
-}
-
-
-.artwork-infos {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 
