@@ -2,6 +2,14 @@ body{
   margin :0;
 }
 
+h1,h2,h3,h4,h5,h6, header, p, div, ul, li {
+  font-family: 'Lato', sans-serif;
+}
+
+p, div {
+  font-size: 1.1rem;
+}
+
 /* -------- Barre de header --- */
 
 header {
@@ -11,13 +19,13 @@ header {
   position: fixed;
   top: 0;
   width :100%;
-  display: flex;
+  display: flex !important;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .header_title{
-  font: 1rem white;
+  color: white;
   line-height: 8vh;
 }
 header a {
@@ -33,7 +41,7 @@ header li{
 }
 
 /* -------- LOGIN and SIGNUP  --- */
-
+/* VOir egalement la feuille css Connection pour tous les codes liés */
 .connection{
   height: 92vh;
   background-image: url(/assets/image_fond.jpg);
@@ -102,6 +110,7 @@ header li{
 }
 
 
+
 /* ---------- test de mise en forme pop up -- */
 
   .popup-container {  
@@ -110,20 +119,23 @@ header li{
     top: 70vh;
     right: 0px;
     padding: 1vh;
+
     display: flex;
     width: 100%;
+
     background-color: rgba(255, 255, 255, 0.8); 
+
   }
 
   .artwork-image-likes {
     display: flex;
     flex-direction: column;
+
     img {
     max-width: 300px;
     width: 90%;
     padding: 1vh;
     }
-  }
 
   .artwork-infos {
     display: flex;
@@ -135,5 +147,43 @@ header li{
   }
 
 
-/* ---------- popup justine -- */
+.artwork-infos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border : 4px;
+  border-style: solid;
+  border-color: green;
+}
+
+
+
+/*Bootstrap 3.3.7 - Artwork_page*/
+
+/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+.row.content {height: 1500px}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {height: auto;}
+
+}
 

@@ -47,11 +47,14 @@
 
   <% if current_user.pictures.count == 0 %>
       <p> Vous n'avez pas encore proposé d'images.</p>
-  <% else %>
+    <% else %>
       <% current_user.pictures.each do |picture| %>
-      <%= image_tag picture.img_url, style:"height:100px"%>
-      <% end %>
+
+      <%= image_tag picture.img_url %>
+    <% end %>
+
   <% end %>
+
 </div>
 
 <div class="user_map">

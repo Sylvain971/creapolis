@@ -48,18 +48,9 @@ for (var i=0; i < arr.length; i++){
 <div class="container connection">
   <!-- formulaire pour se connecter -->
   <div class="box_connection_top">
-        <H2>Se connecter</h2>
-        <%= form_tag new_user_session_path do %>
-          <%= text_field_tag 'user[email]', value="Adresse Email" %>
-          <%= password_field_tag 'user[password]', value="Mot de passe" %>
-          <br>
-          <%= check_box_tag 'user[remember_me]'%>
-          <%= label_tag 'user[remember_me]', 'Se souvenir de moi' %>
-          <br><br>
-          <%= submit_tag 'Se connecter'%>
-         <% end %>
-         <br><br>
-         <%= link_to "Mot de passe oublié ?", new_user_password_path %><br/>
+    <%= render "layouts/login" %>
+    <br><br>
+    <%= link_to "Mot de passe oublié ?", new_user_password_path %><br/>
   </div>
   <div class="box_connection_bottom">
         <%= link_to "Créer un compte", new_user_registration_path%>
