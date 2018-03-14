@@ -70,6 +70,10 @@
 .user_pictures {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+.user_pictures .row div {
+  padding :2px;
 }
 .user_pictures img{
   width: 32vw;
@@ -78,4 +82,8 @@
 
 .user_map{
   display: none;
+}
+
+.fa, .far, .fas {
+    font-size: 1.8rem;
 }

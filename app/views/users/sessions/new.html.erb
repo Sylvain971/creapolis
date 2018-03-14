@@ -1,26 +1,22 @@
-<h2>Log in</h2>
+<header>
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
+    </li>
+    <div class="header_title">Creapolis</div>
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-plus'), root_path %>
+    </li>
+</header>
+<div class="container connection">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <!-- formulaire pour se connecter -->
+  <div class="box_connection_top">
+
+    <%= render "layouts/login" %>
+    <%= render "users/shared/links" %>
+
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="box_connection_bottom">
+        <%= link_to "Créer un compte", new_user_registration_path%>
   </div>
+  <!-- FIN formulaire pour se connecter -->
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

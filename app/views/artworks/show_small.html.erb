@@ -11,7 +11,10 @@
 
 <script type="text/javascript">
 
-map = L.map('map_index', {doubleClickZoom: false}).setView([ 48.8879012, 2.384519], 17)
+var test = <%= @artwork_js.html_safe %>
+console.log(test)
+
+map = L.map('map_index').setView([ test.lat, test.long], 17)
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
@@ -21,7 +24,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 var arr = <%= @artworks_js.html_safe %>
 
 var markers = {};
-console.log(arr)
+
 
 for (var i=0; i < arr.length; i++){
   var test = arr[i];
@@ -36,21 +39,48 @@ for (var i=0; i < arr.length; i++){
     return v.id == id;
     }) || {}
 
-    window.open("/artworks/show_small/"+ id,"_parent");
-
+    window.open("/artworks/show_small/"+id,"_parent");
 
 });
 
 </script>
 
+<div class = "popup-container">
+  <div class ="artwork-image-likes">
+      <%= link_to image_tag((@artwork.pictures.first.img_url), width:"120px", id:"image"), artwork_path(@artwork) %>
+  </div>
+
+  <div class = "artwork-infos">
+    <div class = "artwork-description">
+        <p><i class="fas fa-user"></i> <%= @artwork.users.first.pseudo%></p>
+        <p><i class="fas fa-paint-brush"></i>Graffiti</p>
+        <p><i class="fas fa-check-circle"></i>  Visible </i></p>
+    </div>
+    <div class = "hastags">
+      <p>#graffiti #parisisbeautiful #colorful #Ilovestreetart #crazycat</p>
+    </div>
+  </div>
+</div>
+
+
 
 <% else %>
 <div class="container connection">
+
   <!-- formulaire pour se connecter -->
   <div class="box_connection_top">
-    <%= render "layouts/login" %>
-    <br><br>
-    <%= link_to "Mot de passe oublié ?", new_user_password_path %><br/>
+        <H2>Se connecter</h2>
+        <%= form_tag new_user_session_path do %>
+          <%= text_field_tag 'user[email]', value="Adresse Email" %>
+          <%= password_field_tag 'user[password]', value="Mot de passe" %>
+          <br>
+          <%= check_box_tag 'user[remember_me]'%>
+          <%= label_tag 'user[remember_me]', 'Se souvenir de moi' %>
+          <br><br>
+          <%= submit_tag 'Se connecter'%>
+         <% end %>
+         <br><br>
+         <%= link_to "Mot de passe oublié ?", new_user_password_path %><br/>
   </div>
   <div class="box_connection_bottom">
         <%= link_to "Créer un compte", new_user_registration_path%>
