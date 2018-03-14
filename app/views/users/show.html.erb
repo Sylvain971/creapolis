@@ -1,77 +1,125 @@
-<% if current_user == @user %>
+<div class="body-container">
 
 <!-- Partie du haut -->
 
-<div class="user_top">
+  <div class="user_top">
 
-  <div class="user_menu">
-      <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
-      </li>
-      <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt'), destroy_user_session_path, method: :delete  %>
-      </li>
+    <div class="user_menu">
+        <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
+        </li>
+        <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt'), destroy_user_session_path, method: :delete  %>
+        </li>
+    </div>
+
+    <div class="user_avatar_row">
+        <%= image_tag 'image1.jpg' %>
+    </div>
+    <div class="user_pseudo">
+      <%= @user.pseudo %>
+      <% if @user.artist == true %>
+        <span class="status_artist"> Artist </span>
+      <% end %>
+    </div>
+    <div class="user_stats">
+        <% if @user.artist == true %>
+            <div>
+              <%= @user.artworks.count %>
+              <br>oeuvres
+            </div>
+        <% end %>
+        <div>
+          <%= @user.pictures.count %>
+          <br>photos
+        </div>
+    </div>
+
+    <div class="user_tabs">
+        <% if @user.artist == true %>
+          <li class="tab0"><i class='fab fa-phoenix-framework'></i>
+          </li>
+        <% end %>
+        <li class="tab1"><i class='fas fa-camera-retro'></i>
+        </li>
+        <li class="tab2"><i class='far fa-map'></i>
+        </li>
+    </div>
+
   </div>
-
-  <div class="user_avatar_row">
-      <%= image_tag 'image1.jpg' %>
-  </div>
-  <div class="user_pseudo">
-    Toto Streetartist
-  </div>
-  <div class="user_stats">
-      <div>
-        <%= current_user.pictures.count %>
-        <br>photos
-      </div>
-
-      <div>
-        35
-        <br>Villes
-      </div>
-
-      <div>
-        11
-        <br>Pays
-      </div>
-
-  </div>
-  <div class="user_tabs">
-      <li class="tab1"><i class='fab fa-microsoft'></i>
-      </li>
-      <li class="tab2"><i class='fas fa-map-marker-alt'></i>
-      </li>
-  </div>
-
-
-</div>
 <!-- FIN partie du haut -->
 
 <!-- Partie du bas -->
-<div class="user_pictures">
+  <div class="user_pictures">
 
-  <% if current_user.pictures.count == 0 %>
-      <p> Vous n'avez pas encore proposé d'images.</p>
-  <% else %>
-        <div class="row">
-          <% current_user.pictures.each do |picture| %>
-            <div class="col-xs-4">
-              <%= image_tag picture.img_url, class: "img-responsive" %>
-            </div>
-          <% end %>
-        </div>
-  <% end %>
+    <% if @user.pictures.count == 0 %>
+        <p> Vous n'avez pas encore proposé d'images.</p>
+    <% else %>
+          <div class="row">
+            <% @user.pictures.each do |picture| %>
+              <div class="col-xs-4">
+                <%= image_tag picture.img_url, class: "img-responsive" %>
+              </div>
+            <% end %>
+          </div>
+    <% end %>
+
+  </div>
+
+  <div class="user_map">
+    <div id="map_user"></div>
+
+    <script type="text/javascript">
+
+    map = L.map('map_user', {doubleClickZoom: false}).setView([ 48.8879012, 2.384519], 17)
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+      maxZoom: 18
+    }).addTo(map)
+
+    var arr = <%= @user_pictures_js.html_safe %>
+
+    var markers = {};
+    console.log(arr)
+
+    for (var i=0; i < arr.length; i++){
+      var test = arr[i];
+      markers[test.artwork_id] = L.marker([test.lat,test.long]).addTo(map);
+      markers[test.artwork_id]._icon.id = test.artwork_id;
+    }
+
+      $('.leaflet-marker-icon').on('click', function(e) {
+        var el = $(e.srcElement || e.target),
+        id = el.attr('id');
+        a = arr.find(function(v) {
+        return v.id == id;
+        }) || {}
+
+        window.open("/artworks/show_small/"+ id,"_parent");
+
+
+    });
+
+    </script>
+  </div>
+
+  <div class="artist_artworks_pictures">
+
+    <% if @user.artworks.count == 0 %>
+        <p> L'artiste n'a pas encore d'oeuvres référencées.</p>
+    <% else %>
+          <div class="row">
+            <% @user.artworks.each do |artwork| %>
+              <div class="col-xs-4">
+                <%= image_tag artwork.pictures.first.img_url, class: "img-responsive" %>
+              </div>
+            <% end %>
+          </div>
+    <% end %>
+
+  </div>
 
 </div>
-
-<div class="user_map">
-  <p>Emplacement de la carte indiquant l'Emplacement des photos partagées
-  </p>
-</div>
-
 
 <!-- FIN Partie du bas -->
-
-<% else %>
-  <p> Veuillez vous connecter pour accéder à votre profil </p>
-<% end %>
 
 <%= render 'layouts/bottom_menu' %>
