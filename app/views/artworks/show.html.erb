@@ -4,9 +4,6 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
@@ -34,6 +31,7 @@
       .row.content {height: auto;} 
     }
   </style>
+
 </head>
 <body>
 
@@ -47,10 +45,11 @@
       <div class="navbar-header">
         <div class="navbar-brand" href="#">
 
-          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span ><i class="fas fa-angle-left"></i></span>
+
           
           <span class="align-middle">
-            <span class="glyphicon glyphicon-user"></span>
+            <span ><i class="fas fa-user"></i></span>
           </span>
           
           <span class="align-middle">Toto Streetartist</span>
@@ -78,29 +77,26 @@
       <div class="btn-group">
 
         <button type="button" class="btn btn-primary">
-          <span class="glyphicon glyphicon-heart"></span>
+          <span ><i class="fas fa-heart"></i></span>
         </button>
 
         <button type="button" class="btn btn-primary">
-          <span class="glyphicon glyphicon-comment"></span>
+          <span ><i class="fas fa-comment"></i></span>
         </button>
 
         <button type="button" class="btn btn-primary">
-          <span class="glyphicon glyphicon-share"></span>
+          <span ><i class="fas fa-share"></i></span>
         </button>
 
-        <button type="button" class="btn btn-primary">
-          <span class="glyphicon glyphicon-time"></span>
-        </button>
 
 
 
         <button type="button" class="btn btn-secondary">
-          <span class="glyphicon glyphicon-bookmark"></span>
+          <span ><i class="fas fa-bookmark"></i></span>
         </button>
 
         <button type="button" class="btn btn-secondary">
-          <span class="glyphicon glyphicon-alert"></span>
+          <span ><i class="fas fa-exclamation-circle "></i></span>
         </button>
 
 
@@ -118,14 +114,14 @@
 
         <div class="artwork_info_artist">
           <ul>
-            <li><i class="fas fa-user" style="margin-right: 15px;"></i>
+            <li><i class="fas fa-user" style="margin-right: 15px;"></i></li>
             <li><span>Artiste</span></li>
           </ul>
         </div>
 
         <div class="artwork_info_tech">
           <ul>
-            <li><i class="fas fa-paint-brush" style="margin-right: 15px;"></i>
+            <li><i class="fas fa-paint-brush" style="margin-right: 15px;"></i></li>
             <li><span>Technique</span></li>
           </ul>
         </div>
@@ -138,13 +134,13 @@
 
         <div class="artwork_info_place">
           <ul>
-            <li><i class="fas fa-map-marker" style="margin-right: 15px;"></i>
+            <li><i class="fas fa-map-marker" style="margin-right: 15px;"></i></li>
             <li><span>Lieu</span></li>
           </ul>
         </div>
         <div class="artwork_info_status">
           <ul>
-            <li><i class="fas fa-check" style="margin-right: 15px;"></i>
+            <li><i class="fas fa-check" style="margin-right: 15px;"></i></li>
             <li><span>Status</span></li>
           </ul>
         </div>
@@ -155,6 +151,20 @@
 
 <hr>
 
+<!-- Partie du bas -->
+<div class="user_pictures">
+
+  <% if current_user.pictures.count == 0 %>
+      <p> Vous n'avez pas encore proposé d'images.</p>
+  <% else %>
+      <% current_user.pictures.each do |picture| %>
+      <%= image_tag picture.img_url %>
+      <% end %>
+  <% end %>
+</div>
+
+
+<hr>
 
 
      
