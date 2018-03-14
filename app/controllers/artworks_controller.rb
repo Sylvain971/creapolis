@@ -11,7 +11,9 @@ class ArtworksController < ApplicationController
 
   def create
   	@artwork = Artwork.new(artworks_params)
-  		if @artwork.save
+  		if 
+  			@artwork.users << current_user
+  			@artwork.save
   			redirect_to pictures_new_path, notice: 'Votre oeuvre a bien été ajoutée'
   		else
   			render 'new'
@@ -20,6 +22,13 @@ class ArtworksController < ApplicationController
 
   def show
   	@artwork= Artwork.find(params[:id])
+  end
+
+  def show_small
+    @artwork= Artwork.find(params[:id])
+    @artwork_js = @artwork.to_json
+    @artworks = Artwork.all
+    @artworks_js = @artworks.to_json(include: [:users, :pictures])
   end
 
   def edit

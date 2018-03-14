@@ -81,18 +81,6 @@ header li{
   height: 25vh;
   background-color: antiquewhite;
 }
-.bottom_menu li:hover .tab {
-    display: block;
-    position: fixed;
-    width: 100vw;
-    bottom: 6vh;
-    left: 0;
-}
-
-.bottom_menu .tab2 {background-color: blue;}
-.bottom_menu .tab3 {background-color: orange;}
-.bottom_menu .tab4 {background-color: black;}
-.bottom_menu .tab5 {background-color: green;}
 
 /* Hide image form and show up the camera in white instead */
 .add-image {
@@ -121,6 +109,73 @@ header li{
   margin-top: 8vh;
 }
 
+
+
+/* ---------- test de mise en forme pop up -- */
+
+
+
+/* ---------- test de mise en forme pop up -- */
+  .popup-container {  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    width: 100%;
+    border : 1px;
+    border-style: solid;
+    background-color: rgba(255, 255, 255, 0.35); 
+  }
+
+  .artwork-image-likes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 350px;
+    min-width: 75%;
+    height: 100%;
+    min-height: 45%;
+    border : 2px;
+    border-style: solid; 
+    border-color: yellow;
+  }
+
+  .responsive {
+    max-width: 350px;
+    width: 75%;
+  }
+
+  .artwork-image {
+
+  }
+
+  .artwork-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 45%;
+    height : 100%;
+    border : 2px;
+    border-style: solid;
+    border-color: green;
+  }
+
+
+
+.artwork-infos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border : 4px;
+  border-style: solid;
+  border-color: green;
+}
+
+
 #feature_infos {
   width: 100%;
   position: absolute;
@@ -133,7 +188,38 @@ header li{
   bottom: 6vh;
   background-color: white;
 }
+
 #info {
     font-weight:bold;
     color:red;
+
+}
+
+
+/*Bootstrap 3.3.7 - Artwork_page*/
+
+/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+.row.content {height: 1500px}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {height: auto;} 
+
 }
