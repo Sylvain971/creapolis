@@ -1,5 +1,7 @@
 {
   "name": "creapolis",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "leaflet.locatecontrol": "^0.62.0"
+  }
 }
