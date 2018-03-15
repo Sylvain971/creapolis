@@ -39,18 +39,51 @@
 <!-- Class col sm 9 begin -->
       <div class="col-sm-9">
 
+  <!-- Image artwork -->
+          <%= image_tag @artwork.pictures.first.img_url , class: "img-responsive" %>
+  <!-- Image artwork -->
 
 
 
 <!-- Slideshow begin -->
         
-<% @artwork.pictures.each.with_index do |picture, index| %>
+  <div class="">
+
 
     <div class="mySlides">
-      <div class="numbertext"><%= index + 1 %> / <%= @artwork.pictures.count %> </div>
-      <%= image_tag picture.img_url, class: "img-responsive" %>
+      <div class="numbertext">1 / 7</div>
+      <%= image_tag 'image1.jpg', class: "img-responsive" %>
     </div>
-<%end%>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 7</div>
+      <%= image_tag 'image2.jpg', class: "img-responsive" %>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 7</div>
+      <%= image_tag 'image3.jpg', class: "img-responsive" %>
+    </div>
+      
+    <div class="mySlides">
+      <div class="numbertext">4 / 7</div>
+      <%= image_tag 'image1.jpg', class: "img-responsive" %>
+    </div>  
+
+    <div class="mySlides">
+      <div class="numbertext">5 / 7</div>
+      <%= image_tag 'image2.jpg', class: "img-responsive" %>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">6 / 7</div>
+      <%= image_tag 'image3.jpg', class: "img-responsive" %>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">7 / 7</div>
+      <%= image_tag 'image1.jpg', class: "img-responsive" %>
+    </div>
 
 
 <br>
@@ -58,14 +91,32 @@
     <div class="scroll-group">
       <div class="row text-center">
 
-<% @artwork.pictures.each.with_index do |picture, index| %>
 
       <div class="col-xs-4">
-        <%= image_tag(picture.img_url, :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(#{index+1})")%>
+        <%= image_tag("image1.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
       </div>
 
-<%end%>
+      <div class="col-xs-4">
+        <%= image_tag("image2.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(2)")%>
+      </div>
+      <div class="col-xs-4">
+        <%= image_tag("image3.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(3)")%>
+      </div>
 
+      <div class="col-xs-4">
+        <%= image_tag("image1.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
+      </div>
+      <div class="col-xs-4">
+        <%= image_tag("image2.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(2)")%>
+      </div>
+      <div class="col-xs-4">
+        <%= image_tag("image3.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
+      </div>
+
+      <div class="col-xs-4">
+        <%= image_tag("image1.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
+      </div>
+    </div>
 
 
   </div>
