@@ -3,9 +3,7 @@ body{
 }
 
 
-
-
-h1,h2,h3,h4,h5,h6, header, p, div, ul, li {
+h1,h2,h3,h4,h5,h6, .my_header, p, div, ul, li {
   font-family: 'Lato', sans-serif;
 }
 
@@ -23,7 +21,7 @@ h2 {
 
 /* -------- Barre de header --- */
 
-header {
+.my_header {
 
   background-color: #09125A;
   color: white;
@@ -41,11 +39,11 @@ header {
   color: white;
   line-height: 8vh;
 }
-header a {
+.my_header a {
   color: white;
 }
 
-header li{
+.my_header li{
   height: 8vh;
   width: 20%;
   display: flex;

@@ -5,27 +5,11 @@
   background-size: cover;
 }
 
-.user_menu{
-  width: 100%;
-  background-color: rgba(255,255,255,0);
-  height: 8vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-}
-
-
-.user_menu a {
-  color: white;
-  font-size: 4vh;
-}
 
 .user_avatar_row {
+  padding-top: 3vh;
   display: flex;
   position: relative;
-  top: -3vh;
   justify-content: center;
 }
 .user_avatar_row img {

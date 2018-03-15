@@ -1,16 +1,17 @@
+<div class="my_header">
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), root_path %>
+    </li>
+    <div class="header_title">Creapolis</div>
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt'), destroy_user_session_path, method: :delete  %>
+    </li>
+</div>
+
+
 <div class="body-container">
 
 <!-- Partie du haut -->
 
   <div class="user_top">
-
-    <div class="user_menu">
-        <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
-        </li>
-        <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt'), destroy_user_session_path, method: :delete  %>
-        </li>
-    </div>
-
     <div class="user_avatar_row">
         <%= image_tag 'image1.jpg' %>
     </div>
