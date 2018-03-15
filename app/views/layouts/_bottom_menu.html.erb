@@ -1,23 +1,23 @@
 <%if user_signed_in?%>
 <div class="bottom_menu">
     <li>
-      <%= link_to content_tag(:i, nil, class: 'fas fa-map-marker-alt'), root_path %>
+      <%= link_to content_tag(:i, nil, class: 'fas fa-map-marker-alt') + "Carte", root_path %>
     </li>
 
     <li>
-      <%= link_to content_tag(:i, nil, class: 'fab fa-cloudsmith'), root_path %>
+      <%= link_to content_tag(:i, nil, class: 'fab fa-cloudsmith') + "Parcours", root_path %>
     </li>
     <!-- Image upload with a form -->
     <li>
-      <%= link_to content_tag(:i, nil, class: 'fas fa-plus'), new_artwork_path %>
+      <%= link_to content_tag(:i, nil, class: 'fas fa-plus') + "Ajouter", new_artwork_path %>
     </li>
 
     <li>
-      <%= link_to content_tag(:i, nil, class: 'fas fa-search'), root_path %>
+      <%= link_to content_tag(:i, nil, class: 'fas fa-search') + "Chercher", root_path %>
     </li>
 
     <li>
-      <%= link_to content_tag(:i, nil, class: 'fas fa-user'), user_profile_path(current_user)%>
+      <%= link_to content_tag(:i, nil, class: 'fas fa-user') + "Profil", user_profile_path(current_user)%>
     </li>
 </div>
 <%end%>

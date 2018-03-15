@@ -7,7 +7,7 @@
 
 
 .user_avatar_row {
-  padding-top: 3vh;
+  padding: 4vh 0;
   display: flex;
   position: relative;
   justify-content: center;
@@ -67,9 +67,7 @@
 }
 
 .user_pictures {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  padding: 0 15px;
 }
 .user_pictures .row div {
   padding :2px;
