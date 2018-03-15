@@ -1,173 +1,163 @@
 
-<div class="container-fluid">
-  <div class="row content">
 
+<!-- body-container begin -->
 <div class="body-container">
+
+  <!-- Container-fluid FIRST beign -->
   <div class="container-fluid">
+
+    <!-- Row content begin -->
     <div class="row content">
 
-  <!-- Navbar -->
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
+      <!-- Navbar -->
+        <!-- <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
 
-        <div class="navbar-header">
-          <div class="navbar-brand" href="#">
+            <div class="navbar-header">
+              <div class="navbar-brand" href="#">
 
+                <span ><i class="fas fa-angle-left"></i></span>
 
-            <span ><i class="fas fa-angle-left"></i></span>
+                <span class="align-middle">
+                  <span ><i class="fas fa-user"></i></span>
+                </span>
+                
+                <span class="align-middle">Toto Streetartist</span>
 
-            
-            <span class="align-middle">
-              <span ><i class="fas fa-user"></i></span>
-            </span>
-            
-            <span class="align-middle">Toto Streetartist</span>
+              </div>
+            </div>
 
           </div>
-        </div>
-
-      </div>
-    </nav>
-  <!-- Navbar -->
+        </nav> -->
+      <!-- Navbar -->
 
 
+<br>
 
 
+
+<!-- Class col sm 9 begin -->
       <div class="col-sm-9">
 
   <!-- Image artwork -->
-        <!-- <%= image_tag('image1.jpg', class: "img-responsive") %> -->
-        
-        
           <%= image_tag @artwork.pictures.first.img_url , class: "img-responsive" %>
-        
   <!-- Image artwork -->
 
 
-<!-- Image artwork -->
-        <%= image_tag @artwork.pictures.first.img_url , class: "img-responsive" %>
-<!-- Image artwork -->
-
-        <br>
 
 
-
-
-        <div class="btn-group">
-
-
-
-<!-- Slideshow -->
+<!-- Slideshow begin -->
         
-    <div class="">
-
-      <div class="mySlides">
-        <%= image_tag 'image1.jpg', class: "img-responsive" %>
-      </div>
-
-      <div class="mySlides">
-        <%= image_tag 'image2.jpg', class: "img-responsive" %>
-      </div>
-
-      <div class="mySlides">
-        <%= image_tag 'image3.jpg', class: "img-responsive" %>
-      </div>
-        
-
-      <div class="mySlides">
-        <%= image_tag 'image1.jpg', class: "img-responsive" %>
-      </div>
-
-      <div class="mySlides">
-        <%= image_tag 'image2.jpg', class: "img-responsive" %>
-      </div>
-
-      <div class="mySlides">
-        <%= image_tag 'image3.jpg', class: "img-responsive" %>
-      </div>
+  <div class="">
 
 
-      <div class="mySlides">
-        <%= image_tag 'image1.jpg', class: "img-responsive" %>
-      </div>
-
- <br>
-
-  <div class="test">
-    <div class="column">
-      <%= image_tag("image1.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
+    <div class="mySlides">
+      <div class="numbertext">1 / 7</div>
+      <%= image_tag 'image1.jpg', class: "img-responsive" %>
     </div>
 
-    <div class="column">
-      <%= image_tag("image2.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(2)")%>
-    </div>
-    <div class="column">
-      <%= image_tag("image3.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(3)")%>
+    <div class="mySlides">
+      <div class="numbertext">2 / 7</div>
+      <%= image_tag 'image2.jpg', class: "img-responsive" %>
     </div>
 
-    <div class="column">
-      <%= image_tag("image1.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
+    <div class="mySlides">
+      <div class="numbertext">3 / 7</div>
+      <%= image_tag 'image3.jpg', class: "img-responsive" %>
     </div>
-    <div class="column">
-      <%= image_tag("image2.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(2)")%>
-      <!-- <img class="demo cursor" src="img_nature.jpg" style="width:25%" onclick="currentSlide(5)" alt="Nature and sunrise"> -->
-    </div>
-    <div class="column">
-      <%= image_tag("image3.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
+      
+    <div class="mySlides">
+      <div class="numbertext">4 / 7</div>
+      <%= image_tag 'image1.jpg', class: "img-responsive" %>
+    </div>  
+
+    <div class="mySlides">
+      <div class="numbertext">5 / 7</div>
+      <%= image_tag 'image2.jpg', class: "img-responsive" %>
     </div>
 
-    <div class="column">
-      <%= image_tag("image1.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
+    <div class="mySlides">
+      <div class="numbertext">6 / 7</div>
+      <%= image_tag 'image3.jpg', class: "img-responsive" %>
     </div>
+
+    <div class="mySlides">
+      <div class="numbertext">7 / 7</div>
+      <%= image_tag 'image1.jpg', class: "img-responsive" %>
+    </div>
+
+
+<br>
+    
+    <div class="scroll-group">
+      <div class="row text-center">
+
+
+      <div class="col-xs-4">
+        <%= image_tag("image1.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
+      </div>
+
+      <div class="col-xs-4">
+        <%= image_tag("image2.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(2)")%>
+      </div>
+      <div class="col-xs-4">
+        <%= image_tag("image3.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(3)")%>
+      </div>
+
+      <div class="col-xs-4">
+        <%= image_tag("image1.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
+      </div>
+      <div class="col-xs-4">
+        <%= image_tag("image2.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(2)")%>
+      </div>
+      <div class="col-xs-4">
+        <%= image_tag("image3.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
+      </div>
+
+      <div class="col-xs-4">
+        <%= image_tag("image1.jpg", :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(1)")%>
+      </div>
+    </div>
+
 
   </div>
-
-
 </div>
 
 
-
-<!-- Slideshow -->
-
-
+<br>
+<!-- Slideshow end -->
 
 
 
 
 
+<!-- Button begin -->
+    <div class="btn-group">
 
-      <br>
-
-      <div class="btn-group">
-
-          <button type="button" class="btn btn-primary">
-            <span ><i class="fas fa-heart"></i></span>
-          </button>
+        <button type="button" class="btn btn-primary">
+          <span ><i class="fas fa-heart"></i></span>
+        </button>
 
 
-          <button type="button" class="btn btn-primary">
-            <span ><i class="fas fa-comment"></i></span>
-          </button>
+        <button type="button" class="btn btn-primary">
+          <span ><i class="fas fa-comment"></i></span>
+        </button>
 
-          <button type="button" class="btn btn-primary">
-            <span ><i class="fas fa-share"></i></span>
-          </button>
-
-
+        <button type="button" class="btn btn-primary">
+          <span ><i class="fas fa-share"></i></span>
+        </button>
 
 
-          <button type="button" class="btn btn-secondary">
-            <span ><i class="fas fa-bookmark"></i></span>
-          </button>
+        <button type="button" class="btn btn-secondary">
+          <span ><i class="fas fa-bookmark"></i></span>
+        </button>
 
-          <button type="button" class="btn btn-secondary">
-            <span ><i class="fas fa-exclamation-circle "></i></span>
-          </button>
+        <button type="button" class="btn btn-secondary">
+          <span ><i class="fas fa-exclamation-circle "></i></span>
+        </button>
 
-
-
-        </div>
-
+    </div>
+<!-- Button end -->
 
   <hr>
 
@@ -261,17 +251,17 @@
             
                 <br>
                 <br>
-             
-       
-
-
-
           </div>
         </div>
+
       </div>
+      <!-- Class col sm 9 end -->
     </div>
+    <!-- Row content end -->
   </div>
+  <!-- Container-fluid -->
 </div>
+<!-- body-container begin -->
 
 <%= render 'layouts/bottom_menu' %>
 
