@@ -109,4 +109,30 @@ align-items: center;
 
 
 
+/* The heart of the matter */
+.scroll-group > .row {
+  overflow-x: auto;
+  white-space: nowrap;
+  /*background-color: yellow;*/
+  padding: 0 0 20px 0;
+}
+.scroll-group > .row > .col-xs-4 {
+  display: inline-block;
+  float: none;
+  margin: 0 -30px 0 0;
+}
+
+.col-xs-4 {
+    width: 33.333%;
+    
+}
+
+
+
+
+
+
+
+
+
 
