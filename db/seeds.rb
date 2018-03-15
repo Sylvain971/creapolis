@@ -12,6 +12,9 @@
 
 user_regular = User.create(pseudo: "Nico", email:"nico@gmail.com", password: "coucou")
 user_regular2 = User.create(pseudo: "Samba", email:"samba@gmail.com", password: "coucou")
+user_regular3 = User.create(pseudo: "Justine", email:"justine@gmail.com", password: "coucou")
+user_regular4 = User.create(pseudo: "Sylvain", email:"sylvain@gmail.com", password: "coucou")
+user_regular5 = User.create(pseudo: "Louis", email:"louis@gmail.com", password: "coucou")
 
 
 user_dacruz = User.create(pseudo: "Dacruz", email:"dacruz@gmail.com", password:"coucou", artist: true)
@@ -27,6 +30,9 @@ picture1 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapol
 picture2 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/v1521038228/image2.jpg", artwork: artwork2, user: user_regular)
 picture3 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/v1521038233/image3.jpg", artwork: artwork3, user: user_regular)
 picture4 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/v1521038233/image3.jpg", artwork: artwork1, user: user_regular2)
+picture5 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/v1521038222/image1.jpg", artwork: artwork1, user: user_regular3)
+picture6 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/v1521038222/image1.jpg", artwork: artwork1, user: user_regular4)
+
 
 
 
