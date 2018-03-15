@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 	root "artworks#index"
 	get 'users/:id', to: "users#show", as: "user_profile"
   get 'artworks/show_small/:id', to: "artworks#show_small"
+  get 'artworks/new/:lat/:long', to: "arwtorks#new"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
