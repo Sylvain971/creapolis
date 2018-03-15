@@ -111,11 +111,15 @@
         <button type="button" class="btn btn-secondary">
           <span ><i class="fas fa-exclamation-circle "></i></span>
         </button>
-
     </div>
 <!-- Button end -->
 
   <hr>
+
+  <%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
+	<%= file_field_tag(:img_url) %>
+	<p> <%= submit_tag 'Valider', class: "btn btn-primary"%></p>
+	<% end %>
 
       <!-- Artwork info begin -->
       <div class="artwork_info">

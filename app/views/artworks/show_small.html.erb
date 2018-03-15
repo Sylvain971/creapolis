@@ -59,6 +59,10 @@ for (var i=0; i < arr.length; i++){
     <div class = "hastags">
       <p>#graffiti #parisisbeautiful #colorful #Ilovestreetart #crazycat</p>
     </div>
+		<%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
+		<%= file_field_tag(:img_url) %>
+		<p> <%= submit_tag 'Valider', class: "btn btn-primary"%></p>
+		<% end %>
   </div>
 </div>
 

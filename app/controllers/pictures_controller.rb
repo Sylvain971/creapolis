@@ -9,13 +9,15 @@ class PicturesController < ApplicationController
 
   def create
   	@picture = Picture.new(pictures_params)
-  	if
-  		@picture.user = current_user
+  	@picture.user = current_user
+  	if params[:id] !="0"
+  		@picture.artwork = Artwork.find(params[:id])
+  		@picture.save
+  		redirect_to @picture
+  	else
   		@picture.artwork = current_user.artworks.last
 	  	@picture.save
 	  	redirect_to @picture
-	  else
-	  	render 'new'
 	  end
   end
 
