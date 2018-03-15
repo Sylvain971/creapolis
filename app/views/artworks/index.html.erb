@@ -24,9 +24,7 @@
 
 
   var arr = <%= @artworks_js.html_safe %>
-
   var markers = {};
-  console.log(arr)
 
   for (var i=0; i < arr.length; i++){
     var test = arr[i];
@@ -42,8 +40,6 @@
       }) || {}
 
       window.open("/artworks/show_small/"+ id,"_parent");
-
-
   });
 
   </script>
