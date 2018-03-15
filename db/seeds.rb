@@ -35,5 +35,3 @@ artwork1.users << user_dacruz
 artwork2.users << user_ren
 
 artwork3.users << user_sanetwo
-
-

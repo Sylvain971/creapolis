@@ -17,6 +17,10 @@ h2 {
   font-size: 2.5rem !important;
 }
 
+.leaflet-control-attribution.leaflet-control {
+    opacity:0;
+}
+
 /* -------- Barre de header --- */
 
 header {
@@ -110,7 +114,10 @@ header li{
   margin-top: 8vh;
   margin-bottom: 6vh;
   height: 86vh;
+}
 
+#map_user{
+  height: 46vh;
 }
 
 .container{
@@ -121,7 +128,7 @@ header li{
 
 /* ---------- test de mise en forme pop up -- */
 
-.popup-container {  
+.popup-container {
   z-index: 999;
   position: absolute;
   top: 70vh;
@@ -131,7 +138,7 @@ header li{
   display: flex;
   width: 100%;
 
-  background-color: rgba(255, 255, 255, 0.8); 
+  background-color: rgba(255, 255, 255, 0.8);
 
 }
 
