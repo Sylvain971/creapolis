@@ -55,26 +55,21 @@
 
 <br>
     
-    <% if @artwork.pictures.count > 1 %>
     <div class="scroll-group">
-
       <div class="row">
 
 <% @artwork.pictures.each.with_index do |picture, index| %>
 
       <div class="col-xs-4">
         <%= image_tag(picture.img_url, :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(#{index+1})")%>
-
-      <div class="row text-center">
-      <% @artwork.pictures.each.with_index do |picture, index| %>
-        <div class="col-xs-4">
-          <%= image_tag(picture.img_url, :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(#{index+1})")%>
-        </div>
-      <%end%>
-
       </div>
-    </div>
+
 <%end%>
+
+
+
+  </div>
+</div>
 
 
 <br>
@@ -158,16 +153,7 @@
       <!-- Artwork info end -->
 
       <hr>
-        <div class="row">
 
-          <% @artwork.pictures.each do |picture| %>
-            <div class="col-xs-4">
-              <%= image_tag picture.img_url, class: "img-responsive" %>
-            </div>
-          <% end %>
-
-        </div>
-      <hr>
 
 
         <h4>Leave a Comment:</h4>
