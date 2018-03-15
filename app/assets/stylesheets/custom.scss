@@ -77,20 +77,46 @@ h2 {
   z-index: 999;
 }
 
-.bottom_menu a {
-  color: white;
-}
-
 .bottom_menu li{
   width: 20%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.bottom_menu a {
+    width: 20vw;
+    height: 8vh;
+    color: lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+}
+.bottom_menu a:hover {
+    text-decoration: none;
+}
+.bottom_menu a:active{
+  color: lightgreen;
+}
+
+.bottom_menu i {
+    height: 4vh;
+    padding-bottom: 3px;
 }
 
 .tab {
   height: 25vh;
   background-color: antiquewhite;
+}
+.active_tab i{
+  color: #09125A !important;
+}
+
+.button_title{
+  background-color: grey;
 }
 
 /* Hide image form and show up the camera in white instead */
@@ -291,4 +317,3 @@ img {
 .body-container {
   margin-top: 8vh;
 }
-

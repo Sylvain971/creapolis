@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @artworks =  Artwork.all
-    @user_pictures = @user.pictures
-    @user_pictures_js = @user_pictures.to_json(include: :artwork)
+    @picture = Picture.find(params[:id])
+
+    @up = @user.pictures
+    @up_js = @up.to_json(include: { artwork: { only: [:lat, :long]}})
   end
+
 
 end
