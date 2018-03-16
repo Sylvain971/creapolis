@@ -94,27 +94,23 @@
       }).addTo(map);
 
     var up = <%= @up_js.html_safe %>
-  console.log(up)
-    var markers = {};
 
-    for (var i=0; i < up.length; i++){
-      var picture = up[i];
-      markers[picture.artwork_id] = L.marker([picture.artwork.lat,picture.artwork.long]).addTo(map);
-      console.log(picture.artwork_id)
-      markers[picture.artwork_id]._icon.id = picture.artwork_id;
-    }
-
-      $('.leaflet-marker-icon').on('click', function(e) {
-        var el = $(e.srcElement || e.target),
-        id = el.attr('id');
-        a = up.find(function(v) {
-        return v.artwork_id == id;
-        }) || {}
-
-        window.open("/artworks/"+ id,"_parent");
-
+    var markers_clusters = L.markerClusterGroup({
+    disableClusteringAtZoom: 17
 
     });
+
+   map.addLayer(markers_clusters);
+
+  up.forEach(function (markerConfig, index) {
+    marker = new L.Marker([up[index].artwork.lat,up[index].artwork.long]);
+    markers_clusters.addLayer(marker);
+    console.log(up[index])
+    marker.on('click', function(){
+    window.open("/artworks/"+up[index].artwork_id,"_parent");
+
+    })
+  });
 
     </script>
   </div>
