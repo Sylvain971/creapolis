@@ -11,4 +11,8 @@ class User < ApplicationRecord
      (super == nil) ? '1' : super
    end
 
+  attr_accessor :profile_picture
+
+	mount_uploader :profile_picture, ImagesUploader
+
 end

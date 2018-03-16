@@ -2,7 +2,6 @@ body{
   margin :0;
 }
 
-
 h1,h2,h3,h4,h5,h6, .my_header, p, div, ul, li {
   font-family: 'Lato', sans-serif;
 }
@@ -151,7 +150,7 @@ h2 {
 
 
 
-/* ---------- test de mise en forme pop up -- */
+/* ---------- Mise en forme show_small  -- */
 
 .popup-container {
   z-index: 999;
@@ -159,18 +158,15 @@ h2 {
   top: 70vh;
   bottom: 6vh;
   padding: 1vh;
-
   display: flex;
   width: 100%;
-
   background-color: rgba(255, 255, 255, 0.8);
-
 }
 
 .artwork-image-likes {
   display: flex;
   flex-direction: column;
-
+  width: 50%;
   img {
   max-width: 300px;
   width: 90%;
@@ -183,11 +179,14 @@ h2 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 70%;
+  width: 30%;
   height : 100%;
 }
 
 
+.link-to-camera {
+width:10%;
+}
 
 /*Bootstrap 3.3.7 - Artwork_page*/
 

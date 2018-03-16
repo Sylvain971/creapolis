@@ -62,8 +62,10 @@
 
 function success(pos) {
   var crd = pos.coords;
+  console.log(crd.latitude);
   document.getElementById("lat").value = crd.latitude;
   document.getElementById("long").value = crd.longitude;
+
 };
 
 function error(err) {

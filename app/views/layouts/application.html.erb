@@ -14,7 +14,9 @@
   </head>
 
   <body>
-  
+      <% flash.each do |message_type, message| %>
+        <div class="my_alert-<%= message_type %>" style="margin-top: 8vh"><%= message %></div>
+      <% end %>
     <%= yield %>
     <%= render 'layouts/bottom_menu' %>
   </body>
