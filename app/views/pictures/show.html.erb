@@ -2,14 +2,149 @@
     <li><%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), root_path %>
     </li>
     <div class="header_title">Creapolis</div>
-    <li>
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt'), destroy_user_session_path, method: :delete  %>
     </li>
 </div>
 
 
-<div class="body-container">
-	<h1>Pictures#show</h1>
-	<p>Find me in app/views/pictures/show.html.erb</p>
 
-	<%= image_tag @picture.img_url_url %>
+<div class="body-container">
+
+  <!-- Container-fluid FIRST beign -->
+  <div class="container-fluid">
+
+    <!-- Row content begin -->
+    <div class="row content">
+
+
+<!-- Class col sm 9 begin -->
+      <div class="col-sm-9">
+
+
+
+<br>
+     <!-- Avatar + Pseudo -->
+        <div class="user_avatar_row_small">
+          
+            <div class="publish">
+
+              <%= link_to user_profile_path(@picture.user_id) do %>
+                 <%= image_tag "image1.jpg", id:"image" %>
+              <% end %>
+                
+                <span style="padding-left: 5px;">
+                  Publié par :
+                    <span style="font-weight: bold;">
+                      
+                        <%= link_to user_profile_path(@picture.user_id) do %>
+                        <%= @picture.user.pseudo %>
+                      <% end %>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+
+		
+				
+<!-- Title artwork -->
+				<div class="col-sm-12 reset-pad-marg">
+					<div class="title_artwork"><%= @picture.artwork.title %></div>
+				</div>
+
+
+				<br>
+        
+        <%= link_to user_profile_path(@picture.user_id) do %>
+					<%= image_tag @picture.img_url, class: "img-responsive" %>    
+				<% end %>
+
+        <br>
+
+
+		
+				
+			
+
+
+
+
+
+<!-- Button begin -->
+    <div class="btn-group">
+
+        <button type="button" class="btn btn-primary">
+          <span ><i class="fas fa-heart"></i></span>
+        </button>
+
+        <button type="button" class="btn btn-primary">
+          <span ><i class="fas fa-share"></i></span>
+        </button>
+
+
+    </div>
+<!-- Button end -->
+
+<br>
+<br>
+
+  <div class="col-sm-12 reset-pad-marg">
+    <%= link_to "+ Plus de détail sur l'oeuvre", artwork_path(@picture.artwork_id) %>
+  </div>
+
+     
+
+
+<div class="clear"></div>  
+
+
+
+      </div>
+      <!-- Class col sm  end -->
+    </div>
+    <!-- Row content end -->
+  </div>
+  <!-- Container-fluid -->
 </div>
+<!-- body-container begin -->
+
+<%= render 'layouts/bottom_menu' %>
+
+
+
+
+
+<!-- Script slideshow artwork -->
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+<!-- Script slideshow artwork -->
+
+

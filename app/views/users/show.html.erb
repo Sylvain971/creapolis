@@ -65,7 +65,11 @@
             <div class="row">
               <% @user.pictures.each do |picture| %>
                 <div class="col-xs-4">
-                  <%= image_tag picture.img_url, class: "img-responsive" %>
+                  
+                  <%= link_to picture_path(picture) do %>
+                    <%= image_tag picture.img_url, class: "img-responsive" %>
+                  <% end %>
+                
                 </div>
               <% end %>
             </div>
