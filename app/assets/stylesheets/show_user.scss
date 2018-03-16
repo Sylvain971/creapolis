@@ -1,7 +1,7 @@
 .user_top{
   padding: 0 15px;
   height: 46vh;
-  background-image: url(/assets/image_fond.jpg);
+  background-image: asset-data-url('image_fond.jpg');
   background-size: cover;
 }
 
