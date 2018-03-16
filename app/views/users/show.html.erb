@@ -12,7 +12,9 @@
 <!-- Partie du haut -->
   <div class="user_top">
     <div class="user_avatar_row">
-        <% if @user.profile_picture %>
+        <% if @user.profile_picture.url.nil? %>
+        <%= image_tag "default_profile_picture.jpg"%>        
+        <% else %>
         <%= image_tag @user.profile_picture %>
         <% end %>
     </div>

@@ -12,7 +12,7 @@ class ArtworksController < ApplicationController
 
   def create
   	@artwork = Artwork.new(artworks_params)
-      if lat = 0.0 || long = 0.0
+      if @artwork.lat == 0 || @artwork.long == 0
         flash.now[:error] = "Merci d'activer votre geolocalisation"
         render 'new'
 
