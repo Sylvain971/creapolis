@@ -1,4 +1,10 @@
-
+<div class="my_header">
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), root_path %>
+    </li>
+    <div class="header_title">Creapolis</div>
+    <li>
+    </li>
+</div>
 
 <!-- body-container begin -->
 <div class="body-container">
@@ -55,6 +61,7 @@
 
 <br>
     
+    <% if @artwork.pictures.count > 1 %>
     <div class="scroll-group">
       <div class="row">
 
@@ -70,6 +77,7 @@
 
   </div>
 </div>
+<%end%>
 
 
 <br>
@@ -103,11 +111,15 @@
         <button type="button" class="btn btn-secondary">
           <span ><i class="fas fa-exclamation-circle "></i></span>
         </button>
-
     </div>
 <!-- Button end -->
 
   <hr>
+
+  <%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
+	<%= file_field_tag(:img_url) %>
+	<p> <%= submit_tag 'Valider', class: "btn btn-primary"%></p>
+	<% end %>
 
       <!-- Artwork info begin -->
       <div class="artwork_info">

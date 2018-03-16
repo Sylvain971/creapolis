@@ -1,3 +1,13 @@
+
+<div class="my_header">
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), root_path %>
+    </li>
+    <div class="header_title">Creapolis</div>
+    <li>
+    </li>
+</div>
+
+
 <div class="body-container">
 	<div class="container connection">
 		<div class="box_connection_top">
@@ -16,7 +26,7 @@
 				</div>
 			<% end %>
 
-			<div class="field input">
+			<div class="field input" >
 			  <%= label_tag "nom", "Nom de l'œuvre (si vous le connaissez)" %>
 			  <br>
 			  <%= text_field_tag(:title) %>
@@ -28,20 +38,40 @@
 			  <%= text_field_tag(:description) %>
 			</div>
 			<br>
-			<div class="field input">
+			<div class="field input" style="display: none">
 			  <%= label_tag 'lat', "Latitude"  %>
 			  <br>
-			  <%= text_field_tag(:lat) %>
+			  <%= text_field_tag :lat, id:"lat" %>
 			</div>
 			<br>
-			<div class="field input">
+			<div class="field input" style="display:none">
 			  <%= label_tag 'long', "Longitude"  %>
 			  <br>
-			  <%= text_field_tag(:long) %>
+			  <%= text_field_tag :long, id:"long" %>
 			</div>
 			<br><br>
-			<p> <%= submit_tag 'Valider', class: "btn btn-primary"%></p>
+			<p> <%= submit_tag 'Valider', class: "btn btn-primary",id:"test"%></p>
 			<% end %>
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+
+(function() {
+
+function success(pos) {
+  var crd = pos.coords;
+  document.getElementById("lat").value = crd.latitude;
+  document.getElementById("long").value = crd.longitude;
+};
+
+function error(err) {
+  alert("Merci d'activer votre géolocalisation pour pouvoir ajouter une oeuvre !");
+};
+
+navigator.geolocation.getCurrentPosition(success, error)
+})();
+
+</script>
+

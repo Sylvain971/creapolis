@@ -1,3 +1,11 @@
+<div class="my_header">
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), root_path %>
+    </li>
+    <div class="header_title">Creapolis</div>
+    <li>
+    </li>
+</div>
+
 <% if user_signed_in? %>
 <div id="map_index"></div>
 
@@ -12,6 +20,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
   maxZoom: 18
 }).addTo(map)
+
+L.control.locate().addTo(map)
 
 var arr = <%= @artworks_js.html_safe %>
 
@@ -48,9 +58,13 @@ for (var i=0; i < arr.length; i++){
         <p><i class="fas fa-paint-brush"></i>Graffiti</p>
         <p><i class="fas fa-check-circle"></i>  Visible </i></p>
     </div>
-    <div class = "hastags">
+    <div classs = "hastags">
       <p>#graffiti #parisisbeautiful #colorful #Ilovestreetart #crazycat</p>
     </div>
+		<%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
+		<%= file_field_tag(:img_url) %>
+		<p> <%= submit_tag 'Valider', class: "btn btn-primary"%></p>
+		<% end %>
   </div>
 </div>
 

@@ -1,20 +1,30 @@
+<div class="my_header">
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
+    </li>
+    <div class="header_title">Creapolis</div>
+    <li>
+    </li>
+</div>
+
+
 <div class="body-container">
   <% if user_signed_in? %>
   <div id="map_index"></div>
 
   <script type="text/javascript">
 
-  map = L.map('map_index', {doubleClickZoom: false}).setView([ 48.8879012, 2.384519], 17)
+  map = L.map('map_index').setView([ 48.8879012, 2.384519], 17)
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
     maxZoom: 18
   }).addTo(map)
 
-  var arr = <%= @artworks_js.html_safe %>
+  L.control.locate().addTo(map)
 
+
+  var arr = <%= @artworks_js.html_safe %>
   var markers = {};
-  console.log(arr)
 
   for (var i=0; i < arr.length; i++){
     var test = arr[i];
@@ -30,8 +40,6 @@
       }) || {}
 
       window.open("/artworks/show_small/"+ id,"_parent");
-
-
   });
 
   </script>

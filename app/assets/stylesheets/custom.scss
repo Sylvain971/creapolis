@@ -3,9 +3,7 @@ body{
 }
 
 
-
-
-h1,h2,h3,h4,h5,h6, header, p, div, ul, li {
+h1,h2,h3,h4,h5,h6, .my_header, p, div, ul, li {
   font-family: 'Lato', sans-serif;
 }
 
@@ -23,7 +21,7 @@ h2 {
 
 /* -------- Barre de header --- */
 
-header {
+.my_header {
 
   background-color: #09125A;
   color: white;
@@ -41,11 +39,11 @@ header {
   color: white;
   line-height: 8vh;
 }
-header a {
+.my_header a {
   color: white;
 }
 
-header li{
+.my_header li{
   height: 8vh;
   width: 20%;
   display: flex;
@@ -79,20 +77,46 @@ header li{
   z-index: 999;
 }
 
-.bottom_menu a {
-  color: white;
-}
-
 .bottom_menu li{
   width: 20%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.bottom_menu a {
+    width: 20vw;
+    height: 8vh;
+    color: lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+}
+.bottom_menu a:hover {
+    text-decoration: none;
+}
+.bottom_menu a:active{
+  color: lightgreen;
+}
+
+.bottom_menu i {
+    height: 4vh;
+    padding-bottom: 3px;
 }
 
 .tab {
   height: 25vh;
   background-color: antiquewhite;
+}
+.active_tab i{
+  color: #09125A !important;
+}
+
+.button_title{
+  background-color: grey;
 }
 
 /* Hide image form and show up the camera in white instead */

@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
 //= require leaflet
+//= require_tree .
