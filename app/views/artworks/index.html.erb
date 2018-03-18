@@ -49,11 +49,20 @@
       });
     });
 
+   map.on('click', function(){
+    $(".popup-container").hide()
+
+   });
+
   </script>
 
   <div class="popup-container" style="display: none">
   </div>
 
+  <div class="form-container">
+    <div class="popup-form" style="display: none">
+    </div>
+  </div>
 
   <% else %>
   <div class="container connection">
