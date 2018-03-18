@@ -41,12 +41,18 @@
     markers_clusters.addLayer(marker);
     
     marker.on('click', function(){
-    window.open("/artworks/show_small/"+arr[index].id,"_parent");
-
-      })
+      $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: "artworks/show_small/"+arr[index].id,
+        });
+      });
     });
 
   </script>
+
+  <div class="popup-container" style="display: none">
+  </div>
 
 
   <% else %>
