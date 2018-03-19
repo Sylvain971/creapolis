@@ -354,3 +354,23 @@ img {
   display: none;
 }
 
+/* ---------- Mise en forme Alert messages -- */
+.my_alert-notice, .my_alert-alert {
+    position: absolute;
+    height: 45px;
+    text-align: center;
+    width: 100vw;
+    z-index: 999;
+    display: block;
+    top: 0px;
+    padding: 13px;
+}
+.my_alert-notice { background-color: #00EA8A; }
+.my_alert-alert {
+  background-color: #E76262;
+  color : white;
+}
+
+#error_explanation {
+    color: #b1205d;
+}
