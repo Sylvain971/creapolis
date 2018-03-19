@@ -27,6 +27,7 @@
         <!-- Avatar + Pseudo -->
         <div class="user_avatar_row_small">
 
+<<<<<<< HEAD
           <div class="publish">
             <%= link_to user_profile_path(@picture.user_id) do %>
               <% if @picture.user.profile_picture.url.nil? %>
@@ -35,6 +36,53 @@
               <%= image_tag @picture.user.profile_picture %>
               <% end %>
             <% end %>
+=======
+              <%= link_to user_profile_path(@picture.user_id) do %>
+                <% if @picture.user.profile_picture.url.nil? %>
+                <%= image_tag "default_profile_picture.jpg"%>        
+                <% else %>
+                <%= cl_image_tag @picture.user.profile_picture,:width => 200, :height => 200, :crop => :fill, :secure => true %>
+                <% end %>
+              <% end %>
+                
+                <span style="padding-left: 5px;">
+                  Publié par :
+                    <span style="font-weight: bold;">
+                      
+                        <%= link_to user_profile_path(@picture.user_id) do %>
+                        <%= @picture.user.pseudo %>
+                      <% end %>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+
+		
+				
+<!-- Title artwork -->
+				<div class="col-sm-12 reset-pad-marg">
+					<div class="title_artwork"><%= @picture.artwork.title %></div>
+				</div>
+
+
+				<br>
+        
+        <%= link_to user_profile_path(@picture.user_id) do %>
+					<%= cl_image_tag @picture.img_url, :secure => true, class: "img-responsive" %>    
+				<% end %>
+
+        <br>
+
+
+		
+				
+			
+
+
+
+
+>>>>>>> master
 
             <span style="padding-top: 5px; min-width: 30vw;">
             Publié par :

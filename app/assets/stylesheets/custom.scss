@@ -1,9 +1,10 @@
 body{
   margin :0;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1,h2,h3,h4,h5,h6, .my_header, p, div, ul, li {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 p, div {
@@ -15,7 +16,11 @@ h2 {
 }
 
 .leaflet-control-attribution.leaflet-control {
-    opacity:0;
+    display:none;
+}
+
+.body-container {
+  margin-top:8vh;
 }
 
 /* -------- Barre de header --- */
@@ -50,14 +55,6 @@ h2 {
   justify-content: center;
 }
 
-/* -------- LOGIN and SIGNUP  --- */
-/* VOir egalement la feuille css Connection pour tous les codes liés */
-.connection{
-  z-index: 999;
-  height: 92vh;
-  background-image: url(/assets/image_fond.jpg);
-  background-size: cover;
-}
 
 /* -------- Partie centrale de l'app  --- */
 .display{
@@ -137,8 +134,8 @@ h2 {
 
 #map_index {
   margin-top: 8vh;
-  margin-bottom: 6vh;
-  height: 86vh;
+  margin-bottom: 8vh;
+  height: 84vh;
 }
 
 #map_user{
@@ -151,37 +148,46 @@ h2 {
 
 
 
-/* ---------- Mise en forme show_small  -- */
+/* ---------- Mise en forme show_small d'artwork -- */
 
 .popup-container {
   z-index: 999;
   position: absolute;
-  top: 70vh;
-  bottom: 6vh;
-  padding: 1vh;
+  bottom: 8vh;
   display: flex;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  height: 15vh;
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0px -4px 20px 0px #585858;
 }
 
 .artwork-image-likes {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  padding: 0px;
   img {
+  height: 15vh;
   max-width: 300px;
-  width: 90%;
-  padding: 1vh;
   }
 }
 
 .artwork-infos {
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   width: 30%;
   height : 100%;
+  .fas {
+  color: #ec607e;
+  margin-right: 3px;
+  }
+  p {
+    font-weight: bold;
+    font-size: 12px;
+    color: #333;
+  }
 }
 
 
@@ -189,7 +195,7 @@ h2 {
 width:10%;
 }
 
-/*Bootstrap 3.3.7 - Artwork_page*/
+/*------ Bootstrap 3.3.7 - Artwork_page --------*/
 
 /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
 .row.content {height: 1500px}
@@ -217,7 +223,7 @@ footer {
 
 }
 
-/*CSS Slideshow*/
+/*----------CSS Slideshow-------------------*/
 
 
 * {
@@ -303,6 +309,7 @@ img {
 
 /* Add a transparency effect for thumnbail images */
 .demo {
+  width: 100%;
   opacity: 0.6;
 }
 
@@ -312,7 +319,7 @@ img {
 }
 
 
-/* ---------- mise en form du new artwork -- */
+/* ---------- mise en form du formulaire creation artwork et picture -- */
 
 .form-container {
   margin-top: 8vh;
@@ -336,7 +343,14 @@ img {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.body-container {
-  margin-top:8vh;
+.background-new-form {
+  position:absolute;
+  top:8vh;
+  bottom: 8vh;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  background-color: rgba(0,0,0,0.4);
+  display: none;
 }
 

@@ -1,20 +1,21 @@
-<header>
+<div class="my_header">
     <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
     </li>
     <div class="header_title">Creapolis</div>
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-plus'), root_path %>
+    <li>
     </li>
-</header>
-<div class="container connection">
+</div>
+
+<div class="connection">
 
   <!-- formulaire pour se connecter -->
-  <div class="box_connection_top">
+  <div class="box-connection-top">
 
     <%= render "layouts/login" %>
     <%= render "users/shared/links" %>
 
   </div>
-  <div class="box_connection_bottom">
+  <div class="box-connection-bottom">
         <%= link_to "Créer un compte", new_user_registration_path%>
   </div>
   <!-- FIN formulaire pour se connecter -->
