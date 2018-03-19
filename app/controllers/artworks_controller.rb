@@ -1,5 +1,4 @@
 class ArtworksController < ApplicationController
-  
 
   def index
   	@artworks = Artwork.all
@@ -8,6 +7,9 @@ class ArtworksController < ApplicationController
 
   def new
   	@artwork = Artwork.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
@@ -15,12 +17,10 @@ class ArtworksController < ApplicationController
   	@artwork.lat = @artwork.lat.to_f
   	@artwork.long = @artwork.long.to_f
   	@artwork.users << current_user
-  		if
-  			@artwork.save
-  			redirect_to pictures_new_path, notice: 'Votre oeuvre a bien été ajoutée'
-  		else
-  			render 'new'
-  		end
+    @artwork.save
+    #respond_to do |format|
+    #  format.js
+    #end
   end
 
   def show
@@ -29,9 +29,9 @@ class ArtworksController < ApplicationController
 
   def show_small
     @artwork= Artwork.find(params[:id])
-    @artwork_js = @artwork.to_json
+    #@artwork_js = @artwork.to_json
     @artworks = Artwork.all
-    @artworks_js = @artworks.to_json(include: [:users, :pictures])
+    #@artworks_js = @artworks.to_json(include: [:users, :pictures])
   end
 
   def edit

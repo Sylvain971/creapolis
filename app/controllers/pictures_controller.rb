@@ -1,10 +1,16 @@
 class PicturesController < ApplicationController
+
+
   def new
   	@picture = Picture.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   def show
   	@picture = Picture.find(params[:id])
+
   end
 
   def create

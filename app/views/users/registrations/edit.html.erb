@@ -1,20 +1,54 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="my_header">
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
+    </li>
+    <div class="header_title">Creapolis</div>
+    <li>
+    </li>
+</div>
+
+<div class="container connection">
+
+  <!-- formulaire pour s'inscrire -->
+  <div class="box_connection_top">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.text_field :firstname, autofocus: true, placeholder:"Prénom",autocomplete: "Prénom" %>
   </div>
+
+  <div class="field">
+    <%= f.text_field :name, autofocus: true, placeholder:"Nom",autocomplete: "Nom" %>
+
+  </div>
+
+  <div class="field">
+    <%= f.text_field :pseudo, autofocus: true, placeholder:"Pseudo",autocomplete: "Pseudo" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :country, autofocus: true, placeholder:"Pays",autocomplete: "Pays" %>
+  </div>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, placeholder:"Adresse email",autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+
+    <input type="button" id="loadFileXml" value="Votre photo de profile" onclick="document.getElementById('file').click();" />
+    <%= f.file_field :profile_picture, placeholder:"Votre photo de profile", style:"display:none;", id:"file" %>
+  </div>
+
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <i>(Ne touchez pas à cette case si vous ne souhaitez pas changer de mot de passe)</i><br />
+    <%= f.password_field :password, autocomplete: "off", placeholder:"Nouveau mot de passe"%>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
@@ -22,19 +56,20 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"Confirmation du mot de passe" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.password_field :current_password, autocomplete: "off", placeholder:"Mot de passe actuel" %>
   </div>
 
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
-<% end %>
+  <% end %>
+  </div>
+</div>
+
 
 <h3>Cancel my account</h3>
 

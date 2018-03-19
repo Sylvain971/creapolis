@@ -6,7 +6,6 @@
     </li>
 </div>
 
-
 <div class="body-container">
   <% if user_signed_in? %>
   <div id="map_index"></div>
@@ -15,35 +14,55 @@
 
   map = L.map('map_index').setView([ 48.8879012, 2.384519], 17)
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-    maxZoom: 18
-  }).addTo(map)
+// This is a public token
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoianVzdGlrcm8iLCJhIjoiY2plbzR6djJnM3RyOTJ4cGszb3hiNGdtcCJ9._gRBjH1x_-nGrj7hD-2i6g', {
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+      maxZoom: 20,
+      id: 'mapbox.streets',
+      accessToken: 'pk.eyJ1IjoianVzdGlrcm8iLCJhIjoiY2plbzR6djJnM3RyOTJ4cGszb3hiNGdtcCJ9._gRBjH1x_-nGrj7hD-2i6g'
+  }).addTo(map);
+
+// Activate geoloc
 
   L.control.locate().addTo(map)
 
+// Puts markers on map
+  var markers_clusters = L.markerClusterGroup({
+    disableClusteringAtZoom: 17
 
+  });
+
+  map.addLayer(markers_clusters);
   var arr = <%= @artworks_js.html_safe %>
   var markers = {};
 
-  for (var i=0; i < arr.length; i++){
-    var test = arr[i];
-    markers[test.id] = L.marker([test.lat,test.long]).addTo(map);
-    markers[test.id]._icon.id = test.id;
-  }
+   arr.forEach(function (markerConfig, index) {
+    marker = new L.Marker([arr[index].lat,arr[index].long]);
+    markers_clusters.addLayer(marker);
+    
+    marker.on('click', function(){
+      $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: "artworks/show_small/"+arr[index].id,
+        });
+      });
+    });
 
-    $('.leaflet-marker-icon').on('click', function(e) {
-      var el = $(e.srcElement || e.target),
-      id = el.attr('id');
-      a = arr.find(function(v) {
-      return v.id == id;
-      }) || {}
+   map.on('click', function(){
+    $(".popup-container").hide()
 
-      window.open("/artworks/show_small/"+ id,"_parent");
-  });
+   });
 
   </script>
 
+  <div class="popup-container" style="display: none">
+  </div>
+
+  <div class="form-container">
+    <div class="popup-form" style="display: none">
+    </div>
+  </div>
 
   <% else %>
   <div class="container connection">

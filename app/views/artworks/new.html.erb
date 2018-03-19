@@ -1,7 +1,6 @@
 
 <div class="my_header">
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), root_path %>
-    </li>
+	  <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
     <div class="header_title">Creapolis</div>
     <li>
     </li>
@@ -62,8 +61,10 @@
 
 function success(pos) {
   var crd = pos.coords;
+  console.log(crd.latitude);
   document.getElementById("lat").value = crd.latitude;
   document.getElementById("long").value = crd.longitude;
+
 };
 
 function error(err) {
