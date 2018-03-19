@@ -18,9 +18,9 @@ class ArtworksController < ApplicationController
   	@artwork.long = @artwork.long.to_f
   	@artwork.users << current_user
     @artwork.save
-    respond_to do |format|
-      format.js
-    end
+    #respond_to do |format|
+    #  format.js
+    #end
   end
 
   def show
