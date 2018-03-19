@@ -18,6 +18,7 @@ gem 'rgeo-geojson'
 gem 'cloudinary'
 gem 'carrierwave'
 gem "mini_magick"
+gem "algoliasearch-rails"
 
 
 group :development, :test do
