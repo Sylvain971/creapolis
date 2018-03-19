@@ -49,10 +49,36 @@
 
 <script type="text/javascript">
 
+$(document).ready(function(){
 // We start by getting current user location
-(function() {
+	var options = {
+		enableHighAccuracy: true,
+		timeout: 10000,
+		maximumAge: 15000,
+	};
 
-function success(pos) {
+	//setInterval(locate, 5000);
+	locate(options);
+
+// We put an ajax request under the submit button to open the new-picture form
+	$("#submit-artwork").on("click", function(){
+		$(".artwork-new").hide();
+	      $.ajax({
+	        type: "GET",
+	        contentType: "application/json; charset=utf-8",
+	        url: "/pictures/new/",
+	    });
+	});
+
+	// If we click on the map, the form is hidden
+	$(".body-container").on("click", function(){
+	  $(".popup-form").hide();
+	});
+});
+
+function updateLocation(pos) {
+	console.log('My position');
+	console.log(pos);
   var crd = pos.coords;
   console.log(crd.latitude);
   document.getElementById("lat").value = crd.latitude;
@@ -62,27 +88,13 @@ function success(pos) {
   $("#submit-artwork").show();
 };
 
-function error(err) {
+function locationFailure(err) {
   alert("Oups... Nous n'avons pas réussi à vous géolocaliser. Veillez à bien activer votre géolocalisation pour pouvoir ajouter une oeuvre !");
 };
 
-navigator.geolocation.getCurrentPosition(success, error, {timeout:2000})
+function locate(options){
+	navigator.geolocation.getCurrentPosition(updateLocation, locationFailure, options);
+};
 
-})();
-
-// We put an ajax request under the submit button to open the new-picture form
-$("#submit-artwork").on("click", function(){
-	$(".artwork-new").hide();
-      $.ajax({
-        type: "GET",
-        contentType: "application/json; charset=utf-8",
-        url: "/pictures/new/",
-    });
-});
-
-// If we click on the map, the form is hidden
-$(".body-container").on("click", function(){
-  $(".popup-form").hide();
-});
 
 </script>
