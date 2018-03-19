@@ -54,7 +54,7 @@
 
     <div class="mySlides">
       <div class="numbertext"><%= index + 1 %> / <%= @artwork.pictures.count %> </div>
-      <%= image_tag picture.img_url, class: "img-responsive" %>
+      <%= cl_image_tag picture.img_url, :secure => true, class: "img-responsive" %>
     </div>
 <%end%>
 
@@ -68,7 +68,7 @@
 <% @artwork.pictures.each.with_index do |picture, index| %>
 
       <div class="col-xs-4">
-        <%= cl_image_tag(picture.img_url,:width => 400, :height => 225, :crop => :fill, :style => 'width: 100%;', class: "demo cursor", :onclick =>"currentSlide(#{index+1})")%>
+        <%= cl_image_tag(picture.img_url,:width => 400, :height => 225, :crop => :fit, :secure => true, class: "demo cursor", :onclick =>"currentSlide(#{index+1})")%>
       </div>
 
 <%end%>
