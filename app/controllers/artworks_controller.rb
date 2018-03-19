@@ -8,6 +8,9 @@ class ArtworksController < ApplicationController
 
   def new
   	@artwork = Artwork.new
+    respond_to do |format|
+      format.json { 
+    end
   end
 
   def create
@@ -16,6 +19,9 @@ class ArtworksController < ApplicationController
   	@artwork.long = @artwork.long.to_f
   	@artwork.users << current_user
     @artwork.save
+    respond_to do |format|
+      format.json { 
+    end
   end
 
   def show
