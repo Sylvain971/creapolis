@@ -4,7 +4,7 @@ class PicturesController < ApplicationController
   def new
   	@picture = Picture.new
     respond_to do |format|
-      format.json
+      format.js
     end
   end
 
@@ -26,7 +26,7 @@ class PicturesController < ApplicationController
 	  	redirect_to @picture
 	  end
     respond_to do |format|
-      format.json
+      format.js
     end
   end
 
