@@ -74,9 +74,9 @@ navigator.geolocation.getCurrentPosition(success, error, {timeout:2000})
 $("#submit-artwork").on("click", function(){
 	$(".artwork-new").hide();
       $.ajax({
-            type: "GET",
-            contentType: "application/json; charset=utf-8",
-            url: "/pictures/new/",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        url: "/pictures/new/",
     });
 });
 
