@@ -1,8 +1,10 @@
 class PicturesController < ApplicationController
+
+
   def new
   	@picture = Picture.new
     respond_to do |format|
-      format.js
+      format.json
     end
   end
 
@@ -23,6 +25,9 @@ class PicturesController < ApplicationController
 	  	@picture.save
 	  	redirect_to @picture
 	  end
+    respond_to do |format|
+      format.json
+    end
   end
 
   def destroy
