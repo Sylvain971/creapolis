@@ -1,5 +1,5 @@
 class ArtworksController < ApplicationController
-  
+  respond_to :html, :js
 
   def index
   	@artworks = Artwork.all
@@ -8,9 +8,6 @@ class ArtworksController < ApplicationController
 
   def new
   	@artwork = Artwork.new
-    respond_to do |format|
-      format.js
-    end
   end
 
   def create
@@ -30,9 +27,6 @@ class ArtworksController < ApplicationController
     #@artwork_js = @artwork.to_json
     @artworks = Artwork.all
     #@artworks_js = @artworks.to_json(include: [:users, :pictures])
-    respond_to do |format|
-      format.js
-    end
   end
 
   def edit

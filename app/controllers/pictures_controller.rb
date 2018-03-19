@@ -1,9 +1,8 @@
 class PicturesController < ApplicationController
+  respond_to :html, :js
+
   def new
   	@picture = Picture.new
-    respond_to do |format|
-      format.js
-    end
   end
 
   def show
