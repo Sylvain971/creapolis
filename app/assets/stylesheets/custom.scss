@@ -15,7 +15,11 @@ h2 {
 }
 
 .leaflet-control-attribution.leaflet-control {
-    opacity:0;
+    display:none;
+}
+
+.body-container {
+  margin-top:8vh;
 }
 
 /* -------- Barre de header --- */
@@ -312,7 +316,7 @@ img {
 }
 
 
-/* ---------- mise en form du new artwork -- */
+/* ---------- mise en form du formulaire creation artwork et picture -- */
 
 .form-container {
   margin-top: 8vh;
@@ -336,7 +340,13 @@ img {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.body-container {
-  margin-top:8vh;
+.background-new-form {
+  position:absolute;
+  top:8vh;
+  bottom: 8vh;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  background-color: rgba(0,0,0,0.4);
+  display: none;
 }
-
