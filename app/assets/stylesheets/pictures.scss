@@ -1,10 +1,7 @@
 .user_avatar_row_small {
   display: flex;
-  position: relative;
-  /*background-color: red;*/
-	margin-top: -10px;
-	margin-bottom: 10px;
 	align-items: center;
+  min-width: 30vw;
 }
 .user_avatar_row_small img {
   height:40px;
@@ -18,12 +15,6 @@
 	background-color: yellow;
 }
 
-.publish{
-	width: 100%;
-	height: auto;
-	/*background-color: green;*/
-}
-
 .title_artwork{
 	font-weight: bold;
 	font-size: 16px;
@@ -34,4 +25,30 @@
 .clear{
 	clear: both;
 	margin-top: 70px;
+}
+
+.picture_informations {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.picture_informations div{
+  width: auto;
+}
+.picture_informations div:nth-child(2){
+  display: flex;
+  justify-content: center;
+  a {border: white;}
+}
+.btn-default{
+  border-color: white;
+}
+.picture_informations > div:last-child{
+  text-align:right;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 0px 3px 0 0;
 }

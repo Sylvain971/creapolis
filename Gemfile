@@ -18,6 +18,7 @@ gem 'rgeo-geojson'
 gem 'cloudinary'
 gem 'carrierwave'
 gem "mini_magick"
+gem 'acts_as_votable', '~> 0.11.1'
 
 
 group :development, :test do

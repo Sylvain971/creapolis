@@ -27,6 +27,17 @@ class PicturesController < ApplicationController
 	  end
   end
 
+  def upvote
+    @picture = Picture.find(params[:id])
+    @picture.liked_by current_user
+    redirect_to @picture
+  end
+  def downvote
+    @picture = Picture.find(params[:id])
+    @picture.unliked_by current_user
+    redirect_to @picture
+  end
+
   def destroy
   	@artwork = Artwork.find(params[:id])
   	@artwork.destroy
