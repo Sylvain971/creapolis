@@ -35,20 +35,22 @@
   flex-wrap: wrap;
 }
 .picture_informations div{
-  width: auto;
+  width: 30vw;
 }
 .picture_informations div:nth-child(2){
   display: flex;
   justify-content: center;
+  width: 10vw;
   a {border: white;}
 }
 .btn-default{
   border-color: white;
 }
 .picture_informations > div:last-child{
-  text-align:right;
+
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
   padding: 0px 3px 0 0;
+  justify-content: flex-end;
 }
