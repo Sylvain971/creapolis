@@ -52,12 +52,12 @@
 $(document).ready(function(){
 // We start by getting current user location
 	var options = {
-		enableHighAccuracy: true,
-		timeout: 10000,
-		maximumAge: 15000,
+//		enableHighAccuracy: true,
+		//timeout: 10000,
+		maximumAge: 5000,
 	};
 
-	//setInterval(locate, 5000);
+
 	locate(options);
 
 // We put an ajax request under the submit button to open the new-picture form
@@ -78,11 +78,9 @@ $(document).ready(function(){
 
 function updateLocation(pos) {
 	console.log('My position');
-	console.log(pos);
-  var crd = pos.coords;
-  console.log(crd.latitude);
-  document.getElementById("lat").value = crd.latitude;
-  document.getElementById("long").value = crd.longitude;
+	var crd = pos.coords;
+	document.getElementById("lat").value = crd.latitude;
+	document.getElementById("long").value = crd.longitude;
 
 // If we manage to get it, we show the new artwork submit button
   $("#submit-artwork").show();
@@ -93,7 +91,7 @@ function locationFailure(err) {
 };
 
 function locate(options){
-	navigator.geolocation.getCurrentPosition(updateLocation, locationFailure, options);
+	navigator.geolocation.watchPosition(updateLocation, locationFailure, options);
 };
 
 
