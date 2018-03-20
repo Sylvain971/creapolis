@@ -22,7 +22,7 @@ $('.user_tabs .tab0').on( 'click', function () {
       $('.user_map').hide();
       $('.artist_artworks_pictures').show();
       $('.user_tabs .tab0').addClass('active_tab');
-      $('.user_tabs li:not(.tab1)').removeClass('active_tab');
+      $('.user_tabs li:not(.tab0)').removeClass('active_tab');
 
 });
 
