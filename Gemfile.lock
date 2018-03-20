@@ -279,11 +279,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
   algoliasearch-rails
-=======
   acts_as_votable (~> 0.11.1)
->>>>>>> master
   bootstrap-sass (= 3.3.7)
   byebug (= 9.0.6)
   carrierwave
