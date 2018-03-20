@@ -1,9 +1,17 @@
 <h1>Searches#index</h1>
 <p>Find me in app/views/searches/index.html.erb</p>
 
+<div class="search-box">
+    <%= form_tag() do %>
+      <%= text_field_tag :q, nil, placeholder:'Search the site' %>
+      <%= submit_tag("Search") %>
+    <% end %>
+</div>
+
 
 <script type="text/javascript">
-var client = algoliasearch(ApplicationID, Search-Only-API-Key);
+var client = algoliasearch( ENV["ALGOLIA_APPLICATION_ID"], ENV["ALGOLIA_SEARCH_ONLY_API_KEY"]);
+
 var index = client.initIndex('YourIndexName');
 index.search('something', { hitsPerPage: 10, page: 0 })
   .then(function searchDone(content) {
