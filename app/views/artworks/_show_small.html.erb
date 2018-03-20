@@ -1,20 +1,9 @@
 <div class ="artwork-image-likes">
-    <%= link_to cl_image_tag((@artwork.pictures.first.img_url), :secure => true, width:"120px", id:"image"), artwork_path(@artwork) %>
+    <%= link_to image_tag((@artwork.pictures.first.img_url)), artwork_path(@artwork) %>
 </div>
 
 <div class = "artwork-infos">
-  <div class = "artwork-description">
       <p><i class="fas fa-user"></i> <%= @artwork.users.first.pseudo%></p>
       <p><i class="fas fa-paint-brush"></i>Graffiti</p>
       <p><i class="fas fa-check-circle"></i>  Visible </i></p>
-  </div>
-  <div classs = "hastags">
-    <p>#graffiti #parisisbeautiful</p>
-  </div>
-</div>
-<div class= "link-to-camera">
-	<%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
-	<%= file_field_tag(:img_url) %>
-	<p> <%= submit_tag 'Valider', class: "btn btn-primary"%></p>
-	<% end %>
 </div>

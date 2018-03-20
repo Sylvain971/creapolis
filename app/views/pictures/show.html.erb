@@ -1,32 +1,24 @@
 <div class="my_header">
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), user_profile_path(@picture.user) %>
-    </li>
-    <div class="header_title">Creapolis</div>
+    <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
+    <div class="header_title">
+      <div class="header_title_logo"></div>
+    </div>
     <li>
     </li>
 </div>
 
 
-
 <div class="body-container">
-
   <!-- Container-fluid FIRST beign -->
   <div class="container-fluid">
-
     <!-- Row content begin -->
     <div class="row content">
 
 
-<!-- Class col sm 9 begin -->
-      <div class="col-sm-9">
-
-
-
-<br>
      <!-- Avatar + Pseudo -->
         <div class="user_avatar_row_small">
           
-            <div class="publish">  
+            <div class="publish space-top-bot-10">  
 
               <%= link_to user_profile_path(@picture.user_id) do %>
                 <% if @picture.user.profile_picture.url.nil? %>
@@ -49,29 +41,68 @@
         </div>
 
 
-		
 				
 <!-- Title artwork -->
 				<div class="col-sm-12 reset-pad-marg">
-					<div class="title_artwork"><%= @picture.artwork.title %></div>
+					<!-- <div class="title_artwork"><%= @picture.artwork.title %></div> -->
 				</div>
 
 
-				<br>
-        
-        <%= link_to user_profile_path(@picture.user_id) do %>
-					<%= cl_image_tag @picture.img_url, :secure => true, class: "img-responsive" %>    
-				<% end %>
-
-        <br>
+    </div>
+    <!-- Row content end -->
+  </div>
+  <!-- Container-fluid -->
 
 
-		
-				
-			
+<div class="w-100">
+  <%= link_to user_profile_path(@picture.user_id) do %>
+    <%= cl_image_tag @picture.img_url, :secure => true, class: "img-responsive" %>    
+  <% end %>
+</div>
 
 
 
+
+  <!-- Container-fluid FIRST beign -->
+  <div class="container-fluid">
+
+    <!-- Row content begin -->
+    <div class="row content">
+
+      <!-- Class col sm 9 begin -->
+      <div class="col-sm-9">
+
+
+
+      <!-- Artwork -->
+			<br>
+      <%= link_to user_profile_path(@picture.user_id) do %>
+				<%= image_tag @picture.img_url, class: "img-responsive" %>
+			<% end %>
+      <br>
+
+      <!-- Description line under the picture -->
+      <div class="picture_informations">
+
+        <!-- Avatar + Pseudo -->
+        <div class="user_avatar_row_small">
+
+
+          <%= link_to user_profile_path(@picture.user_id) do %>
+            <% if @picture.user.profile_picture.url.nil? %>
+            <%= image_tag "default_profile_picture.jpg"%>
+            <% else %>
+            <%= cl_image_tag @picture.user.profile_picture,:width => 200, :height => 200, :crop => :fill, :secure => true %>
+            <% end %>
+          <% end %>
+          <span style="padding-left: 5px; min-width: 30vw;">
+          Publié par :
+            <span style="font-weight: bold;">
+            <%= link_to user_profile_path(@picture.user_id) do %>
+              <%= @picture.user.pseudo %>
+            <% end %>
+            </span>
+          </span>
 
 
 <!-- Button begin -->
@@ -96,10 +127,33 @@
     <%= link_to "+ Plus de détail sur l'oeuvre", artwork_path(@picture.artwork_id) %>
   </div>
 
-     
+
+        </div>
+
+        <!-- Buttons begin -->
+        <div class="btn-group">
+            <% if current_user.voted_for? @picture %>
+                <%= link_to unlike_picture_path(@picture), method: :put, class: "btn btn-default" do %>
+                <i class="fas fa-heart" style="color:#09125A"></i>
+                <%= @picture.get_upvotes.size %>
+                <% end %>
+            <% else %>
+                <%= link_to like_picture_path(@picture), method: :put, class: "btn btn-default" do %>
+                <i class="far fa-heart"></i>
+                <%= @picture.get_upvotes.size %>
+                <% end %>
+            <% end %>
+        </div>
+        <!-- Button end -->
+
+        <div class="col-sm-12">
+          <%= link_to "+ de détails sur l'oeuvre", artwork_path(@picture.artwork_id) %>
+        </div>
+
+      </div>
+      <!-- Description line under the picture -->
 
 
-<div class="clear"></div>  
 
 
 
@@ -109,6 +163,10 @@
     <!-- Row content end -->
   </div>
   <!-- Container-fluid -->
+
+
+
+
 </div>
 <!-- body-container begin -->
 
@@ -119,7 +177,7 @@
 
 
 <!-- Script slideshow artwork -->
-<script>
+<script type="text/javascript">
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -150,5 +208,3 @@ function showSlides(n) {
 }
 </script>
 <!-- Script slideshow artwork -->
-
-

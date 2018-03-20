@@ -1,7 +1,9 @@
 <div class="my_header">
   <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
     </li>
-    <div class="header_title">Creapolis</div>
+    <div class="header_title">
+      <div class="header_title_logo"></div>
+    </div>
     <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt'), destroy_user_session_path, method: :delete  %>
     </li>
 </div>
@@ -10,40 +12,47 @@
 </div>
 
 <div class="body-container">
-  
+
   <!-- Partie du haut -->
   <div class="user_top">
-    <div class="user_avatar_row">
-        <% if @user.profile_picture.url.nil? %>
-        <%= image_tag "default_profile_picture.jpg"%>        
-        <% else %>
-        <%= cl_image_tag @user.profile_picture,:width => 200, :height => 200, :crop => :fit, :secure => true %>
-        <% end %>
-    </div>
-    <div class="user_pseudo">
-      <%= @user.pseudo %>
-      <% if @user.artist == true %>
-        <span class="status_artist"> Artist </span>
-      <% end %>
+    <div class="user_row">
+        <div class="user_row_left">
+          <div class="user_avatar_row">
+              <% if @user.profile_picture.url.nil? %>
+              <%= image_tag "default_profile_picture.jpg"%>
+              <% else %>
+              <%= cl_image_tag @user.profile_picture,:width => 200, :height => 200, :crop => :fit, :secure => true %>
+              <% end %>
+          </div>
+          <div class="user_pseudo">
+            <%= @user.pseudo %>
+            <% if @user.artist == true %>
+              <br>
+              <span class="status_artist"> Artist </span>
+            <% end %>
+          </div>
+        </div>
+        <div class="edit_profile_link"><%= link_to "Modifier le profil", edit_user_registration_path  %>
+        </div>
     </div>
     <div class="user_stats">
         <% if @user.artist == true %>
             <div>
-              <%= @user.artworks.count %>
-              <br>oeuvres
+              <b><%= @user.artworks.count %></b>
+              <br>OEUVRES
             </div>
         <% end %>
         <div>
-          <%= @user.pictures.count %>
-          <br>photos
+          <b><%= @user.pictures.count %></b>
+          <br>PHOTOS
         </div>
         <div>
           3
-          <br>villes
+          <br>VILLES
         </div>
         <div>
           2
-          <br>pays
+          <br>PAYS
         </div>
     </div>
 
@@ -62,44 +71,63 @@
 <!-- FIN partie du haut -->
 
 <!-- Partie du bas -->
-  <div class="user_pictures">
-      <% if @user.pictures.count == 0 %>
-          <p> Vous n'avez pas encore proposé d'images.</p>
-      <% else %>
-            <div class="row">
-              <% @user.pictures.each do |picture| %>
-                <div class="col-xs-4">
-                  
-                  <%= link_to picture_path(picture) do %>
-                    <%= cl_image_tag(picture.img_url, :width => 400, :height => 225, :crop => :fill, :secure => true, class: "img-responsive") %>
-                  <% end %>
-                
-                </div>
-              <% end %>
+  <div class="user_bottom">
+    <div class="artist_artworks_pictures">
+        <div class="user_tabs_description">
+            Les oeuvres de l'artiste en photo.
+        </div>
+        <% if @user.artworks.count == 0 %>
+            <p> Vous n'avez pas encore d'oeuvres référencées.</p>
+        <% else %>
+        <div class="row">
+          <% @user.artworks.each do |artwork| %>
+          <% if artwork.pictures.count > 0 %>
+            <div class="col-xs-4">
+              <%= cl_image_tag(artwork.pictures.first.img_url,:width => 400, :height => 225, :crop => :fit, :secure => true, class: "img-responsive") %>
+            <% end %>
             </div>
-      <% end %>
-  </div>
+            <%end%>
+        </div>
+        <% end %>
+    </div>
 
-  <div class="user_map">
-
-    <div id="map_user"></div>
-  </div>
-  
-  <div class="artist_artworks_pictures">
-      <% if @user.artworks.count == 0 %>
-          <p> Vous n'avez pas encore d'oeuvres référencées.</p>
-      <% else %>
-      <div class="row">
-        <% @user.artworks.each do |artwork| %>
-        <% if artwork.pictures.count > 0 %>
-          <div class="col-xs-4">   
-            <%= cl_image_tag(artwork.pictures.first.img_url,:width => 400, :height => 225, :crop => :fit, :secure => true, class: "img-responsive") %>
+    <div class="user_pictures">
+        <div class="user_tabs_description">
+          <% if @user == current_user %>
+            Retrouvez ici les photos que vous avez prises.
+          <% else %>
+            Retrouvez ici les photos prises par cette personne.
           <% end %>
-          </div>
-          <%end%>
+        </div>
+        <% if @user.pictures.count == 0 %>
+            <p> Aucune image répertoriée pour l'instant.</p>
+        <% else %>
+              <div class="row">
+                <% @user.pictures.each do |picture| %>
+                  <div class="col-xs-4">
+
+                    <%= link_to picture_path(picture) do %>
+                      <%= cl_image_tag(picture.img_url, :width => 400, :height => 225, :crop => :fill, :secure => true, class: "img-responsive") %>
+                    <% end %>
+
+                  </div>
+                <% end %>
+              </div>
+        <% end %>
+    </div>
+
+    <div class="user_map">
+      <div class="user_tabs_description">
+        <% if @user.artist %>
+          Retrouvez ici l'emplacement de ses oeuvres référencées.
+        <% else %>
+          Lieu des photos prises par cette personne.
+        <% end %>
       </div>
-      <% end %>
+      <div id="map_user"></div>
+    </div>
   </div>
+
 </div>
 
 <div class="form-container">
@@ -108,6 +136,7 @@
 </div>
 
 <script type="text/javascript">
+
 
 map = L.map('map_user').setView([ 48.8879012, 2.384519], 17)
 
@@ -138,29 +167,7 @@ up.forEach(function (markerConfig, index) {
   })
 });
 
-$('.user_tabs .tab1').on( 'click', function () {
-      $('.artist_artworks_pictures').hide();
-      $('.user_map').hide();
-      $('.user_pictures').show();
-      $('.user_tabs .tab1').addClass('active_tab');
-      $('.user_tabs li:not(.tab1)').removeClass('active_tab');
-});
 
-$('.user_tabs .tab2').on( 'click', function () {
-      $('.artist_artworks_pictures').hide();
-      $('.user_pictures').hide();
-      $('.user_map').show();
-      $('.user_tabs .tab2').addClass('active_tab');
-      $('.user_tabs li:not(.tab2)').removeClass('active_tab');
-});
-
-$('.user_tabs .tab0').on( 'click', function () {
-      $('.user_pictures').hide();
-      $('.user_map').hide();
-      $('.artist_artworks_pictures').show();
-      $('.user_tabs .tab0').addClass('active_tab');
-      $('.user_tabs li:not(.tab1)').removeClass('active_tab');
-});
 
 </script>
 

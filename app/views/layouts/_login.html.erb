@@ -1,4 +1,4 @@
-<H2>Se connecter</h2>
+<div class="form-title">Se connecter</div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.email_field :email, autofocus: true, placeholder:"Adresse email", autocomplete: "email" %>
@@ -14,7 +14,5 @@
     </div>
   <% end -%>
 
-  <div class="actions">
     <%= f.submit "Se connecter" %>
-  </div>
 <% end %>

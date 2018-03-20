@@ -1,31 +1,32 @@
-<header>
+<div class="my_header">
     <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
     </li>
     <div class="header_title">Creapolis</div>
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-plus'), root_path %>
+    <li>
     </li>
-</header>
+</div>
+
 <div class="container connection">
 
   <!-- formulaire pour s'inscrire -->
-  <div class="box_connection_top">
+  <div class="box-connection-top">
 
-    <h2>Récupération du mot de passe</h2>
+    <div class="form-title">Récupération du mot de passe</div>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="field">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Votre email"%>
       </div>
 
       <div class="actions">
-        <%= f.submit "Envoyer les instructions de réinitialisation" %>
+        <%= f.submit "Recevoir votre nouveau mot de passe" %>
       </div>
     <% end %>
   </div>
 
-  <div class="box_connection_bottom">
+  <div class="box-connection-bottom">
         <%= link_to "Se connecter", new_user_session_path %>
   </div>
 

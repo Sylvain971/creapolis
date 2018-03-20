@@ -1,3 +1,11 @@
 $('.popup-container').hide()
-$('.popup-form').show()
+
+$('.popup-form').fadeIn()
 $('.popup-form').html("<%= j (render 'new') %>")
+
+// If the user wants to submit a new artwork, the app background chantes and the form appears  
+
+$(".background-new-form").show();
+
+
+

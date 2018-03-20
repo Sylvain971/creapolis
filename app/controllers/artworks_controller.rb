@@ -18,9 +18,6 @@ class ArtworksController < ApplicationController
   	@artwork.long = @artwork.long.to_f
   	@artwork.users << current_user
     @artwork.save
-    #respond_to do |format|
-    #  format.js
-    #end
   end
 
   def show
@@ -29,9 +26,7 @@ class ArtworksController < ApplicationController
 
   def show_small
     @artwork= Artwork.find(params[:id])
-    #@artwork_js = @artwork.to_json
     @artworks = Artwork.all
-    #@artworks_js = @artworks.to_json(include: [:users, :pictures])
   end
 
   def edit

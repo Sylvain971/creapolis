@@ -1,9 +1,10 @@
 body{
   margin :0;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1,h2,h3,h4,h5,h6, .my_header, p, div, ul, li {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 p, div {
@@ -18,6 +19,9 @@ h2 {
     display:none;
 }
 
+
+
+
 .body-container {
   margin-top:8vh;
 }
@@ -26,8 +30,8 @@ h2 {
 
 .my_header {
 
-  background-color: #09125A;
-  color: white;
+  background-color: #fff;
+  color: #09125A;
   position: fixed;
   top: 0;
   width :100%;
@@ -36,32 +40,40 @@ h2 {
   justify-content: space-between;
   font-size: 1.5rem;
   z-index: 1000;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0px 0px 4px #A5A5A5;
 }
 
 .header_title{
-  color: white;
-  line-height: 8vh;
+  color: #09125A;
+  line-height: 10vh;
+  background-repeat: no-repeat;
+  margin:auto;
+  background-color: green;
+  display: flex;
+  justify-content: center;
 }
+
+.header_title_logo{
+  background-image: asset-data-url('creapolis_logo_temp.png');
+  width: 107px;
+  height: 51px;
+}
+
 .my_header a {
-  color: white;
+  color: #09125A;
 }
 
 .my_header li{
+  height: 10vh;
+  width: 15%;
   height: 8vh;
-  width: 20%;
+  width: 7%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* -------- LOGIN and SIGNUP  --- */
-/* VOir egalement la feuille css Connection pour tous les codes liés */
-.connection{
-  z-index: 999;
-  height: 92vh;
-  background-image: url(/assets/image_fond.jpg);
-  background-size: cover;
-}
 
 /* -------- Partie centrale de l'app  --- */
 .display{
@@ -71,14 +83,18 @@ h2 {
 /* -------- Barre de footer --- */
 
 .bottom_menu{
-  height: 8vh;
-  background-color: #09125A;
+  height: 10vh;
+  background-color: #fff;
   position: fixed;
   bottom: 0;
   width :100%;
   display: flex;
   flex-direction: row;
   z-index: 999;
+  text-transform: uppercase;
+  font-weight: 700;
+  
+
 }
 
 .bottom_menu li{
@@ -87,23 +103,33 @@ h2 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: white;
+}
+
+.bottom_menu li:hover{
+  background-color: #09125A;
+}
+
+.bottom_menu li:active{
+  background-color: #09125A;
 }
 
 .bottom_menu a {
     width: 20vw;
     height: 8vh;
-    color: lightgray;
+    color: #999;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 11px;
+    font-size: 10px;
 }
 .bottom_menu a:hover {
     text-decoration: none;
+    color: #fff;
 }
 .bottom_menu a:active{
-  color: lightgreen;
+  background-color: #09125A;
 }
 
 .bottom_menu i {
@@ -111,13 +137,23 @@ h2 {
     padding-bottom: 3px;
 }
 
+/*.active_bottom_class{
+  background-color: #09125A;
+}
+
+*/
+
+/*
 .tab {
   height: 25vh;
   background-color: antiquewhite;
 }
+*/
+
 .active_tab i{
   color: #09125A !important;
 }
+
 
 .button_title{
   background-color: grey;
@@ -141,8 +177,8 @@ h2 {
 
 #map_index {
   margin-top: 8vh;
-  margin-bottom: 6vh;
-  height: 86vh;
+  margin-bottom: 8vh;
+  height: 84vh;
 }
 
 #map_user{
@@ -155,45 +191,53 @@ h2 {
 
 
 
-/* ---------- Mise en forme show_small  -- */
+/* ---------- Mise en forme show_small d'artwork -- */
 
 .popup-container {
   z-index: 999;
   position: absolute;
-  top: 70vh;
-  bottom: 6vh;
-  padding: 1vh;
+  bottom: 8vh;
   display: flex;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  height: 15vh;
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0px -4px 20px 0px #585858;
 }
 
 .artwork-image-likes {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  padding: 0px;
   img {
+  height: 15vh;
   max-width: 300px;
-  width: 90%;
-  padding: 1vh;
   }
 }
 
 .artwork-infos {
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   width: 30%;
   height : 100%;
+  .fas {
+  color: #ec607e;
+  margin-right: 3px;
+  }
+  p {
+    font-weight: bold;
+    font-size: 12px;
+    color: #333;
+  }
 }
-
 
 .link-to-camera {
-width:10%;
+  width:10%;
 }
 
-/*Bootstrap 3.3.7 - Artwork_page*/
+/*------ Bootstrap 3.3.7 - Artwork_page --------*/
 
 /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
 .row.content {height: 1500px}
@@ -221,7 +265,7 @@ footer {
 
 }
 
-/*CSS Slideshow*/
+/*----------CSS Slideshow-------------------*/
 
 
 * {
@@ -307,6 +351,7 @@ img {
 
 /* Add a transparency effect for thumnbail images */
 .demo {
+  width: 100%;
   opacity: 0.6;
 }
 
@@ -324,20 +369,15 @@ img {
   justify-content: center;
 }
 
-.artwork-new{
-  margin-top: 8vh;
-}
 .popup-form {
   z-index: 999;
   position: absolute;
-  top: 15vh;
-  bottom: 15vh;
-
+  top: 20vh;
+  bottom: 20vh;
   width: 80%;
-  padding: 1vh;
   display: flex;
-
-  background-color: rgba(255, 255, 255, 0.8);
+  align-items: center;
+  justify-content: center;
 }
 
 .background-new-form {
@@ -347,6 +387,100 @@ img {
   height: 100%;
   width: 100%;
   z-index: 999;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.6);
   display: none;
+}
+
+.artwork-new{
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  height:60vh;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.artwork-new form {
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
+
+.artwork-new input {
+  padding: 15px 0px 15px 10px;
+  width:100%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.artwork-new input[type="submit"] {
+  background-color: #ec607e;
+  padding: 15px 0px 15px 10px;
+  width:100%;
+  border:0px;
+  border-radius: 3px;
+}
+
+.artwork-new input[type="submit"]:hover {
+  background-color: #d85b74;
+}
+
+.artwork-new p {
+  color: #26348b;
+  font-size: 14px ;
+}
+
+.artwork-new label {
+   color: #999;
+}
+
+.picture-new {
+  display:  flex;
+  flex-direction:  column;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 40vh;
+  border-radius: 6px;
+  padding: 20px;
+  .fas {
+  color: #ccc;
+  margin-right: 3px;
+  }
+}
+
+.picture-new p {
+  color: #26348b;
+  font-size: 14px ;
+}
+
+.picture-new input[type="submit"] {
+  background-color: #ec607e;
+  padding: 15px 0px 15px 10px;
+  width:100%;
+  border:0px;
+  border-radius: 3px;
+}
+
+.picture-new input[type="submit"]:hover {
+  background-color: #d85b74;
+}
+
+/* ---------- Mise en forme Alert messages -- */
+.my_alert-notice, .my_alert-alert {
+    position: absolute;
+    height: 45px;
+    text-align: center;
+    width: 100vw;
+    z-index: 999;
+    display: block;
+    top: 0px;
+    padding: 13px;
+}
+.my_alert-notice { background-color: #00EA8A; }
+.my_alert-alert {
+  background-color: #E76262;
+  color : white;
+}
+
+#error_explanation {
+    color: #b1205d;
 }

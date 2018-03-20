@@ -11,6 +11,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,900" rel="stylesheet">
+
   </head>
 
   <body>
@@ -19,5 +21,21 @@
       <% end %>
     <%= yield %>
     <%= render 'layouts/bottom_menu' %>
+
+<script>
+function getLocation(){
+        navigator.geolocation.watchPosition(function(position) {
+        var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+        }
+        alert(pos.lat + ", " + pos.lng);
+        console.log(pos.lat + ", " + pos.lng)
+    });
+}
+</script>
+
+
   </body>
 </html>
+
