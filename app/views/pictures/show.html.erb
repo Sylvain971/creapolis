@@ -1,18 +1,78 @@
 <div class="my_header">
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), user_profile_path(@picture.user) %>
-    </li>
-    <div class="header_title">Creapolis</div>
+    <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
+    <div class="header_title">
+      <div class="header_title_logo"></div>
+    </div>
     <li>
     </li>
 </div>
+
 
 <div class="body-container">
   <!-- Container-fluid FIRST beign -->
   <div class="container-fluid">
     <!-- Row content begin -->
     <div class="row content">
+
+
+     <!-- Avatar + Pseudo -->
+        <div class="user_avatar_row_small">
+          
+            <div class="publish space-top-bot-10">  
+
+              <%= link_to user_profile_path(@picture.user_id) do %>
+                <% if @picture.user.profile_picture.url.nil? %>
+                <%= image_tag "default_profile_picture.jpg"%>        
+                <% else %>
+                <%= cl_image_tag @picture.user.profile_picture,:width => 200, :height => 200, :crop => :fill, :secure => true %>
+                <% end %>
+              <% end %>
+                
+                <span style="padding-left: 5px;">
+                  Publié par :
+                    <span style="font-weight: bold;">
+                      
+                        <%= link_to user_profile_path(@picture.user_id) do %>
+                        <%= @picture.user.pseudo %>
+                      <% end %>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+
+				
+<!-- Title artwork -->
+				<div class="col-sm-12 reset-pad-marg">
+					<!-- <div class="title_artwork"><%= @picture.artwork.title %></div> -->
+				</div>
+
+
+    </div>
+    <!-- Row content end -->
+  </div>
+  <!-- Container-fluid -->
+
+
+<div class="w-100">
+  <%= link_to user_profile_path(@picture.user_id) do %>
+    <%= cl_image_tag @picture.img_url, :secure => true, class: "img-responsive" %>    
+  <% end %>
+</div>
+
+
+
+
+  <!-- Container-fluid FIRST beign -->
+  <div class="container-fluid">
+
+    <!-- Row content begin -->
+    <div class="row content">
+
       <!-- Class col sm 9 begin -->
       <div class="col-sm-9">
+
+
 
       <!-- Artwork -->
 			<br>
@@ -26,6 +86,7 @@
 
         <!-- Avatar + Pseudo -->
         <div class="user_avatar_row_small">
+
 
           <%= link_to user_profile_path(@picture.user_id) do %>
             <% if @picture.user.profile_picture.url.nil? %>
@@ -42,6 +103,30 @@
             <% end %>
             </span>
           </span>
+
+
+<!-- Button begin -->
+    <div class="btn-group">
+
+        <button type="button" class="btn btn-primary">
+          <span ><i class="fas fa-heart"></i></span>
+        </button>
+
+        <button type="button" class="btn btn-primary">
+          <span ><i class="fas fa-share"></i></span>
+        </button>
+
+
+    </div>
+<!-- Button end -->
+
+<br>
+<br>
+
+  <div class="col-sm-12 reset-pad-marg">
+    <%= link_to "+ Plus de détail sur l'oeuvre", artwork_path(@picture.artwork_id) %>
+  </div>
+
 
         </div>
 
@@ -68,12 +153,20 @@
       </div>
       <!-- Description line under the picture -->
 
+
+
+
+
       </div>
       <!-- Class col sm  end -->
     </div>
     <!-- Row content end -->
   </div>
   <!-- Container-fluid -->
+
+
+
+
 </div>
 <!-- body-container begin -->
 
