@@ -1,23 +1,48 @@
-<h1>Searches#index</h1>
-<p>Find me in app/views/searches/index.html.erb</p>
-
-<div class="search-box">
-    <%= form_tag() do %>
-      <%= text_field_tag :q, nil, placeholder:'Search the site' %>
-      <%= submit_tag("Search") %>
-    <% end %>
-</div>
-
+<header>
+    <div>
+       <input id="search-input" placeholder="Search for products">
+       <!-- We use a specific placeholder in the input to guides users in their search. -->
+    </div>
+  </header>
+  <main>
+      <div id="hits"></div>
+      <div id="pagination"></div>
+  </main>
 
 <script type="text/javascript">
-var client = algoliasearch( ENV["ALGOLIA_APPLICATION_ID"], ENV["ALGOLIA_SEARCH_ONLY_API_KEY"]);
 
-var index = client.initIndex('YourIndexName');
-index.search('something', { hitsPerPage: 10, page: 0 })
-  .then(function searchDone(content) {
-    console.log(content)
+var search = algoliasearch({
+  appId: '<%= ENV["ALGOLIA_APPLICATION_ID"] %>',
+  apiKey: '<%= ENV["ALGOLIA_SEARCH_ONLY_API_KEY"] %>', 
+  indexName: 'instant_search',
+  urlSync: true,
+  searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+search.addWidget(
+  algoliasearch.widgets.searchBox({
+    container: '#search-input'
   })
-  .catch(function searchFailure(err) {
-    console.error(err);
-  });
+);
+
+search.addWidget(
+  algoliasearch.widgets.hits({
+    container: '#hits',
+    templates: {
+      item: document.getElementById('hit-template').innerHTML,
+      empty: "We didn't find any results for the search <em>\"{{query}}\"</em>"
+    }
+  })
+);
+
+search.addWidget(
+  algoliasearch.widgets.pagination({
+    container: '#pagination'
+  })
+);
+
+search.start();
+
 </script>
