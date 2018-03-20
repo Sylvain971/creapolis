@@ -38,7 +38,7 @@
     <div class="user_stats">
         <% if @user.artist == true %>
             <div>
-              <b><%= @user.artworks.count %></b>
+              <b><%= @user.created_artworks.count %></b>
               <br>OEUVRES
             </div>
         <% end %>
@@ -77,11 +77,11 @@
         <div class="user_tabs_description">
             Les oeuvres de l'artiste en photo.
         </div>
-        <% if @user.artworks.count == 0 %>
+        <% if @user.created_artworks.count == 0 %>
             <p> Vous n'avez pas encore d'oeuvres référencées.</p>
         <% else %>
         <div class="row">
-          <% @user.artworks.each do |artwork| %>
+          <% @user.created_artworks.each do |artwork| %>
             <% if artwork.pictures.count > 0 %>
               <div class="col-xs-4">
                   <%= link_to artwork_path(artwork) do %>
@@ -153,6 +153,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 
 var up = <%= @up_js.html_safe %>
 
+console.log(up)
 // We define the clusters
 var markers_clusters = L.markerClusterGroup({
 disableClusteringAtZoom: 17
@@ -170,8 +171,6 @@ up.forEach(function (markerConfig, index) {
 
   })
 });
-
-
 
 </script>
 

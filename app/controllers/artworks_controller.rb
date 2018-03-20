@@ -16,7 +16,7 @@ class ArtworksController < ApplicationController
   	@artwork = Artwork.new(artworks_params)
   	@artwork.lat = @artwork.lat.to_f
   	@artwork.long = @artwork.long.to_f
-  	@artwork.users << current_user
+  	@artwork.artists << current_user
     @artwork.save
   end
 
