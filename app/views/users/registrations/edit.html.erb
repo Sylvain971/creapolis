@@ -7,72 +7,67 @@
 </div>
 
 <div class="container connection">
+  <div class="box-connection-top-edit">
+    <div class="form-title"> Editer votre profil </div>
 
-  <!-- formulaire pour s'inscrire -->
-  <div class="box_connection_top">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), multipart: true, html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+    <div class="form-pseudo-picture">  
+      <div class="field">
+        <%= f.text_field :pseudo, autofocus: true, placeholder:"Pseudo",autocomplete: "Pseudo" %>
+      </div>
 
-  <div class="field">
-    <%= f.text_field :firstname, autofocus: true, placeholder:"Prénom",autocomplete: "Prénom" %>
-  </div>
+      <div class="field">
+        <i class="fas fa-plus-circle fa-2x" id="loadFileXml" value="Votre photo de profil" onclick="document.getElementById('file').click();"> </i>
+        <%= f.file_field :profile_picture, style:"display:none;", id:"file" %>
 
-  <div class="field">
-    <%= f.text_field :name, autofocus: true, placeholder:"Nom",autocomplete: "Nom" %>
+      </div>
+      <p> Changer votre photo de profil</p>
+    </div>
 
-  </div>
+    <div class="field">
+      <%= f.text_field :country, autofocus: true, placeholder:"Pays",autocomplete: "Pays" %>
+    </div>
 
-  <div class="field">
-    <%= f.text_field :pseudo, autofocus: true, placeholder:"Pseudo",autocomplete: "Pseudo" %>
-  </div>
+    <br>
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, placeholder:"Adresse email",autocomplete: "email" %>
+    </div>
 
-  <div class="field">
-    <%= f.text_field :country, autofocus: true, placeholder:"Pays",autocomplete: "Pays" %>
-  </div>
-
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, placeholder:"Adresse email",autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-
-    <input type="button" id="loadFileXml" value="Votre photo de profile" onclick="document.getElementById('file').click();" />
-    <%= f.file_field :profile_picture, placeholder:"Votre photo de profile", style:"display:none;", id:"file" %>
-  </div>
-
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <i>(Ne touchez pas à cette case si vous ne souhaitez pas changer de mot de passe)</i><br />
-    <%= f.password_field :password, autocomplete: "off", placeholder:"Nouveau mot de passe"%>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
-  </div>
 
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"Confirmation du mot de passe" %>
-  </div>
+    <div class="field update-password">
 
-  <div class="field">
+    <%= f.password_field :password, autocomplete: "off", placeholder:"Nouveau mot de passe (#{@minimum_password_length} caractère min.)"%>
+    <% if @minimum_password_length %>
+      
+    <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"Confirmation du mot de passe" %>
+    </div>
+
+    <i>(Ne touchez pas à ces cases si vous ne souhaitez pas changer de mot de passe)</i>
+
+    <div class="field update">
     <%= f.password_field :current_password, autocomplete: "off", placeholder:"Mot de passe actuel" %>
+    </div>
+
+    <%= f.submit "Mettre à jour" %>
+    <% end %>
+
+
+    <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sûr(e) ?" }, method: :delete, id:"delete-button" %>
+
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-  <% end %>
-  </div>
+
 </div>
 
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>

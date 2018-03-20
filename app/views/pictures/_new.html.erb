@@ -2,23 +2,22 @@
 
 <%= form_tag (pictures_path(id: "0")), multipart: true do %>
 
-<%= file_field_tag(:img_url, id:"upload") %>
-<p> <%= submit_tag 'Valider', class: "btn btn-primary", id:"submit-picture"%></p>
+  <div class="field">
+    <i class="fas fa-plus-circle fa-2x" onclick="document.getElementById('upload').click();"> </i>
+    <p> Ajoutez votre photo </p>
+    <%= file_field_tag :img_url, id:"upload", style:"display:none" %>
+    <%= submit_tag 'Valider', class: "btn btn-primary", id:"submit-picture"%>
 <% end %>
 
 <script type="text/javascript">
 
-// A revoir !
-//console.log("coucou")	
-//(function() {
- //   $('#submit-picture').click(
-  //  	function(){ 
-  //      if($('#upload').get(0).files.length === 0){ 
-   //         alert("Veuillez rentrer une photo !"); 
-    //    } 
-     //   return false; 
-    //}); 
- //});
 
+ $('#submit-picture').click(
+	function(){ 
+    if($('#upload').get(0).files.length === 0){ 
+        alert("Vous n'avez pas rentré de photo pour cette oeuvre !"); 
+     } 
+     return false; 
+  }); 
 
 </script>

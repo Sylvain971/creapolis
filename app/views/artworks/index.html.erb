@@ -6,6 +6,10 @@
     </li>
 </div>
 
+
+<div class="background-new-form">
+</div>
+
 <div class="body-container">
   <% if user_signed_in? %>
   <div id="map_index"></div>
@@ -34,10 +38,12 @@
   <% end %>
 </div>
 
-  <div class="form-container">
-    <div class="popup-form" style="display: none">
-    </div>
+<div class="form-container">
+  <div class="popup-form" style="display: none">
   </div>
+</div>
+
+
 
 <script type="text/javascript">
 
@@ -57,7 +63,6 @@ L.control.locate().addTo(map)
 // Puts markers on map
 var markers_clusters = L.markerClusterGroup({
   disableClusteringAtZoom: 17
-
 });
 
 map.addLayer(markers_clusters);
