@@ -1,4 +1,12 @@
-<h2>Change your password</h2>
+<div class="my_header">
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
+    </li>
+    <div class="header_title">Creapolis</div>
+    <li>
+    </li>
+</div>
+
+<div class="form-title">Change your password</div>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>

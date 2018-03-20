@@ -1,8 +1,8 @@
 .user_top{
   padding: 0 15px;
-  height: 46vh;
   background-image: asset-data-url('image_fond.jpg');
   background-size: cover;
+  border-bottom: 3px #09125A solid;
 }
 
 
@@ -57,13 +57,30 @@
 
 .user_tabs{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  flex-direction: row;
   list-style: none;
+}
+.user_tabs li{
+  width: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 .user_tabs i{
   color: white;
   font-size: 4vh;
+  padding: 10px;
+}
+
+
+.active_tab{
+  background-color: white;
+  border: 3px #09125A solid;
+  border-bottom: none;
+}
+.active_tab i{
+  color: #09125A !important;
 }
 
 .user_pictures {
