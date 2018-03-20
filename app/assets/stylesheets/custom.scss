@@ -55,7 +55,7 @@ h2 {
 }
 
 .header_title_logo{
-  background-image: url(/assets/creapolis_logo_temp.png);
+  background-image: asset-data-url('creapolis_logo_temp.png');
   width: 107px;
   height: 51px;
 }
