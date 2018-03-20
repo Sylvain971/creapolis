@@ -38,13 +38,13 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts_as_votable (0.11.1)
     algoliasearch (1.19.1)
       httpclient (~> 2.8.3)
       json (>= 1.5.1)
     algoliasearch-rails (1.20.4)
       algoliasearch (>= 1.17.0, < 2.0.0)
       json (>= 1.5.1)
-    acts_as_votable (0.11.1)
     ansi (1.5.0)
     arel (8.0.0)
     autoprefixer-rails (8.1.0.1)
@@ -279,8 +279,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  algoliasearch-rails
   acts_as_votable (~> 0.11.1)
+  algoliasearch-rails
   bootstrap-sass (= 3.3.7)
   byebug (= 9.0.6)
   carrierwave
