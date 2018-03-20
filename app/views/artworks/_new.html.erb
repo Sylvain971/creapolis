@@ -1,74 +1,65 @@
-<div class="box_connection_top">
-	<div class="artwork-new">
-		<p> Vous vous apprêtez à créer une oeuvre qui n'apparaît pas sur la carte. Pour ajouter une photo d'une oeuvre existante, retournez sur la page de la carte. </p>
+<div class="artwork-new">
+	<p> Vous vous apprêtez à créer une oeuvre qui n'apparaît pas sur la carte. </p>
+	<p> Pour ajouter une photo d'une oeuvre existante, retournez sur la page de la carte. </p>
 
-		<%= form_tag (artworks_path) do %>
-		<% if @artwork.errors.any? %>
-			<div id="error_explanation">
-			  <h2>
-			    <%= pluralize(@artwork.errors.count, "error") %> prohibited
-			    this user from being saved:
-			  </h2>
-			    <% @artwork.errors.full_messages.each do |msg| %>
-			      <p><%= msg %></p>
-			    <% end %>
-			</div>
-		<% end %>
-
-		<div class="field input" >
-		  <%= label_tag "nom", "Nom de l'œuvre (si vous le connaissez)" %>
-		  <br>
-		  <%= text_field_tag(:title) %>
-		</div>
-		<br>
-		<div class="field input">
-		  <%= label_tag 'artist', "Nom de l'artiste (si vous le connaissez)"  %>
-		  <br>
-		  <%= text_field_tag(:description) %>
-		</div>
-		<br>
-		<div class="field input" style="display: none">
-		  <%= label_tag 'lat', "Latitude"  %>
-		  <br>
-		  <%= text_field_tag :lat, id:"lat" %>
-		</div>
-		<br>
-		<div class="field input" style="display:none">
-		  <%= label_tag 'long', "Longitude"  %>
-		  <br>
-		  <%= text_field_tag :long, id:"long" %>
-		</div>
-		<br><br>
-		<p> <%= submit_tag 'Valider', class: "btn btn-primary", id:"submit-artwork", style:"display:none;"%></p>
-		<% end %>
+	<%= form_tag (artworks_path) do %>
+	<% if @artwork.errors.any? %>
+	<div id="error_explanation">
+	  <h2>
+	    <%= pluralize(@artwork.errors.count, "error") %> prohibited
+	    this user from being saved:
+	  </h2>
+	    <% @artwork.errors.full_messages.each do |msg| %>
+	      <p><%= msg %></p>
+	    <% end %>
 	</div>
+	<% end %>
 
-	<div class="picture-new" style="display: none">
+	<div class="field input" >
+	  <%= label_tag "nom", "Nom de l'œuvre (si vous le connaissez)" %>
+	  <br>
+	  <%= text_field_tag(:title) %>
 	</div>
+	<br>
+	<div class="field input">
+	  <%= label_tag 'artist', "Nom de l'artiste (si vous le connaissez)"  %>
+	  <br>
+	  <%= text_field_tag(:description) %>
+	</div>
+	<div class="field input" style="display: none">
+	  <%= label_tag 'lat', "Latitude"  %>
+	  <%= text_field_tag :lat, id:"lat" %>
+	</div>
+	<div class="field input" style="display:none">
+	  <%= label_tag 'long', "Longitude"  %>
+	  <%= text_field_tag :long, id:"long" %>
+	</div>
+	<%= submit_tag 'Valider', class: "btn btn-primary", id:"submit-artwork"%>
+	<% end %>
 </div>
+
+<div class="picture-new" style="display: none">
+</div>
+
 
 <script type="text/javascript">
 
-// We start by getting current user location
-(function() {
+console.log(localStorage.lat + ", " + localStorage.lng);
 
-function success(pos) {
-  var crd = pos.coords;
-  console.log(crd.latitude);
-  document.getElementById("lat").value = crd.latitude;
-  document.getElementById("long").value = crd.longitude;
+// We start by getting current user location
+
+document.getElementById("lat").value = localStorage.lat;
+document.getElementById("long").value = localStorage.lng;
 
 // If we manage to get it, we show the new artwork submit button
-  $("#submit-artwork").show();
-};
+//$("#submit-artwork").show();
+//};
 
-function error(err) {
-  alert("Oups... Nous n'avons pas réussi à vous géolocaliser. Veillez à bien activer votre géolocalisation pour pouvoir ajouter une oeuvre !");
-};
+//function error(err) {
+ // alert("Oups... Nous n'avons pas réussi à vous géolocaliser. Veillez à bien activer votre géolocalisation pour pouvoir ajouter une oeuvre !");
+//};
 
-navigator.geolocation.getCurrentPosition(success, error, {timeout:2000})
-
-})();
+//})();
 
 // We put an ajax request under the submit button to open the new-picture form
 $("#submit-artwork").on("click", function(){
@@ -84,5 +75,7 @@ $("#submit-artwork").on("click", function(){
 $(".body-container").on("click", function(){
   $(".popup-form").hide();
 });
+
+
 
 </script>

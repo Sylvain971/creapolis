@@ -26,4 +26,13 @@ $('.user_tabs .tab0').on( 'click', function () {
 
 });
 
+// If the user clicks on the background, the form is hidden
+    $(".background-new-form").on("click", function(){
+      $(".background-new-form").hide();
+      $(".popup-form").hide();
+    });
+
 });
+  
+
+

@@ -1,6 +1,6 @@
 .connection{
   z-index: 999;
-  height: 92vh;
+  height: 84vh;
   background-color:white;
   margin-top: 8vh;
 }
@@ -11,7 +11,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
+.box-connection-top-edit{
+  z-index: 999;
+  height: 84vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-title{
@@ -26,6 +33,21 @@
   color: grey;
   text-decoration:underline;
   margin-top: 20px;
+}
+
+
+.box-connection-top-edit a{
+  z-index: 999;
+  color: grey;
+  text-decoration:underline;
+  margin-top: 20px;
+}
+
+.box-connection-top, .box-connection-top-edit input{
+  padding: 15px 0px 15px 10px;
+  width:100%;
+  text-align: left;
+  border: 1px solid #ccc;
 }
 
 .box-connection-top input{
@@ -49,6 +71,16 @@
 }
 
 .signup-password #user_password{
+  border-radius:0px;
+  margin-bottom:-1px;
+}
+
+.update #user_current_password{
+  border-radius:3px;
+  margin-bottom:-1px;
+}
+
+.update-password #user_password{
   border-radius:0px;
   margin-bottom:-1px;
 }
@@ -77,6 +109,13 @@
 }
 
 .box-connection-top form {
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  width:70%;
+}
+
+.box-connection-top-edit form {
   z-index: 999;
   display: flex;
   flex-direction: column;
@@ -130,4 +169,11 @@ input[type=submit]:hover{
   background-color: #26348b;
 }
 
+#delete-button {
+  background-color: white;
+    z-index: 999;
+  color: grey;
+  text-decoration:underline;
+  font-weight: normal;
+}
 
