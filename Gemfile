@@ -18,8 +18,8 @@ gem 'rgeo-geojson'
 gem 'cloudinary'
 gem 'carrierwave'
 gem "mini_magick"
+gem "algoliasearch-rails"
 gem 'acts_as_votable', '~> 0.11.1'
-
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

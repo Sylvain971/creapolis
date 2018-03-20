@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   get 'pictures/create'
   get 'pictures/destroy'
 
+
+	
   devise_for :users
 	resources :artworks
+	resources :searches
 	resources :pictures do
     member do
       put "like", to: "pictures#upvote"
@@ -20,5 +23,5 @@ Rails.application.routes.draw do
 	get 'users/:id', to: "users#show", as: "user_profile"
   get 'artworks/show_small/:id', to: "artworks#show_small"
   get 'artworks/new/:lat/:long', to: "arwtorks#new"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ 
 end

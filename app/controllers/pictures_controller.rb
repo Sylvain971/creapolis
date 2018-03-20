@@ -1,6 +1,5 @@
 class PicturesController < ApplicationController
 
-
   def new
   	@picture = Picture.new
     respond_to do |format|
@@ -23,6 +22,7 @@ class PicturesController < ApplicationController
   	else
   		@picture.artwork = current_user.artworks.last
 	  	@picture.save
+      current_user.artworks.last.users.delete(current_user)
 	  	redirect_to @picture
 	  end
   end
