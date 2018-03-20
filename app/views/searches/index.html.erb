@@ -6,6 +6,19 @@
   </header>
   <main>
       <div id="hits"></div>
+      <script type="text/html" id="hit-template">
+  <div class="hit">
+    <div class="hit-image">
+      <img src="{{image}}" alt="{{name}}">
+    </div>
+    <div class="hit-content">
+      <h3 class="hit-price">${{price}}</h3>
+      <h2 class="hit-name">{{{_highlightResult.name.value}}}</h2>
+      <p class="hit-description">{{{_highlightResult.description.value}}}</p>
+    </div>
+  </div>
+</script>
+
       <div id="pagination"></div>
   </main>
 
@@ -16,6 +29,27 @@
 var search = instantsearch({
   appId: '<%= ENV['ALGOLIA_APPLICATION_ID']%>' ,
   apiKey: '<%= ENV['ALGOLIA_SEARCH_ONLY_API_KEY']%>',
-  indexName: 'Artwork'
+  indexName: 'Artwork',
+   searchParameters: {
+    hitsPerPage: 10
+  }
 });
+
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-input'
+  })
+);
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#hits',
+    templates: {
+      item: document.getElementById('hit-template').innerHTML,
+      empty: "We didn't find any results for the search <em>\"{{query}}\"</em>"
+    }
+  })
+);
+
+search.start();
 </script>
