@@ -9,26 +9,27 @@
       <div id="pagination"></div>
   </main>
 
+ 	<!--applicationID: '<%= ENV["ALGOLIA_APPLICATION_ID"] %>',
+  apiKey: '<%= ENV["ALGOLIA_SEARCH_ONLY_API_KEY"] %>', -->
+
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
+
 <script type="text/javascript">
 
-var search = algoliasearch({
-  appId: '<%= ENV["ALGOLIA_APPLICATION_ID"] %>',
-  apiKey: '<%= ENV["ALGOLIA_SEARCH_ONLY_API_KEY"] %>', 
-  indexName: 'instant_search',
-  urlSync: true,
-  searchParameters: {
-    hitsPerPage: 10
-  }
+var search = instantsearch({
+	appID: "N4HSFFA83F",
+	apiKey: "80058d5ba0449b2418e89955dd48d4ac",
+  indexName: 'Artwork'
 });
 
 search.addWidget(
-  algoliasearch.widgets.searchBox({
+  instantsearch.widgets.searchBox({
     container: '#search-input'
   })
 );
 
 search.addWidget(
-  algoliasearch.widgets.hits({
+  instantsearch.widgets.hits({
     container: '#hits',
     templates: {
       item: document.getElementById('hit-template').innerHTML,
@@ -38,7 +39,7 @@ search.addWidget(
 );
 
 search.addWidget(
-  algoliasearch.widgets.pagination({
+  instantsearch.widgets.pagination({
     container: '#pagination'
   })
 );
