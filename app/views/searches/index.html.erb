@@ -12,9 +12,7 @@
       <img src="{{image}}" alt="{{name}}">
     </div>
     <div class="hit-content">
-      <h3 class="hit-price">${{price}}</h3>
-      <h2 class="hit-name">{{{_highlightResult.name.value}}}</h2>
-      <p class="hit-description">{{{_highlightResult.description.value}}}</p>
+      <p class="hit-title">{{title}}</p>
     </div>
   </div>
 </script>
@@ -48,6 +46,12 @@ search.addWidget(
       item: document.getElementById('hit-template').innerHTML,
       empty: "We didn't find any results for the search <em>\"{{query}}\"</em>"
     }
+  })
+);
+
+search.addWidget(
+  instantsearch.widgets.pagination({
+    container: '#pagination'
   })
 );
 
