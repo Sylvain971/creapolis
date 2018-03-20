@@ -72,6 +72,7 @@
 
 <!-- Partie du bas -->
   <div class="user_bottom">
+    <% if @user.artist %>
     <div class="artist_artworks_pictures">
         <div class="user_tabs_description">
             Les oeuvres de l'artiste en photo.
@@ -90,6 +91,7 @@
         </div>
         <% end %>
     </div>
+    <% end %>
 
     <div class="user_pictures">
         <div class="user_tabs_description">
