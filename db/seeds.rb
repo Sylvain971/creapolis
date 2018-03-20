@@ -36,6 +36,6 @@ picture6 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapol
 
 
 
-artwork1.users << user_dacruz
+artwork1.artists << user_dacruz
 
-artwork2.users << user_ren
+artwork2.artists << user_ren
