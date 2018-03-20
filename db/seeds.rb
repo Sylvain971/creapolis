@@ -24,7 +24,7 @@ user_sanetwo = User.create(pseudo: "Sanetwo", email: "sanetwo@gmail.com", passwo
 
 artwork1 = Artwork.create(title:"Une super oeuvre d'art", lat: "48.8879012", long: "2.384519")
 artwork2 = Artwork.create(title:"Une chouette oeuvre d'art", lat: "48.8897974", long: "2.3846279")
-artwork3 = Artwork.create(title:"Une incroyable oeuvre d'art", lat: "48.8897424", long: "2.3844968")
+artwork3 = Artwork.create(title:"Une incroyable oeuvre d'art", lat: "48.8897424", long: "2.3844968", artist:user_sanetwo)
 
 picture1 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/v1521038222/image1.jpg", artwork: artwork1, user: user_regular)
 picture2 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/v1521038228/image2.jpg", artwork: artwork2, user: user_regular)
@@ -39,5 +39,3 @@ picture6 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapol
 artwork1.users << user_dacruz
 
 artwork2.users << user_ren
-
-artwork3.users << user_sanetwo

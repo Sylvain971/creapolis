@@ -2,7 +2,7 @@ class ArtworksController < ApplicationController
 
   def index
   	@artworks = Artwork.all
-    @artworks_js = @artworks.to_json(include: [:users, :pictures])
+    @artworks_js = @artworks.to_json(include: [:artists, :pictures])
   end
 
   def new

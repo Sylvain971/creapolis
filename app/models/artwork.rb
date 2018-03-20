@@ -2,7 +2,7 @@ class Artwork < ApplicationRecord
 	include AlgoliaSearch
 
 	has_many :pictures
-	has_and_belongs_to_many :users
+	has_and_belongs_to_many :artists, class_name: "User"
 	validates :lat, :long, presence: true
 
 	algoliasearch do
@@ -18,7 +18,7 @@ class Artwork < ApplicationRecord
 
     # the `customRanking` setting defines the ranking criteria use to compare two matching
     # records in case their text-relevance is equal. It should reflect your record popularity.
-	
+
 	end
 
 end
