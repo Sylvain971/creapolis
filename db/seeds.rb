@@ -32,7 +32,6 @@ picture5 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapol
 picture6 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/v1521038222/image1.jpg", artwork: artwork1, user: user_regular4)
 
 
-
 ########### Creation d'une premier itinéraire #########################
 
 artwork7 = Artwork.create(lat:	"48.7957898",	long:"2.3999439", artist: "Alice Pasqualini", style:"Spray")
@@ -93,3 +92,4 @@ picture31 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapo
 picture32 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0753.JPG",user: user_admin, artwork: artwork32)
 picture33 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0840.JPG",user: user_admin, artwork: artwork33)
 picture34 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0841.JPG",user: user_admin, artwork: artwork34)
+

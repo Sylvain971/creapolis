@@ -72,6 +72,7 @@
 
 <!-- Partie du bas -->
   <div class="user_bottom">
+    <% if @user.artist %>
     <div class="artist_artworks_pictures">
         <div class="user_tabs_description">
             Les oeuvres de l'artiste en photo.
@@ -81,15 +82,18 @@
         <% else %>
         <div class="row">
           <% @user.artworks.each do |artwork| %>
-          <% if artwork.pictures.count > 0 %>
-            <div class="col-xs-4">
-              <%= cl_image_tag(artwork.pictures.first.img_url,:width => 400, :height => 225, :crop => :fit, :secure => true, class: "img-responsive") %>
+            <% if artwork.pictures.count > 0 %>
+              <div class="col-xs-4">
+                  <%= link_to artwork_path(artwork) do %>
+                    <%= cl_image_tag(artwork.pictures.first.img_url,:width => 400, :height => 225, :crop => :fit, :secure => true, class: "img-responsive") %>
+                  <% end %>
+              </div>
             <% end %>
-            </div>
-            <%end%>
+          <%end%>
         </div>
         <% end %>
     </div>
+    <% end %>
 
     <div class="user_pictures">
         <div class="user_tabs_description">
@@ -104,13 +108,13 @@
         <% else %>
               <div class="row">
                 <% @user.pictures.each do |picture| %>
-                  <div class="col-xs-4">
 
+                  <div class="col-xs-4">
                     <%= link_to picture_path(picture) do %>
                       <%= cl_image_tag(picture.img_url, :width => 400, :height => 225, :crop => :fill, :secure => true, class: "img-responsive") %>
                     <% end %>
-
                   </div>
+
                 <% end %>
               </div>
         <% end %>

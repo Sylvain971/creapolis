@@ -97,7 +97,7 @@
 .active_tab{
   background-color: #D5D6E8 !important;
   border-top: 5px #09125A solid !important;
-  border-bottom: none;
+  border-bottom: none !important;
 }
 .active_tab i{
   color: #09125A !important;
@@ -109,16 +109,16 @@
   text-align: center;
 }
 
-.user_pictures {
+.user_pictures, .artist_artworks_pictures {
   padding: 0;
 }
-.user_pictures .row {
+.user_pictures .row, .artist_artworks_pictures .row {
   margin: 0;
 }
-.user_pictures .row div {
+.user_pictures .row div, .artist_artworks_pictures .row div{
   padding :3px;
 }
-.user_pictures img{
+.user_pictures img, .artist_artworks_pictures img{
   width: 33vw;
   border: 0vw white solid;
 }

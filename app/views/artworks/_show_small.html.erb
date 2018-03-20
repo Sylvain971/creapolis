@@ -3,7 +3,15 @@
 </div>
 
 <div class = "artwork-infos">
-      <p><i class="fas fa-user"></i> <%= @artwork.users.first.pseudo%></p>
+      <p><i class="fas fa-user"></i>
+        <% if @artwork.artists.exists? %>
+          <% @artwork.artists.each { |artist| %>
+          <%= artist.pseudo %>
+          <% } %>
+        <% else %>
+          Artiste non indiqué
+        <% end %>
+      </p>
       <p><i class="fas fa-paint-brush"></i>Graffiti</p>
       <p><i class="fas fa-check-circle"></i>  Visible </i></p>
 </div>
