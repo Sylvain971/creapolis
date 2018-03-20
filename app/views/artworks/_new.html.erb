@@ -48,8 +48,8 @@ console.log(localStorage.lat + ", " + localStorage.lng);
 
 // We start by getting current user location
 
-document.getElementById("lat").value = localStorage.lat;
-document.getElementById("long").value = localStorage.lng;
+document.getElementById("lat").value = sessionStorage.getItem('lat');
+document.getElementById("long").value = sessionStorage.getItem('lng');
 
 // If we manage to get it, we show the new artwork submit button
 //$("#submit-artwork").show();
