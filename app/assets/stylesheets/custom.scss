@@ -19,6 +19,9 @@ h2 {
     display:none;
 }
 
+
+
+
 .body-container {
   margin-top:8vh;
 }
@@ -27,8 +30,8 @@ h2 {
 
 .my_header {
 
-  background-color: #09125A;
-  color: white;
+  background-color: #fff;
+  color: #09125A;
   position: fixed;
   top: 0;
   width :100%;
@@ -37,19 +40,33 @@ h2 {
   justify-content: space-between;
   font-size: 1.5rem;
   z-index: 1000;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0px 0px 4px #A5A5A5;
 }
 
 .header_title{
-  color: white;
-  line-height: 8vh;
+  color: #09125A;
+  line-height: 10vh;
+  background-repeat: no-repeat;
+  margin:auto;
+  background-color: green;
+  display: flex;
+  justify-content: center;
 }
+
+.header_title_logo{
+  background-image: url(/assets/creapolis_logo_temp.png);
+  width: 107px;
+  height: 51px;
+}
+
 .my_header a {
-  color: white;
+  color: #09125A;
 }
 
 .my_header li{
-  height: 8vh;
-  width: 20%;
+  height: 10vh;
+  width: 15%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,14 +89,18 @@ h2 {
 /* -------- Barre de footer --- */
 
 .bottom_menu{
-  height: 8vh;
-  background-color: #09125A;
+  height: 10vh;
+  background-color: #fff;
   position: fixed;
   bottom: 0;
   width :100%;
   display: flex;
   flex-direction: row;
   z-index: 999;
+  text-transform: uppercase;
+  font-weight: 700;
+  
+
 }
 
 .bottom_menu li{
@@ -88,23 +109,33 @@ h2 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: white;
+}
+
+.bottom_menu li:hover{
+  background-color: #09125A;
+}
+
+.bottom_menu li:active{
+  background-color: #09125A;
 }
 
 .bottom_menu a {
     width: 20vw;
     height: 8vh;
-    color: lightgray;
+    color: #999;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 11px;
+    font-size: 10px;
 }
 .bottom_menu a:hover {
     text-decoration: none;
+    color: #fff;
 }
 .bottom_menu a:active{
-  color: lightgreen;
+  background-color: #09125A;
 }
 
 .bottom_menu i {
@@ -112,10 +143,16 @@ h2 {
     padding-bottom: 3px;
 }
 
+/*.active_bottom_class{
+  background-color: #09125A;
+}
+
+*/
 .tab {
   height: 25vh;
   background-color: antiquewhite;
 }
+
 .active_tab i{
   color: #09125A !important;
 }

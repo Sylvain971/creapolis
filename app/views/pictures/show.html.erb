@@ -1,11 +1,11 @@
 <div class="my_header">
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), user_profile_path(@picture.user) %>
-    </li>
-    <div class="header_title">Creapolis</div>
+    <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
+    <div class="header_title">
+      <div class="header_title_logo"></div>
+    </div>
     <li>
     </li>
 </div>
-
 
 
 <div class="body-container">
@@ -16,17 +16,15 @@
     <!-- Row content begin -->
     <div class="row content">
 
-
-<!-- Class col sm 9 begin -->
+      <!-- Class col sm 9 begin -->
       <div class="col-sm-9">
-
-
-
-<br>
+          
+          <br>
+     
      <!-- Avatar + Pseudo -->
         <div class="user_avatar_row_small">
           
-            <div class="publish">  
+            <div class="publish space-top-bot-10">  
 
               <%= link_to user_profile_path(@picture.user_id) do %>
                 <% if @picture.user.profile_picture.url.nil? %>
@@ -53,24 +51,37 @@
 				
 <!-- Title artwork -->
 				<div class="col-sm-12 reset-pad-marg">
-					<div class="title_artwork"><%= @picture.artwork.title %></div>
+					<!-- <div class="title_artwork"><%= @picture.artwork.title %></div> -->
 				</div>
 
+    
+<!-- <div class="clear"></div>   -->
 
-				<br>
-        
-        <%= link_to user_profile_path(@picture.user_id) do %>
-					<%= cl_image_tag @picture.img_url, :secure => true, class: "img-responsive" %>    
-				<% end %>
-
-        <br>
-
-
-		
-				
-			
+      </div>
+      <!-- Class col sm  end -->
+    </div>
+    <!-- Row content end -->
+  </div>
+  <!-- Container-fluid -->
 
 
+<div class="w-100">
+  <%= link_to user_profile_path(@picture.user_id) do %>
+    <%= cl_image_tag @picture.img_url, :secure => true, class: "img-responsive" %>    
+  <% end %>
+</div>
+
+
+
+
+  <!-- Container-fluid FIRST beign -->
+  <div class="container-fluid">
+
+    <!-- Row content begin -->
+    <div class="row content">
+
+      <!-- Class col sm 9 begin -->
+      <div class="col-sm-9">
 
 
 
@@ -96,12 +107,6 @@
     <%= link_to "+ Plus de détail sur l'oeuvre", artwork_path(@picture.artwork_id) %>
   </div>
 
-     
-
-
-<div class="clear"></div>  
-
-
 
       </div>
       <!-- Class col sm  end -->
@@ -109,6 +114,10 @@
     <!-- Row content end -->
   </div>
   <!-- Container-fluid -->
+
+
+
+
 </div>
 <!-- body-container begin -->
 

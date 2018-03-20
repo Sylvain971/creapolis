@@ -2,8 +2,8 @@
   display: flex;
   position: relative;
   /*background-color: red;*/
-	margin-top: -10px;
-	margin-bottom: 10px;
+	/*margin-top: 0px;
+	margin-bottom: 0px;*/
 	align-items: center;
 }
 .user_avatar_row_small img {
@@ -34,4 +34,8 @@
 .clear{
 	clear: both;
 	margin-top: 70px;
+}
+
+.space-top-bot-10{
+	padding: 10px 0;
 }
