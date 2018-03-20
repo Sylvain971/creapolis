@@ -16,8 +16,10 @@
 	function(){ 
     if($('#upload').get(0).files.length === 0){ 
         alert("Vous n'avez pas rentré de photo pour cette oeuvre !"); 
-     } 
-     return false; 
+        return false; 
+     } else {
+      return true;
+     }
   }); 
 
 </script>

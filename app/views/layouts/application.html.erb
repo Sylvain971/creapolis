@@ -21,5 +21,21 @@
       <% end %>
     <%= yield %>
     <%= render 'layouts/bottom_menu' %>
+
+<script>
+function getLocation(){
+        navigator.geolocation.watchPosition(function(position) {
+        var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+        }
+        alert(pos.lat + ", " + pos.lng);
+        console.log(pos.lat + ", " + pos.lng)
+    });
+}
+</script>
+
+
   </body>
 </html>
+

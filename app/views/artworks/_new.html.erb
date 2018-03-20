@@ -44,26 +44,22 @@
 
 <script type="text/javascript">
 
-// We start by getting current user location
-(function() {
+console.log(localStorage.lat + ", " + localStorage.lng);
 
-function success(pos) {
-  var crd = pos.coords;
-  console.log(crd.latitude);
-  document.getElementById("lat").value = crd.latitude;
-  document.getElementById("long").value = crd.longitude;
+// We start by getting current user location
+
+document.getElementById("lat").value = localStorage.lat;
+document.getElementById("long").value = localStorage.lng;
 
 // If we manage to get it, we show the new artwork submit button
-  $("#submit-artwork").show();
-};
+//$("#submit-artwork").show();
+//};
 
-function error(err) {
+//function error(err) {
  // alert("Oups... Nous n'avons pas réussi à vous géolocaliser. Veillez à bien activer votre géolocalisation pour pouvoir ajouter une oeuvre !");
-};
+//};
 
-navigator.geolocation.getCurrentPosition(success, error, {timeout:2000})
-
-})();
+//})();
 
 // We put an ajax request under the submit button to open the new-picture form
 $("#submit-artwork").on("click", function(){

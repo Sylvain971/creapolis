@@ -26,18 +26,13 @@ $('.user_tabs .tab0').on( 'click', function () {
 
 });
 
-
-
-// If the user wants to submit a new artwork, the app background chantes and the form appears  
-  $("#new_artwork").on("click", function(){
-    $(".background-new-form").show();
-    console.log("coucou");
-
 // If the user clicks on the background, the form is hidden
     $(".background-new-form").on("click", function(){
       $(".background-new-form").hide();
       $(".popup-form").hide();
     });
-  });
-  
+
 });
+  
+
+
