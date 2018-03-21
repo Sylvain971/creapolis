@@ -3,22 +3,23 @@
     <div class="header_title">
       <div class="header_title_logo"></div>
     </div>
-    <li>
-    </li>
+    <li></li>
 </div>
 
 
 <div class="body-container">
+  
+
   <!-- Container-fluid FIRST beign -->
   <div class="container-fluid">
+
     <!-- Row content begin -->
     <div class="row content">
-
 
      <!-- Avatar + Pseudo -->
         <div class="user_avatar_row_small">
           
-            <div class="publish space-top-bot-10">  
+            <div class="publish space-top-bot-10">
 
               <%= link_to user_profile_path(@picture.user_id) do %>
                 <% if @picture.user.profile_picture.url.nil? %>
@@ -31,22 +32,19 @@
                 <span style="padding-left: 5px;">
                   Publié par :
                     <span style="font-weight: bold;">
-                      
                         <%= link_to user_profile_path(@picture.user_id) do %>
                         <%= @picture.user.pseudo %>
                       <% end %>
                     </span>
                 </span>
             </div>
+
         </div>
-
-
 				
-<!-- Title artwork -->
-				<div class="col-sm-12 reset-pad-marg">
-					<!-- <div class="title_artwork"><%= @picture.artwork.title %></div> -->
-				</div>
-
+    <!-- Title artwork -->
+				<!-- <div class="col-sm-12">
+					<div class="title_artwork"><%= @picture.artwork.title %></div>
+				</div>-->
 
     </div>
     <!-- Row content end -->
@@ -54,13 +52,37 @@
   <!-- Container-fluid -->
 
 
-<div class="w-100">
+
+<div class="w-100 bottom_img_picture">
   <%= link_to user_profile_path(@picture.user_id) do %>
     <%= cl_image_tag @picture.img_url, :secure => true, class: "img-responsive" %>    
   <% end %>
 </div>
 
 
+<div class="picture_informations">
+    <!-- Buttons begin -->
+    <div class="btn-group">
+        <% if current_user.voted_for? @picture %>
+            <%= link_to unlike_picture_path(@picture), method: :put, class: "round-corner-ok" do %>
+            <i class="fas fa-heart" style="color:#E76262"></i> 
+            <span style="font-size: 12px; color:#E76262; font-weight: 700">
+              <%= @picture.get_upvotes.size %>&nbsp;J'aime(s)</span>
+            <% end %>
+
+        <% else %>
+            <%= link_to like_picture_path(@picture), method: :put, class: "round-corner-no" do %>
+            <i class="far fa-heart"></i>
+            <%= @picture.get_upvotes.size %>
+            <span>J'aime(s)</span>
+            <% end %>
+        <% end %>
+    </div>
+    <!-- Button end -->
+</div>
+
+
+<hr>
 
 
   <!-- Container-fluid FIRST beign -->
@@ -74,84 +96,24 @@
 
 
 
-      <!-- Artwork -->
-			<br>
-      <%= link_to user_profile_path(@picture.user_id) do %>
-				<%= image_tag @picture.img_url, class: "img-responsive" %>
-			<% end %>
-      <br>
 
-      <!-- Description line under the picture -->
-      <div class="picture_informations">
-
-        <!-- Avatar + Pseudo -->
-        <div class="user_avatar_row_small">
-
-
-          <%= link_to user_profile_path(@picture.user_id) do %>
-            <% if @picture.user.profile_picture.url.nil? %>
-            <%= image_tag "default_profile_picture.jpg"%>
-            <% else %>
-            <%= cl_image_tag @picture.user.profile_picture,:width => 200, :height => 200, :crop => :fill, :secure => true %>
-            <% end %>
-          <% end %>
-          <span style="padding-left: 5px; min-width: 30vw;">
-          Publié par :
-            <span style="font-weight: bold;">
-            <%= link_to user_profile_path(@picture.user_id) do %>
-              <%= @picture.user.pseudo %>
-            <% end %>
-            </span>
-          </span>
-
-
+      
 <!-- Button begin -->
-    <div class="btn-group">
-
-        <button type="button" class="btn btn-primary">
-          <span ><i class="fas fa-heart"></i></span>
-        </button>
-
+<!--     <div class="btn-group">
         <button type="button" class="btn btn-primary">
           <span ><i class="fas fa-share"></i></span>
         </button>
-
-
     </div>
-<!-- Button end -->
-
-<br>
-<br>
-
-  <div class="col-sm-12 reset-pad-marg">
-    <%= link_to "+ Plus de détail sur l'oeuvre", artwork_path(@picture.artwork_id) %>
-  </div>
+ -->
 
 
+        <div class="col-sm-12 center-element">
+          <span style="color: #09125A;margin-right: 5px"><i class="fas fa-plus"></i></span>
+            <%= link_to "De détails sur l'oeuvre", artwork_path(@picture.artwork_id) %>
         </div>
 
-        <!-- Buttons begin -->
-        <div class="btn-group">
-            <% if current_user.voted_for? @picture %>
-                <%= link_to unlike_picture_path(@picture), method: :put, class: "btn btn-default" do %>
-                <i class="fas fa-heart" style="color:#09125A"></i>
-                <%= @picture.get_upvotes.size %>
-                <% end %>
-            <% else %>
-                <%= link_to like_picture_path(@picture), method: :put, class: "btn btn-default" do %>
-                <i class="far fa-heart"></i>
-                <%= @picture.get_upvotes.size %>
-                <% end %>
-            <% end %>
-        </div>
-        <!-- Button end -->
 
-        <div class="col-sm-12">
-          <%= link_to "+ de détails sur l'oeuvre", artwork_path(@picture.artwork_id) %>
-        </div>
-
-      </div>
-      <!-- Description line under the picture -->
+    
 
 
 
@@ -163,6 +125,10 @@
     <!-- Row content end -->
   </div>
   <!-- Container-fluid -->
+
+
+
+
 
 
 
