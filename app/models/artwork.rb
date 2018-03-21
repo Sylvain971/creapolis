@@ -1,7 +1,7 @@
 class Artwork < ApplicationRecord
 	include AlgoliaSearch
 
-	has_many :pictures
+	has_many :pictures, dependent: :destroy
 	has_and_belongs_to_many :artists, class_name: "User"
 	validates :lat, :long, presence: true
     has_and_belongs_to_many :routes
