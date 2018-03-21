@@ -66,11 +66,11 @@ ActiveRecord::Schema.define(version: 20180321113207) do
     t.string "pseudo"
     t.string "firstname"
     t.string "name"
-    t.string "country"
     t.boolean "artist", default: false
     t.string "profile_picture"
     t.string "provider"
     t.string "uid"
+    t.string "city"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
