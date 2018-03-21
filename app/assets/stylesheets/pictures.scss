@@ -54,31 +54,37 @@
   margin-top: 20px;
 }
 
+.picture_informations a:hover{
+text-decoration: none;
+}
+
+
 .round-corner-ok{
   border-radius: 25px;
   /*background: #73AD21;*/
-  padding: 7px 30px; 
-  width: 200px;
+  padding: 10px 20px 7px 20px; 
+  width: auto;
   height: 10px; 
-  border:2px solid #E76262;  
+  border:2px solid #E76262;
 }
 
 .round-corner-ok a{
-color: #E76262; 
+color: #E76262;
+text-decoration: none;
 }
 
 .round-corner-ok a:hover{
 color: #E76262;
-background-color: #73AD21;
+background-color: red;
 }
 
 .round-corner-no{
   border-radius: 25px;
   /*background: #73AD21;*/
-  padding: 7px 30px; 
-  width: 200px;
+  padding: 10px 20px 7px 20px; 
+  width: auto;
   height: 10px; 
-  border:2px solid #ccc;  
+  border:2px solid #337ab7;  
 }
 
 .center-element{

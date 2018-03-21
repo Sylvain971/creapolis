@@ -22,8 +22,8 @@
   justify-content: center;
 }
 .user_avatar_row img {
-  height:90px;
-  width: 90px;
+  height:60px;
+  width: 60px;
   border-radius: 50px;
 }
 
@@ -61,8 +61,9 @@
   width: 33.3%;
   text-align: center;
   padding: 10px;
-  border-left: #80808066 1px solid;
+  /*border-left: #80808066 1px solid;*/
   border-right:#80808066 1px solid;
+  font-weight: 700;
 }
 .user_stats div:first-child {
     border-left: none;
@@ -76,16 +77,17 @@
   justify-content: center;
   flex-direction: row;
   list-style: none;
+  cursor: pointer;
 }
 .user_tabs li{
   width: 50%;
   display: flex;
   justify-content: center;
   background-color: white;
-  border-bottom: 3px #09125A solid;
-  border-left: 1px grey solid;
+  border-bottom: 1px #ccc solid;
+/*  border-left: 1px grey solid;
   border-right: 1px grey solid;
-  border-top : 1px grey solid;
+  border-top : 1px grey solid;*/
 }
 
 .user_tabs i{
@@ -96,7 +98,7 @@
 
 .active_tab{
   background-color: #D5D6E8 !important;
-  border-top: 5px #09125A solid !important;
+  border-top: 3px #09125A solid !important;
   border-bottom: none !important;
 }
 .active_tab i{

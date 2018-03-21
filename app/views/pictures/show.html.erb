@@ -16,7 +16,7 @@
     <!-- Row content begin -->
     <div class="row content">
 
-     <!-- Avatar + Pseudo -->
+        <!-- Avatar + Pseudo begin -->
         <div class="user_avatar_row_small">
           
             <div class="publish space-top-bot-10">
@@ -40,105 +40,82 @@
             </div>
 
         </div>
-				
-    <!-- Title artwork -->
-				<!-- <div class="col-sm-12">
-					<div class="title_artwork"><%= @picture.artwork.title %></div>
-				</div>-->
+				<!-- Avatar + Pseudo end -->
+
+
+        <!-- Big image -->
+        <div class="col-sm-12">
+          <%= link_to user_profile_path(@picture.user_id) do %>
+            <%= cl_image_tag @picture.img_url, :secure => true, class: "img-responsive" %>    
+          <% end %>
+        </div>
+        <!-- Big image -->
+
 
     </div>
     <!-- Row content end -->
-  </div>
-  <!-- Container-fluid -->
-
-
-
-<div class="w-100 bottom_img_picture">
-  <%= link_to user_profile_path(@picture.user_id) do %>
-    <%= cl_image_tag @picture.img_url, :secure => true, class: "img-responsive" %>    
-  <% end %>
 </div>
+<!-- Container-fluid end -->
+
 
 
 <div class="picture_informations">
-    <!-- Buttons begin -->
-    <div class="btn-group">
-        <% if current_user.voted_for? @picture %>
-            <%= link_to unlike_picture_path(@picture), method: :put, class: "round-corner-ok" do %>
-            <i class="fas fa-heart" style="color:#E76262"></i> 
-            <span style="font-size: 12px; color:#E76262; font-weight: 700">
-              <%= @picture.get_upvotes.size %>&nbsp;J'aime(s)</span>
-            <% end %>
+  <div class="btn-group">
+      <% if current_user.voted_for? @picture %>
+          <%= link_to unlike_picture_path(@picture), method: :put, class: "round-corner-ok" do %>
+          <i class="fas fa-heart" style="color:#E76262"></i> 
+          <span style="font-size: 12px; color:#E76262; font-weight: 700; font-size: 16px;margin-left: 5px;">
+            <%= @picture.get_upvotes.size %></span>
+      <% end %>
 
-        <% else %>
-            <%= link_to like_picture_path(@picture), method: :put, class: "round-corner-no" do %>
-            <i class="far fa-heart"></i>
-            <%= @picture.get_upvotes.size %>
-            <span>J'aime(s)</span>
-            <% end %>
-        <% end %>
-    </div>
-    <!-- Button end -->
+      <% else %>
+          <%= link_to like_picture_path(@picture), method: :put, class: "round-corner-no" do %>
+          <i class="far fa-heart"></i>
+          <span style="font-size: 16px;margin-left: 5px;">
+          <%= @picture.get_upvotes.size %></span>
+         
+          <% end %>
+      <% end %>
+  </div>
 </div>
+
 
 
 <hr>
 
 
-  <!-- Container-fluid FIRST beign -->
-  <div class="container-fluid">
 
-    <!-- Row content begin -->
-    <div class="row content">
+<!-- Container-fluid FIRST beign -->
+<div class="container-fluid">
 
-      <!-- Class col sm 9 begin -->
-      <div class="col-sm-9">
+  <!-- Row content begin -->
+  <div class="row content">
 
-
-
-
-      
-<!-- Button begin -->
-<!--     <div class="btn-group">
-        <button type="button" class="btn btn-primary">
-          <span ><i class="fas fa-share"></i></span>
-        </button>
-    </div>
- -->
+    <!-- Class col sm 9 begin -->
+    <div class="col-sm-9">
 
 
-        <div class="col-sm-12 center-element">
-          <span style="color: #09125A;margin-right: 5px"><i class="fas fa-plus"></i></span>
-            <%= link_to "De détails sur l'oeuvre", artwork_path(@picture.artwork_id) %>
-        </div>
-
-
-    
-
-
-
-
-
+      <div class="col-sm-12 center-element">
+        <span style="color: #09125A;margin-right: 5px"><i class="fas fa-plus"></i></span>
+          <%= link_to "De détails sur l'oeuvre", artwork_path(@picture.artwork_id) %>
       </div>
-      <!-- Class col sm  end -->
+
+
     </div>
-    <!-- Row content end -->
+    <!-- Class col sm  end -->
   </div>
-  <!-- Container-fluid -->
-
-
-
-
-
+  <!-- Row content end -->
+</div>
+<!-- Container-fluid -->
 
 
 
 </div>
 <!-- body-container begin -->
 
+
+
 <%= render 'layouts/bottom_menu' %>
-
-
 
 
 
