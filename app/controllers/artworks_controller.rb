@@ -2,7 +2,7 @@ class ArtworksController < ApplicationController
 
   def index
   	@artworks = Artwork.all
-    @artworks_js = @artworks.to_json(include: [:users, :pictures])
+    @artworks_js = @artworks.to_json(include: [:artists, :pictures])
   end
 
   def new
@@ -16,11 +16,8 @@ class ArtworksController < ApplicationController
   	@artwork = Artwork.new(artworks_params)
   	@artwork.lat = @artwork.lat.to_f
   	@artwork.long = @artwork.long.to_f
-  	@artwork.users << current_user
+  	@artwork.artists << current_user
     @artwork.save
-    #respond_to do |format|
-    #  format.js
-    #end
   end
 
   def show
@@ -29,9 +26,7 @@ class ArtworksController < ApplicationController
 
   def show_small
     @artwork= Artwork.find(params[:id])
-    #@artwork_js = @artwork.to_json
     @artworks = Artwork.all
-    #@artworks_js = @artworks.to_json(include: [:users, :pictures])
   end
 
   def edit

@@ -13,8 +13,6 @@
 <div class="background-new-form">
 </div>
 
-
-
 <div class="body-container">
   <% if user_signed_in? %>
   <div id="map_index"></div>
@@ -76,7 +74,7 @@ var markers = {};
  arr.forEach(function (markerConfig, index) {
   marker = new L.Marker([arr[index].lat,arr[index].long]);
   markers_clusters.addLayer(marker);
-  
+
   marker.on('click', function(){
     $.ajax({
           type: "GET",
@@ -93,14 +91,28 @@ var markers = {};
 
 getLocation();
 
+console.log(sessionStorage.getItem('lat'));
+
 function getLocation(){
-  navigator.geolocation.getCurrentPosition(function(position) {
-  localStorage.setItem("lat", position.coords.latitude);
-  localStorage.setItem("lng", position.coords.longitude);
-  console.log(localStorage.lat + ", " + localStorage.lng);
-  });
-      
+  navigator.geolocation.watchPosition(locationFound, locationFailed, {
+  enableHighAccuracy: false,
+  timeout: 5000,
+  maximumAge: 0
+});
 }
+
+function locationFound(position){
+  sessionStorage.setItem("lat", position.coords.latitude);
+  sessionStorage.setItem("lng", position.coords.longitude);
+  console.log(sessionStorage.getItem('lat')+ ", " + sessionStorage.getItem('lng'));
+}
+
+function locationFailed(position){
+  if (sessionStorage.getItem('lat') === null){
+    alert("Merci d'activer votre géolocalisation !")
+  }
+}
+
 
 
 

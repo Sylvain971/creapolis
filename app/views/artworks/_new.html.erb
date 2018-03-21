@@ -44,12 +44,12 @@
 
 <script type="text/javascript">
 
-console.log(localStorage.lat + ", " + localStorage.lng);
+console.log(sessionStorage.getItem('lat') + ", " + sessionStorage.getItem('lng'));
 
 // We start by getting current user location
 
-document.getElementById("lat").value = localStorage.lat;
-document.getElementById("long").value = localStorage.lng;
+document.getElementById("lat").value = sessionStorage.getItem('lat');
+document.getElementById("long").value = sessionStorage.getItem('lng');
 
 // If we manage to get it, we show the new artwork submit button
 //$("#submit-artwork").show();
@@ -66,8 +66,12 @@ $("#submit-artwork").on("click", function(){
 	$(".artwork-new").hide();
       $.ajax({
         type: "GET",
-        contentType: "application/json; charset=utf-8",
-        url: "/pictures/new/",
+        contentType: "application/script; charset=utf-8",
+        //dataType: "text",
+        url: "/pictures/new/"
+        //complete: function(content){
+    	//	content.then(function(plop){ console.log(plop)})
+    	//} 
     });
 });
 
