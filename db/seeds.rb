@@ -47,7 +47,7 @@ artwork13 = Artwork.create(lat:	"48.7940485",	long:"2.3964596", artist: "Stew", 
 artwork14 =Artwork.create(lat:	"48.7934179",	long:"2.3959358", artist: "Roa", style:"Spray")
 artwork15 =Artwork.create(lat:	"48.7980213",	long:"2.39928483", artist: "C215", style:"Pochoir, Spray")
 artwork16 =Artwork.create(lat:	"48.7938571",	long:"2.3993399", artist: "Meushay et Nosbé", style:"Spray")
-#artwork17 =Artwork.create(lat:	"48.789351", long:"2.3904885", artist: "MADC", style:"Spray")
+artwork17 =Artwork.create(lat:	"48.789351", long:"2.3904885", artist: "MADC", style:"Spray")
 artwork18 = Artwork.create( lat:	"48.790496", long:"2.388982", artist: "Docteur Bergman", style:"Pochoir")
 artwork19 = Artwork.create( lat:	"48.791128",	long:"2.389571", artist: "Kouka", style:"Acrylique")
 artwork20 = Artwork.create( lat:	"48.7917342",	long:"2.3891235", artist: "Kenji", style:"Spray")
@@ -77,7 +77,7 @@ picture13 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapo
 picture14 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0754.JPG", user: user_admin, artwork: artwork14)
 picture15 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0733.JPG", user: user_admin, artwork: artwork15)
 picture16 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0746.JPG", user: user_admin, artwork: artwork16)
-#picture17 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/FILE2405.CHK",user: user_admin, artwork: artwork17)
+#picture17 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/FILE2405.JPG",user: user_admin, artwork: artwork17)
 picture18 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0903.JPG",user: user_admin, artwork: artwork18)
 picture19 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0901.JPG",user: user_admin, artwork: artwork19)
 picture20 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0776.JPG",user: user_admin, artwork: artwork20)
@@ -87,7 +87,7 @@ picture23 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapo
 picture24 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0779.JPG",user: user_admin, artwork: artwork24)
 picture25 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0890.JPG",user: user_admin, artwork: artwork25)
 picture26 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0780.JPG",user: user_admin, artwork: artwork26)
-picture27 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/FILE2551.CHK",user: user_admin, artwork: artwork27)
+#picture27 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/FILE2551.JPG",user: user_admin, artwork: artwork27)
 picture28 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0749.JPG",user: user_admin, artwork: artwork28)
 picture29 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0861.JPG",user: user_admin, artwork: artwork29)
 picture30 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0898.JPG",user: user_admin, artwork: artwork30)
@@ -97,31 +97,31 @@ picture33 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapo
 picture34 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0841.JPG",user: user_admin, artwork: artwork34)
 
 route1 = Route.create(title:"Vitry-sur-Seine : un musée à ciel ouvert", description: "Depuis l'installation de l'artiste français C215 à Vitry, des artistes de renom ont laissé leur marque dans la ville. Déambulez dans les rues et laissez-vous suprendre par ces nombreuses oeuvres d'arts.")
-route1.artworks << picture7
-route1.artworks << picture8
-route1.artworks << picture9
-route1.artworks << picture10
-route1.artworks << picture11
-route1.artworks << picture12
-route1.artworks << picture13
-route1.artworks << picture14
-route1.artworks << picture15
-route1.artworks << picture16
-# route1.artworks << picture17
-route1.artworks << picture18
-route1.artworks << picture19
-route1.artworks << picture20
-route1.artworks << picture21
-route1.artworks << picture22
-route1.artworks << picture23
-route1.artworks << picture24
-route1.artworks << picture25
-route1.artworks << picture26
-route1.artworks << picture27
-route1.artworks << picture28
-route1.artworks << picture29
-route1.artworks << picture30
-route1.artworks << picture31
-route1.artworks << picture32
-route1.artworks << picture33
-route1.artworks << picture34
+route1.artworks << artwork7
+route1.artworks << artwork8
+route1.artworks << artwork9
+route1.artworks << artwork10
+route1.artworks << artwork11
+route1.artworks << artwork12
+route1.artworks << artwork13
+route1.artworks << artwork14
+route1.artworks << artwork15
+route1.artworks << artwork16
+#route1.artworks << artwork17
+route1.artworks << artwork18
+route1.artworks << artwork19
+route1.artworks << artwork20
+route1.artworks << artwork21
+route1.artworks << artwork22
+route1.artworks << artwork23
+route1.artworks << artwork24
+route1.artworks << artwork25
+route1.artworks << artwork26
+#route1.artworks << artwork27
+route1.artworks << artwork28
+route1.artworks << artwork29
+route1.artworks << artwork30
+route1.artworks << artwork31
+route1.artworks << artwork32
+route1.artworks << artwork33
+route1.artworks << artwork34
