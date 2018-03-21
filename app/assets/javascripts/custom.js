@@ -26,13 +26,35 @@ $('.user_tabs .tab0').on( 'click', function () {
 
 });
 
-// If the user clicks on the background, the form is hidden
-    $(".background-new-form").on("click", function(){
-      $(".background-new-form").hide();
-      $(".popup-form").hide();
-    });
+// // If the user clicks on the background, the form is hidden
+//     $(".background-new-form").on("click", function(){
+//       $(".background-new-form").hide();
+//       $(".popup-form").hide();
+//     });
 
 });
   
+
+function getLocation(){
+  navigator.geolocation.watchPosition(locationFound, locationFailed, {
+  enableHighAccuracy: false,
+  timeout: 5000,
+  maximumAge: 0
+});
+}
+
+function locationFound(position){
+  sessionStorage.setItem("lat", position.coords.latitude);
+  sessionStorage.setItem("lng", position.coords.longitude);
+  console.log(sessionStorage.getItem('lat')+ ", " + sessionStorage.getItem('lng'));
+}
+
+function locationFailed(position){
+  if (sessionStorage.getItem('lat') === null){
+    alert("Merci d'activer votre géolocalisation !")
+  };
+} 
+
+
 
 

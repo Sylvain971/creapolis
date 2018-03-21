@@ -90,29 +90,10 @@ var markers = {};
   $(".popup-container").hide()
  });
 
-getLocation();
 
-console.log(sessionStorage.getItem('lat'));
+//console.log(sessionStorage.getItem('lat'));
 
-function getLocation(){
-  navigator.geolocation.watchPosition(locationFound, locationFailed, {
-  enableHighAccuracy: false,
-  timeout: 5000,
-  maximumAge: 0
-});
-}
 
-function locationFound(position){
-  sessionStorage.setItem("lat", position.coords.latitude);
-  sessionStorage.setItem("lng", position.coords.longitude);
-  console.log(sessionStorage.getItem('lat')+ ", " + sessionStorage.getItem('lng'));
-}
-
-function locationFailed(position){
-  if (sessionStorage.getItem('lat') === null){
-    alert("Merci d'activer votre géolocalisation !")
-  }
-}
 
 
 

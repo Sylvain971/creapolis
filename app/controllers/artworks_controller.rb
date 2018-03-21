@@ -7,9 +7,9 @@ class ArtworksController < ApplicationController
 
   def new
   	@artwork = Artwork.new
-    respond_to do |format|
-      format.js
-    end
+   # respond_to do |format|
+   #   format.js
+    #end
   end
 
   def create
@@ -18,6 +18,7 @@ class ArtworksController < ApplicationController
   	@artwork.long = @artwork.long.to_f
   	@artwork.artists << current_user
     @artwork.save
+    redirect_to new_picture_path
   end
 
   def show
