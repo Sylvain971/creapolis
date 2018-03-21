@@ -97,9 +97,9 @@ picture33 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapo
 picture34 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/DSC_0841.JPG",user: user_admin, artwork: artwork34)
 
 route1 = Route.create(title:"Vitry-sur-Seine : un musée à ciel ouvert", description: "Depuis l'installation de l'artiste français C215 à Vitry, des artistes de renom ont laissé leur marque dans la ville. Déambulez dans les rues et laissez-vous suprendre par ces nombreuses oeuvres d'arts.")
+route1.artworks << artwork9
 route1.artworks << artwork7
 route1.artworks << artwork8
-route1.artworks << artwork9
 route1.artworks << artwork10
 route1.artworks << artwork11
 route1.artworks << artwork12
