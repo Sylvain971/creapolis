@@ -1,5 +1,5 @@
 <div class ="artwork-image-likes">
-    <%= link_to image_tag((@artwork.pictures.first.img_url)), artwork_path(@artwork) %>
+    <%= link_to image_tag((@artwork.pictures.first.img_url :secure => true)), artwork_path(@artwork) %>
 </div>
 
 <div class = "artwork-infos">
@@ -16,6 +16,12 @@
           Artiste non indiqué
         <% end %>
       </p>
-      <p><i class="fas fa-paint-brush"></i><%= @artwork.style %></p>
+      <p><i class="fas fa-paint-brush"></i>
+        <% if !@artwork.style.nil? %>
+          <%= @artwork.style %>
+        <% else %>
+          Style non indiqué
+        <% end %>
+      </p>
       <p><i class="fas fa-check-circle"></i>  Visible </i></p>
 </div>

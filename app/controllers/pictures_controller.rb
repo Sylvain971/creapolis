@@ -32,7 +32,7 @@ class PicturesController < ApplicationController
     @picture.liked_by current_user
     redirect_to @picture
   end
-  
+
   def downvote
     @picture = Picture.find(params[:id])
     @picture.unliked_by current_user
@@ -40,9 +40,21 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-  	@artwork = Artwork.find(params[:id])
-  	@artwork.destroy
-  	redirect_to pictures_path
+    @picture = Picture.find(params[:id])
+    if @picture.user.id = current_user.id
+      if @picture.artwork.pictures.count == 1
+        @picture.artwork.destroy
+        flash[:notice] = 'Oeuvre supprimée !'
+        redirect_to root_path
+      else
+        @picture.destroy
+        flash[:notice] = 'Image supprimée !'
+        redirect_to root_path
+      end
+    else
+      flash[:danger] = 'Accès refusé !'
+      redirect_to picture_path
+    end
   end
 
   private

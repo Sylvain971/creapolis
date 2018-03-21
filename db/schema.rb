@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180320184440) do
+ActiveRecord::Schema.define(version: 20180321093505) do
 
   create_table "artworks", force: :cascade do |t|
     t.string "title"
@@ -66,9 +66,9 @@ ActiveRecord::Schema.define(version: 20180320184440) do
     t.string "pseudo"
     t.string "firstname"
     t.string "name"
-    t.string "country"
     t.boolean "artist", default: false
     t.string "profile_picture"
+    t.string "city"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
