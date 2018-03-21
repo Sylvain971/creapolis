@@ -22,7 +22,7 @@ class User < ApplicationRecord
 	algoliasearch do
 
 		# list of attribute used to build an Algolia record
-    #attributes :pseudo, :artist, :city, :created_at
+    attributes :pseudo, :artist, :city, :created_at
     add_attribute :user_picture
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
