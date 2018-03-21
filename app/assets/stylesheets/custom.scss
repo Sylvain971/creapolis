@@ -485,3 +485,18 @@ img {
 #error_explanation {
     color: #b1205d;
 }
+
+
+/* ---------- Routes ----------------- */
+
+.route-info {
+  padding: 5px;
+  background-color: white;
+  top: 10vh;
+  right: 2vh;
+  width: 20vh;
+  border-radius: 3px;
+  position:absolute;
+  z-index: 999;
+
+}

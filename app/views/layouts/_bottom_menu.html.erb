@@ -5,7 +5,7 @@
     </li>
 
     <li>
-      <%= link_to content_tag(:i, nil, class: 'fab fa-cloudsmith') + "Parcours", root_path %>
+      <%= link_to content_tag(:i, nil, class: 'fab fa-cloudsmith') + "Parcours", routes_path %>
     </li>
     <!-- Image upload with a form -->
     <li>
@@ -27,7 +27,7 @@
       </li>
 
       <li class="tab2 <%if '/routes' == request.fullpath %> selected<%end%>" >
-        <%= link_to content_tag(:i, nil, class: 'fab fa-cloudsmith') + "Parcours", root_path %>
+        <%= link_to content_tag(:i, nil, class: 'fab fa-cloudsmith') + "Parcours", routes_path %>
       </li>
       <!-- Image upload with a form -->
       <li class="tab3 <%if '/add' == request.fullpath %> selected<%end%>">
