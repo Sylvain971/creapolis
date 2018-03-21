@@ -110,7 +110,8 @@ h2 {
   background-color: #09125A;
 }
 
-.bottom_menu li:active{
+.bottom_menu li:active,
+.bottom_menu li.selected {
   background-color: #09125A;
 }
 

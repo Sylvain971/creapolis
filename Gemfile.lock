@@ -91,6 +91,7 @@ GEM
     execjs (2.7.0)
     ffi (1.9.23)
     formatador (0.2.5)
+    geocoder (1.4.7)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     guard (2.13.0)
@@ -288,6 +289,7 @@ DEPENDENCIES
   coffee-rails (= 4.2.2)
   devise
   dotenv-rails
+  geocoder
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
   jbuilder (= 2.7.0)

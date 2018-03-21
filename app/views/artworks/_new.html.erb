@@ -66,8 +66,12 @@ $("#submit-artwork").on("click", function(){
 	$(".artwork-new").hide();
       $.ajax({
         type: "GET",
-        contentType: "application/json; charset=utf-8",
-        url: "/pictures/new/",
+        contentType: "application/script; charset=utf-8",
+        //dataType: "text",
+        url: "/pictures/new/"
+        //complete: function(content){
+    	//	content.then(function(plop){ console.log(plop)})
+    	//} 
     });
 });
 
