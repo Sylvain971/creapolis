@@ -34,7 +34,7 @@ class User < ApplicationRecord
   end
 
   def user_picture
-  	self.profile_picture_url
+  	self.profile_picture_url :secure => true
   end
 
 end
