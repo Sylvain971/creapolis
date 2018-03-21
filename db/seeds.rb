@@ -31,6 +31,9 @@ picture4 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapol
 picture5 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/v1521038222/image1.jpg", artwork: artwork1, user: user_regular3)
 picture6 = Picture.create(remote_img_url_url: "http://res.cloudinary.com/creapolis/image/upload/v1521038222/image1.jpg", artwork: artwork1, user: user_regular4)
 
+artwork1.artists << user_dacruz
+artwork2.artists << user_ren
+artwork3.artists << user_sanetwo
 
 ########### Creation d'une premier itinéraire #########################
 
