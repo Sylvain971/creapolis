@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180319152524) do
+
+ActiveRecord::Schema.define(version: 20180320184440) do
+
 
   create_table "artworks", force: :cascade do |t|
     t.string "title"
@@ -37,6 +39,15 @@ ActiveRecord::Schema.define(version: 20180319152524) do
     t.index ["artwork_id"], name: "index_pictures_on_artwork_id"
     t.index ["user_id"], name: "index_pictures_on_user_id"
   end
+
+
+  create_table "routes", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

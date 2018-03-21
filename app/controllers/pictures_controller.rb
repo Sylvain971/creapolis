@@ -1,6 +1,5 @@
 class PicturesController < ApplicationController
 
-
   def new
   	@picture = Picture.new
     respond_to do |format|
@@ -21,8 +20,9 @@ class PicturesController < ApplicationController
   		@picture.save
   		redirect_to @picture
   	else
-  		@picture.artwork = current_user.artworks.last
+  		@picture.artwork = current_user.created_artworks.last
 	  	@picture.save
+      current_user.created_artworks.last.artists.delete(current_user)
 	  	redirect_to @picture
 	  end
   end
@@ -32,6 +32,7 @@ class PicturesController < ApplicationController
     @picture.liked_by current_user
     redirect_to @picture
   end
+  
   def downvote
     @picture = Picture.find(params[:id])
     @picture.unliked_by current_user

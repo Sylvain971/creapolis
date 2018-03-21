@@ -13,8 +13,6 @@
 <div class="background-new-form">
 </div>
 
-
-
 <div class="body-container">
   <% if user_signed_in? %>
   <div id="map_index"></div>
@@ -76,7 +74,7 @@ var markers = {};
  arr.forEach(function (markerConfig, index) {
   marker = new L.Marker([arr[index].lat,arr[index].long]);
   markers_clusters.addLayer(marker);
-  
+
   marker.on('click', function(){
     $.ajax({
           type: "GET",
@@ -100,7 +98,7 @@ function getLocation(){
   enableHighAccuracy: false,
   timeout: 5000,
   maximumAge: 0
-});  
+});
 }
 
 function locationFound(position){

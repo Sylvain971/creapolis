@@ -20,6 +20,7 @@ gem 'carrierwave'
 gem "mini_magick"
 gem "algoliasearch-rails"
 gem 'acts_as_votable', '~> 0.11.1'
+gem 'geocoder'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

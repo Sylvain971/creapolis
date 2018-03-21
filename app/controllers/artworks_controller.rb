@@ -2,7 +2,7 @@ class ArtworksController < ApplicationController
 
   def index
   	@artworks = Artwork.all
-    @artworks_js = @artworks.to_json(include: [:users, :pictures])
+    @artworks_js = @artworks.to_json(include: [:artists, :pictures])
   end
 
   def new
@@ -16,7 +16,7 @@ class ArtworksController < ApplicationController
   	@artwork = Artwork.new(artworks_params)
   	@artwork.lat = @artwork.lat.to_f
   	@artwork.long = @artwork.long.to_f
-  	@artwork.users << current_user
+  	@artwork.artists << current_user
     @artwork.save
   end
 
