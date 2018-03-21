@@ -7,63 +7,64 @@
 </div>
 
 <div class="body-container">
-	<div>
-	   <input id="search-input" placeholder="Rechercher un artiste">
-	   <!-- We use a specific placeholder in the input to guides users in their search. -->
+	<div class="body-searches">
+		<div>
+		   <input id="search-input" placeholder="Rechercher un artiste">
+		   <!-- We use a specific placeholder in the input to guides users in their search. -->
+		</div>
+
+		<main>
+		    <div id="hits"></div>
+		    <script type="text/html" id="hit-template">
+					<div class="hit">
+					  <div class="hit-content">
+		    			<img class="hit-user_picture" src="{{user_picture}}" alt="Photo de profil">
+					    <p class="hit-pseudo">{{{_highlightResult.pseudo.value}}} </p>
+					    <p class="hit-artist"> {{artist}} </p>
+					  </div>
+					</div>
+				</script>
+
+		    <div id="pagination"></div>
+		</main>
 	</div>
-
-	<main>
-	    <div id="hits"></div>
-	    <script type="text/html" id="hit-template">
-				<div class="hit">
-				  <div class="hit-content">
-	    			<img class="hit-user_picture" src="{{user_picture}}" alt="Photo de profil">
-				    <p class="hit-pseudo">{{{_highlightResult.pseudo.value}}} </p>
-				    <p class="hit-artist"> {{artist}} </p>
-				  </div>
-				</div>
-			</script>
-
-	    <div id="pagination"></div>
-	</main>
-
 	<%= render 'layouts/bottom_menu' %>
-
-	<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
-
-	<script type="text/javascript">
-
-	var search = instantsearch({
-	  appId: '<%= ENV['ALGOLIA_APPLICATION_ID']%>' ,
-	  apiKey: '<%= ENV['ALGOLIA_SEARCH_ONLY_API_KEY']%>',
-	  indexName: 'User',
-	   searchParameters: {
-	    hitsPerPage: 10
-	  }
-	});
-
-	search.addWidget(
-	  instantsearch.widgets.searchBox({
-	    container: '#search-input'
-	  })
-	);
-
-	search.addWidget(
-	  instantsearch.widgets.hits({
-	    container: '#hits',
-	    templates: {
-	      item: document.getElementById('hit-template').innerHTML,
-	      empty: "We didn't find any results for the search <em>\"{{query}}\"</em>"
-	    }
-	  })
-	);
-
-	search.addWidget(
-	  instantsearch.widgets.pagination({
-	    container: '#pagination'
-	  })
-	);
-
-	search.start();
-	</script>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
+
+<script type="text/javascript">
+
+var search = instantsearch({
+  appId: '<%= ENV['ALGOLIA_APPLICATION_ID']%>' ,
+  apiKey: '<%= ENV['ALGOLIA_SEARCH_ONLY_API_KEY']%>',
+  indexName: 'User',
+   searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-input'
+  })
+);
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#hits',
+    templates: {
+      item: document.getElementById('hit-template').innerHTML,
+      empty: "We didn't find any results for the search <em>\"{{query}}\"</em>"
+    }
+  })
+);
+
+search.addWidget(
+  instantsearch.widgets.pagination({
+    container: '#pagination'
+  })
+);
+
+search.start();
+</script>
