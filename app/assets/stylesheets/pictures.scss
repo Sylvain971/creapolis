@@ -1,11 +1,10 @@
 .user_avatar_row_small {
   display: flex;
   position: relative;
-  /*background-color: red;*/
-	/*margin-top: 0px;
-	margin-bottom: 0px;*/
 	align-items: center;
   min-width: 30vw;
+  margin-left: 15px;
+  margin-top:5px;
 }
 .user_avatar_row_small img {
   height:40px;
@@ -17,6 +16,15 @@
 	display: inline;
 	width: 100%;
 	background-color: yellow;
+}
+
+.user_avatar_row_small a{
+  color: #09125A;
+  text-decoration: none;
+}
+
+.user_avatar_row_small a:hover{
+  text-decoration: underline;
 }
 
 .title_artwork{
@@ -36,12 +44,73 @@
 	padding: 10px 0;
 }
 
-.picture_informations {
+
+.picture_informations{
+  width: 100%;
+  /*background-color: red;*/
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.picture_informations a:hover{
+text-decoration: none;
+}
+
+
+.round-corner-ok{
+  border-radius: 25px;
+  /*background: #73AD21;*/
+  padding: 10px 20px 7px 20px; 
+  width: auto;
+  height: 10px; 
+  border:2px solid #E76262;
+}
+
+.round-corner-ok a{
+color: #E76262;
+text-decoration: none;
+}
+
+.round-corner-ok a:hover{
+color: #E76262;
+background-color: red;
+}
+
+.round-corner-no{
+  border-radius: 25px;
+  /*background: #73AD21;*/
+  padding: 10px 20px 7px 20px; 
+  width: auto;
+  height: 10px; 
+  border:2px solid #337ab7;  
+}
+
+.center-element{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+.center-element a{
+  color: #09125A;
+  text-decoration: none;
+}
+
+.center-element a:hover{
+  text-decoration: underline;
+}
+
+/*OLD picture CSS*/
+/*.picture_informations {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
   flex-wrap: wrap;
+  background-color: red;
 }
 .picture_informations div{
   width: 30vw;
@@ -52,9 +121,7 @@
   width: 10vw;
   a {border: white;}
 }
-.btn-default{
-  border-color: white;
-}
+
 .picture_informations > div:last-child{
 
   display: flex;
@@ -62,4 +129,12 @@
   flex-wrap: nowrap;
   padding: 0px 3px 0 0;
   justify-content: flex-end;
+}
+
+.bottom_img_picture{
+  margin-bottom: 20px;
+}
+*/
+.btn-default{
+  border-color: white;
 }

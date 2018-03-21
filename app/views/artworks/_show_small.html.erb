@@ -8,10 +8,20 @@
           <% @artwork.artists.each { |artist| %>
           <%= artist.pseudo %>
           <% } %>
-        <% else %>
+        <% elsif %>
+          <% if !@artwork.artist.nil? %>
+          <%= @artwork.artist %>
+          <% end %>
+        <% elsif %>
           Artiste non indiqué
         <% end %>
       </p>
-      <p><i class="fas fa-paint-brush"></i>Graffiti</p>
+      <p><i class="fas fa-paint-brush"></i>
+        <% if !@artwork.style.nil? %>
+          <%= @artwork.style %>
+        <% else %>
+          Style non indiqué
+        <% end %>
+      </p>
       <p><i class="fas fa-check-circle"></i>  Visible </i></p>
 </div>

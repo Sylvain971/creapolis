@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'routes/index'
+
+  get 'routes/show'
+
   root "artworks#index"
 
   get 'pictures/new'
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
   devise_for :users
 	resources :artworks
 	resources :searches
+  resources :routes
 	resources :pictures do
     member do
       put "like", to: "pictures#upvote"

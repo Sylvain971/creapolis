@@ -68,7 +68,7 @@ h2 {
   height: 10vh;
   width: 15%;
   height: 8vh;
-  width: 9%;
+  width: 18%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,6 +113,7 @@ h2 {
 .bottom_menu li:active,
 .bottom_menu li.selected {
   background-color: #09125A;
+  a {color: #fff;}
 }
 
 .bottom_menu a {
@@ -137,19 +138,6 @@ h2 {
     height: 4vh;
     padding-bottom: 3px;
 }
-
-/*.active_bottom_class{
-  background-color: #09125A;
-}
-
-*/
-
-/*
-.tab {
-  height: 25vh;
-  background-color: antiquewhite;
-}
-*/
 
 .active_tab i{
   color: #09125A !important;
@@ -485,3 +473,41 @@ img {
 #error_explanation {
     color: #b1205d;
 }
+
+
+/* -------------- Routes ----------------- */
+
+.route-info {
+  padding: 5px;
+  background-color: white;
+  top: 10vh;
+  right: 2vh;
+  width: 20vh;
+  border-radius: 3px;
+  position:absolute;
+  z-index: 999;
+}
+
+.go-to-route {
+  padding: 5px;
+  background-color: #ec607e;
+  top: 25vh;
+  right: 2vh;
+  width: 20vh;
+  border-radius: 3px;
+  position:absolute;
+  z-index: 999;
+  text-align:center;
+  a {
+  text-decoration:none;
+  color:white;
+  }
+  fas {
+  color:white;
+  margin-left: 20px;
+  }
+}
+
+/*-----------------------*/
+
+
