@@ -29,6 +29,7 @@
     <!-- formulaire pour se connecter -->
     <div class="box-connection-top">
       <%= render "layouts/login" %>
+        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
       <br><br>
       <%= link_to "Mot de passe oublié ?", new_user_password_path %><br/>
     </div>
