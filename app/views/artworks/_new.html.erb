@@ -62,8 +62,7 @@ document.getElementById("long").value = sessionStorage.getItem('lng');
 //})();
 
 // We put an ajax request under the submit button to open the new-picture form
-$("#submit-artwork").on("click", function(event){
-	event.preventDefault();
+$("#submit-artwork").on("click", function(){
 	$(".artwork-new").hide();
     $.ajax({
         type: "GET",
@@ -74,7 +73,6 @@ $("#submit-artwork").on("click", function(event){
     	//	content.then(function(plop){ console.log(plop)})
     	//}
     });
-	event.preventDefault();
 
 });
 
