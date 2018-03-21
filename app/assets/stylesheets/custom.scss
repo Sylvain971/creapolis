@@ -475,7 +475,7 @@ img {
 }
 
 
-/* ---------- Routes ----------------- */
+/* -------------- Routes ----------------- */
 
 .route-info {
   padding: 5px;
@@ -486,7 +486,26 @@ img {
   border-radius: 3px;
   position:absolute;
   z-index: 999;
+}
 
+.go-to-route {
+  padding: 5px;
+  background-color: #ec607e;
+  top: 25vh;
+  right: 2vh;
+  width: 20vh;
+  border-radius: 3px;
+  position:absolute;
+  z-index: 999;
+  text-align:center;
+  a {
+  text-decoration:none;
+  color:white;
+  }
+  fas {
+  color:white;
+  margin-left: 20px;
+  }
 }
 
 /*-----------------------*/

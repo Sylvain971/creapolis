@@ -18,7 +18,10 @@
   <div class="route-info">
   	<p> <%= @route.title %></p>
   	<p> Plus d'informations </p>
-</div>
+  </div>
+  <div class="go-to-route">
+    <a href="https://citymapper.com/directions?endcoord=<%=@route.artworks.first.lat%>%2C<%=@route.artworks.first.long%>&endname=<%=@route.title%>"> Y aller <i class="fas fa-arrow-right fa-1x"></i></a>
+  </div>
 
   <div id="map_index"></div>
 
