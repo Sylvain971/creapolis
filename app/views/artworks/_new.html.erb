@@ -62,7 +62,8 @@ document.getElementById("long").value = sessionStorage.getItem('lng');
 //})();
 
 // We put an ajax request under the submit button to open the new-picture form
-$("#submit-artwork").on("click", function(){
+$("#submit-artwork").on("click", function(event){
+	event.preventDefault();
 	$(".artwork-new").hide();
       $.ajax({
         type: "GET",
