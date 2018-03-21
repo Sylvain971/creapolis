@@ -32,7 +32,7 @@ class PicturesController < ApplicationController
     @picture.liked_by current_user
     redirect_to @picture
   end
-  
+
   def downvote
     @picture = Picture.find(params[:id])
     @picture.unliked_by current_user
