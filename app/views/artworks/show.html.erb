@@ -1,9 +1,9 @@
 <div class="my_header">
-  <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
-    </li>
-    <div class="header_title">Creapolis</div>
-    <li>
-    </li>
+    <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
+    <div class="header_title">
+      <div class="header_title_logo"></div>
+    </div>
+    <li></li>
 </div>
 
 <!-- body-container begin -->
@@ -59,36 +59,13 @@
 <br>
 <!-- Slideshow end -->
 
+<!-- Title artwork -->
+      <div class="title_artwork"><%= @artwork.title %></div>
+
+<br>
+<div style="text-align: center">Like coming soon</div>
 
 
-
-
-<!-- Button begin -->
-    <div class="btn-group">
-
-        <button type="button" class="btn btn-primary">
-          <span ><i class="fas fa-heart"></i></span>
-        </button>
-
-
-        <button type="button" class="btn btn-primary">
-          <span ><i class="fas fa-comment"></i></span>
-        </button>
-
-        <button type="button" class="btn btn-primary">
-          <span ><i class="fas fa-share"></i></span>
-        </button>
-
-
-        <button type="button" class="btn btn-secondary">
-          <span ><i class="fas fa-bookmark"></i></span>
-        </button>
-
-        <button type="button" class="btn btn-secondary">
-          <span ><i class="fas fa-exclamation-circle "></i></span>
-        </button>
-    </div>
-<!-- Button end -->
 
   <hr>
 

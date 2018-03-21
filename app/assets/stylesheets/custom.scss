@@ -113,6 +113,7 @@ h2 {
 .bottom_menu li:active,
 .bottom_menu li.selected {
   background-color: #09125A;
+  a {color: #fff;}
 }
 
 .bottom_menu a {
@@ -137,19 +138,6 @@ h2 {
     height: 4vh;
     padding-bottom: 3px;
 }
-
-/*.active_bottom_class{
-  background-color: #09125A;
-}
-
-*/
-
-/*
-.tab {
-  height: 25vh;
-  background-color: antiquewhite;
-}
-*/
 
 .active_tab i{
   color: #09125A !important;
@@ -500,3 +488,7 @@ img {
   z-index: 999;
 
 }
+
+/*-----------------------*/
+
+

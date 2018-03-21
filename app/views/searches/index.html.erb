@@ -7,18 +7,18 @@
   <main>
       <div id="hits"></div>
       <script type="text/html" id="hit-template">
-  <div class="hit">
-    <div class="hit-image">
-      <img src="{{image}}" alt="{{name}}">
-    </div>
-    <div class="hit-content">
-      <p class="hit-title">{{title}}</p>
-    </div>
-  </div>
-</script>
+				<div class="hit">
+				  <div class="hit-content">
+				    <p class="hit-pseudo">{{{_highlightResult.pseudo.value}}}</p>
+				    <p class="hit-country"> {{country}}</p>
+				  </div>
+				</div>
+			</script>
 
       <div id="pagination"></div>
   </main>
+
+<%= render 'layouts/bottom_menu' %>
 
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
 
@@ -27,7 +27,7 @@
 var search = instantsearch({
   appId: '<%= ENV['ALGOLIA_APPLICATION_ID']%>' ,
   apiKey: '<%= ENV['ALGOLIA_SEARCH_ONLY_API_KEY']%>',
-  indexName: 'Artwork',
+  indexName: 'User',
    searchParameters: {
     hitsPerPage: 10
   }
