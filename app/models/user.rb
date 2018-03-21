@@ -34,7 +34,7 @@ class User < ApplicationRecord
   end
 
   def user_picture
-  	self.profile_picture_url :secure => true
+  	self.profile_picture_url :secure => true, :crop => :fit, :width => 200, :height => 200
   end
 
 end
