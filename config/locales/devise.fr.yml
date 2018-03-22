@@ -31,6 +31,7 @@ fr:
       send_paranoid_instructions: "Si votre e-mail existe dans notre base de données, vous allez recevoir un lien de réinitialisation par e-mail"
       updated: 'Votre mot de passe a été modifié avec succès, vous êtes maintenant connecté'
       updated_not_active: 'Votre mot de passe a été modifié avec succès.'
+      blank: 'Vous devez renseigner votre mot de passe'
     registrations:
       destroyed: 'Votre compte a été supprimé avec succès. Nous espérons vous revoir bientôt.'
       signed_up: 'Bienvenue, vous êtes connecté'
@@ -56,3 +57,19 @@ fr:
       not_saved:
         one: "1 erreur a empêché ce(tte) %{resource} d'être sauvegardé(e) :"
         other: "%{count} erreurs ont empêché ce(tte) %{resource} d'être sauvegardé(e) :"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Vous devez renseigner votre email"
+              taken: "Cet email correspond à un profil existant"
+            password:
+              blank: "Vous devez renseigner votre mot de passe"
+              too_short: "Votre mot de passe doit contenir au moint 6 lettres"
+            password_confirmation:
+              confirmation: "Vous devez confirmer votre mot de passe"
+            current_password:
+              blank: "Pour valider, renseignez votre mot de passe actuel"
+              invalid: "Votre mot de passe actuel est invalide"

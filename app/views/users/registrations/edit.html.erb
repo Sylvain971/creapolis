@@ -7,25 +7,30 @@
     <li>
     </li>
 </div>
+<div class="connection">
+<%= devise_error_messages! %>
 
-<div class="container connection">
+  
   <div class="box-connection-top-edit">
     <div class="form-title"> Editer votre profil </div>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), multipart: true, html: { method: :put }) do |f| %>
-    <%= devise_error_messages! %>
 
     <div class="form-pseudo-picture">
       <div class="field">
         <%= f.text_field :pseudo, autofocus: true, placeholder:"Pseudo",autocomplete: "Pseudo" %>
       </div>
 
-      <div class="field">
-        <i class="fas fa-plus-circle fa-2x" id="loadFileXml" value="Votre photo de profil" onclick="document.getElementById('file').click();"> </i>
-        <%= f.file_field :profile_picture, style:"display:none;", id:"file" %>
-
+      <div class="add-picture-artwork">
+          <i class="fas fa-plus-circle fa-2x" onclick="document.getElementById('upload').click();"> </i>
+          <p> Ajoutez votre photo de profil </p>
+        
+        <%= file_field_tag :img_url, id:"upload", style:"display:none", onchange:"readURL(this);" %>
+        <div class= "center-picture-preview">
+          <img id="picture-preview" src="#" alt="your image" style="display:none;" />
+        </div>
       </div>
-      <p> Changer votre photo de profil</p>
+
     </div>
 
     <div class="field">
@@ -67,6 +72,22 @@
 
     </div>
   </div>
-
-
 </div>
+
+<script type="text/javascript">
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $('#picture-preview')
+        .attr('src', e.target.result)
+        .height(30);
+    $('#picture-preview').show();
+    $(".submit-new-picture-button").show();   
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+  
+}
+
+</script>
