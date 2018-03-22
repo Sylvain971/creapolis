@@ -12,11 +12,13 @@
   border: 1px grey solid;
   text-decoration: none;
   height: 10vh;
-  width: 60vw;
-  line-height: 10vh;
-  text-align: center;
+  width: 70vw;
   font-size: medium;
   color: #09125A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .admin_menu a:hover{

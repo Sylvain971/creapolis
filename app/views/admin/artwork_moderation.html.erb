@@ -12,4 +12,13 @@
   <div class="artwork_moderation">
     Modération des oeuvres :
   </div>
+  <% @artworks.each do |artwork| %>
+    <% if !artwork.title.nil? %>
+      <%= artwork.title %>
+    <% else %>
+      Pas de titre
+    <% end %>
+    <%= artwork.description %>
+    <%= artwork.artist %>
+  <% end %>
 </div>
