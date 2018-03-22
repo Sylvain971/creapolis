@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
-	resources :artworks
+	resources :artworks do
+    member do
+      put "validated", to: "admin#artwork_validated"
+    end
+  end
 	resources :searches
   resources :routes
 	resources :pictures do
@@ -24,7 +28,6 @@ Rails.application.routes.draw do
       put "like", to: "pictures#upvote"
       put 'unlike', to: "pictures#downvote"
     end
-
   end
 
 	get 'admin', to: "admin#adminboard", as: "admin"

@@ -26,3 +26,17 @@
   color: white;
   text-decoration: none;
 }
+
+.artwork_moderation {
+  padding: 0 15px;
+}
+
+.artwork_moderation table{
+  tr {
+    border:1px solid grey;
+  }
+  td {
+    padding-right: 10px;
+
+  }
+}
