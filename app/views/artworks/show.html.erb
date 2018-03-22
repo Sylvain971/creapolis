@@ -75,9 +75,7 @@
         </div>
         <%end%>
       
-      
 
-        
         <br>
       
         <% if @artwork.pictures.count > 1 %>
@@ -149,7 +147,11 @@
         <!-- Artwork info end -->
       </div> 
 
-    <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork), class:"claim-artwork"%> </div> 
+    <% if !current_user.created_artworks.include?(@artwork)%> 
+    <div class="claim-artwork">
+    <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %> 
+    </div> 
+    <%end %>
     </div>
     <!-- Class col sm 9 end -->
   </div>

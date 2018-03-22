@@ -51,8 +51,11 @@ class ArtworksController < ApplicationController
 
   def claim_artwork
     @artwork = Artwork.find(params[:id]) 
-    current_user.created_artworks = @artwork
+    current_user.created_artworks << @artwork
     current_user.status = "pending" 
+    current_user.save
+    flash[:notice] = 'Cette oeuvre apparaîtra sur votre profil après modération !'
+    redirect_to @artwork
   end
 
 	private
