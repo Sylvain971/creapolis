@@ -9,7 +9,6 @@
 
 <div class="body-container">
 
-
   <!-- Container-fluid FIRST beign -->
   <div class="container-fluid">
 
@@ -58,8 +57,11 @@
 <!-- Container-fluid end -->
 
 
-
 <div class="picture_informations">
+  <div class="nothing">
+    <i class="fas fa-exclamation-triangle"></i>
+
+  </div>
   <div class="btn-group">
       <% if current_user.voted_for? @picture %>
           <%= link_to unlike_picture_path(@picture), method: :put, class: "round-corner-ok" do %>
@@ -74,6 +76,9 @@
           <%= @picture.get_upvotes.size %></span>
           <% end %>
       <% end %>
+  </div>
+  <div class="signal-picture-button">
+    <%= link_to content_tag(:i, nil, class: "fas fa-exclamation-triangle"), signal_picture_path(@picture) %>
   </div>
 </div>
 

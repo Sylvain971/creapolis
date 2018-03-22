@@ -30,13 +30,13 @@ class PicturesController < ApplicationController
   def upvote
     @picture = Picture.find(params[:id])
     @picture.liked_by current_user
-    redirect_to @picture
+    redirect_to request.referrer
   end
 
   def downvote
     @picture = Picture.find(params[:id])
     @picture.unliked_by current_user
-    redirect_to @picture
+    redirect_to request.referrer
   end
 
   def destroy
@@ -55,6 +55,14 @@ class PicturesController < ApplicationController
       flash[:danger] = 'Accès refusé !'
       redirect_to picture_path
     end
+  end
+
+  def signal
+    @picture = Picture.find(params[:id])
+    @picture.signaled = true
+    @picture.save
+    flash[:notice] = 'Votre signalement est pris en compte !'
+    redirect_to @picture
   end
 
   private

@@ -27,12 +27,7 @@
   text-decoration: underline;
 }
 
-.title_artwork{
-	font-weight: bold;
-	font-size: 16px;
-	width: 80%;
-	height: auto;
-}
+
 
 .clear{
 	clear: both;
@@ -50,7 +45,7 @@
   /*background-color: red;*/
   height: 20%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 20px;
 }
 
@@ -58,6 +53,21 @@
 text-decoration: none;
 }
 
+.nothing {
+  .fas {
+    color: white;
+    margin-right: 3vh;
+    margin-left: 3vh;
+  }
+}
+
+.signal-picture-button {
+  .fas {
+    color: #666;
+    margin-right: 3vh;
+    margin-left: 3vh;
+  }
+}
 
 .round-corner-ok{
   border-radius: 25px;

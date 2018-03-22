@@ -32,3 +32,18 @@
 .equilibre{
 	margin-left:20px;
 }
+
+.list-group-item-inside{
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-group-item-inside  a{
+  text-decoration: none;
+  color: #666;
+  :hover {
+    text-decoration: none;
+  }
+}
+
+

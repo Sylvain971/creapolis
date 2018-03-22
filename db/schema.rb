@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321113207) do
+ActiveRecord::Schema.define(version: 20180322104347) do
 
   create_table "artworks", force: :cascade do |t|
     t.string "title"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180321113207) do
     t.datetime "updated_at", null: false
     t.string "artist"
     t.string "style"
+    t.boolean "moderated", default: false
   end
 
   create_table "artworks_routes", id: false, force: :cascade do |t|
@@ -39,6 +40,8 @@ ActiveRecord::Schema.define(version: 20180321113207) do
     t.datetime "updated_at", null: false
     t.integer "artwork_id"
     t.integer "user_id"
+    t.boolean "moderated", default: false
+    t.boolean "signaled", default: true
     t.index ["artwork_id"], name: "index_pictures_on_artwork_id"
     t.index ["user_id"], name: "index_pictures_on_user_id"
   end
@@ -71,6 +74,7 @@ ActiveRecord::Schema.define(version: 20180321113207) do
     t.string "city"
     t.string "provider"
     t.string "uid"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
