@@ -66,8 +66,6 @@ h2 {
 }
 
 .my_header li{
-  height: 10vh;
-  width: 15%;
   height: 8vh;
   width: 18%;
   display: flex;
@@ -488,7 +486,7 @@ img {
 
 /* ---------- Mise en forme Alert messages -- */
 .my_alert-notice, .my_alert-alert {
-    position: absolute;
+    position: absolute; 
     height: 45px;
     text-align: center;
     width: 100vw;
@@ -498,13 +496,23 @@ img {
     padding: 13px;
 }
 .my_alert-notice { background-color: #00EA8A; }
+
 .my_alert-alert {
   background-color: #E76262;
   color : white;
 }
 
-#error_explanation {
-    color: #b1205d;
+.error-explanation-devise {
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+    top: 0px;
+    background-color: #E76262;
+    color: white;
+    font-size: 12px;
+    top: 8vh;
+    padding: 3px;
+    text-align: center;
 }
 
 

@@ -6,15 +6,16 @@
     <li></li>
 </div>
 
-<div class="connection">
 
+<div class="connection">
+<%= devise_error_messages! %>
   <!-- formulaire pour s'inscrire -->
   <div class="box-connection-top">
+
 
     <div class="form-title">S'inscrire</div>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), multipart: true) do |f| %>
-      <%= devise_error_messages! %>
 
     <div class="form-pseudo-picture">  
       <div class="field">
