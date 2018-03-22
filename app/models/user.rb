@@ -10,6 +10,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  STATUS_OPTIONS = ['unvalidated', 'pending', 'validated']
+
+  validates_inclusion_of :status, :in => STATUS_OPTIONS
 
   attr_accessor :profile_picture
 

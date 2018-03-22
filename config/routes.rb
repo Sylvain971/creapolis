@@ -39,6 +39,6 @@ Rails.application.routes.draw do
 
 
   get 'pictures/signaled/:id', to: "pictures#signal", as: "signal_picture"
- 
+  get 'artworks/claimed/:id', to: "artworks#claim_artwork", as: "claim_artwork"
 end
 

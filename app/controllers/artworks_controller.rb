@@ -49,6 +49,12 @@ class ArtworksController < ApplicationController
   	redirect_to artworks_path
   end
 
+  def claim_artwork
+    @artwork = Artwork.find(params[:id])
+
+    #current_user.status = 
+  end
+
 	private
 	def artworks_params
 		params.permit(:title, :description, :lat, :long, :artist)
