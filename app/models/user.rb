@@ -33,6 +33,8 @@ class User < ApplicationRecord
     searchableAttributes ['pseudo']
     # the `customRanking` setting defines the ranking criteria use to compare two matching
     # records in case their text-relevance is equal. It should reflect your record popularity.
+  	customRanking ['desc(artist)']
+
   end
 
   def user_picture

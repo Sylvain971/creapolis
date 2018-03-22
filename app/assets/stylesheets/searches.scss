@@ -3,12 +3,21 @@
 	background-color: rgba(229,229,229, 0.5);
 }
 
+#search-container {
+ 	background-color: rgba(229,229,229, 1);
+}
+
 #search-input {
-	margin-top: 5vh;
-	margin-bottom: 3vh;
+	margin-top: 6vh;
+	margin-bottom: 2.5vh;
 	margin-left: 12.5vw;
 	margin-right: 12.5vw;
+	padding: 3px;
 	width: 75vw;
+  box-shadow: none;
+  border: solid 1px #E4E4E4;
+  border-radius: 6px;
+  background-color: #fff;
 }
 
 .ais-hits {
@@ -56,3 +65,4 @@
 	margin-right: 45vw;
 	padding: 0;
 }
+
