@@ -10,9 +10,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+    def create
+      super
+      @user = User.last
+      p "Coucou ca marche"
+      ConfirmationMailer.sample_email(@user).deliver!
+    end
+
 
   # GET /resource/edit
   # def edit
@@ -23,6 +27,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def update
   #   super
   # end
+
+  def update_resource(resource, params)
+    if resource.provider == "facebook"
+      params.delete("current_password")
+      resource.update_without_password(params)
+    else
+      resource.update_with_password(params)
+    end
+  end
 
   # DELETE /resource
   # def destroy

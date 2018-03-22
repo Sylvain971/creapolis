@@ -14,7 +14,8 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => {
     sessions: 'users/sessions',
-    :omniauth_callbacks => "users/omniauth_callbacks"
+    :omniauth_callbacks => "users/omniauth_callbacks",
+    registrations: 'users/registrations' 
   }
   resources :users, :only => [:show] do
       member do
@@ -46,4 +47,8 @@ Rails.application.routes.draw do
   get 'artworks/show_small/:id', to: "artworks#show_small"
   get 'artworks/new/:lat/:long', to: "arwtorks#new"
 
+
+  get 'pictures/signaled/:id', to: "pictures#signal", as: "signal_picture"
+  get 'artworks/claimed/:id', to: "artworks#claim_artwork", as: "claim_artwork"
 end
+

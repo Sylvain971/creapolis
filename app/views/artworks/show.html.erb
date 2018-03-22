@@ -8,81 +8,111 @@
 
 <!-- body-container begin -->
 <div class="body-container">
-
   <!-- Container-fluid FIRST beign -->
-  <div class="container-fluid">
+  <div class="title-artwork">
+    <% if @artwork.title != ""%>
+    <%= @artwork.title %>
+    <%end%>  
+  </div>
 
+  <div class="container-fluid">
     <!-- Row content begin -->
     <div class="row content">
-<br>
-
-
+      <br>
 
 <!-- Class col sm 9 begin -->
       <div class="col-sm-9">
 
-
-
-
 <!-- Slideshow begin -->
         
-<% @artwork.pictures.each.with_index do |picture, index| %>
+      <% @artwork.pictures.each.with_index do |picture, index| %>
+        <div class="mySlides">
+          <div class="numbertext"><%= index + 1 %> / <%= @artwork.pictures.count %> 
+          </div>
+          <%= cl_image_tag picture.img_url, :secure => true, class: "img-responsive" %>
+        
+          <div class="artwork-picture-info">
+            <div class="user_avatar_row_small">
+              <div class="publish space-top-bot-10">
+                <%= link_to user_profile_path(picture.user_id) do %>
+                  <% if picture.user.profile_picture.url.nil? %>
+                  <%= image_tag "default_profile_picture.jpg"%>
+                  <% else %>
+                  <%= cl_image_tag picture.user.profile_picture,:width => 200, :height => 200, :crop => :fill, :secure => true %>
+                  <% end %>
+                <% end %>
 
-    <div class="mySlides">
-      <div class="numbertext"><%= index + 1 %> / <%= @artwork.pictures.count %> </div>
-      <%= cl_image_tag picture.img_url, :secure => true, class: "img-responsive" %>
-    </div>
-<%end%>
+                  <span style="padding-left: 5px;">
+                    Publié par :
+                    <span style="font-weight: bold;">
+                      <%= link_to user_profile_path(picture.user_id) do %>
+                      <%= picture.user.pseudo %>
+                      <% end %>
+                    </span>
+                  </span>
+                </div>
+              </div>
 
+              <div class="btn-group">
+                <% if current_user.voted_for? picture %>
+                <%= link_to unlike_picture_path(picture), method: :put, class: "round-corner-ok" do %>
+                <i class="fas fa-heart" style="color:#E76262"></i>
+                <span style="font-size: 12px; color:#E76262; font-weight: 700; font-size: 16px;margin-left: 5px;">
+                <%= picture.get_upvotes.size %></span>
+                <% end %>
+                <% else %>
+                <%= link_to like_picture_path(picture), method: :put, class: "round-corner-no" do %>
+                <i class="far fa-heart"></i>
+                <span style="font-size: 16px;margin-left: 5px;">
+                <%= picture.get_upvotes.size %></span>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="signal-picture-button">
+              <%= link_to content_tag(:i, nil, class: "fas fa-exclamation-triangle"), signal_picture_path(picture) %>
+            </div>
+          </div>
+        </div>
+        <%end%>
+      
 
-<br>
-    
-    <% if @artwork.pictures.count > 1 %>
-    <div class="scroll-group">
-      <div class="row">
+        <br>
+      
+        <% if @artwork.pictures.count > 1 %>
+        <div class="scroll-group">
+          <div class="row">
 
-<% @artwork.pictures.each.with_index do |picture, index| %>
+        <% @artwork.pictures.each.with_index do |picture, index| %>
 
-      <div class="col-xs-4">
-        <%= cl_image_tag(picture.img_url,:width => 400, :height => 225, :crop => :fit, :secure => true, class: "demo cursor", :onclick =>"currentSlide(#{index+1})")%>
+            <div class="col-xs-4">
+            <%= cl_image_tag(picture.img_url, :crop => :fill, :width => 400, :height => 225, :secure => true, class: "img-responsive demo cursor", :onclick =>"currentSlide(#{index+1})")%>
+            </div>
+          <%end%>
+          </div>
+        </div>
+        <%end%>
+  <!-- Slideshow end -->
+      
+        <%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
+        <div class="add-picture-artwork">
+          <i class="fas fa-plus-circle fa-2x" onclick="document.getElementById('upload').click();"> </i>
+          <p> Ajoutez votre photo de cette oeuvre ! </p>
+        </div>
+        <%= file_field_tag :img_url, id:"upload", style:"display:none", onchange:"readURL(this);" %>
+        <div class= "center-picture-preview">
+          <img id="picture-preview" src="#" alt="your image" style="display:none;" />
+        </div>
+        <div class="submit-new-picture-button" style="display:none">
+          <%= submit_tag 'Valider'%>
+        </div>
+        <% end %>
       </div>
-
-<%end%>
-
-
-
-  </div>
-</div>
-<%end%>
-
-
-<br>
-<!-- Slideshow end -->
-
-<!-- Title artwork -->
-      <div class="title_artwork"><%= @artwork.title %></div>
-
-
-  <hr>
-
-<div class="submit_picture">
-  <%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
-	<%= file_field_tag(:img_url) %>
-	<span class="btn">
-    <span> <%= submit_tag 'Valider', class: "btn btn-primary"%></span>
-  </span>
-	<% end %>
-</div>
-
-  <br>
-
-
-      <!-- Artwork info begin -->
+      </div>
+      <hr>
+        <!-- Artwork info begin -->
       <div class="artwork_info">
-
-      <!-- Left -->
+        <!-- Left -->
         <div class="artwork_info_group_left">
-
           <div class="artwork_info_artist">
             <ul>
               <li><i class="fas fa-user" style="margin-right: 15px;"></i></li>
@@ -96,13 +126,11 @@
               <li><span>Technique</span></li>
             </ul>
           </div>
-
         </div>
 
 
-      <!-- Right -->
+        <!-- Right -->
         <div class="artwork_info_group_right">
-
           <div class="artwork_info_place">
             <ul>
               <li><i class="fas fa-map-marker" style="margin-right: 15px;"></i></li>
@@ -116,61 +144,18 @@
             </ul>
           </div>
         </div>
-        
-      </div>
-      <!-- Artwork info end -->
+        <!-- Artwork info end -->
+      </div> 
 
-      <hr>
-
-
-
-        <h4>Leave a Comment:</h4>
-        <form role="form">
-          <div class="form-group">
-            <textarea class="form-control" rows="3" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-success">Submit</button>
-        </form>
-        <br><br>
-        
-        <p><span class="badge">2</span> Comments:</p><br>
-        
-        <div class="row">
-
-          <div class="col-sm-2 ">
-            <%= image_tag('image1.jpg', class: "user_avatar_small") %>
-          </div>
-          <div class="col-sm-10">
-            <h4>Anja <small>Sep 29, 2015, 9:12 PM</small></h4>
-            <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <br>
-          </div>
-
-          <div class="col-sm-2">
-            <%= image_tag('image2.jpg', class: "user_avatar_small") %>
-          </div>
-          <div class="col-sm-10">
-            <h4>John Row <small>Sep 25, 2015, 8:25 PM</small></h4>
-            <p>I am so happy for you man! Finally. I am looking forward to read about your trendy life. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <br>
-            
-            
-            
-                <br>
-                <br>
-          </div>
-        </div>
-
-      </div>
-      <!-- Class col sm 9 end -->
+    <% if !current_user.created_artworks.include?(@artwork)%> 
+    <div class="claim-artwork">
+    <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %> 
+    </div> 
+    <%end %>
     </div>
-    <!-- Row content end -->
+    <!-- Class col sm 9 end -->
   </div>
-  <!-- Container-fluid -->
-</div>
-<!-- body-container begin -->
 
-<%= render 'layouts/bottom_menu' %>
 
 
 
@@ -206,6 +191,38 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
   captionText.innerHTML = dots[slideIndex-1].alt;
 }
+
+
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $('#picture-preview')
+        .attr('src', e.target.result)
+        .height(200);
+    $('#picture-preview').show();
+    $(".submit-new-picture-button").show();   
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+  
+}
+
+$('#submit-picture').click(
+function(){ 
+  if($('#upload').get(0).files.length === 0){ 
+      alert("Vous n'avez pas rentré de photo pour cette oeuvre !"); 
+      return false; 
+   } else {
+    return true;
+   }
+}); 
+
+
+
+
+
 </script>
 <!-- Script slideshow artwork -->
 

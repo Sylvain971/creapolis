@@ -10,6 +10,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  STATUS_OPTIONS = ['unvalidated', 'pending', 'validated']
+
+  validates_inclusion_of :status, :in => STATUS_OPTIONS
 
   attr_accessor :profile_picture
 
@@ -24,8 +27,8 @@ class User < ApplicationRecord
 	algoliasearch do
 
 		# list of attribute used to build an Algolia record
-    attributes :pseudo, :artist, :city, :created_at
-    add_attribute :user_picture
+    attributes :pseudo, :artist, :city, :created_at, :id
+    add_attributes :user_picture, :artist_check
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
     # You need to list them by order of importance. `description` is tagged as
@@ -33,10 +36,24 @@ class User < ApplicationRecord
     searchableAttributes ['pseudo']
     # the `customRanking` setting defines the ranking criteria use to compare two matching
     # records in case their text-relevance is equal. It should reflect your record popularity.
+  	customRanking ['desc(artist)']
+
   end
 
   def user_picture
-  	self.profile_picture_url :secure => true, :crop => :fit, :width => 200, :height => 200
+  	if self.profile_picture_url == nil
+  		"https://res.cloudinary.com/creapolis/image/upload/v1521038222/image1.jpg"
+  	else
+  		self.profile_picture_url :secure => true, :crop => :fit, :width => 200, :height => 200
+  	end
+  end
+
+  def artist_check
+  	if self.artist == true
+  		"https://res.cloudinary.com/creapolis/image/upload/v1521717762/checked.png"
+  	else
+  		nil
+  	end
   end
 
 
@@ -55,6 +72,8 @@ class User < ApplicationRecord
       user.firstname = auth.info.first_name   # assuming the user model has a name
       user.name = auth.info.last_name   # assuming the user model has a name
       user.profile_picture = auth.info.image # assuming the user model has an image
+      
+      ConfirmationMailer.sample_email(user).deliver!
     end
 end
 

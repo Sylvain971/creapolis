@@ -104,9 +104,6 @@ align-items: center;
 }
 
 
-
-
-
 /* The heart of the matter */
 .scroll-group > .row {
   overflow-x: auto;
@@ -125,18 +122,56 @@ align-items: center;
     
 }
 
-
-
-.submit_picture .btn{
-  width: 100%;
-  height: auto;
-  padding-left: 0px;
+.title-artwork{
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10vh;
+    width:100%;
 }
 
+.add-picture-artwork {
+  display: flex;
+  justify-content: center;
+  .fas {
+    margin-right: 7px;
+    margin-top: -4px;
+  }
 
+}
 
+.submit-new-picture-button {
+  input[type=submit] {
+    background-color: #ec607e;
+    padding: 15px 0px 15px 10px;
+    width: 100%;
+    border: 0px;
+    border-radius: 3px;
+  }
+}
 
+.center-picture-preview {
+  display: flex;
+  justify-content: center;
+}
 
+.artwork-picture-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.claim-artwork {  
+  text-align: center;
+  width: 100%;
+}
+
+.claim-artwork a {
+  color:#26348b;
+  border: 2px solid #26348B;
+  border-radius: 4px;
+  padding: 5px;
+}
 
 
 
