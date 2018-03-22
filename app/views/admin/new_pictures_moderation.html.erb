@@ -1,0 +1,15 @@
+<div class="my_header">
+  <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
+    </li>
+    <div class="header_title">
+      <div class="header_title_logo"></div>
+    </div>
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt'), destroy_user_session_path, method: :delete  %>
+    </li>
+</div>
+
+<div class="body-container">
+  <div class="artwork_moderation">
+    Modération des dernières images ajoutées :
+  </div>
+</div>

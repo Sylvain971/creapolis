@@ -1,0 +1,16 @@
+<div class="my_header">
+  <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
+    </li>
+    <div class="header_title">
+      <div class="header_title_logo"></div>
+    </div>
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt'), destroy_user_session_path, method: :delete  %>
+    </li>
+</div>
+<div class="body-container">
+  <div class="admin_menu">
+    <%= link_to "Modération des oeuvres", art_moderation_path  %>
+    <%= link_to "Modération des nouvelles photos", new_pic_moderation_path  %>
+    <%= link_to "Photos signalées", signaled_pic_moderation_path  %>
+  </div>
+</div>
