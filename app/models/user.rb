@@ -7,7 +7,9 @@ class User < ApplicationRecord
   has_many :pictures
   has_and_belongs_to_many :created_artworks, class_name: "Artwork"
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, :omniauth_providers => [:facebook]
+
 
   attr_accessor :profile_picture
 
@@ -34,7 +36,26 @@ class User < ApplicationRecord
   end
 
   def user_picture
-  	self.profile_picture_url :secure => true
+  	self.profile_picture_url :secure => true, :crop => :fit, :width => 200, :height => 200
   end
+
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.firstname = auth.info.first_name   # assuming the user model has a name
+      user.name = auth.info.last_name   # assuming the user model has a name
+      user.profile_picture = auth.info.image # assuming the user model has an image
+    end
+end
 
 end

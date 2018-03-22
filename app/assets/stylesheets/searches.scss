@@ -1,3 +1,52 @@
-// Place all the styles related to the Searches controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.body-searches {
+	display: block;
+}
+
+#search-input {
+	margin-top: 5vh;
+	margin-bottom:  5vh;
+	margin-left: 10vw;
+	margin-right: 10vw;
+	width: 80vw;
+}
+
+.ais-hits {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.hit-content {
+	display: flex;
+	border: 1.4px solid;
+	border-color: #23527c;
+	border-radius: 25px;
+	padding-right: 2vw;
+	padding-left: 2vw;
+	margin: 2%;
+}
+
+.hit-user_picture {
+	margin-left: 2vw;
+	height: 40px;
+	width: 40px;
+	border-radius: 50px
+}
+
+.hit-pseudo {
+	margin-left: 2vw;
+	margin-right: 2vw;
+	margin: 2vh;
+}
+
+.hit-artist {
+	margin-top: 2vh;
+	margin-bottom: 2vh;
+	margin-right: 2vw;
+}
+
+.ais-pagination {
+	width: 10vw;
+	margin-left: 45vw;
+	margin-right: 45vw;
+	padding: 0;
+}

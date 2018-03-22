@@ -1,25 +1,35 @@
-<header>
-    <div>
-       <input id="search-input" placeholder="Search for products">
-       <!-- We use a specific placeholder in the input to guides users in their search. -->
+<div class="my_header">
+    <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
+    <div class="header_title">
+      <div class="header_title_logo"></div>
     </div>
-  </header>
-  <main>
-      <div id="hits"></div>
-      <script type="text/html" id="hit-template">
-				<div class="hit">
-				  <div class="hit-content">
-				    <p class="hit-pseudo">{{{_highlightResult.pseudo.value}}} </p>
-				    <p class="hit-artist"> {{artist}} </p>
-      			<img class="hit-user_picture" src="{{user_picture}}" alt="{{name}}">
-				  </div>
-				</div>
-			</script>
+    <li></li>
+</div>
 
-      <div id="pagination"></div>
-  </main>
+<div class="body-container">
+	<div class="body-searches">
+		<div>
+		   <input id="search-input" placeholder="Rechercher un artiste">
+		   <!-- We use a specific placeholder in the input to guides users in their search. -->
+		</div>
 
-<%= render 'layouts/bottom_menu' %>
+		<main>
+		    <div id="hits"></div>
+		    <script type="text/html" id="hit-template">
+					<div class="hit">
+					  <div class="hit-content">
+		    			<img class="hit-user_picture" src="{{user_picture}}" alt="Photo">
+					    <p class="hit-pseudo">{{{_highlightResult.pseudo.value}}} </p>
+					    <p class="hit-artist"> {{artist}} </p>
+					  </div>
+					</div>
+				</script>
+
+		    <div id="pagination"></div>
+		</main>
+	</div>
+	<%= render 'layouts/bottom_menu' %>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
 
