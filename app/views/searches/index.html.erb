@@ -17,7 +17,7 @@
 		    <div id="hits"></div>
 		    <script type="text/html" id="hit-template">
 					<div class="hit">
-					  <div class="hit-content" onclick="goToProfilePage({{user_id}})">
+					  <div class="hit-content" onclick="goToProfilePage('{{id}}')">
 		    			<img class="hit-user_picture" src="{{user_picture}}" alt="Photo">
 					    <p class="hit-pseudo">{{{_highlightResult.pseudo.value}}} </p>
 					    <img class="hit-artist_check" src="{{artist_check}}">
@@ -69,8 +69,7 @@ search.addWidget(
 search.start();
 
 function goToProfilePage(id){
-	console.log(id);
-	window.open("/users/"+id,"_parent");
+	window.open("/users/"+id,"_self");
 }
 
 </script>
