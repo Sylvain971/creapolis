@@ -1,5 +1,5 @@
 <div class ="artwork-image-likes">
-    <%= link_to image_tag(@artwork.pictures.first.img_url), artwork_path(@artwork) %>
+    <%= link_to cl_image_tag(@artwork.pictures.first.img_url, :secure => true), artwork_path(@artwork) %>
 </div>
 
 <div class = "artwork-infos">

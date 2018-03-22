@@ -87,7 +87,7 @@
         <% @artwork.pictures.each.with_index do |picture, index| %>
 
             <div class="col-xs-4">
-            <%= cl_image_tag(picture.img_url,:width => 400, :height => 225, :crop => :fit, :secure => true, class: "demo cursor", :onclick =>"currentSlide(#{index+1})")%>
+            <%= cl_image_tag(picture.img_url, :crop => :fill, :width => 400, :height => 225, :secure => true, class: "img-responsive demo cursor", :onclick =>"currentSlide(#{index+1})")%>
             </div>
           <%end%>
           </div>
@@ -155,9 +155,6 @@
   </div>
   <!-- Container-fluid -->
 </div>
-
-
-<%= render 'layouts/bottom_menu' %>
 
 
 

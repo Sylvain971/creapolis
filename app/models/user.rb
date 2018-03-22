@@ -38,7 +38,11 @@ class User < ApplicationRecord
   end
 
   def user_picture
-  	self.profile_picture_url :secure => true, :crop => :fit, :width => 200, :height => 200
+  	if self.profile_picture_url == nil
+  		"https://res.cloudinary.com/creapolis/image/upload/v1521038222/image1.jpg"
+  	else
+  		self.profile_picture_url :secure => true, :crop => :fit, :width => 200, :height => 200
+  	end
   end
 
   def artist_check
