@@ -21,4 +21,17 @@ class AdminController < ApplicationController
   def signaled_pictures_moderation
     @users = User.all
   end
+
+  def artists_moderation
+    @users = User.all
+    @pending_users = User.where(:status == "pending")
+  end
+
+  def artists_validated
+    @user = User.find(params[:id])
+    @user.update_attributes(status: "validated")
+    @user.artist == true
+    @artist.save
+    redirect_to artist_moderation_path
+  end
 end
