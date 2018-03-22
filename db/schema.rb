@@ -71,9 +71,9 @@ ActiveRecord::Schema.define(version: 20180322104347) do
     t.string "name"
     t.boolean "artist", default: false
     t.string "profile_picture"
+    t.string "city"
     t.string "provider"
     t.string "uid"
-    t.string "city"
     t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

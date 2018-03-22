@@ -31,5 +31,7 @@ Rails.application.routes.draw do
 	get 'users/:id', to: "users#show", as: "user_profile"
   get 'artworks/show_small/:id', to: "artworks#show_small"
   get 'artworks/new/:lat/:long', to: "arwtorks#new"
+
+  get 'pictures/signaled/:id', to: "pictures#signal", as: "signal_picture"
  
 end

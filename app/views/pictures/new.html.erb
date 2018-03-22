@@ -19,7 +19,9 @@
           <p> Ajoutez votre photo </p>
         </div>
         <%= file_field_tag :img_url, id:"upload", style:"display:none", onchange:"readURL(this);" %>
-        <img id="picture-preview" src="#" alt="your image" style="display:none;" />
+        <div class= "center-picture-preview">
+          <img id="picture-preview" src="#" alt="your image" style="display:none;" />
+        </div>
 
       </div>
 
