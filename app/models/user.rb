@@ -24,8 +24,8 @@ class User < ApplicationRecord
 	algoliasearch do
 
 		# list of attribute used to build an Algolia record
-    attributes :pseudo, :artist, :city, :created_at
-    add_attribute :user_picture
+    attributes :pseudo, :artist, :city, :created_at, :id
+    add_attributes :user_picture, :artist_check
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
     # You need to list them by order of importance. `description` is tagged as
@@ -33,10 +33,20 @@ class User < ApplicationRecord
     searchableAttributes ['pseudo']
     # the `customRanking` setting defines the ranking criteria use to compare two matching
     # records in case their text-relevance is equal. It should reflect your record popularity.
+  	customRanking ['desc(artist)']
+
   end
 
   def user_picture
   	self.profile_picture_url :secure => true, :crop => :fit, :width => 200, :height => 200
+  end
+
+  def artist_check
+  	if self.artist == true
+  		"https://res.cloudinary.com/creapolis/image/upload/v1521717762/checked.png"
+  	else
+  		nil
+  	end
   end
 
 
