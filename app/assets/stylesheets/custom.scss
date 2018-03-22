@@ -445,6 +445,12 @@ img {
   justify-content: space-between;
 }
 
+.picture-new-container {
+  display: flex;
+  height: 78vh;
+  align-items: center;
+}
+
 .picture-new {
   display:  flex;
   flex-direction:  column;
@@ -475,6 +481,11 @@ img {
 .picture-new input[type="submit"]:hover {
   background-color: #d85b74;
 }
+
+.add-picture {
+  display: flex;
+}
+
 
 /* ---------- Mise en forme Alert messages -- */
 .my_alert-notice, .my_alert-alert {
