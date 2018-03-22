@@ -62,17 +62,20 @@
 <!-- Title artwork -->
       <div class="title_artwork"><%= @artwork.title %></div>
 
-<br>
-<div style="text-align: center">Like coming soon</div>
-
-
 
   <hr>
 
+<div class="submit_picture">
   <%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
 	<%= file_field_tag(:img_url) %>
-	<p> <%= submit_tag 'Valider', class: "btn btn-primary"%></p>
+	<span class="btn">
+    <span> <%= submit_tag 'Valider', class: "btn btn-primary"%></span>
+  </span>
 	<% end %>
+</div>
+
+  <br>
+
 
       <!-- Artwork info begin -->
       <div class="artwork_info">

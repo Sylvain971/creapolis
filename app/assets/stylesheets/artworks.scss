@@ -107,8 +107,6 @@ align-items: center;
 
 
 
-
-
 /* The heart of the matter */
 .scroll-group > .row {
   overflow-x: auto;
@@ -128,6 +126,12 @@ align-items: center;
 }
 
 
+
+.submit_picture .btn{
+  width: 100%;
+  height: auto;
+  padding-left: 0px;
+}
 
 
 
