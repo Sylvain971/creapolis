@@ -30,14 +30,18 @@
 	</div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
+
 
 <script type="text/javascript">
 
-var search = instantsearch({
+
+  var search = instantsearch({
   appId: '<%= ENV['ALGOLIA_APPLICATION_ID']%>' ,
   apiKey: '<%= ENV['ALGOLIA_SEARCH_ONLY_API_KEY']%>',
   indexName: 'User',
+  searchParameters: {
+    "hitsPerPage": 10
+  }
 });
 
 
@@ -70,7 +74,10 @@ var search = instantsearch({
 })();
 
   function goToProfilePage(id){
-  	window.open("/users/"+id,"_self");
+    window.open("/users/"+id,"_self");
   };
+
+
+
 
 </script>
