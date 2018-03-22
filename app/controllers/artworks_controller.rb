@@ -50,9 +50,9 @@ class ArtworksController < ApplicationController
   end
 
   def claim_artwork
-    @artwork = Artwork.find(params[:id])
-
-    #current_user.status = 
+    @artwork = Artwork.find(params[:id]) 
+    current_user.created_artworks = @artwork
+    current_user.status = "pending" 
   end
 
 	private
