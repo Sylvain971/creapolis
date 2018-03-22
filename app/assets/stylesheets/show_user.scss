@@ -1,3 +1,14 @@
+.admin_row{
+  width: 100vw;
+  height: 50px;
+  background-color: gold;
+  flex-direction: row;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .user_top{
   background-color: #f4f4f4;
   background-size: cover;

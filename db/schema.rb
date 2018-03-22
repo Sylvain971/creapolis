@@ -21,9 +21,7 @@ ActiveRecord::Schema.define(version: 20180322104347) do
     t.datetime "updated_at", null: false
     t.string "artist"
     t.string "style"
-    t.integer "user_id"
     t.boolean "moderated", default: false
-    t.index ["user_id"], name: "index_artworks_on_user_id"
   end
 
   create_table "artworks_routes", id: false, force: :cascade do |t|

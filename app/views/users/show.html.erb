@@ -15,6 +15,10 @@
 
   <!-- Partie du haut -->
   <div class="user_top">
+    <% if @user == current_user && @user.admin %>
+      <div class="admin_row"><%= link_to "Panneau d'administration", admin_path  %>
+      </div>
+    <% end %>
     <div class="user_row">
         <div class="user_row_left">
           <div class="user_avatar_row">
