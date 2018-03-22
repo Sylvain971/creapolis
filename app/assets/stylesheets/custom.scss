@@ -94,8 +94,7 @@ h2 {
   z-index: 999;
   text-transform: uppercase;
   font-weight: 700;
-
-
+  border-top: 1px solid #ccc;
 }
 
 .bottom_menu li{
@@ -351,7 +350,7 @@ img {
 }
 
 
-/* ---------- mise en form du formulaire creation artwork et picture -- */
+/* ---------- mise en forme du formulaire creation artwork et picture -- */
 
 .form-container {
   margin-top: 8vh;
@@ -362,9 +361,9 @@ img {
 .popup-form {
   z-index: 999;
   position: absolute;
-  top: 20vh;
-  bottom: 20vh;
-  width: 80%;
+  top: 12vh;
+  bottom: 10vh;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -384,7 +383,7 @@ img {
 .artwork-new{
   width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
-  height:60vh;
+  height:75vh;
   border-radius: 6px;
   padding: 20px;
 }
@@ -400,6 +399,7 @@ img {
   width:100%;
   border: 1px solid #ccc;
   border-radius: 3px;
+  margin-bottom: 5px;
 }
 
 .artwork-new input[type="submit"] {
@@ -421,6 +421,33 @@ img {
 
 .artwork-new label {
    color: #999;
+}
+
+#small-map-index {
+  height:30vh;
+  margin-bottom: 5px;
+}
+
+#generate-location {
+  height: 7vh;
+  padding: 2px;
+  background-color: #68bfac;
+  border-radius: 3px;
+  color: white;
+  margin-top: 5px;
+  text-align: center;
+  border:0px;
+}
+
+#move-marker {
+  display: flex;
+  justify-content: space-between;
+}
+
+.picture-new-container {
+  display: flex;
+  height: 78vh;
+  align-items: center;
 }
 
 .picture-new {
@@ -454,6 +481,11 @@ img {
   background-color: #d85b74;
 }
 
+.add-picture {
+  display: flex;
+}
+
+
 /* ---------- Mise en forme Alert messages -- */
 .my_alert-notice, .my_alert-alert {
     position: absolute;
@@ -479,30 +511,39 @@ img {
 /* -------------- Routes ----------------- */
 
 .route-info {
-  padding: 5px;
+  padding: 10px 15px;
   background-color: white;
   top: 10vh;
   right: 2vh;
-  width: 20vh;
+  width: 26vh;
   border-radius: 3px;
-  position:absolute;
+  position: absolute;
   z-index: 999;
+  opacity: 0.75;
+  box-shadow: 0 2px 8px 0;
+}
+
+.route-info p{
+  font-size: 0.89em;
+  margin: 5px 0 5px 0;
 }
 
 .go-to-route {
-  padding: 5px;
+  padding: 8px;
   background-color: #ec607e;
   top: 25vh;
   right: 2vh;
-  width: 20vh;
+  width: 13vh;
   border-radius: 3px;
   position:absolute;
   z-index: 999;
   text-align:center;
+  box-shadow: 0 2px 8px 0;
   a {
   text-decoration:none;
   color:white;
   }
+
   fas {
   color:white;
   margin-left: 20px;

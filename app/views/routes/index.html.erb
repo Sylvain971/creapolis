@@ -8,8 +8,44 @@
     </li>
 </div>
 
-<h1>Retrouvez tous nos itinéraires Street Art</h1>
 
-<% @routes.each do |route| %>
-<%= link_to route.title, route_path(route)%>
-<% end %>
+
+
+<div class="spaceleft">
+	<div class="title_routes">Retrouvez tous nos itinéraires Street Art</div>
+</div>
+
+
+
+<div class="list-group list-special">
+
+  <span class="list-group-item ">
+	<% @routes.each do |route| %>
+		<%= link_to route.title, route_path(route)%>
+		<%= link_to content_tag(:i, nil, class: 'fas fa-chevron-right equilibre'), route_path(route)%>
+	<% end %>
+  </span>
+
+  <span class="list-group-item ">
+	<% @routes.each do |route| %>
+		<%= link_to route.title, route_path(route)%>
+		<%= link_to content_tag(:i, nil, class: 'fas fa-chevron-right equilibre'), route_path(route)%>
+	<% end %>
+  </span>
+
+  <span class="list-group-item ">
+	<% @routes.each do |route| %>
+		<%= link_to route.title, route_path(route)%>
+		<%= link_to content_tag(:i, nil, class: 'fas fa-chevron-right equilibre'), route_path(route)%>
+	<% end %>
+  </span>
+
+  <span class="list-group-item ">
+	<% @routes.each do |route| %>
+		<%= link_to route.title, route_path(route)%>
+		<%= link_to content_tag(:i, nil, class: 'fas fa-chevron-right equilibre'), route_path(route)%>
+	<% end %>
+  </span>
+
+</div>
+

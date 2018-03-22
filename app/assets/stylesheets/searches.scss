@@ -13,6 +13,9 @@
 .ais-hits {
 	display: flex;
 	flex-wrap: wrap;
+	margin-left: 10vw;
+	margin-right: 10vw;
+	width: 80vw;
 }
 
 .hit-content {
@@ -22,14 +25,15 @@
 	border-radius: 25px;
 	padding-right: 2vw;
 	padding-left: 2vw;
+	padding-top: 0.5vh;
+	padding-bottom: 0.5vh;
 	margin: 2%;
 }
 
 .hit-user_picture {
-	margin-left: 2vw;
 	height: 40px;
 	width: 40px;
-	border-radius: 50px
+	border-radius: 50px;
 }
 
 .hit-pseudo {
@@ -38,7 +42,7 @@
 	margin: 2vh;
 }
 
-.hit-artist {
+.hit-artist_check {
 	margin-top: 2vh;
 	margin-bottom: 2vh;
 	margin-right: 2vw;

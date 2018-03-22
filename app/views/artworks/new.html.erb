@@ -1,0 +1,106 @@
+<div class="my_header">
+    <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
+    <div class="header_title">
+      <div class="header_title_logo"></div>
+    </div>
+    <li></li>
+</div>
+
+<div class="body-container">
+	<div class="artwork-new">
+		<p> Vous vous apprêtez à créer une oeuvre qui n'apparaît pas sur la carte. </p>
+		<%= form_tag (artworks_path) do %>
+		<% if @artwork.errors.any? %>
+		<div id="error_explanation">
+		  <h2>
+		    <%= pluralize(@artwork.errors.count, "error") %> prohibited
+		    this user from being saved:
+		  </h2>
+		    <% @artwork.errors.full_messages.each do |msg| %>
+		      <p><%= msg %></p>
+		    <% end %>
+		</div>
+		<% end %>
+
+		<div class="field input" >
+		  <%= text_field_tag :title, nil, placeholder: "Nom de l'oeuvre (si vous le connaissez)" %>
+		</div>
+		<div class="field input">
+		  <%= text_field_tag :artist,nil, placeholder: "Nom de l'artiste (si vous le connaissez)" %>
+		</div>
+
+		<div id="small-map-index"></div>
+		<div id= "move-marker">
+			<p> Bougez le point sur la carte ou </p>
+			<div id="generate-location">Rechargez votre emplacement</div>
+		</div>
+		<div class="field input" style="display: none">
+		  <%= label_tag 'lat', "Latitude"  %>
+		  <%= text_field_tag :lat, id:"lat" %>
+		</div>
+
+		<div class="field input" style="display:none">
+		  <%= label_tag 'long', "Longitude"  %>
+		  <%= text_field_tag :long, id:"long" %>
+		</div>
+		<%= submit_tag 'Valider', class: "btn btn-primary", id:"submit-artwork"%>
+		<% end %>
+	</div>
+	<!-- <div class="picture-new" style="display: none"> -->
+</div>
+
+<script type="text/javascript">
+
+//getLocation();
+
+console.log(sessionStorage.getItem('lat') + ", " + sessionStorage.getItem('lng'));
+
+// We start by getting current user location
+
+document.getElementById("lat").value = sessionStorage.getItem('lat');
+document.getElementById("long").value = sessionStorage.getItem('lng');
+
+
+
+// We set the map where the new point is supposed to be
+if (sessionStorage.getItem('lat') === null) {
+	console.log("coucou")
+	$("#small-map-index").html("Il semblerait que nous n'avons pas réussi à vous géolocaliser :(");
+
+} else {
+
+	small_map = L.map('small-map-index').setView([sessionStorage.getItem('lat'), sessionStorage.getItem('lng')], 16)
+
+
+	// This is a public token
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoianVzdGlrcm8iLCJhIjoiY2plbzR6djJnM3RyOTJ4cGszb3hiNGdtcCJ9._gRBjH1x_-nGrj7hD-2i6g', {
+	    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+	    maxZoom: 20,
+	    id: 'mapbox.streets',
+	    accessToken: 'pk.eyJ1IjoianVzdGlrcm8iLCJhIjoiY2plbzR6djJnM3RyOTJ4cGszb3hiNGdtcCJ9._gRBjH1x_-nGrj7hD-2i6g'
+	}).addTo(small_map);
+
+	var marker = L.marker([sessionStorage.getItem('lat'), sessionStorage.getItem('lng')],{draggable: true}).addTo(small_map);
+	
+	marker.on("drag", function(e) {
+	    var marker = e.target;
+	    //console.log(marker._latlng.lat)
+	    document.getElementById("lat").value = marker._latlng.lat;
+		document.getElementById("long").value = marker._latlng.lng;
+	    // small_map.panTo(new L.LatLng(marker._latlng.lat, marker._latlng.lng));
+	});
+}
+
+$("#generate-location").on("click", function(){
+	getLocation();
+	window.location.reload();
+})
+
+
+
+
+
+</script>
+
+
+
