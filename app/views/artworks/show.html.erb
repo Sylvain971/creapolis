@@ -15,6 +15,8 @@
     <%end%>  
   </div>
 
+
+  <!-- container-fluid -->
   <div class="container-fluid">
     <!-- Row content begin -->
     <div class="row content">
@@ -23,16 +25,21 @@
 <!-- Class col sm 9 begin -->
       <div class="col-sm-9">
 
+
+
+
 <!-- Slideshow begin -->
         
       <% @artwork.pictures.each.with_index do |picture, index| %>
         <div class="mySlides">
           <div class="numbertext"><%= index + 1 %> / <%= @artwork.pictures.count %> 
           </div>
-          <%= cl_image_tag picture.img_url, :secure => true, class: "img-responsive" %>
+          
+            <%= cl_image_tag picture.img_url, :secure => true, class: "img-responsive" %>
         
           <div class="artwork-picture-info">
-            <div class="user_avatar_row_small">
+
+            <div class="user_avatar_row_small_type">
               <div class="publish space-top-bot-10">
                 <%= link_to user_profile_path(picture.user_id) do %>
                   <% if picture.user.profile_picture.url.nil? %>
@@ -53,30 +60,42 @@
                 </div>
               </div>
 
-              <div class="btn-group">
+
+
+              <div class="">
                 <% if current_user.voted_for? picture %>
-                <%= link_to unlike_picture_path(picture), method: :put, class: "round-corner-ok" do %>
+                <%= link_to unlike_picture_path(picture), method: :put, class: "round-corner-ok-small" do %>
                 <i class="fas fa-heart" style="color:#E76262"></i>
                 <span style="font-size: 12px; color:#E76262; font-weight: 700; font-size: 16px;margin-left: 5px;">
                 <%= picture.get_upvotes.size %></span>
                 <% end %>
                 <% else %>
-                <%= link_to like_picture_path(picture), method: :put, class: "round-corner-no" do %>
+                <%= link_to like_picture_path(picture), method: :put, class: "round-corner-no-small" do %>
                 <i class="far fa-heart"></i>
                 <span style="font-size: 16px;margin-left: 5px;">
                 <%= picture.get_upvotes.size %></span>
                 <% end %>
               <% end %>
+              </div>
+
             </div>
-            <div class="signal-picture-button">
+
+          
+             <div class="signal-picture-button detail_signal">
               <%= link_to content_tag(:i, nil, class: "fas fa-exclamation-triangle"), signal_picture_path(picture) %>
             </div>
-          </div>
+
         </div>
+
         <%end%>
       
 
         <br>
+
+      <%end%>
+      
+    
+
       
         <% if @artwork.pictures.count > 1 %>
         <div class="scroll-group">
@@ -93,6 +112,8 @@
         <%end%>
   <!-- Slideshow end -->
       
+ <br>
+
         <%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
         <div class="add-picture-artwork">
           <i class="fas fa-plus-circle fa-2x" onclick="document.getElementById('upload').click();"> </i>
@@ -106,10 +127,21 @@
           <%= submit_tag 'Valider'%>
         </div>
         <% end %>
+      
       </div>
-      </div>
-      <hr>
-        <!-- Artwork info begin -->
+      <!-- Class col sm 9 end -->
+
+    </div>
+    <!-- Row content begin -->
+  
+<hr>
+    
+  </div>
+  <!-- container-fluid -->
+
+<br>
+
+      <!-- Artwork info begin -->
       <div class="artwork_info">
         <!-- Left -->
         <div class="artwork_info_group_left">
@@ -144,17 +176,21 @@
             </ul>
           </div>
         </div>
-        <!-- Artwork info end -->
+      
       </div> 
+      <!-- Artwork info end -->
+
 
     <% if !current_user.created_artworks.include?(@artwork)%> 
     <div class="claim-artwork">
     <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %> 
     </div> 
     <%end %>
+
+
     </div>
-    <!-- Class col sm 9 end -->
-  </div>
+    <!-- body -->
+  
 
 
 
