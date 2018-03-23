@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   validates_inclusion_of :status, :in => STATUS_OPTIONS
 
+  validates :pseudo, presence: true
+
   attr_accessor :profile_picture
 
   def remember_me

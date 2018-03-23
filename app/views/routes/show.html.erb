@@ -71,35 +71,26 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 // Activate geoloc
 L.control.locate().addTo(map)
 
-// Puts markers on map
-var markers_clusters = L.markerClusterGroup({
-  disableClusteringAtZoom: 17
-});
-
-map.addLayer(markers_clusters);
-
 var markers = {};
 
 // For each marker clicked, we send an AJAX request to show a small version of show artwork
-artworks.forEach(function (markerConfig, index) {
-marker = new L.Marker([artworks[index].lat,artworks[index].long]);
-markers_clusters.addLayer(marker);
+artworks.forEach(function (artwork) {
+  console.log(artwork)
 
-marker.on('click', function(){
-$.ajax({
-      type: "GET",
-      contentType: "application/json; charset=utf-8",
-      url: "/artworks/show_small/"+artworks[index].id,
+  marker =  new L.Marker([artwork.lat,artwork.long]).addTo(map);
+  marker.on('click', function(){
+  $.ajax({
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        url: "/artworks/show_small/"+artwork.id,
+    });
   });
-});
 });
 
 // If a user clicks on the map, the show_small of artworks is hidden
 map.on('click', function(){
 	$(".popup-container").hide()
 });
-
-getLocation();
 
 console.log(sessionStorage.getItem('lat'));
 
