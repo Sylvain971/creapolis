@@ -43,19 +43,20 @@
   margin-top: 20px;
 }
 
-.box-connection-top, .box-connection-top-edit input{
-  padding: 15px 0px 15px 10px;
+.box-connection-top input{
+  padding: 13px 0px 13px 10px;
   width:100%;
   text-align: left;
   border: 1px solid #ccc;
 }
 
-.box-connection-top input{
-  padding: 15px 0px 15px 10px;
+.box-connection-top-edit input {
+  padding: 13px 0px 13px 10px;
   width:100%;
   text-align: left;
   border: 1px solid #ccc;
 }
+
 
 #user_email{
   border-radius:3px 3px 0px 0px;
