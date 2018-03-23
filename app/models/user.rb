@@ -29,7 +29,7 @@ class User < ApplicationRecord
 	algoliasearch do
 
 		# list of attribute used to build an Algolia record
-    attributes :pseudo, :artist, :city, :created_at, :id
+    attributes :pseudo, :artist, :city, :created_at, :id, :profile_picture
     add_attributes :user_picture, :artist_check
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
@@ -43,10 +43,10 @@ class User < ApplicationRecord
   end
 
   def user_picture
-  	if self.profile_picture_url == nil
-  		"https://res.cloudinary.com/creapolis/image/upload/v1521038222/image1.jpg"
-  	else
+  	unless self.profile_picture_url.nil?
   		self.profile_picture_url :secure => true, :crop => :fit, :width => 200, :height => 200
+  	else
+  		"https://res.cloudinary.com/creapolis/image/upload/c_fit,h_200,w_200/v1521803841/App/default_profile_picture.jpg"
   	end
   end
 
