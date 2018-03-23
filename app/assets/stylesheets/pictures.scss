@@ -1,4 +1,5 @@
-.user_avatar_row_small {
+.user_avatar_row_small,
+.user_avatar_row_small_type {
   display: flex;
   position: relative;
 	align-items: center;
@@ -6,27 +7,34 @@
   margin-left: 15px;
   margin-top:5px;
 }
-.user_avatar_row_small img {
+.user_avatar_row_small img,
+.user_avatar_row_small_type img {
   height:40px;
   width: 40px;
   border-radius: 50px;
 }
 
-.user_avatar_row_small ul li {
+.user_avatar_row_small ul li,
+.user_avatar_row_small_type ul li {
 	display: inline;
 	width: 100%;
 	background-color: yellow;
 }
 
-.user_avatar_row_small a{
+.user_avatar_row_small a,
+.user_avatar_row_small_type a{
   color: #09125A;
   text-decoration: none;
 }
 
-.user_avatar_row_small a:hover{
+.user_avatar_row_small a:hover,
+.user_avatar_row_small_type a:hover{
   text-decoration: underline;
 }
 
+.user_avatar_row_small_type{
+  margin-left: 0px;
+}
 
 
 .clear{
@@ -63,13 +71,13 @@ text-decoration: none;
 
 .signal-picture-button {
   .fas {
-    color: #666;
+    color: #bfbfbf;
     margin-right: 3vh;
     margin-left: 3vh;
   }
 }
 
-.round-corner-ok{
+.round-corner-ok, .round-corner-ok-small {
   border-radius: 25px;
   /*background: #73AD21;*/
   padding: 9px 20px 3px 20px; 
@@ -78,23 +86,31 @@ text-decoration: none;
   border:2px solid #E76262;
 }
 
-.round-corner-ok a{
+.round-corner-ok-small {
+  padding: 7px 15px 2px 16px;
+}
+
+.round-corner-ok, .round-corner-ok-small a{
 color: #E76262;
 text-decoration: none;
 }
 
-.round-corner-ok a:hover{
+.round-corner-ok, .round-corner-ok-small a:hover{
 color: #E76262;
 background-color: red;
 }
 
-.round-corner-no{
+.round-corner-no, .round-corner-no-small{
   border-radius: 25px;
   /*background: #73AD21;*/
   padding: 9px 20px 3px 20px; 
   width: auto;
   height: 10px; 
   border:2px solid #337ab7;  
+}
+
+.round-corner-no-small{
+  padding: 7px 15px 2px 16px;
 }
 
 .center-element{
