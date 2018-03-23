@@ -64,19 +64,21 @@ map.addLayer(markers_clusters);
 var arr = <%= @artworks_js.html_safe %>
 var markers = {};
 
+console.log(arr)
 // For each marker clicked, we send an AJAX request to show a small version of show artwork
  arr.forEach(function (markerConfig, index) {
-  marker = new L.Marker([arr[index].lat,arr[index].long]);
-  markers_clusters.addLayer(marker);
-
-  marker.on('click', function(){
+  if (arr[index].pictures.length >0){
+    marker = new L.Marker([arr[index].lat,arr[index].long]);
+    markers_clusters.addLayer(marker);
+    marker.on('click', function(){
     $.ajax({
           type: "GET",
           contentType: "application/json; charset=utf-8",
           url: "artworks/show_small/"+arr[index].id,
       });
     });
-  });
+  };
+});
 
 // If a user clicks on the map, the show_small of artworks is hidden
  map.on('click', function(){

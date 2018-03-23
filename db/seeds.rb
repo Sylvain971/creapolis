@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user_admin = User.create(email:"admin@gmail.com", password: "admin2018", admin: true)
+user_admin = User.create(pseudo: "Admin", email:"admin@gmail.com", password: "admin2018", admin: true)
 
 user_regular = User.create(pseudo: "Nico", email:"nico@gmail.com", password: "coucou", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg")
 user_regular2 = User.create(pseudo: "Samba", email:"samba@gmail.com", password: "coucou",  remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg")
@@ -14,11 +14,9 @@ user_regular3 = User.create(pseudo: "Justine", email:"justine@gmail.com", passwo
 user_regular4 = User.create(pseudo: "Sylvain", email:"sylvain@gmail.com", password: "coucou", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg")
 user_regular5 = User.create(pseudo: "Louis", email:"louis@gmail.com", password: "coucou", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg")
 
-
-user_dacruz = User.create(pseudo: "Dacruz", email:"dacruz@gmail.com", password:"coucou", artist: true, remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg")
-user_ren = User.create(pseudo: "Ren", email: "ren@gmail.com", password:"coucou", artist: true,  remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg")
-user_sanetwo = User.create(pseudo: "Sanetwo", email: "sanetwo@gmail.com", password:"coucou", artist: true, remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg")
-
+user_dacruz = User.create(pseudo: "Dacruz", email:"dacruz@gmail.com", password:"coucou", artist: true, remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
+user_ren = User.create(pseudo: "Ren", email: "ren@gmail.com", password:"coucou", artist: true,  remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
+user_sanetwo = User.create(pseudo: "Sanetwo", email: "sanetwo@gmail.com", password:"coucou", artist: true, remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
 
 artwork1 = Artwork.create(title:"Une super oeuvre d'art", lat: "48.8879012", long: "2.384519")
 artwork2 = Artwork.create(title:"Une chouette oeuvre d'art", lat: "48.8897974", long: "2.3846279")
