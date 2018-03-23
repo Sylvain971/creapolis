@@ -34,4 +34,5 @@ class AdminController < ApplicationController
     @user.save
     redirect_to artists_moderation_path
   end
+
 end

@@ -110,7 +110,7 @@ align-items: center;
   white-space: nowrap;
   /*background-color: yellow;*/
   padding: 0 0 20px 0;
-  margin-top:5px; 
+  margin-top:5px;
 }
 .scroll-group > .row > .col-xs-4 {
   display: inline-block;
@@ -120,7 +120,7 @@ align-items: center;
 
 .col-xs-4 {
     width: 33.333%;
-    
+
 }
 
 .title-artwork{
@@ -164,9 +164,10 @@ align-items: center;
   justify-content: space-between;
 }
 
-.claim-artwork {  
+.claim-artwork {
   text-align: center;
   width: 100%;
+	padding-bottom: 3vh;
 }
 
 .claim-artwork a {
@@ -184,4 +185,3 @@ align-items: center;
   margin-top: -10px;
   margin-bottom: -7px;
 }
-

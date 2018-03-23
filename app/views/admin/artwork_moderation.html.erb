@@ -17,8 +17,9 @@
       <tr>
         <th>ID</th>
         <th>Image</th>
-        <th>Titre et Description</th>
         <th>Artiste</th>
+        <th>Technique</th>
+        <th>Modifications</th>
       </tr>
       <br>
       <% @artworks.each do |artwork| %>
@@ -32,21 +33,16 @@
                 <% end %>
               </td>
               <td>
-                <% if !artwork.title.nil? %>
-                  <%= artwork.title %>
+                <% if !artwork.artist.nil? %>
+                    <%= artwork.artist %><br>
+                    <% if !artwork.artists.nil? %>
+                      <% artwork.artists.each do |artist| %>
+                        <%= link_to artist.pseudo, artist %><br>
+                      <% end %>
+                    <% else %>
+                      Pas d'artiste
+                    <% end %>
                 <% else %>
-                  Pas de titre
-                <% end %>
-                <br>
-                <% if !artwork.description.nil? %>
-                  <%= artwork.description %>
-                <% else %>
-                  Pas de description
-                <% end %>
-              </td>
-              <td>
-              <% if !artwork.artist.nil? %>
-                  <%= artwork.artist %><br>
                   <% if !artwork.artists.nil? %>
                     <% artwork.artists.each do |artist| %>
                       <%= link_to artist.pseudo, artist %><br>
@@ -54,17 +50,19 @@
                   <% else %>
                     Pas d'artiste
                   <% end %>
-              <% else %>
-                <% if !artwork.artists.nil? %>
-                  <% artwork.artists.each do |artist| %>
-                    <%= link_to artist.pseudo, artist %><br>
-                  <% end %>
-                <% else %>
-                  Pas d'artiste
                 <% end %>
-              <% end %>
-              <%= collection_select(:artwork, :user_id, User.where(artist:true).all, :id, :pseudo, prompt: "Ajouter un artiste")%>
-
+              </td>
+              <td>
+                <%= artwork.style %>
+              </td>
+              <td>
+                <%= form_tag artwork_path(artwork), method: :put do  %>
+                  <%= label_tag 'Technique :' %><%= text_field_tag(:style, artwork.style) %>
+                  <br>
+                  <%= label_tag 'Artiste :' %><%= select_tag 'artists', options_from_collection_for_select(User.where(artist:true).all, "id", "pseudo") %>
+                  <%= submit_tag "Mettre à jour", class: "btn btn-primary" %>
+                <% end %>
+              </td>
               <td>
                 <% if artwork.moderated == false %>
                   <%= link_to content_tag(:i, nil, class: 'far fa-thumbs-up', alt:'Valider cette oeuvre'), validated_artwork_path(artwork), method: :put %>

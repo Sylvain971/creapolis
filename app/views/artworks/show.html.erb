@@ -116,9 +116,6 @@
 
 <hr>
 
-  </div>
-  <!-- container-fluid -->
-
 <br>
 
       <!-- Artwork info begin -->
@@ -145,7 +142,13 @@
           <div class="artwork_info_tech">
             <ul>
               <li><i class="fas fa-paint-brush" style="margin-right: 15px;"></i></li>
-              <li><span>Technique</span></li>
+              <li><span>
+                <% if @artwork.style.nil? %>
+                  Pas de technique renseignée
+                <% else %>
+                  <%= @artwork.style %>
+                <% end %>
+              </span></li>
             </ul>
           </div>
         </div>
@@ -156,20 +159,25 @@
           <div class="artwork_info_place">
             <ul>
               <li><i class="fas fa-map-marker" style="margin-right: 15px;"></i></li>
-              <li><span> <%=@artwork.address%> </span></li>
+              <li><span>
+                <% if @artwork.address.nil? %>
+                  Pas de lieu renseigné
+                <% else %>
+                  <%= @artwork.address %>
+                <% end %>
+              </span></li>
             </ul>
           </div>
           <div class="artwork_info_status">
-            <ul>
-              <li><i class="fas fa-check" style="margin-right: 15px;"></i></li>
-              <li><span>Status</span></li>
-            </ul>
           </div>
         </div>
 
       </div>
       <!-- Artwork info end -->
 
+    </div>
+    <!-- container-fluid -->
+    
     <hr>
     <% if !current_user.created_artworks.include?(@artwork)%>
     <div class="claim-artwork">
