@@ -20,6 +20,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 2vw;
+  min-height: 80px;
 }
 .user_row_left{
   display: flex;
@@ -63,6 +64,8 @@
   padding: 2px 10px;
 }
 
+/* Blocs statistiques sur le profil */
+/*
 .user_stats{
   display: flex;
   margin: 0 14px 15px;
@@ -73,7 +76,6 @@
   width: 33.3%;
   text-align: center;
   padding: 10px;
-  /*border-left: #80808066 1px solid;*/
   border-right:#80808066 1px solid;
   font-weight: 700;
 }
@@ -83,6 +85,7 @@
 .user_stats div:last-child {
     border-right: none;
 }
+*/
 
 .user_tabs{
   display: flex;
@@ -90,13 +93,17 @@
   flex-direction: row;
   list-style: none;
   cursor: pointer;
+  min-height: 80px;
 }
 .user_tabs li{
   width: 50%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  text-align: center;
   background-color: white;
   border-bottom: 1px #ccc solid;
+  padding-bottom: 6px;
 /*  border-left: 1px grey solid;
   border-right: 1px grey solid;
   border-top : 1px grey solid;*/
@@ -140,6 +147,10 @@
 .user_map{
   display: none;
 }
+#map_user{
+  height: 54vh;
+}
+
 .artist_artworks_pictures{
   display: none;
   width: 100%;

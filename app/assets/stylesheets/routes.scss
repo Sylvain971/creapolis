@@ -1,3 +1,4 @@
+/* -------------- Routes ----------------- */
 .title_routes{
 	font-size: 20px;
 	color: #ccc;
@@ -46,4 +47,44 @@
   }
 }
 
+.route-info {
+  padding: 10px 15px;
+  background-color: white;
+  top: 10vh;
+  right: 2vh;
+  width: 26vh;
+  border-radius: 3px;
+  position: absolute;
+  z-index: 999;
+  opacity: 0.75;
+  box-shadow: 0 2px 8px 0;
+}
 
+.route-info p{
+  font-size: 0.89em;
+  margin: 5px 0 5px 0;
+}
+
+.go-to-route {
+  padding: 8px;
+  background-color: #ec607e;
+  top: 25vh;
+  right: 2vh;
+  width: 13vh;
+  border-radius: 3px;
+  position:absolute;
+  z-index: 999;
+  text-align:center;
+  box-shadow: 0 2px 8px 0;
+  a {
+  text-decoration:none;
+  color:white;
+  }
+
+  fas {
+  color:white;
+  margin-left: 20px;
+  }
+}
+
+/*-----------------------*/
