@@ -24,14 +24,14 @@ class AdminController < ApplicationController
 
   def artists_moderation
     @users = User.all
-    @pending_users = User.where(:status == "pending")
+    @pending_users = @users.where(status: :"pending").all
+    @validated_users = @users.where({status: "validated", artist: true}).all
   end
 
   def artists_validated
     @user = User.find(params[:id])
-    @user.update_attributes(status: "validated")
-    @user.artist == true
-    @artist.save
-    redirect_to artist_moderation_path
+    @user.update_attributes(status: :"validated", artist: true)
+    @user.save
+    redirect_to artists_moderation_path
   end
 end

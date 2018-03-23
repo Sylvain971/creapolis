@@ -46,12 +46,25 @@
               </td>
               <td>
               <% if !artwork.artist.nil? %>
-                <%= artwork.artist %>
+                  <%= artwork.artist %><br>
+                  <% if !artwork.artists.nil? %>
+                    <% artwork.artists.each do |artist| %>
+                      <%= link_to artist.pseudo, artist %><br>
+                    <% end %>
+                  <% else %>
+                    Pas d'artiste
+                  <% end %>
               <% else %>
-                Pas d'artiste
-                <br>
-                <%= collection_select(:artwork, :user_id, User.where(artist:true).all, :id, :pseudo, prompt: "Choisir l'artiste")%>
+                <% if !artwork.artists.nil? %>
+                  <% artwork.artists.each do |artist| %>
+                    <%= link_to artist.pseudo, artist %><br>
+                  <% end %>
+                <% else %>
+                  Pas d'artiste
+                <% end %>
               <% end %>
+              <%= collection_select(:artwork, :user_id, User.where(artist:true).all, :id, :pseudo, prompt: "Ajouter un artiste")%>
+
               <td>
                 <% if artwork.moderated == false %>
                   <%= link_to content_tag(:i, nil, class: 'far fa-thumbs-up', alt:'Valider cette oeuvre'), validated_artwork_path(artwork), method: :put %>
