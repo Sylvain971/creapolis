@@ -12,7 +12,7 @@
   <div class="title-artwork">
     <% if @artwork.title != ""%>
     <%= @artwork.title %>
-    <%end%>  
+    <%end%>
   </div>
 
 
@@ -22,21 +22,20 @@
     <div class="row content">
       <br>
 
-<!-- Class col sm 9 begin -->
+      <!-- Class col sm 9 begin -->
       <div class="col-sm-9">
 
 
 
 
-<!-- Slideshow begin -->
-        
+      <!-- Slideshow begin -->
       <% @artwork.pictures.each.with_index do |picture, index| %>
         <div class="mySlides">
-          <div class="numbertext"><%= index + 1 %> / <%= @artwork.pictures.count %> 
+          <div class="numbertext"><%= index + 1 %> / <%= @artwork.pictures.count %>
           </div>
-          
+
             <%= cl_image_tag picture.img_url, :secure => true, class: "img-responsive" %>
-        
+
           <div class="artwork-picture-info">
 
             <div class="user_avatar_row_small_type">
@@ -49,72 +48,61 @@
                   <% end %>
                 <% end %>
 
-                  <span style="padding-left: 5px;">
-                    Publié par :
-                    <span style="font-weight: bold;">
-                      <%= link_to user_profile_path(picture.user_id) do %>
-                      <%= picture.user.pseudo %>
-                      <% end %>
-                    </span>
+                <span style="padding-left: 5px;">
+                  Publié par :
+                  <span style="font-weight: bold;">
+                    <%= link_to user_profile_path(picture.user_id) do %>
+                    <%= picture.user.pseudo %>
+                    <% end %>
                   </span>
-                </div>
+                </span>
               </div>
+            </div>
 
-
-
-              <div class="">
-                <% if current_user.voted_for? picture %>
-                <%= link_to unlike_picture_path(picture), method: :put, class: "round-corner-ok-small" do %>
-                <i class="fas fa-heart" style="color:#E76262"></i>
-                <span style="font-size: 12px; color:#E76262; font-weight: 700; font-size: 16px;margin-left: 5px;">
-                <%= picture.get_upvotes.size %></span>
-                <% end %>
-                <% else %>
-                <%= link_to like_picture_path(picture), method: :put, class: "round-corner-no-small" do %>
-                <i class="far fa-heart"></i>
-                <span style="font-size: 16px;margin-left: 5px;">
-                <%= picture.get_upvotes.size %></span>
-                <% end %>
+            <div>
+              <% if current_user.voted_for? picture %>
+                  <%= link_to unlike_picture_path(picture), method: :put, class: "round-corner-ok-small" do %>
+                    <i class="fas fa-heart" style="color:#E76262"></i>
+                    <span style="font-size: 12px; color:#E76262; font-weight: 700; font-size: 16px;margin-left: 5px;">
+                    <%= picture.get_upvotes.size %></span>
+                  <% end %>
+              <% else %>
+                  <%= link_to like_picture_path(picture), method: :put, class: "round-corner-no-small" do %>
+                    <i class="far fa-heart"></i>
+                    <span style="font-size: 16px;margin-left: 5px;">
+                    <%= picture.get_upvotes.size %></span>
+                  <% end %>
               <% end %>
-              </div>
-
             </div>
 
-          
-             <div class="signal-picture-button detail_signal">
-              <%= link_to content_tag(:i, nil, class: "fas fa-exclamation-triangle"), signal_picture_path(picture) %>
-            </div>
+          </div>
+
+          <div class="signal-picture-button detail_signal">
+            <%= link_to content_tag(:i, nil, class: "fas fa-exclamation-triangle"), signal_picture_path(picture) %>
+          </div>
 
         </div>
-
-        <%end%>
-      
-
-        <br>
 
       <%end%>
-      
-    
 
-      
-        <% if @artwork.pictures.count > 1 %>
+      <br>
+
+      <% if @artwork.pictures.count > 1 %>
         <div class="scroll-group">
           <div class="row">
-
-        <% @artwork.pictures.each.with_index do |picture, index| %>
-
-            <div class="col-xs-4">
-            <%= cl_image_tag(picture.img_url, :crop => :fill, :width => 400, :height => 225, :secure => true, class: "img-responsive demo cursor", :onclick =>"currentSlide(#{index+1})")%>
-            </div>
-          <%end%>
+            <% @artwork.pictures.each.with_index do |picture, index| %>
+              <div class="col-xs-4">
+              <%= cl_image_tag(picture.img_url, :crop => :fill, :width => 400, :height => 225, :secure => true, class: "img-responsive demo cursor", :onclick =>"currentSlide(#{index+1})")%>
+              </div>
+            <%end%>
           </div>
         </div>
-        <%end%>
-  <!-- Slideshow end -->
-      
- <br>
+      <%end%>
+      <!-- Slideshow end -->
 
-        <%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
+      <br>
+
+      <%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
         <div class="add-picture-artwork">
           <i class="fas fa-plus-circle fa-2x" onclick="document.getElementById('upload').click();"> </i>
           <p> Ajoutez votre photo de cette oeuvre ! </p>
@@ -126,16 +114,16 @@
         <div class="submit-new-picture-button" style="display:none">
           <%= submit_tag 'Valider'%>
         </div>
-        <% end %>
-      
+      <% end %>
+
       </div>
       <!-- Class col sm 9 end -->
 
     </div>
     <!-- Row content begin -->
-  
+
 <hr>
-    
+
   </div>
   <!-- container-fluid -->
 
@@ -176,21 +164,21 @@
             </ul>
           </div>
         </div>
-      
-      </div> 
+
+      </div>
       <!-- Artwork info end -->
 
-
-    <% if !current_user.created_artworks.include?(@artwork)%> 
+    <hr>
+    <% if !current_user.created_artworks.include?(@artwork)%>
     <div class="claim-artwork">
-    <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %> 
-    </div> 
+    <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %>
+    </div>
     <%end %>
 
 
     </div>
     <!-- body -->
-  
+
 
 
 
@@ -238,22 +226,22 @@ function readURL(input) {
         .attr('src', e.target.result)
         .height(200);
     $('#picture-preview').show();
-    $(".submit-new-picture-button").show();   
+    $(".submit-new-picture-button").show();
     };
     reader.readAsDataURL(input.files[0]);
   }
-  
+
 }
 
 $('#submit-picture').click(
-function(){ 
-  if($('#upload').get(0).files.length === 0){ 
-      alert("Vous n'avez pas rentré de photo pour cette oeuvre !"); 
-      return false; 
+function(){
+  if($('#upload').get(0).files.length === 0){
+      alert("Vous n'avez pas rentré de photo pour cette oeuvre !");
+      return false;
    } else {
     return true;
    }
-}); 
+});
 
 
 
@@ -261,5 +249,3 @@ function(){
 
 </script>
 <!-- Script slideshow artwork -->
-
-
