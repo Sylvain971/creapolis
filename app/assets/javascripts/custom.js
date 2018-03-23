@@ -13,9 +13,9 @@ $('.user_tabs .tab2').on( 'click', function () {
       $('.artist_artworks_pictures').hide();
       $('.user_pictures').hide();
       $('.user_map').show();
-      map._onResize();
       $('.user_tabs .tab2').addClass('active_tab');
       $('.user_tabs li:not(.tab2)').removeClass('active_tab');
+      map._onResize();
 });
 
 $('.user_tabs .tab0').on( 'click', function () {
