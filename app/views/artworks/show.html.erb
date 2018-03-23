@@ -15,8 +15,6 @@
     <%end%>  
   </div>
 
-
-  <!-- container-fluid -->
   <div class="container-fluid">
     <!-- Row content begin -->
     <div class="row content">
@@ -86,16 +84,9 @@
             </div>
 
         </div>
-
-        <%end%>
-      
-
-        <br>
-
       <%end%>
       
     
-
       
         <% if @artwork.pictures.count > 1 %>
         <div class="scroll-group">
@@ -127,21 +118,12 @@
           <%= submit_tag 'Valider'%>
         </div>
         <% end %>
-      
       </div>
-      <!-- Class col sm 9 end -->
-
-    </div>
-    <!-- Row content begin -->
-  
-<hr>
     
-  </div>
-  <!-- container-fluid -->
+      </div>
 
-<br>
-
-      <!-- Artwork info begin -->
+ <br>
+        <!-- Artwork info begin -->
       <div class="artwork_info">
         <!-- Left -->
         <div class="artwork_info_group_left">
@@ -176,22 +158,14 @@
             </ul>
           </div>
         </div>
-      
-      </div> 
-      <!-- Artwork info end -->
-
-
-    <% if !current_user.created_artworks.include?(@artwork)%> 
-    <div class="claim-artwork">
-    <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %> 
-    </div> 
-    <%end %>
-
-
+      </div>        <!-- Artwork info end -->
     </div>
-    <!-- body -->
-  
-
+      <!-- Class col sm 9 end -->
+    </div>
+    <!-- Row content end -->
+  </div>
+  <!-- Container-fluid -->
+</div>
 
 
 
