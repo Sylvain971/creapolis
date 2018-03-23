@@ -11,136 +11,128 @@
 <div class="background-new-form">
 </div>
 
-<div class="body-container">
 
-  <!-- Partie du haut -->
-  <div class="user_top">
-    <% if @user == current_user && @user.admin %>
-      <div class="admin_row"><%= link_to "Panneau d'administration", admin_path  %>
-      </div>
-    <% end %>
-    <div class="user_row">
-        <div class="user_row_left">
-          <div class="user_avatar_row">
-              <% if @user.profile_picture.url.nil? %>
-              <%= image_tag "default_profile_picture.jpg"%>
-              <% else %>
-              <%= cl_image_tag @user.profile_picture,:width => 200, :height => 200, :crop => :fit, :secure => true %>
-              <% end %>
-          </div>
-          <div class="user_pseudo">
-            <%= @user.pseudo %>
-            <% if @user.artist == true %>
-              <br>
-              <span class="status_artist"> Artist </span>
+<!-- Partie du haut -->
+<div class="user_top">
+  <% if @user == current_user && @user.admin %>
+    <div class="admin_row"><%= link_to "Panneau d'administration", admin_path  %>
+    </div>
+  <% end %>
+  <div class="user_row">
+      <div class="user_row_left">
+        <div class="user_avatar_row">
+            <% if @user.profile_picture.url.nil? %>
+            <%= image_tag "default_profile_picture.jpg"%>
+            <% else %>
+            <%= cl_image_tag @user.profile_picture,:width => 200, :height => 200, :crop => :fit, :secure => true %>
             <% end %>
-          </div>
         </div>
-        <div class="edit_profile_link"><%= link_to "Modifier le profil", edit_user_registration_path  %>
-        </div>
-    </div>
-    <div class="user_stats">
-        <% if @user.artist == true %>
-            <div>
-              <b><%= @user.created_artworks.count %></b>
-              <br>OEUVRES
-            </div>
-        <% end %>
-        <div>
-          <b><%= @user.pictures.count %></b>
-          <br>PHOTOS
-        </div>
-        <div>
-          3
-          <br>VILLES
-        </div>
-        <div>
-          2
-          <br>PAYS
-        </div>
-    </div>
-
-    <div class="user_tabs">
-        <% if @user.artist %>
-          <li class="tab0"><i class='fab fa-phoenix-framework'></i>
-          </li>
-        <% end %>
-        <li class="tab1 active_tab"><i class='fas fa-camera-retro'></i>
-        </li>
-        <li class="tab2"><i class='far fa-map'></i>
-        </li>
-    </div>
-
-  </div>
-<!-- FIN partie du haut -->
-
-<!-- Partie du bas -->
-  <div class="user_bottom">
-    <% if @user.artist %>
-    <div class="artist_artworks_pictures">
-        <div class="user_tabs_description">
-            Les oeuvres de l'artiste en photo.
-        </div>
-        <% if @user.created_artworks.count == 0 %>
-            <p> Vous n'avez pas encore d'oeuvres référencées.</p>
-        <% else %>
-        <div class="row">
-          <% @user.created_artworks.each do |artwork| %>
-            <% if artwork.pictures.count > 0 %>
-              <div class="col-xs-4">
-                  <%= link_to artwork_path(artwork) do %>
-                    <%= cl_image_tag(artwork.pictures.first.img_url,:width => 400, :height => 225, :crop => :fit, :secure => true, class: "img-responsive") %>
-                  <% end %>
-              </div>
-            <% end %>
-          <%end%>
-        </div>
-        <% end %>
-    </div>
-    <% end %>
-
-    <div class="user_pictures">
-        <div class="user_tabs_description">
-          <% if @user == current_user %>
-            Retrouvez ici les photos que vous avez prises.
-          <% else %>
-            Retrouvez ici les photos prises par cette personne.
+        <div class="user_pseudo">
+          <%= @user.pseudo %>
+          <% if @user.artist == true %>
+            <br>
+            <span class="status_artist"> Artist </span>
           <% end %>
         </div>
-        <% if @user.pictures.count == 0 %>
-            <p> Aucune image répertoriée pour l'instant.</p>
-        <% else %>
-              <div class="row">
-                <% @user.pictures.each do |picture| %>
-
-                  <div class="col-xs-4">
-                    <%= link_to picture_path(picture) do %>
-                      <%= cl_image_tag(picture.img_url, :width => 400, :height => 225, :crop => :fill, :secure => true, class: "img-responsive") %>
-                    <% end %>
-                  </div>
-
-                <% end %>
-              </div>
-        <% end %>
-    </div>
-
-    <div class="user_map">
-      <div class="user_tabs_description">
-        <% if @user.artist %>
-          Retrouvez ici l'emplacement de ses oeuvres référencées.
-        <% else %>
-          Lieu des photos prises par cette personne.
-        <% end %>
       </div>
-      <%if @user.pictures.count > 0 %>
-      <div id="map_user"></div>
-      <% else %>
-      Cette personne n'a aucune photo référencée pour le moment
-      <%end%>
-    </div>
+      <div class="edit_profile_link"><%= link_to "Modifier le profil", edit_user_registration_path  %>
+      </div>
+  </div>
+
+  <div class="user_tabs">
+      <% if @user.artist %>
+        <li class="tab0"><i class='fab fa-phoenix-framework'></i>
+          <% if @user.artist == true %><%= @user.created_artworks.count %>
+              <% if @user.created_artworks.count < 2 %> oeuvre
+              <% else %> oeuvres
+              <%end%>
+          <% end %>
+        </li>
+      <% end %>
+      <li class="tab1 active_tab"><i class='fas fa-camera-retro'></i>
+        <br><%= @user.pictures.count %>
+          <% if @user.pictures.count < 2 %> photo
+          <% else %> photos
+          <%end%>
+      </li>
+      <li class="tab2"><i class='far fa-map'></i>
+        <br><%= @user.pictures.group(:artwork_id).distinct.count(:artwork_id).count %>
+          <% if @user.pictures.group(:artwork_id).distinct.count(:artwork_id).count < 2 %> lieu
+          <% else %> lieux
+          <%end%>
+      </li>
   </div>
 
 </div>
+<!-- FIN partie du haut -->
+
+<!-- Partie du bas -->
+<div class="user_bottom">
+  <% if @user.artist %>
+  <div class="artist_artworks_pictures">
+      <div class="user_tabs_description">
+          Les oeuvres de l'artiste en photo.
+      </div>
+      <% if @user.created_artworks.count == 0 %>
+          <p> Vous n'avez pas encore d'oeuvres référencées.</p>
+      <% else %>
+      <div class="row">
+        <% @user.created_artworks.each do |artwork| %>
+          <% if artwork.pictures.count > 0 %>
+            <div class="col-xs-4">
+                <%= link_to artwork_path(artwork) do %>
+                  <%= cl_image_tag(artwork.pictures.first.img_url,:width => 400, :height => 225, :crop => :fit, :secure => true, class: "img-responsive") %>
+                <% end %>
+            </div>
+          <% end %>
+        <%end%>
+      </div>
+      <% end %>
+  </div>
+  <% end %>
+
+  <div class="user_pictures">
+      <div class="user_tabs_description">
+        <% if @user == current_user %>
+          Retrouvez ici les photos que vous avez prises.
+        <% else %>
+          Retrouvez ici les photos prises par cette personne.
+        <% end %>
+      </div>
+      <% if @user.pictures.count == 0 %>
+          <p> Aucune image répertoriée pour l'instant.</p>
+      <% else %>
+            <div class="row">
+              <% @user.pictures.each do |picture| %>
+
+                <div class="col-xs-4">
+                  <%= link_to picture_path(picture) do %>
+                    <%= cl_image_tag(picture.img_url, :width => 400, :height => 225, :crop => :fill, :secure => true, class: "img-responsive") %>
+                  <% end %>
+                </div>
+
+              <% end %>
+            </div>
+      <% end %>
+  </div>
+
+  <div class="user_map">
+    <div class="user_tabs_description">
+      <% if @user.artist %>
+        Retrouvez ici l'emplacement de ses oeuvres référencées.
+      <% else %>
+        Lieu des photos prises par cette personne.
+      <% end %>
+    </div>
+    <%if @user.pictures.count > 0 %>
+    <div id="map_user"></div>
+    <% else %>
+    Cette personne n'a aucune photo référencée pour le moment
+    <%end%>
+  </div>
+</div>
+
+
 
 <div class="form-container">
   <div class="popup-form" style="display: none">

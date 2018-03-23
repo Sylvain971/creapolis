@@ -13,12 +13,8 @@
 <div class="background-new-form">
 </div>
 
-<div class="body-container">
-  <% if user_signed_in? %>
-  <div id="map_index"></div>
-
-  <div class="popup-container" style="display: none">
-  </div>
+<% if user_signed_in? %>
+<div id="map_index"></div>
 
   <%= render 'layouts/bottom_menu' %>
 
@@ -29,7 +25,7 @@
     <!-- formulaire pour se connecter -->
     <div class="box-connection-top">
       <%= render "layouts/login" %>
-        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+
       <br><br>
       <%= link_to "Mot de passe oublié ?", new_user_password_path %><br/>
     </div>
@@ -37,15 +33,12 @@
           <%= link_to "Créer un compte", new_user_registration_path%>
     </div>
   </div>
-  <% end %>
 </div>
+<% end %>
 
 
-<div class="form-container">
-  <div class="popup-form" style="display: none">
-  </div>
+<div class="popup-container" style="display: none">
 </div>
-
 
 <script type="text/javascript">
 

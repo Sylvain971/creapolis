@@ -4,7 +4,7 @@
     <title>Creapolis</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all','data-turbolinks-track': 'reload'%>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
     <%= javascript_include_tag "application" %>
@@ -19,7 +19,7 @@
 
   <body>
       <% flash.each do |message_type, message| %>
-        <div class="my_alert-<%= message_type %>" style="margin-top: 8vh"><%= message %></div>
+        <div class="my_alert-<%= message_type %>"><%= message %></div>
       <% end %>
     <%= yield %>
     <%= render 'layouts/bottom_menu' %>
@@ -33,4 +33,3 @@ getLocation();
 
   </body>
 </html>
-

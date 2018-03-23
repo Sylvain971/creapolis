@@ -4,7 +4,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  has_many :pictures
+  has_many :pictures, dependent: :destroy
   has_and_belongs_to_many :created_artworks, class_name: "Artwork"
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -72,12 +72,10 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      user.firstname = auth.info.first_name   # assuming the user model has a name
-      user.name = auth.info.last_name   # assuming the user model has a name
-      user.profile_picture = auth.info.image # assuming the user model has an image
-      
-      ConfirmationMailer.sample_email(user).deliver!
-    end
-end
+      user.pseudo = auth.info.first_name   # assuming the user model has a name
+      #user.name = auth.info.last_name   # assuming the user model has a name
+      #user.profile_picture = auth.info.image # assuming the user model has an image
+      end
+  end
 
 end

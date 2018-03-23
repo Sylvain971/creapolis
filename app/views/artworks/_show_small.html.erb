@@ -1,13 +1,13 @@
 <div class ="artwork-image-likes">
-    <%= link_to cl_image_tag(@artwork.pictures.first.img_url, :secure => true), artwork_path(@artwork) %>
+    <%= link_to cl_image_tag(@artwork.pictures.first.img_url, :secure => true, :width => 200, :height => 200, :crop => :fill), artwork_path(@artwork) %>
 </div>
 
 <div class = "artwork-infos">
       <p><i class="fas fa-user"></i>
         <% if @artwork.artists.exists? %>
-          <% @artwork.artists.each { |artist| %>
-          <%= artist.pseudo %>
-          <% } %>
+          <% @artwork.artists.each do |artist| %>
+          <%= link_to artist.pseudo, user_path(artist)%>
+          <% end %>
         <% elsif %>
           <% if !@artwork.artist.nil? %>
           <%= @artwork.artist %>
@@ -23,5 +23,6 @@
           Style non indiqué
         <% end %>
       </p>
-      <p><i class="fas fa-check-circle"></i>  Visible </i></p>
+      <p class="address-artwork"><i class="fas fa-location-arrow"></i>  <%=@artwork.address%> </i></p>
+
 </div>
