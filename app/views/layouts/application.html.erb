@@ -19,7 +19,7 @@
 
   <body>
       <% flash.each do |message_type, message| %>
-        <div class="my_alert-<%= message_type %>" style="margin-top: 8vh"><%= message %></div>
+        <div class="my_alert-<%= message_type %>"><%= message %></div>
       <% end %>
     <%= yield %>
     <%= render 'layouts/bottom_menu' %>
@@ -33,4 +33,3 @@ getLocation();
 
   </body>
 </html>
-

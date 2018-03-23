@@ -16,24 +16,18 @@ h2 {
 }
 
 .leaflet-control-attribution.leaflet-control {
-    display:none;
+  display:none;
 }
 
-
-
-
 .body-container {
-  margin-top:8vh;
   margin-bottom: 10vh;
 }
 
 /* -------- Barre de header --- */
 
 .my_header {
-
   background-color: #fff;
   color: #09125A;
-  position: fixed;
   top: 0;
   width :100%;
   display: flex !important;
@@ -71,6 +65,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 50px;
 }
 
 
@@ -78,6 +73,18 @@ h2 {
 .display{
   margin-top: 8vh;
 }
+
+/* -------- La carte --- */
+
+#map_index {
+  margin-bottom: 8vh;
+  height: 84vh;
+}
+
+.container{
+  margin-top: 8vh;
+}
+
 
 /* -------- Barre de footer --- */
 
@@ -160,21 +167,6 @@ h2 {
 	color: white;
 }
 
-/* -------- La carte --- */
-
-#map_index {
-  margin-top: 8vh;
-  margin-bottom: 8vh;
-  height: 84vh;
-}
-
-#map_user{
-  height: 46vh;
-}
-
-.container{
-  margin-top: 8vh;
-}
 
 
 
@@ -486,7 +478,7 @@ img {
 
 /* ---------- Mise en forme Alert messages -- */
 .my_alert-notice, .my_alert-alert {
-    position: absolute; 
+    position: absolute;
     height: 45px;
     text-align: center;
     width: 100vw;
@@ -494,8 +486,14 @@ img {
     display: block;
     top: 0px;
     padding: 13px;
+    margin-top: 10vh;
 }
-.my_alert-notice { background-color: #00EA8A; }
+.my_alert-notice {
+  background-color: #00EA8A;
+  visibility: visible;
+  opacity: 0;
+  transition: opacity 3s linear;
+}
 
 .my_alert-alert {
   background-color: #E76262;
@@ -514,48 +512,3 @@ img {
     padding: 3px;
     text-align: center;
 }
-
-
-/* -------------- Routes ----------------- */
-
-.route-info {
-  padding: 10px 15px;
-  background-color: white;
-  top: 10vh;
-  right: 2vh;
-  width: 26vh;
-  border-radius: 3px;
-  position: absolute;
-  z-index: 999;
-  opacity: 0.75;
-  box-shadow: 0 2px 8px 0;
-}
-
-.route-info p{
-  font-size: 0.89em;
-  margin: 5px 0 5px 0;
-}
-
-.go-to-route {
-  padding: 8px;
-  background-color: #ec607e;
-  top: 25vh;
-  right: 2vh;
-  width: 13vh;
-  border-radius: 3px;
-  position:absolute;
-  z-index: 999;
-  text-align:center;
-  box-shadow: 0 2px 8px 0;
-  a {
-  text-decoration:none;
-  color:white;
-  }
-
-  fas {
-  color:white;
-  margin-left: 20px;
-  }
-}
-
-/*-----------------------*/
