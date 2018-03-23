@@ -17,9 +17,6 @@
   <% if user_signed_in? %>
   <div id="map_index"></div>
 
-  <div class="popup-container" style="display: none">
-  </div>
-
   <%= render 'layouts/bottom_menu' %>
 
 <!-- if user is not signed_in, he can sign in -->
@@ -29,7 +26,7 @@
     <!-- formulaire pour se connecter -->
     <div class="box-connection-top">
       <%= render "layouts/login" %>
-        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+      
       <br><br>
       <%= link_to "Mot de passe oublié ?", new_user_password_path %><br/>
     </div>
@@ -41,11 +38,8 @@
 </div>
 
 
-<div class="form-container">
-  <div class="popup-form" style="display: none">
-  </div>
+<div class="popup-container" style="display: none">
 </div>
-
 
 <script type="text/javascript">
 

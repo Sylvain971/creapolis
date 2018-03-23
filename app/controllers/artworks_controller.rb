@@ -52,9 +52,13 @@ class ArtworksController < ApplicationController
   def claim_artwork
     @artwork = Artwork.find(params[:id]) 
     current_user.created_artworks << @artwork
-    current_user.status = "pending" 
-    current_user.save
-    flash[:notice] = 'Cette oeuvre apparaîtra sur votre profil après modération !'
+    if !current_user.artist
+      current_user.status = "pending" 
+      current_user.save
+      flash[:notice] = 'Cette oeuvre apparaîtra sur votre profil après modération !'
+    else 
+      flash[:notice] = 'Cette oeuvre a été ajoutée à votre profil !'
+    end
     redirect_to @artwork
   end
 

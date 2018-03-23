@@ -23,16 +23,17 @@
 		<% end %>
 
 		<div class="field input" >
-		  <%= text_field_tag :title, nil, placeholder: "Nom de l'oeuvre (si vous le connaissez)" %>
+		  <%= text_field_tag :artist, nil, placeholder: "Nom de l'artiste (si vous le connaissez)" %>
 		</div>
 		<div class="field input">
-		  <%= text_field_tag :artist,nil, placeholder: "Nom de l'artiste (si vous le connaissez)" %>
+		  <%= text_field_tag :artist,nil, placeholder: "Techniques utilisées par l'artiste" %>
 		</div>
 
 		<div id="small-map-index"></div>
 		<div id= "move-marker">
-			<p> Bougez le point sur la carte ou </p>
-			<div id="generate-location">Rechargez votre emplacement</div>
+			<p id="drag-marker"> Faites glisser le marqueur jusqu'à l'emplacement exact</p>
+
+			<div id="generate-location" style="display: none">Actualiser mon emplacement</div>
 		</div>
 		<div class="field input" style="display: none">
 		  <%= label_tag 'lat', "Latitude"  %>
@@ -66,6 +67,9 @@ document.getElementById("long").value = sessionStorage.getItem('lng');
 if (sessionStorage.getItem('lat') === null) {
 	console.log("coucou")
 	$("#small-map-index").html("Il semblerait que nous n'avons pas réussi à vous géolocaliser :(");
+	$("#generate-location").show();
+	$("#drag-marker").hide();
+
 
 } else {
 

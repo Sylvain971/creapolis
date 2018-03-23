@@ -1,4 +1,5 @@
 <div class="form-title">Se connecter</div>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.email_field :email, autofocus: true, placeholder:"Adresse email", autocomplete: "email" %>
@@ -12,7 +13,11 @@
     <div class="field remember">
       <%= f.check_box :remember_me ,:as => :hidden%>
     </div>
+
   <% end -%>
 
     <%= f.submit "Se connecter" %>
+    <div class="facebook-login">
+        <%= link_to content_tag(:i, nil, class:'fab fa-facebook-square') + "Se connecter avec Facebook", user_facebook_omniauth_authorize_path %>
+      </div>
 <% end %>
