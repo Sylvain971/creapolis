@@ -11,14 +11,73 @@
 <div class="body-container">
   <div class="artwork_moderation">
     Modération des oeuvres :
+    <br>
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Titre et Description</th>
+        <th>Artiste</th>
+      </tr>
+      <br>
+      <% @artworks.each do |artwork| %>
+          <tr>
+              <td><%= artwork.id %></td>
+              <td>
+                <% if !artwork.pictures.first.nil? %>
+                  <%= cl_image_tag artwork.pictures.first.img_url_url,:width => 200, :crop => :fill, :secure => true%>
+                <% else %>
+                  Pas de photo
+                <% end %>
+              </td>
+              <td>
+                <% if !artwork.title.nil? %>
+                  <%= artwork.title %>
+                <% else %>
+                  Pas de titre
+                <% end %>
+                <br>
+                <% if !artwork.description.nil? %>
+                  <%= artwork.description %>
+                <% else %>
+                  Pas de description
+                <% end %>
+              </td>
+              <td>
+              <% if !artwork.artist.nil? %>
+                  <%= artwork.artist %><br>
+                  <% if !artwork.artists.nil? %>
+                    <% artwork.artists.each do |artist| %>
+                      <%= link_to artist.pseudo, artist %><br>
+                    <% end %>
+                  <% else %>
+                    Pas d'artiste
+                  <% end %>
+              <% else %>
+                <% if !artwork.artists.nil? %>
+                  <% artwork.artists.each do |artist| %>
+                    <%= link_to artist.pseudo, artist %><br>
+                  <% end %>
+                <% else %>
+                  Pas d'artiste
+                <% end %>
+              <% end %>
+              <%= collection_select(:artwork, :user_id, User.where(artist:true).all, :id, :pseudo, prompt: "Ajouter un artiste")%>
+
+              <td>
+                <% if artwork.moderated == false %>
+                  <%= link_to content_tag(:i, nil, class: 'far fa-thumbs-up', alt:'Valider cette oeuvre'), validated_artwork_path(artwork), method: :put %>
+                <% else %> OK
+                <% end %>
+              </td>
+              <td><%= link_to content_tag(:i, nil, class: 'far fa-image', alt:'Modifier cette oeuvre'), artwork %>
+              </td>
+              <td><%= link_to content_tag(:i, nil, class: 'fas fa-trash-alt', alt:'Supprimer cette oeuvre'), artwork, method: :delete %>
+              </td>
+          </tr>
+
+      <% end %>
+    </table>
   </div>
-  <% @artworks.each do |artwork| %>
-    <% if !artwork.title.nil? %>
-      <%= artwork.title %>
-    <% else %>
-      Pas de titre
-    <% end %>
-    <%= artwork.description %>
-    <%= artwork.artist %>
-  <% end %>
 </div>

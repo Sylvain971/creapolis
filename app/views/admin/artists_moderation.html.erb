@@ -1,0 +1,78 @@
+<div class="my_header">
+  <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
+    </li>
+    <div class="header_title">
+      <div class="header_title_logo"></div>
+    </div>
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt'), destroy_user_session_path, method: :delete  %>
+    </li>
+</div>
+
+<div class="body-container">
+  <div class="artwork_moderation">
+    Liste des utilisateurs ayant fait une demande de statut "Artiste" :
+    <br>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Pseudo</th>
+        <th>Email</th>
+        <th>Ville</th>
+        <th>Oeuvre(s) sur la(les)quelle(s) <br>la demande a été effectuée </th>
+      </tr>
+      <br>
+      <% @pending_users.each do |user| %>
+          <tr>
+              <td><%= user.id %></td>
+              <td><%= user.pseudo %></td>
+              <td><%= user.email %></td>
+              <td><%= user.city %></td>
+              <td><% user.created_artworks.each do |artwork| %>
+                <%= artwork.id %>
+                <% end %>
+              </td>
+              <td>
+                <% if user.artist == false %>
+                  <%= link_to content_tag(:i, nil, class: 'far fa-thumbs-up', alt:'Valider cet artiste'), validated_user_path(user), method: :put %>
+                <% else %> OK
+                <% end %>
+              </td>
+
+          </tr>
+
+      <% end %>
+    </table>
+    <br>
+    Liste des artistes validés :
+    <br><br>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Pseudo</th>
+        <th>Email</th>
+        <th>Ville</th>
+        <th>Oeuvre(s) </th>
+      </tr>
+      <% @validated_users.each do |user| %>
+          <tr>
+              <td><%= user.id %></td>
+              <td><%= user.pseudo %></td>
+              <td><%= user.email %></td>
+              <td><%= user.city %></td>
+              <td><% user.created_artworks.each do |artwork| %>
+                <%= artwork.id %>
+                <% end %>
+              </td>
+              <td>
+                <% if user.artist == false %>
+                  <%= link_to content_tag(:i, nil, class: 'far fa-thumbs-up', alt:'Valider cet artiste'), validated_user_path(user), method: :put %>
+                <% else %> OK
+                <% end %>
+              </td>
+
+          </tr>
+
+      <% end %>
+    </table>
+  </div>
+</div>
