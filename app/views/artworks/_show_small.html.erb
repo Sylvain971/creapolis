@@ -4,25 +4,24 @@
 
 <div class = "artwork-infos">
       <p><i class="fas fa-user"></i>
-        <% if @artwork.artists.exists? %>
+         <% if @artwork.artists.exists? %>
           <% @artwork.artists.each do |artist| %>
-          <%= link_to artist.pseudo, user_path(artist)%>
+            <%= link_to artist.pseudo, user_path(artist) %>
+              <% end %>
+          <% else %>
+              <% if @artwork.artist === ""%>
+            Artiste non indiqué
+              <% else %>
+            <%= @artwork.artist %>
+            <% end %>
           <% end %>
-        <% elsif %>
-          <% if !@artwork.artist.nil? %>
-          <%= @artwork.artist %>
-          <% end %>
-        <% elsif %>
-          Artiste non indiqué
-        <% end %>
       </p>
       <p><i class="fas fa-paint-brush"></i>
         <% if !@artwork.style.nil? %>
           <%= @artwork.style %>
         <% else %>
-          Style non indiqué
+          Technique non indiquée
         <% end %>
       </p>
       <p class="address-artwork"><i class="fas fa-location-arrow"></i>  <%=@artwork.address%> </i></p>
-
 </div>

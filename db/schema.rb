@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323113158) do
+ActiveRecord::Schema.define(version: 20180323145252) do
 
   create_table "artworks", force: :cascade do |t|
     t.string "title"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20180323113158) do
     t.integer "artwork_id"
     t.integer "user_id"
     t.boolean "moderated", default: false
-    t.boolean "signaled", default: true
+    t.boolean "signaled", default: false
     t.index ["artwork_id"], name: "index_pictures_on_artwork_id"
     t.index ["user_id"], name: "index_pictures_on_user_id"
   end

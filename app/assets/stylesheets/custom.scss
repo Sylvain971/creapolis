@@ -404,6 +404,7 @@ img {
   width:100%;
   border:0px;
   border-radius: 3px;
+  margin-top: 0;
 }
 
 .artwork-new input[type="submit"]:hover {
@@ -492,12 +493,12 @@ img {
     display: block;
     top: 0px;
     padding: 13px;
-    margin-top: 10vh;
+    margin-top: 8vh;
 }
 .my_alert-notice {
   background-color: #00EA8A;
   visibility: visible;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 3s linear;
 }
 

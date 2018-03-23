@@ -65,6 +65,20 @@ class PicturesController < ApplicationController
     redirect_to @picture
   end
 
+  def moderate 
+    @picture = Picture.find(params[:id])
+    @picture.moderated = true
+    @picture.save
+    redirect_to new_pic_moderation_path
+  end
+
+  def unsignal
+    @picture = Picture.find(params[:id])
+    @picture.signaled = false
+    @picture.save
+    redirect_to signaled_pic_moderation_path
+  end
+
   private
   def pictures_params
   	params.permit(:img_url)

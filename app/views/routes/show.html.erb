@@ -1,5 +1,5 @@
 <div class="my_header">
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), routes_path %>
     </li>
     <div class="header_title">
       <div class="header_title_logo"></div>
@@ -113,5 +113,12 @@ function locationFailed(position){
     alert("Merci d'activer votre géolocalisation !")
   }
 }
+
+</script>
+
+
+<script type="text/javascript">
+
+getLocation();
 
 </script>

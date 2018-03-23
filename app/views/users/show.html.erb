@@ -1,5 +1,5 @@
 <div class="my_header">
-  <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
+  <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), root_path %> </li>
     </li>
     <div class="header_title">
       <div class="header_title_logo"></div>
@@ -35,8 +35,10 @@
           <% end %>
         </div>
       </div>
+      <% if current_user == @user %>
       <div class="edit_profile_link"><%= link_to "Modifier le profil", edit_user_registration_path  %>
       </div>
+      <% end %>
   </div>
 
   <div class="user_tabs">
@@ -127,17 +129,18 @@
     <%if @user.pictures.count > 0 %>
     <div id="map_user"></div>
     <% else %>
-    Cette personne n'a aucune photo référencée pour le moment
+     <% if @user.artist %>
+      Cette artiste n'a aucune oeuvre référencée pour le moment
+    <% else %>
+      Cet utilisateur n'a aucune photo référencée pour le moment
+      <%end%>
     <%end%>
   </div>
 </div>
 
-
-
-<div class="form-container">
-  <div class="popup-form" style="display: none">
-  </div>
+<div class="popup-container" style="display: none">
 </div>
+
 
 <script type="text/javascript">
 
@@ -173,13 +176,23 @@ map.addLayer(markers_clusters);
 
 // For each marker clicked, we get the show page > maybe better in ajax?
 up.forEach(function (markerConfig, index) {
+  console.log(up[index])
   marker = new L.Marker([up[index].artwork.lat,up[index].artwork.long]);
   markers_clusters.addLayer(marker);
   marker.on('click', function(){
-  window.open("/artworks/"+up[index].artwork_id,"_parent");
+        $.ajax({
+          type: "GET",
+          contentType: "application/json; charset=utf-8",
+          url: "/artworks/show_small/"+up[index].artwork_id,
+      });
 
   })
 });
+
+ map.on('click', function(){
+  $(".popup-container").hide()
+ });
+
 
 </script>
 
