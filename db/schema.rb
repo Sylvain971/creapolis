@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322182507) do
+ActiveRecord::Schema.define(version: 20180323113158) do
 
   create_table "artworks", force: :cascade do |t|
     t.string "title"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20180322182507) do
     t.string "artist"
     t.string "style"
     t.boolean "moderated", default: false
+    t.string "address"
   end
 
   create_table "artworks_routes", id: false, force: :cascade do |t|

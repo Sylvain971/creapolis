@@ -8,14 +8,6 @@
 
 <!-- body-container begin -->
 <div class="body-container">
-  <!-- Container-fluid FIRST beign -->
-  <div class="title-artwork">
-    <% if @artwork.title != ""%>
-    <%= @artwork.title %>
-    <%end%>
-  </div>
-
-
   <!-- container-fluid -->
   <div class="container-fluid">
     <!-- Row content begin -->
@@ -105,7 +97,7 @@
       <%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
         <div class="add-picture-artwork">
           <i class="fas fa-plus-circle fa-2x" onclick="document.getElementById('upload').click();"> </i>
-          <p> Ajoutez votre photo de cette oeuvre ! </p>
+          <p onclick="document.getElementById('upload').click();"> Ajoutez votre photo de cette oeuvre ! </p>
         </div>
         <%= file_field_tag :img_url, id:"upload", style:"display:none", onchange:"readURL(this);" %>
         <div class= "center-picture-preview">
@@ -136,7 +128,17 @@
           <div class="artwork_info_artist">
             <ul>
               <li><i class="fas fa-user" style="margin-right: 15px;"></i></li>
-              <li><span>Artiste</span></li>
+              <% if @artwork.artists.exists? %>
+                <% @artwork.artists.each do |artist| %>
+                  <li><span><%= link_to artist.pseudo, user_path(artist) %></span></li>
+                  <% end %>
+                  <% elsif %>
+                  <% if !@artwork.artist.nil? %>
+                  <li><span><%= @artwork.artist %></span></li>
+                  <% end %>
+                <% elsif %>
+                 <li><span> Artiste non indiqué</span></li>
+                <% end %>
             </ul>
           </div>
 
@@ -154,7 +156,7 @@
           <div class="artwork_info_place">
             <ul>
               <li><i class="fas fa-map-marker" style="margin-right: 15px;"></i></li>
-              <li><span>Lieu</span></li>
+              <li><span> <%=@artwork.address%> </span></li>
             </ul>
           </div>
           <div class="artwork_info_status">

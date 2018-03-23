@@ -6,6 +6,8 @@ class Artwork < ApplicationRecord
 	validates :lat, :long, presence: true
     has_and_belongs_to_many :routes
 
+    reverse_geocoded_by :lat, :long
+    after_validation :reverse_geocode
 
 	algoliasearch do
 

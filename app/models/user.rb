@@ -4,7 +4,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  has_many :pictures
+  has_many :pictures, dependent: :destroy
   has_and_belongs_to_many :created_artworks, class_name: "Artwork"
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -29,7 +29,7 @@ class User < ApplicationRecord
 	algoliasearch do
 
 		# list of attribute used to build an Algolia record
-    attributes :pseudo, :artist, :city, :created_at, :id
+    attributes :pseudo, :artist, :city, :created_at, :id, :profile_picture
     add_attributes :user_picture, :artist_check
     # the `searchableAttributes` (formerly known as attributesToIndex) setting defines the attributes
     # you want to search in: here `title`, `subtitle` & `description`.
@@ -43,10 +43,10 @@ class User < ApplicationRecord
   end
 
   def user_picture
-  	if self.profile_picture_url == nil
-  		"https://res.cloudinary.com/creapolis/image/upload/v1521038222/image1.jpg"
-  	else
+  	unless self.profile_picture_url.nil?
   		self.profile_picture_url :secure => true, :crop => :fit, :width => 200, :height => 200
+  	else
+  		"https://res.cloudinary.com/creapolis/image/upload/c_fit,h_200,w_200/v1521803841/App/default_profile_picture.jpg"
   	end
   end
 
@@ -71,12 +71,10 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      user.firstname = auth.info.first_name   # assuming the user model has a name
-      user.name = auth.info.last_name   # assuming the user model has a name
-      user.profile_picture = auth.info.image # assuming the user model has an image
-      
-      ConfirmationMailer.sample_email(user).deliver!
-    end
-end
+      user.pseudo = auth.info.first_name   # assuming the user model has a name
+      #user.name = auth.info.last_name   # assuming the user model has a name
+      #user.profile_picture = auth.info.image # assuming the user model has an image
+      end
+  end
 
 end

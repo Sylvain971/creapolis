@@ -16,7 +16,7 @@
       <div class="field">
         <div class= "add-picture">
           <i class="fas fa-plus-circle fa-2x" onclick="document.getElementById('upload').click();"> </i>
-          <p> Ajoutez votre photo </p>
+          <p onclick="document.getElementById('upload').click();"> Ajoutez votre photo </p>
         </div>
         <%= file_field_tag :img_url, id:"upload", style:"display:none", onchange:"readURL(this);" %>
         <div class= "center-picture-preview">

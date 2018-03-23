@@ -174,7 +174,7 @@ h2 {
 
 .popup-container {
   z-index: 999;
-  position: absolute;
+  position: fixed;
   bottom: 10vh;
   display: flex;
   width: 100%;
@@ -189,7 +189,7 @@ h2 {
   padding: 0px;
   img {
   height: 18vh;
-  max-width: 300px;
+  width: 18vh;
   }
 }
 
@@ -199,8 +199,8 @@ h2 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 30%;
   height : 100%;
+  
   .fas {
   color: #ec607e;
   margin-right: 3px;
@@ -209,8 +209,14 @@ h2 {
     font-weight: bold;
     font-size: 12px;
     color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 60vw;
   }
 }
+
+
 
 .link-to-camera {
   width:10%;
