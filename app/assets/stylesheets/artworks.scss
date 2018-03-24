@@ -70,39 +70,30 @@ height: 60px;
 flex-wrap: wrap;
 }
 
+.artwork_info_artist ul{
+display: flex;
+width: 100%;
+}
+
 /*List of infos type*/
-.artwork_info_artist{
-width: 100%;
-height: 50%;
-/*background-color: orange;*/
+.artwork_info_artist ul{
 display: flex;
 align-items: center;
 }
 
-.artwork_info_tech{
-width: 100%;
-height: 50%;
-/*background-color: blue;*/
+.artwork_info_tech ul{
 display: flex;
 align-items: center;
 }
 
-.artwork_info_place{
+.artwork_info_address ul{
 width: 100%;
-height: 50%;
-/*background-color: #fe52fe;*/
-display: flex;
-align-items: center;
-}
-
-.artwork_info_status{
-width: 100%;
-height: 50%;
 /*background-color: pink;*/
 display: flex;
-align-items: center;
 }
-
+.artwork_info_address {
+  text-align: left;
+}
 
 /* The heart of the matter */
 .scroll-group > .row {

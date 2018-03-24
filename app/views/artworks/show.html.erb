@@ -118,42 +118,39 @@
       <!-- Artwork info begin -->
       <div class="artwork_info">
         <!-- Left -->
-        <div class="artwork_info_group_left">
-          <div class="artwork_info_artist">
-            <ul>
-              <li><i class="fas fa-user" style="margin-right: 15px;"></i></li>
-                <% if @artwork.artists.exists? %>
-                <% @artwork.artists.each do |artist| %>
-                  <li><span><%= link_to artist.pseudo, user_path(artist) %></span></li>
-                    <% end %>
-                <% else %>
-                    <% if @artwork.artist === ""%>
-                  <li><span>Artiste non indiqué</span></li>
-                    <% else %>
-                  <li><span> <%= @artwork.artist %></span></li>
+        <div class="artwork_info_artist">
+          <ul>
+            <li><i class="fas fa-user" style="margin-right: 15px;"></i></li>
+              <% if @artwork.artists.exists? %>
+              <% @artwork.artists.each do |artist| %>
+                <li><span><%= link_to artist.pseudo, user_path(artist) %></span></li>
                   <% end %>
+              <% else %>
+                  <% if @artwork.artist === ""%>
+                <li><span>Artiste non indiqué</span></li>
+                  <% else %>
+                <li><span> <%= @artwork.artist %></span></li>
                 <% end %>
-            </ul>
-          </div>
-
-          <div class="artwork_info_tech">
-            <ul>
-              <li><i class="fas fa-paint-brush" style="margin-right: 15px;"></i></li>
-              <li><span>
-                <% if @artwork.style.nil? %>
-                  Pas de technique renseignée
-                <% else %>
-                  <%= @artwork.style %>
-                <% end %>
-              </span></li>
-            </ul>
-          </div>
+              <% end %>
+          </ul>
         </div>
 
-
+        <div class="artwork_info_tech">
+          <ul>
+            <li><i class="fas fa-paint-brush" style="margin-right: 15px;"></i></li>
+            <li><span>
+              <% if @artwork.style.nil? %>
+                Pas de technique renseignée
+              <% else %>
+                <%= @artwork.style %>
+              <% end %>
+            </span></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Artwork info end -->
         <!-- Right -->
-        <div class="artwork_info_group_right">
-          <div class="artwork_info_place">
+        <div class="artwork_address">
             <ul>
               <li><i class="fas fa-map-marker" style="margin-right: 15px;"></i></li>
               <li><span>
@@ -165,13 +162,10 @@
               </span></li>
             </ul>
           </div>
+          
           <div class="artwork_info_status">
           </div>
         </div>
-
-      </div>
-      <!-- Artwork info end -->
-
     </div>
     <!-- container-fluid -->
     
