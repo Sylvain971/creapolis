@@ -7,6 +7,7 @@ $('.user_tabs .tab1').on( 'click', function () {
       $('.user_pictures').show();
       $('.user_tabs .tab1').addClass('active_tab');
       $('.user_tabs li:not(.tab1)').removeClass('active_tab');
+      $(".popup-container").hide();
 });
 
 $('.user_tabs .tab2').on( 'click', function () {
@@ -24,14 +25,9 @@ $('.user_tabs .tab0').on( 'click', function () {
       $('.artist_artworks_pictures').show();
       $('.user_tabs .tab0').addClass('active_tab');
       $('.user_tabs li:not(.tab0)').removeClass('active_tab');
+      $(".popup-container").hide();
 
 });
-
-// // If the user clicks on the background, the form is hidden
-//     $(".background-new-form").on("click", function(){
-//       $(".background-new-form").hide();
-//       $(".popup-form").hide();
-//     });
 
 });
 
@@ -55,3 +51,5 @@ function locationFailed(position){
     alert("Merci d'activer votre géolocalisation !")
   };
 }
+
+

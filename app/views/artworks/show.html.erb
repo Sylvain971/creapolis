@@ -94,7 +94,7 @@
       <%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
         <div class="add-picture-artwork">
           <i class="fas fa-plus-circle fa-2x" onclick="document.getElementById('upload').click();"> </i>
-          <p onclick="document.getElementById('upload').click();"> Ajoutez votre photo de cette oeuvre ! </p>
+          <p onclick="document.getElementById('upload').click();"> Ajoutez votre photo de cette oeuvre pour la faire apparaître sur votre carte ! </p>
         </div>
         <%= file_field_tag :img_url, id:"upload", style:"display:none", onchange:"readURL(this);" %>
         <div class= "center-picture-preview">
@@ -104,20 +104,14 @@
           <%= submit_tag 'Valider'%>
         </div>
       <% end %>
-
       </div>
       <!-- Class col sm 9 end -->
 
     </div>
     <!-- Row content begin -->
 
-<hr>
-
-<br>
-
-      <!-- Artwork info begin -->
+     <!-- Artwork info begin -->
       <div class="artwork_info">
-        <!-- Left -->
         <div class="artwork_info_artist">
           <ul>
             <li><i class="fas fa-user" style="margin-right: 15px;"></i></li>
@@ -147,38 +141,39 @@
             </span></li>
           </ul>
         </div>
+
+        <div class="artwork_address">
+          <ul>
+            <li><i class="fas fa-map-marker" style="margin-right: 15px;"></i></li>
+            <li><span>
+              <% if @artwork.address.nil? %>
+                Pas de lieu renseigné
+              <% else %>
+                <%= @artwork.address %>
+              <% end %>
+            </span></li>
+          </ul>
+        </div>
       </div>
       <!-- Artwork info end -->
         <!-- Right -->
-        <div class="artwork_address">
-            <ul>
-              <li><i class="fas fa-map-marker" style="margin-right: 15px;"></i></li>
-              <li><span>
-                <% if @artwork.address.nil? %>
-                  Pas de lieu renseigné
-                <% else %>
-                  <%= @artwork.address %>
-                <% end %>
-              </span></li>
-            </ul>
-          </div>
-          
-          <div class="artwork_info_status">
-          </div>
-        </div>
-    </div>
-    <!-- container-fluid -->
-    
-    <hr>
+
     <% if !current_user.created_artworks.include?(@artwork)%>
     <div class="claim-artwork">
-    <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %>
-    </div>
+      <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %>
+      </div>
     <%end %>
-
-
+    
     </div>
-    <!-- body -->
+
+    <!-- container-fluid -->
+    
+
+
+
+
+</div>
+
 
 
 

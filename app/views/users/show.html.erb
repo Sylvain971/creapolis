@@ -8,10 +8,6 @@
     </li>
 </div>
 
-<div class="background-new-form">
-</div>
-
-
 <!-- Partie du haut -->
 <div class="user_top">
   <% if @user == current_user && @user.admin %>
@@ -29,7 +25,7 @@
         </div>
         <div class="user_pseudo">
           <%= @user.pseudo %>
-          <% if @user.artist == true %>
+          <% if @user.artist %>
             <br>
             <span class="status_artist"> Artist </span>
           <% end %>
@@ -41,21 +37,36 @@
       <% end %>
   </div>
 
+  <% if @user.artist %>
   <div class="user_tabs">
-      <% if @user.artist %>
-        <li class="tab0"><i class='fab fa-phoenix-framework'></i>
-          <% if @user.artist == true %><%= @user.created_artworks.count %>
-              <% if @user.created_artworks.count < 2 %> oeuvre
-              <% else %> oeuvres
-              <%end%>
-          <% end %>
-        </li>
-      <% end %>
+    <li class="tab0"><i class='fas fa-paint-brush'></i>
+    <%= @user.created_artworks.count %>
+    <% if @user.created_artworks.count < 2 %> oeuvre
+        <% else %> oeuvres
+      <%end%>
+    </li>
+    <li class="tab1 active_tab"><i class='fas fa-camera-retro'></i>
+      <br><%= @user.pictures.count %>
+        <% if @user.pictures.count < 2 %> photo
+        <% else %> photos
+        <% end %>
+    </li>
+    <li class="tab2"><i class='far fa-map'></i>
+      <br><%=@user.created_artworks.count %>
+      <% if @user.created_artworks.count < 2 %> lieu
+        <% else %> lieux
+        <%end%>
+    </li>
+  </div>
+  
+
+  <%else %>
+  <div class="user_tabs">
       <li class="tab1 active_tab"><i class='fas fa-camera-retro'></i>
         <br><%= @user.pictures.count %>
           <% if @user.pictures.count < 2 %> photo
           <% else %> photos
-          <%end%>
+          <% end %>
       </li>
       <li class="tab2"><i class='far fa-map'></i>
         <br><%= @user.pictures.group(:artwork_id).distinct.count(:artwork_id).count %>
@@ -64,7 +75,7 @@
           <%end%>
       </li>
   </div>
-
+<% end %>
 </div>
 <!-- FIN partie du haut -->
 
@@ -73,10 +84,18 @@
   <% if @user.artist %>
   <div class="artist_artworks_pictures">
       <div class="user_tabs_description">
-          Les oeuvres de l'artiste en photo.
+        <% if @user == current_user %>
+          Retrouvez toutes vos oeuvres 
+          <% else %>
+          Retrouvez toutes les oeuvres de <%= @user.pseudo %>
+          <% end %>
       </div>
       <% if @user.created_artworks.count == 0 %>
-          <p> Vous n'avez pas encore d'oeuvres référencées.</p>
+          <% if @user == current_user %>
+          <p> Vous n'avez pas encore d'oeuvre référencéee.</p>
+          <% else %>
+          <p> <%= @user.pseudo %> n'a pas encore d'oeuvre référencée </p>
+          <% end %>
       <% else %>
       <div class="row">
         <% @user.created_artworks.each do |artwork| %>
@@ -98,45 +117,82 @@
         <% if @user == current_user %>
           Retrouvez ici les photos que vous avez prises.
         <% else %>
-          Retrouvez ici les photos prises par cette personne.
+          Retrouvez ici les photos prises par <%= @user.pseudo %>
         <% end %>
       </div>
       <% if @user.pictures.count == 0 %>
-          <p> Aucune image répertoriée pour l'instant.</p>
+      <div class="user_information_update">
+        <% if @user == current_user %>
+          <p> Vous n'avez aucune image répertoriée pour l'instant.</p>
+          <% else %>
+          <p> <%= @user.pseudo %> n'a aucune image répertoriée pour l'instant.</p>
+          <% end %>
+      </div>
+
       <% else %>
-            <div class="row">
-              <% @user.pictures.each do |picture| %>
+        <div class="row">
+          <% @user.pictures.each do |picture| %>
 
-                <div class="col-xs-4">
-                  <%= link_to picture_path(picture) do %>
-                    <%= cl_image_tag(picture.img_url, :width => 400, :height => 225, :crop => :fill, :secure => true, class: "img-responsive") %>
-                  <% end %>
-                </div>
-
+            <div class="col-xs-4">
+              <%= link_to picture_path(picture) do %>
+                <%= cl_image_tag(picture.img_url, :width => 400, :height => 225, :crop => :fill, :secure => true, class: "img-responsive") %>
               <% end %>
             </div>
-      <% end %>
-  </div>
 
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  
+
+
+  <% if !@user.artist %>
   <div class="user_map">
     <div class="user_tabs_description">
-      <% if @user.artist %>
-        Retrouvez ici l'emplacement de ses oeuvres référencées.
-      <% else %>
-        Lieu des photos prises par cette personne.
-      <% end %>
+      <% if @user == current_user %>
+        Retrouvez les lieux de vos photos
+        <% else %>
+        Retrouvez les lieux des photos prises par <%= @user.pseudo %>
+        <% end %>
     </div>
     <%if @user.pictures.count > 0 %>
     <div id="map_user"></div>
     <% else %>
-     <% if @user.artist %>
-      Cette artiste n'a aucune oeuvre référencée pour le moment
+    <div class="user_information_update">
+      <% if @user == current_user %>
+        Vous n'avez aucune photo référencée pour le moment 
+      <% else %>
+        <%= @user.pseudo %> n'a aucune photo référencée pour le moment
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+
+  <% else %> 
+  <div class="user_map">
+    <div class="user_tabs_description">
+      <% if @user == current_user %>
+        Retrouvez les lieux de vos oeuvres
+      <% else %> 
+        Retrouvez les lieux des oeuvres réalisées par <%= @user.pseudo %>
+      <% end %>
+    </div>
+    <%if @user.created_artworks.count > 0 %>
+    <div id="map_user"></div>
     <% else %>
-      Cet utilisateur n'a aucune photo référencée pour le moment
-      <%end%>
+    <div class="user_information_update">
+      <% if @user == current_user %>
+        Vous n'avez aucune oeuvre référencée pour le moment
+      <% else %> 
+      <%= @user.pseudo %> n'a aucune oeuvre référencée pour le moment
+      <% end %>
+    </div>
     <%end%>
   </div>
+<%end%>
 </div>
+
 
 <div class="popup-container" style="display: none">
 </div>
@@ -144,18 +200,15 @@
 
 <script type="text/javascript">
 
+var user = <%= @user_js.html_safe %>
+
 var up = <%= @up_js.html_safe %>
 
+var ua = <%= @ua_js.html_safe %>
 
-console.log(up.length-1)
-console.log(up[up.length-1])
+if (user.artist !== true) {
 
-if (up.length === 0){
-  map = L.map('map_user').setView([ 48.8879012, 2.384519], 13)
-}
-else {
-  map = L.map('map_user').setView([up[up.length-1].artwork.lat, up[up.length-1].artwork.long], 14)
-}
+map = L.map('map_user').setView([up[up.length-1].artwork.lat, up[up.length-1].artwork.long], 14)
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoianVzdGlrcm8iLCJhIjoiY2plbzR6djJnM3RyOTJ4cGszb3hiNGdtcCJ9._gRBjH1x_-nGrj7hD-2i6g', {
       attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -163,7 +216,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
       id: 'mapbox.streets',
       accessToken: 'pk.eyJ1IjoianVzdGlrcm8iLCJhIjoiY2plbzR6djJnM3RyOTJ4cGszb3hiNGdtcCJ9._gRBjH1x_-nGrj7hD-2i6g'
   }).addTo(map);
-
 
 
 // We define the clusters
@@ -193,6 +245,46 @@ up.forEach(function (markerConfig, index) {
   $(".popup-container").hide()
  });
 
+
+} else {
+
+map = L.map('map_user').setView([ua[ua.length-1].lat, ua[ua.length-1].long], 14)
+
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoianVzdGlrcm8iLCJhIjoiY2plbzR6djJnM3RyOTJ4cGszb3hiNGdtcCJ9._gRBjH1x_-nGrj7hD-2i6g', {
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox.streets',
+      accessToken: 'pk.eyJ1IjoianVzdGlrcm8iLCJhIjoiY2plbzR6djJnM3RyOTJ4cGszb3hiNGdtcCJ9._gRBjH1x_-nGrj7hD-2i6g'
+  }).addTo(map);
+
+
+// We define the clusters
+var markers_clusters = L.markerClusterGroup({
+disableClusteringAtZoom: 17
+
+});
+
+map.addLayer(markers_clusters);
+
+// For each marker clicked, we get the show page > maybe better in ajax?
+ua.forEach(function (markerConfig, index) {
+  console.log(ua[index])
+  marker = new L.Marker([ua[index].lat,ua[index].long]);
+  markers_clusters.addLayer(marker);
+  marker.on('click', function(){
+        $.ajax({
+          type: "GET",
+          contentType: "application/json; charset=utf-8",
+          url: "/artworks/show_small/"+ua[index].id,
+      });
+
+  })
+});
+
+ map.on('click', function(){
+  $(".popup-container").hide()
+ });
+}
 
 </script>
 

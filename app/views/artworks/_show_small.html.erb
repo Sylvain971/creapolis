@@ -10,7 +10,7 @@
               <% end %>
           <% else %>
               <% if @artwork.artist === ""%>
-            Artiste non indiqué
+            Artiste non renseigné
               <% else %>
             <%= @artwork.artist %>
             <% end %>
@@ -20,7 +20,7 @@
         <% if !@artwork.style.nil? %>
           <%= @artwork.style %>
         <% else %>
-          Technique non indiquée
+          Technique non renseignée
         <% end %>
       </p>
       <p class="address-artwork"><i class="fas fa-location-arrow"></i>  <%=@artwork.address%> </i></p>

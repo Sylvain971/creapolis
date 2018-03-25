@@ -98,7 +98,7 @@
 .user_tabs li{
   width: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   text-align: center;
   background-color: white;
@@ -151,6 +151,10 @@
   height: 54vh;
 }
 
+#map_artist{
+  height: 54vh;
+}
+
 .artist_artworks_pictures{
   display: none;
   width: 100%;
@@ -159,4 +163,20 @@
 
 .fa, .far, .fas {
     font-size: 1.8rem;
+}
+
+
+.user_information_update {
+  text-align: center;
+  font-style: italic;
+  height: 7vh;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  p {
+    margin:0px;
+  }
+
 }

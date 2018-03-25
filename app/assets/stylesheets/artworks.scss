@@ -43,32 +43,22 @@ margin: 0 5px 0 0;
 
 /*Artwork_info*/
 .artwork_info{
-width: 100%;
-height: 60px;
-/*background-color: brown;*/
-display: flex;
-justify-content: space-between;
 
+  width: 100%;
+  /* background-color: brown; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
 .artwork_info ul {
 margin-left: -30px;
 }
 
-.artwork_info_group_left{
-width: 50%;
-height: auto;
-/*background-color: #657845;*/
-display: flex;
-flex-wrap: wrap;
-}
-
-.artwork_info_group_right{
-width: 50%;
-height: 60px;
-/*background-color: purple;*/
-flex-wrap: wrap;
-}
 
 .artwork_info_artist ul{
 display: flex;
@@ -158,7 +148,7 @@ display: flex;
 .claim-artwork {
   text-align: center;
   width: 100%;
-	padding-bottom: 3vh;
+  margin-top: 5vh;
 }
 
 .claim-artwork a {
