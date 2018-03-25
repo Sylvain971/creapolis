@@ -98,7 +98,7 @@
         </div>
         <%= file_field_tag :img_url, id:"upload", style:"display:none", onchange:"readURL(this);" %>
         <div class= "center-picture-preview">
-          <img id="picture-preview" src="#" alt="your image" style="display:none;" />
+          <img id="picture-preview" alt="your image" style="display:none;" />
         </div>
         <div class="submit-new-picture-button" style="display:none">
           <%= submit_tag 'Valider'%>
@@ -115,15 +115,15 @@
         <div class="artwork_info_artist">
           <ul>
             <li><i class="fas fa-user" style="margin-right: 15px;"></i></li>
-              <% if @artwork.artists.exists? %>
-              <% @artwork.artists.each do |artist| %>
-                <li><span><%= link_to artist.pseudo, user_path(artist) %></span></li>
+              <% if @artwork.artists.select{|a| a.status == "validated"} != "" %>
+              <% @artwork.artists.select{|a| a.status == "validated"}.each do |artist| %>
+                <%= link_to artist.pseudo, user_path(artist) %> &nbsp
                   <% end %>
               <% else %>
-                  <% if @artwork.artist === ""%>
-                <li><span>Artiste non indiqué</span></li>
+                  <% if !@artwork.artist.nil?%>
+               <%= @artwork.artist %>
                   <% else %>
-                <li><span> <%= @artwork.artist %></span></li>
+                Artiste non renseigné
                 <% end %>
               <% end %>
           </ul>
@@ -134,7 +134,7 @@
             <li><i class="fas fa-paint-brush" style="margin-right: 15px;"></i></li>
             <li><span>
               <% if @artwork.style.nil? %>
-                Pas de technique renseignée
+                Technique non renseignée
               <% else %>
                 <%= @artwork.style %>
               <% end %>
@@ -164,20 +164,13 @@
     <!-- container-fluid -->
     
 
-        <% if !current_user.created_artworks.include?(@artwork)%>
-        <div class="claim-artwork">
-        <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %>
-         </div>
-        <%end %>
-    
-
-
+  <div class="claim-artwork">
+    <% if !current_user.created_artworks.include?(@artwork)%>
+  <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %>
+    <%end %>
+   </div>
 
 </div>
-
-
-
-
 
 
 
@@ -198,22 +191,13 @@ function currentSlide(n) {
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
   }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
   slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
 }
-
-
 
 function readURL(input) {
   if (input.files && input.files[0]) {
@@ -239,9 +223,6 @@ function(){
     return true;
    }
 });
-
-
-
 
 
 </script>
