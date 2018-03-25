@@ -1,6 +1,5 @@
 .connection{
   z-index: 999;
-  height: 84vh;
   background-color:white;
 }
 
@@ -14,10 +13,10 @@
 
 .box-connection-top-edit{
   z-index: 999;
-  height: 84vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .form-title{

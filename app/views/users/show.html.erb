@@ -46,13 +46,13 @@
       <%end%>
     </li>
     <li class="tab1 active_tab"><i class='fas fa-camera-retro'></i>
-      <br><%= @user.pictures.count %>
+      <%= @user.pictures.count %>
         <% if @user.pictures.count < 2 %> photo
         <% else %> photos
         <% end %>
     </li>
     <li class="tab2"><i class='far fa-map'></i>
-      <br><%=@user.created_artworks.count %>
+      <%=@user.created_artworks.count %>
       <% if @user.created_artworks.count < 2 %> lieu
         <% else %> lieux
         <%end%>
@@ -63,13 +63,13 @@
   <%else %>
   <div class="user_tabs">
       <li class="tab1 active_tab"><i class='fas fa-camera-retro'></i>
-        <br><%= @user.pictures.count %>
+        <%= @user.pictures.count %>
           <% if @user.pictures.count < 2 %> photo
           <% else %> photos
           <% end %>
       </li>
       <li class="tab2"><i class='far fa-map'></i>
-        <br><%= @user.pictures.group(:artwork_id).distinct.count(:artwork_id).count %>
+        <%= @user.pictures.group(:artwork_id).distinct.count(:artwork_id).count %>
           <% if @user.pictures.group(:artwork_id).distinct.count(:artwork_id).count < 2 %> lieu
           <% else %> lieux
           <%end%>

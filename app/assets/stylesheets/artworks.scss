@@ -38,12 +38,9 @@ align-items: stretch;
 margin: 0 5px 0 0;
 }
 
-.artwork_item_right{margin: 0 0 0 5px;}
-
 
 /*Artwork_info*/
 .artwork_info{
-
   width: 100%;
   /* background-color: brown; */
   display: flex;
@@ -56,34 +53,11 @@ margin: 0 5px 0 0;
 }
 
 .artwork_info ul {
-margin-left: -30px;
+  margin-left: -30px;
+  display: flex;
 }
 
 
-.artwork_info_artist ul{
-display: flex;
-width: 100%;
-}
-
-/*List of infos type*/
-.artwork_info_artist ul{
-display: flex;
-align-items: center;
-}
-
-.artwork_info_tech ul{
-display: flex;
-align-items: center;
-}
-
-.artwork_info_address ul{
-width: 100%;
-/*background-color: pink;*/
-display: flex;
-}
-.artwork_info_address {
-  text-align: left;
-}
 
 /* The heart of the matter */
 .scroll-group > .row {
@@ -148,7 +122,8 @@ display: flex;
 .claim-artwork {
   text-align: center;
   width: 100%;
-  margin-top: 5vh;
+  margin-bottom: 13vh;
+  margin-top: 3vh;
 }
 
 .claim-artwork a {
@@ -156,6 +131,7 @@ display: flex;
   border: 2px solid #26348B;
   border-radius: 4px;
   padding: 5px;
+  margin-bottom: 10vh;
 }
 
 .detail_signal{

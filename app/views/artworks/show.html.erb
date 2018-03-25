@@ -155,20 +155,21 @@
           </ul>
         </div>
       </div>
+    </div>
       <!-- Artwork info end -->
         <!-- Right -->
 
-    <% if !current_user.created_artworks.include?(@artwork)%>
-    <div class="claim-artwork">
-      <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %>
-      </div>
-    <%end %>
-    
-    </div>
+
 
     <!-- container-fluid -->
     
 
+        <% if !current_user.created_artworks.include?(@artwork)%>
+        <div class="claim-artwork">
+        <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %>
+         </div>
+        <%end %>
+    
 
 
 
