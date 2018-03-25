@@ -1,13 +1,29 @@
 <div class="my_header">
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
-    </li>
-    <div class="header_title">
-      <div class="header_title_logo"></div>
-    </div>
-    <li>
-    </li>
-</div>
 
+    <li>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">
+        <i class="fas fa-bars"></i>
+      </span>
+    </li>
+    
+    <%= link_to root_path do %>
+      <div class="header_title">
+        <div class="header_title_logo"></div>
+      </div>
+    <% end %>
+
+    <!-- Don't remove this empty <li> -->
+    <li></li>
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">Kit du photographe</a>
+      <a href="#">Techniques art urbain</a>
+      <a href="#">CGV</a>
+      <a href="#">Contact</a>
+    </div>
+
+</div>
 
 
 
@@ -29,4 +45,17 @@
   <% end %>
 
 </div>
+
+
+<!-- Left side navigation menu -->
+<script>
+  function openNav() {
+      document.getElementById("mySidenav").style.width = "80%";
+  }
+
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+  }
+</script>
+
 
