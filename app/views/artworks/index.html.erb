@@ -6,9 +6,14 @@
       </span>
     </li>
     
-    <div class="header_title">
-      <div class="header_title_logo"></div>
-    </div>
+    <%= link_to root_path do %>
+      <div class="header_title">
+        <div class="header_title_logo"></div>
+      </div>
+    <% end %>
+
+    <!-- Don't remove this empty <li> -->
+    <li></li>
 
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -109,12 +114,13 @@ console.log(arr)
 </script>
 
 
+<!-- Left side navigation menu -->
 <script>
-function openNav() {
-    document.getElementById("mySidenav").style.width = "80%";
-}
+  function openNav() {
+      document.getElementById("mySidenav").style.width = "80%";
+  }
 
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+  }
 </script>
