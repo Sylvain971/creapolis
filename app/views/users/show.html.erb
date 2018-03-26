@@ -22,7 +22,7 @@
             <% if @user.profile_picture.url.nil? %>
             <%= image_tag "default_profile_picture.jpg"%>
             <% else %>
-            <%= cl_image_tag @user.profile_picture,:width => 200, :height => 200, :crop => :fit, :secure => true %>
+            <%= cl_image_tag @user.profile_picture,:width => 200, :height => 200, :crop => :fill, :secure => true %>
             <% end %>
         </div>
         <div class="user_pseudo">
