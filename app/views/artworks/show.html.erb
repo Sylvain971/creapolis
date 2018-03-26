@@ -90,7 +90,7 @@
       <%end%>
       <!-- Slideshow end -->
       <%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
-        <div class="add-picture-artwork">
+        <div class="add-picture-to-artwork">
           <i class="fas fa-plus-circle fa-2x" onclick="document.getElementById('upload').click();"> </i>
           <p onclick="document.getElementById('upload').click();"> Ajoutez votre photo de cette oeuvre pour la faire apparaître sur votre carte ! </p>
         </div>
@@ -131,7 +131,7 @@
           <ul>
             <li><i class="fas fa-paint-brush" style="margin-right: 15px;"></i></li>
             <li><span>
-              <% if @artwork.style.nil? %>
+              <% if @artwork.style.nil? || @artwork.style == "" %>
                 Technique non renseignée
               <% else %>
                 <%= @artwork.style %>
