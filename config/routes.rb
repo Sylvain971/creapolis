@@ -54,6 +54,9 @@ Rails.application.routes.draw do
   get 'pictures/moderate/:id', to: "pictures#moderate", as: "moderate_picture"
   get 'pictures/unsignal/:id', to: "pictures#unsignal", as: "unsignal_picture"
 
+  get 'menu/camera_kit'
+  get 'menu/technics'
+  get 'menu/propos'
 
 
 end
