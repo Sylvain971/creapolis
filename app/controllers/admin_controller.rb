@@ -15,23 +15,24 @@ class AdminController < ApplicationController
   end
 
   def new_pictures_moderation
-    @users = User.all
+    @pictures_not_validated = Picture.all.select{|picture| picture.moderated == false}
   end
 
   def signaled_pictures_moderation
-    @users = User.all
+    @signaled_pictures = Picture.all.select{|picture| picture.signaled == true}
   end
 
   def artists_moderation
-    @users = User.all
-    @pending_users = @users.where(status: :"pending").all
-    @validated_users = @users.where({status: "validated", artist: true}).all
+    @pending_users = User.all.select{|user| user.status == "pending"}
+    @validated_users = User.all.select{|user| user.status == "validated"}
   end
 
-  def artists_validated
+  def validates_artist
     @user = User.find(params[:id])
-    @user.update_attributes(status: :"validated", artist: true)
+    @user.status = "validated"
+    @user.artist = true
     @user.save
     redirect_to artists_moderation_path
   end
+
 end

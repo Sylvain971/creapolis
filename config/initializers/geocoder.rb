@@ -1,0 +1,1 @@
+Geocoder.configure(:lookup => :google, :api_key => ENV['GEOCODER_API'], :use_https => true)

@@ -1,13 +1,29 @@
 <div class="my_header">
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
-    </li>
-    <div class="header_title">
-      <div class="header_title_logo"></div>
-    </div>
-    <li>
-    </li>
-</div>
 
+    <li>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">
+        <i class="fas fa-bars"></i>
+      </span>
+    </li>
+    
+    <%= link_to root_path do %>
+      <div class="header_title">
+        <div class="header_title_logo"></div>
+      </div>
+    <% end %>
+
+    <!-- Don't remove this empty <li> -->
+    <li></li>
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">Kit du photographe</a>
+      <a href="#">Techniques art urbain</a>
+      <a href="#">CGV</a>
+      <a href="#">Contact</a>
+    </div>
+
+</div>
 
 
 <div class="background-new-form">
@@ -26,8 +42,6 @@
     <div class="box-connection-top">
       <%= render "layouts/login" %>
 
-      <br><br>
-      <%= link_to "Mot de passe oublié ?", new_user_password_path %><br/>
     </div>
     <div class="box-connection-bottom">
           <%= link_to "Créer un compte", new_user_registration_path%>
@@ -42,7 +56,14 @@
 
 <script type="text/javascript">
 
-map = L.map('map_index').setView([ 48.866667,  2.333333], 13)
+getLocation();
+
+// This is a public token
+if (sessionStorage.getItem('lat') === null) {
+  map = L.map('map_index').setView([ 48.866667,  2.333333], 13)
+} else {
+  map = L.map('map_index').setView([sessionStorage.getItem('lat'),sessionStorage.getItem('lng')], 13)
+}
 
 // This is a public token
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoianVzdGlrcm8iLCJhIjoiY2plbzR6djJnM3RyOTJ4cGszb3hiNGdtcCJ9._gRBjH1x_-nGrj7hD-2i6g', {
@@ -66,17 +87,18 @@ var markers = {};
 
 // For each marker clicked, we send an AJAX request to show a small version of show artwork
  arr.forEach(function (markerConfig, index) {
-  marker = new L.Marker([arr[index].lat,arr[index].long]);
-  markers_clusters.addLayer(marker);
-
-  marker.on('click', function(){
+  if (arr[index].pictures.length >0){
+    marker = new L.Marker([arr[index].lat,arr[index].long]);
+    markers_clusters.addLayer(marker);
+    marker.on('click', function(){
     $.ajax({
           type: "GET",
           contentType: "application/json; charset=utf-8",
-          url: "artworks/show_small/"+arr[index].id,
+          url: "/artworks/show_small/"+arr[index].id,
       });
     });
-  });
+  };
+});
 
 // If a user clicks on the map, the show_small of artworks is hidden
  map.on('click', function(){
@@ -88,7 +110,16 @@ var markers = {};
 
 
 
+</script>
 
 
+<!-- Left side navigation menu -->
+<script>
+  function openNav() {
+      document.getElementById("mySidenav").style.width = "80%";
+  }
 
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+  }
 </script>

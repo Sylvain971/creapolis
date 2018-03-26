@@ -1,15 +1,17 @@
 <div class="my_header">
-    <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
-    <div class="header_title">
-      <div class="header_title_logo"></div>
-    </div>
+    <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), root_path %> </li>
+    <%= link_to root_path do %>
+      <div class="header_title">
+        <div class="header_title_logo"></div>
+      </div>
+    <% end %>
     <li></li>
 </div>
 
 <div class="body-container">
   <div class= "picture-new-container">
     <div class="picture-new">
-      <p>Veuillez ajouter la photo associée à l'oeuvre. La création de l'oeuvre doit être validée par les modérateurs</p>
+      <p>Veuillez ajouter la photo associée à l'oeuvre.</p>
 
       <%= form_tag (pictures_path(id: "0")), multipart: true do %>
 
@@ -20,7 +22,7 @@
         </div>
         <%= file_field_tag :img_url, id:"upload", style:"display:none", onchange:"readURL(this);" %>
         <div class= "center-picture-preview">
-          <img id="picture-preview" src="#" alt="your image" style="display:none;" />
+          <img id="picture-preview" alt="your image" style="display:none;" />
         </div>
 
       </div>

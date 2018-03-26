@@ -1,9 +1,11 @@
 <div class="my_header">
-    <li><%= link_to content_tag(:i, nil, class: 'fas fa-bars'), root_path %>
+    <li><%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), routes_path %>
     </li>
-    <div class="header_title">
-      <div class="header_title_logo"></div>
-    </div>
+    <%= link_to root_path do %>
+      <div class="header_title">
+        <div class="header_title_logo"></div>
+      </div>
+    <% end %>
     <li>
     </li>
 </div>
@@ -55,9 +57,10 @@
 
 <script type="text/javascript">
 
+getLocation();
+
 var artworks = <%= @route_artworks_js.html_safe %>
 
-console.log(artworks)
 map = L.map('map_index').setView([ artworks[0].lat, artworks[0].long], 15)
 
 // This is a public token
@@ -75,7 +78,6 @@ var markers = {};
 
 // For each marker clicked, we send an AJAX request to show a small version of show artwork
 artworks.forEach(function (artwork) {
-  console.log(artwork)
 
   marker =  new L.Marker([artwork.lat,artwork.long]).addTo(map);
   marker.on('click', function(){
@@ -92,26 +94,5 @@ map.on('click', function(){
 	$(".popup-container").hide()
 });
 
-console.log(sessionStorage.getItem('lat'));
-
-function getLocation(){
-  navigator.geolocation.watchPosition(locationFound, locationFailed, {
-  enableHighAccuracy: false,
-  timeout: 5000,
-  maximumAge: 0
-});
-}
-
-function locationFound(position){
-  sessionStorage.setItem("lat", position.coords.latitude);
-  sessionStorage.setItem("lng", position.coords.longitude);
-  console.log(sessionStorage.getItem('lat')+ ", " + sessionStorage.getItem('lng'));
-}
-
-function locationFailed(position){
-  if (sessionStorage.getItem('lat') === null){
-    alert("Merci d'activer votre géolocalisation !")
-  }
-}
 
 </script>

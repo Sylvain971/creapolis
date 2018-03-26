@@ -1,15 +1,43 @@
 <div class="my_header">
-  <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
+  <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), admin_path %> </li>
     </li>
-    <div class="header_title">
-      <div class="header_title_logo"></div>
-    </div>
+    <%= link_to root_path do %>
+      <div class="header_title">
+        <div class="header_title_logo"></div>
+      </div>
+    <% end %>
     <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt'), destroy_user_session_path, method: :delete  %>
     </li>
 </div>
 
 <div class="body-container">
   <div class="artwork_moderation">
-    Modération des images signalées :
+    Modération des photos signalées
+    <br>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Utilisateur</th>
+        <th>Modération</th>
+      </tr>
+      <br>
+      <% @signaled_pictures.each do |picture| %>
+      <tr>
+        <td><%= picture.id %></td>
+        <td>
+          <%= cl_image_tag picture.img_url_url,:width => 200, :crop => :fill, :secure => true%>
+        </td>
+        <td><%= picture.user.id %></td>
+        <td> 
+          <% if picture.artwork.pictures.count == 1 %>
+            <%= link_to content_tag(:i, nil, class: 'fas fa-trash-alt'), @artwork, data: { confirm: "Attention la suppression de cette photo entrainera la suppression de l'oeuvre !" }, method: :delete %>
+          <% else %>
+            <%= link_to content_tag(:i, nil, class: 'fas fa-trash-alt'), @picture, data: { confirm: "Etes-vous sûr(e) ?" }, method: :delete %>
+          <% end %>
+          <%= link_to content_tag(:i, nil, class: 'far fa-thumbs-up'), unsignal_picture_path(picture) %>
+          </td>
+      <% end %>
+    </table>
   </div>
 </div>

@@ -71,7 +71,6 @@
   margin: 0 14px 15px;
   border-top: #80808066 1px solid;
 }
-
 .user_stats div{
   width: 33.3%;
   text-align: center;
@@ -98,7 +97,7 @@
 .user_tabs li{
   width: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   text-align: center;
   background-color: white;
@@ -134,7 +133,9 @@
   padding: 0;
 }
 .user_pictures .row, .artist_artworks_pictures .row {
-  margin: 0;
+    margin: 0;
+    height: 50vh;
+    overflow: scroll;
 }
 .user_pictures .row div, .artist_artworks_pictures .row div{
   padding :3px;
@@ -151,6 +152,10 @@
   height: 54vh;
 }
 
+#map_artist{
+  height: 54vh;
+}
+
 .artist_artworks_pictures{
   display: none;
   width: 100%;
@@ -159,4 +164,20 @@
 
 .fa, .far, .fas {
     font-size: 1.8rem;
+}
+
+
+.user_information_update {
+  text-align: center;
+  font-style: italic;
+  height: 7vh;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  p {
+    margin:0px;
+  }
+
 }

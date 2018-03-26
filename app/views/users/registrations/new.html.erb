@@ -1,8 +1,10 @@
 <div class="my_header">
-    <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
-    <div class="header_title">
-      <div class="header_title_logo"></div>
-    </div>
+    <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), root_path %> </li>
+    <%= link_to root_path do %>
+      <div class="header_title">
+        <div class="header_title_logo"></div>
+      </div>
+    <% end %>
     <li></li>
 </div>
 
@@ -28,7 +30,7 @@
           
           <%= f.file_field :profile_picture, id:"upload", style:"display:none", onchange:"readURL(this);" %>
           <div class= "center-picture-preview">
-            <img id="picture-preview" src="#" alt="your image" style="display:none;" />
+            <img id="picture-preview" alt="your image" style="display:none;" />
           </div>
         </div>
       </div>

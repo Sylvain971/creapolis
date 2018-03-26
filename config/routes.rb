@@ -44,11 +44,17 @@ Rails.application.routes.draw do
   get 'admin/artists-moderation', to: "admin#artists_moderation", as: "artists_moderation"
 
 	get 'users/:id', to: "users#show", as: "user_profile"
+  put 'admin/validates_artist/:id', to: "admin#validates_artist", as: "validates_artist"
+
   get 'artworks/show_small/:id', to: "artworks#show_small"
   get 'artworks/new/:lat/:long', to: "arwtorks#new"
-
+  get 'artworks/claimed/:id', to: "artworks#claim_artwork", as: "claim_artwork"
 
   get 'pictures/signaled/:id', to: "pictures#signal", as: "signal_picture"
-  get 'artworks/claimed/:id', to: "artworks#claim_artwork", as: "claim_artwork"
+  get 'pictures/moderate/:id', to: "pictures#moderate", as: "moderate_picture"
+  get 'pictures/unsignal/:id', to: "pictures#unsignal", as: "unsignal_picture"
+
+
+
 end
 

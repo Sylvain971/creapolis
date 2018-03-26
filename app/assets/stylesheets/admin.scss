@@ -39,4 +39,13 @@
     padding-right: 10px;
 
   }
+  td:nth-child(3){
+    min-width:100px;
+  };
+  td:nth-child(5){
+    min-width:190px;
+  };
+  td label{
+    width:100px;
+  }
 }

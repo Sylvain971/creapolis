@@ -1,4 +1,5 @@
 class ArtworksController < ApplicationController
+  attr_accessor :style, :artist
 
   def index
   	@artworks = Artwork.all
@@ -36,8 +37,11 @@ class ArtworksController < ApplicationController
 
   def update
   	@artwork = Artwork.find(params[:id])
-  	if artwork.update(artworks_params)
+  	if @artwork.update(artworks_params)
+      if !params[:artists].nil?
+      @artwork.artists << User.find(params[:artists])
   		redirect_to @artwork
+      end
   	else
   		render 'edit'
   	end
@@ -50,13 +54,13 @@ class ArtworksController < ApplicationController
   end
 
   def claim_artwork
-    @artwork = Artwork.find(params[:id]) 
+    @artwork = Artwork.find(params[:id])
     current_user.created_artworks << @artwork
     if !current_user.artist
-      current_user.status = "pending" 
+      current_user.status = "pending"
       current_user.save
       flash[:notice] = 'Cette oeuvre apparaîtra sur votre profil après modération !'
-    else 
+    else
       flash[:notice] = 'Cette oeuvre a été ajoutée à votre profil !'
     end
     redirect_to @artwork
@@ -64,7 +68,7 @@ class ArtworksController < ApplicationController
 
 	private
 	def artworks_params
-		params.permit(:title, :description, :lat, :long, :artist)
+		params.permit(:title, :description, :lat, :long, :artist, :style)
 	end
 
 end

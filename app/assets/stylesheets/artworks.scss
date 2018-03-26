@@ -38,70 +38,25 @@ align-items: stretch;
 margin: 0 5px 0 0;
 }
 
-.artwork_item_right{margin: 0 0 0 5px;}
-
 
 /*Artwork_info*/
 .artwork_info{
-width: 100%;
-height: 60px;
-/*background-color: brown;*/
-display: flex;
-justify-content: space-between;
-
+  width: 100%;
+  /* background-color: brown; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
 .artwork_info ul {
-margin-left: -30px;
+  margin-left: -30px;
+  display: flex;
 }
 
-.artwork_info_group_left{
-width: 50%;
-height: auto;
-/*background-color: #657845;*/
-display: flex;
-flex-wrap: wrap;
-}
-
-.artwork_info_group_right{
-width: 50%;
-height: 60px;
-/*background-color: purple;*/
-flex-wrap: wrap;
-}
-
-/*List of infos type*/
-.artwork_info_artist{
-width: 100%;
-height: 50%;
-/*background-color: orange;*/
-display: flex;
-align-items: center;
-}
-
-.artwork_info_tech{
-width: 100%;
-height: 50%;
-/*background-color: blue;*/
-display: flex;
-align-items: center;
-}
-
-.artwork_info_place{
-width: 100%;
-height: 50%;
-/*background-color: #fe52fe;*/
-display: flex;
-align-items: center;
-}
-
-.artwork_info_status{
-width: 100%;
-height: 50%;
-/*background-color: pink;*/
-display: flex;
-align-items: center;
-}
 
 
 /* The heart of the matter */
@@ -110,7 +65,7 @@ align-items: center;
   white-space: nowrap;
   /*background-color: yellow;*/
   padding: 0 0 20px 0;
-  margin-top:5px; 
+  margin-top:5px;
 }
 .scroll-group > .row > .col-xs-4 {
   display: inline-block;
@@ -120,7 +75,7 @@ align-items: center;
 
 .col-xs-4 {
     width: 33.333%;
-    
+
 }
 
 .title-artwork{
@@ -164,9 +119,11 @@ align-items: center;
   justify-content: space-between;
 }
 
-.claim-artwork {  
+.claim-artwork {
   text-align: center;
   width: 100%;
+  margin-bottom: 13vh;
+  margin-top: 3vh;
 }
 
 .claim-artwork a {
@@ -174,6 +131,7 @@ align-items: center;
   border: 2px solid #26348B;
   border-radius: 4px;
   padding: 5px;
+  margin-bottom: 10vh;
 }
 
 .detail_signal{

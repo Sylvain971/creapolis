@@ -1,8 +1,10 @@
 <div class="my_header">
-    <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), url_for(:back) %> </li>
-    <div class="header_title">
-      <div class="header_title_logo"></div>
-    </div>
+    <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), root_path %> </li>
+    <%= link_to root_path do %>
+      <div class="header_title">
+        <div class="header_title_logo"></div>
+      </div>
+    <% end %>
     <li></li>
 </div>
 
@@ -16,9 +18,6 @@
 
       <!-- Class col sm 9 begin -->
       <div class="col-sm-9">
-
-
-
 
       <!-- Slideshow begin -->
       <% @artwork.pictures.each.with_index do |picture, index| %>
@@ -97,92 +96,83 @@
       <%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
         <div class="add-picture-artwork">
           <i class="fas fa-plus-circle fa-2x" onclick="document.getElementById('upload').click();"> </i>
-          <p onclick="document.getElementById('upload').click();"> Ajoutez votre photo de cette oeuvre ! </p>
+          <p onclick="document.getElementById('upload').click();"> Ajoutez votre photo de cette oeuvre pour la faire apparaître sur votre carte ! </p>
         </div>
         <%= file_field_tag :img_url, id:"upload", style:"display:none", onchange:"readURL(this);" %>
         <div class= "center-picture-preview">
-          <img id="picture-preview" src="#" alt="your image" style="display:none;" />
+          <img id="picture-preview" alt="your image" style="display:none;" />
         </div>
         <div class="submit-new-picture-button" style="display:none">
           <%= submit_tag 'Valider'%>
         </div>
       <% end %>
-
       </div>
       <!-- Class col sm 9 end -->
 
     </div>
     <!-- Row content begin -->
 
-<hr>
-
-  </div>
-  <!-- container-fluid -->
-
-<br>
-
-      <!-- Artwork info begin -->
+     <!-- Artwork info begin -->
       <div class="artwork_info">
-        <!-- Left -->
-        <div class="artwork_info_group_left">
-          <div class="artwork_info_artist">
-            <ul>
-              <li><i class="fas fa-user" style="margin-right: 15px;"></i></li>
-              <% if @artwork.artists.exists? %>
-                <% @artwork.artists.each do |artist| %>
-                  <li><span><%= link_to artist.pseudo, user_path(artist) %></span></li>
+        <div class="artwork_info_artist">
+          <ul>
+            <li><i class="fas fa-user" style="margin-right: 15px;"></i></li>
+              <% if @artwork.artists.select{|a| a.status == "validated"}.count > 0 %>
+              <% @artwork.artists.select{|a| a.status == "validated"}.each do |artist| %>
+                <%= link_to artist.pseudo, user_path(artist) %> &nbsp
                   <% end %>
-                  <% elsif %>
-                  <% if !@artwork.artist.nil? %>
-                  <li><span><%= @artwork.artist %></span></li>
-                  <% end %>
-                <% elsif %>
-                 <li><span> Artiste non indiqué</span></li>
+              <% else %>
+                  <% if @artwork.artist == "" || @artwork.artist.nil?%>
+                  Artiste non renseigné
+                  <% else %>
+                  <%= @artwork.artist %>
                 <% end %>
-            </ul>
-          </div>
-
-          <div class="artwork_info_tech">
-            <ul>
-              <li><i class="fas fa-paint-brush" style="margin-right: 15px;"></i></li>
-              <li><span>Technique</span></li>
-            </ul>
-          </div>
+              <% end %>
+          </ul>
         </div>
 
-
-        <!-- Right -->
-        <div class="artwork_info_group_right">
-          <div class="artwork_info_place">
-            <ul>
-              <li><i class="fas fa-map-marker" style="margin-right: 15px;"></i></li>
-              <li><span> <%=@artwork.address%> </span></li>
-            </ul>
-          </div>
-          <div class="artwork_info_status">
-            <ul>
-              <li><i class="fas fa-check" style="margin-right: 15px;"></i></li>
-              <li><span>Status</span></li>
-            </ul>
-          </div>
+        <div class="artwork_info_tech">
+          <ul>
+            <li><i class="fas fa-paint-brush" style="margin-right: 15px;"></i></li>
+            <li><span>
+              <% if @artwork.style.nil? %>
+                Technique non renseignée
+              <% else %>
+                <%= @artwork.style %>
+              <% end %>
+            </span></li>
+          </ul>
         </div>
 
+        <div class="artwork_address">
+          <ul>
+            <li><i class="fas fa-map-marker" style="margin-right: 15px;"></i></li>
+            <li><span>
+              <% if @artwork.address.nil? %>
+                Pas de lieu renseigné
+              <% else %>
+                <%= @artwork.address %>
+              <% end %>
+            </span></li>
+          </ul>
+        </div>
       </div>
+    </div>
       <!-- Artwork info end -->
+        <!-- Right -->
 
-    <hr>
+
+
+    <!-- container-fluid -->
+    
+
+  <div class="claim-artwork">
     <% if !current_user.created_artworks.include?(@artwork)%>
-    <div class="claim-artwork">
-    <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %>
-    </div>
+  <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %>
     <%end %>
+   </div>
 
-
-    </div>
-    <!-- body -->
-
-
-
+</div>
 
 
 
@@ -203,22 +193,13 @@ function currentSlide(n) {
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
   }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
   slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
 }
-
-
 
 function readURL(input) {
   if (input.files && input.files[0]) {
@@ -244,9 +225,6 @@ function(){
     return true;
    }
 });
-
-
-
 
 
 </script>
