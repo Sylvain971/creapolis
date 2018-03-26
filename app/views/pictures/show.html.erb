@@ -12,7 +12,7 @@
 <div class="body-container">
 
   <!-- Container-fluid FIRST beign -->
-  <div class="container-fluid">
+  <div class="container-fluid-picture">
 
     <!-- Row content begin -->
     <div class="row content">
@@ -55,49 +55,33 @@
 
     </div>
     <!-- Row content end -->
-</div>
-<!-- Container-fluid end -->
 
 
-<div class="picture_informations">
-  <div class="nothing">
-    <i class="fas fa-exclamation-triangle"></i>
 
-  </div>
-  <div class="btn-group">
-      <% if current_user.voted_for? @picture %>
-          <%= link_to unlike_picture_path(@picture), method: :put, class: "round-corner-ok" do %>
-          <i class="fas fa-heart" style="color:#E76262"></i>
-          <span style="font-size: 12px; color:#E76262; font-weight: 700; font-size: 16px;margin-left: 5px;">
-            <%= @picture.get_upvotes.size %></span>
+    <div class="picture_informations">
+      <div class="nothing">
+        <i class="fas fa-exclamation-triangle"></i>
+
+      </div>
+      <div class="btn-group">
+          <% if current_user.voted_for? @picture %>
+              <%= link_to unlike_picture_path(@picture), method: :put, class: "round-corner-ok" do %>
+              <i class="fas fa-heart" style="color:#E76262"></i>
+              <span style="font-size: 12px; color:#E76262; font-weight: 700; font-size: 16px;margin-left: 5px;">
+                <%= @picture.get_upvotes.size %></span>
+              <% end %>
+          <% else %>
+              <%= link_to like_picture_path(@picture), method: :put, class: "round-corner-no" do %>
+              <i class="far fa-heart"></i>
+              <span style="font-size: 16px;margin-left: 5px;">
+              <%= @picture.get_upvotes.size %></span>
+              <% end %>
           <% end %>
-      <% else %>
-          <%= link_to like_picture_path(@picture), method: :put, class: "round-corner-no" do %>
-          <i class="far fa-heart"></i>
-          <span style="font-size: 16px;margin-left: 5px;">
-          <%= @picture.get_upvotes.size %></span>
-          <% end %>
-      <% end %>
-  </div>
-  <div class="signal-picture-button">
-    <%= link_to content_tag(:i, nil, class: "fas fa-exclamation-triangle"), signal_picture_path(@picture) %>
-  </div>
-</div>
-
-
-
-<hr>
-
-
-
-<!-- Container-fluid FIRST beign -->
-<div class="container-fluid">
-
-  <!-- Row content begin -->
-  <div class="row content">
-
-    <!-- Class col sm 9 begin -->
-    <div class="col-sm-9">
+      </div>
+      <div class="signal-picture-button">
+        <%= link_to content_tag(:i, nil, class: "fas fa-exclamation-triangle"), signal_picture_path(@picture) %>
+      </div>
+    </div>
 
 
       <div class="col-sm-12 center-element">
@@ -116,18 +100,12 @@
       </div>
       <% end %>
 
-
-    </div>
-    <!-- Class col sm  end -->
-  </div>
-  <!-- Row content end -->
 </div>
-<!-- Container-fluid -->
-
-
-
 </div>
-<!-- body-container begin -->
+<hr>
+
+
+
 
 
 
