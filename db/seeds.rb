@@ -2,29 +2,15 @@ user_admin = User.create(pseudo: "Admin", email:"admin@gmail.com", password: "ad
 
 user_regular = User.create(pseudo: "Nico", email:"nico@gmail.com", password: "coucou", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg")
 
-user_c215 = User.create(pseudo: "C215", email:"c215@gmail.com", password:"coucou", artist: true, status: "validated", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
-user_fake = User.create(pseudo: "Fake", email:"fake@gmail.com", password:"coucou", artist: true, status: "validated", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
-user_alice = User.create(pseudo: "Alice Pasqualini", email:"alicepasqualini@gmail.com", password:"coucou", artist: true, status: "validated", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
-user_findac = User.create(pseudo: "Fin DAC", email:"findak@gmail.com", password:"coucou", artist: true, status: "validated", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
-user_pixel = User.create(pseudo: "Pixel Pancho", email:"pixel@gmail.com", password:"coucou", artist: true, status: "validated", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
-user_bebar = User.create(pseudo: "Bebar", email:"bebar@gmail.com", password:"coucou", artist: true, status: "validated", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
-user_stex = User.create(pseudo: "Stew", email:"stew@gmail.com", password:"coucou", artist: true, status: "validated", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
-user_stex = User.create(pseudo: "Roa", email:"roa@gmail.com", password:"coucou", artist: true, status: "validated", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
+user_c215 = User.create(pseudo: "C215", email:"c215@gmail.com", password:"coucou", artist: true,remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
+user_fake = User.create(pseudo: "Fake", email:"fake@gmail.com", password:"coucou", artist: true, remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
+user_alice = User.create(pseudo: "Alice Pasqualini", email:"alicepasqualini@gmail.com", password:"coucou", artist: true,  remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
+user_findac = User.create(pseudo: "Fin DAC", email:"findak@gmail.com", password:"coucou", artist: true,  remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
+user_pixel = User.create(pseudo: "Pixel Pancho", email:"pixel@gmail.com", password:"coucou", artist: true, remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
+user_bebar = User.create(pseudo: "Bebar", email:"bebar@gmail.com", password:"coucou", artist: true,  remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
+user_stew = User.create(pseudo: "Stew", email:"stew@gmail.com", password:"coucou", artist: true,  remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
+user_roa = User.create(pseudo: "Roa", email:"roa@gmail.com", password:"coucou", artist: true,  remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
 
-artwork7.artists << user_alice
-artwork8.artists << user_c215
-artwork8.artists << user_fake
-artwork9.artists << user_pixel
-artwork10.artists << user_findac
-artwork11.artists << user_bebar
-artwork12.artists << user_pixel
-artwork13.artists << user_stew
-artwork14.artists << user_Roa
-artwork15.artists << user_c215
-artwork27.artists << user_c215
-artwork28.artists << user_findac
-artwork32.artists << user_c215
-artwork34.artists << user_c215
 
 
 
@@ -117,3 +103,19 @@ route1.artworks << artwork31
 route1.artworks << artwork32
 route1.artworks << artwork33
 route1.artworks << artwork34
+
+artwork7.artists << user_alice
+artwork8.artists << user_c215
+artwork8.artists << user_fake
+artwork9.artists << user_pixel
+artwork10.artists << user_findac
+artwork11.artists << user_bebar
+artwork12.artists << user_pixel
+artwork13.artists << user_stew
+artwork14.artists << user_roa
+artwork15.artists << user_c215
+artwork27.artists << user_c215
+artwork28.artists << user_findac
+artwork32.artists << user_c215
+artwork34.artists << user_c215
+
