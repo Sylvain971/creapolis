@@ -13,10 +13,19 @@ $('.user_tabs .tab1').on( 'click', function () {
 $('.user_tabs .tab2').on( 'click', function () {
       $('.artist_artworks_pictures').hide();
       $('.user_pictures').hide();
+      
+      $('.user_tabs').slideUp('fast');
       $('.user_map').show();
+      $('#map_user').css("height","59vh");
+      
       $('.user_tabs .tab2').addClass('active_tab');
       $('.user_tabs li:not(.tab2)').removeClass('active_tab');
       map._onResize();
+
+      $('.user_row').on('click', function(){
+        $('.user_tabs').slideDown('fast');
+        $('#map_user').css("height","54vh");
+      })
 });
 
 $('.user_tabs .tab0').on( 'click', function () {
