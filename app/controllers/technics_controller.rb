@@ -1,0 +1,3 @@
+class TechnicsController < ApplicationController
+
+end

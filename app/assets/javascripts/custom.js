@@ -41,6 +41,7 @@ $( document ).on('turbolinks:load', function() {
         $('#map_user').css("height","54vh");
         $('.count-items').show();
 
+
   });
 });
 

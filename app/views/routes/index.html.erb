@@ -17,14 +17,11 @@
 
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="#">Kit du photographe</a>
-      <a href="#">Techniques art urbain</a>
-      <a href="#">CGV</a>
-      <a href="#">Contact</a>
+      <%= link_to "À propos", menu_propos_path, class:"nav-item"%>
+      <%= link_to "Guide de l'explorateur", menu_camera_kit_path, class:"nav-item"%>
+      <%= link_to "Techniques art urbain", menu_technics_path, class:"nav-item"%>
     </div>
-
 </div>
-
 
 
 <div class="spaceleft">
@@ -47,8 +44,9 @@
 </div>
 
 
-<!-- Left side navigation menu -->
+
 <script>
+  //Left side navigation menu
   function openNav() {
       document.getElementById("mySidenav").style.width = "80%";
   }
@@ -56,6 +54,13 @@
   function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
   }
+
+
+$('.nav-item').on("click", function(){
+  $('#mySidenav').hide();
+})
+
+
 </script>
 
 
