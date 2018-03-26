@@ -29,7 +29,7 @@
           <%= @user.pseudo %>
           <% if @user.artist %>
             <br>
-            <span class="status_artist"> Artist </span>
+            <span class="status_artist"> Artiste </span>
           <% end %>
         </div>
       </div>
@@ -42,22 +42,28 @@
   <% if @user.artist %>
   <div class="user_tabs">
     <li class="tab0"><i class='fas fa-paint-brush'></i>
+      <p class="count-items">
     <%= @user.created_artworks.count %>
     <% if @user.created_artworks.count < 2 %> oeuvre
         <% else %> oeuvres
       <%end%>
+    </p>
     </li>
     <li class="tab1 active_tab"><i class='fas fa-camera-retro'></i>
+      <p class="count-items">
       <%= @user.pictures.count %>
         <% if @user.pictures.count < 2 %> photo
         <% else %> photos
         <% end %>
+      </p>
     </li>
     <li class="tab2"><i class='far fa-map'></i>
+      <p class="count-items">
       <%=@user.created_artworks.count %>
       <% if @user.created_artworks.count < 2 %> lieu
         <% else %> lieux
         <%end%>
+      </p>
     </li>
   </div>
   
@@ -65,16 +71,20 @@
   <%else %>
   <div class="user_tabs">
       <li class="tab1 active_tab"><i class='fas fa-camera-retro'></i>
+        <p class="count-items">
         <%= @user.pictures.count %>
           <% if @user.pictures.count < 2 %> photo
           <% else %> photos
           <% end %>
+        </p>
       </li>
       <li class="tab2"><i class='far fa-map'></i>
+        <p class="count-items">
         <%= @user.pictures.group(:artwork_id).distinct.count(:artwork_id).count %>
           <% if @user.pictures.group(:artwork_id).distinct.count(:artwork_id).count < 2 %> lieu
           <% else %> lieux
           <%end%>
+        </p>
       </li>
   </div>
 <% end %>
