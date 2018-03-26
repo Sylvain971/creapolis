@@ -41,15 +41,7 @@
 
   <% if @user.artist %>
   <div class="user_tabs">
-    <li class="tab0"><i class='fas fa-paint-brush'></i>
-      <p class="count-items">
-    <%= @user.created_artworks.count %>
-    <% if @user.created_artworks.count < 2 %> oeuvre
-        <% else %> oeuvres
-      <%end%>
-    </p>
-    </li>
-    <li class="tab1 active_tab"><i class='fas fa-camera-retro'></i>
+    <li class="tab1"><i class='fas fa-camera-retro'></i>
       <p class="count-items">
       <%= @user.pictures.count %>
         <% if @user.pictures.count < 2 %> photo
@@ -57,6 +49,16 @@
         <% end %>
       </p>
     </li>
+
+    <li class="tab0 active_tab"><i class='fas fa-paint-brush'></i>
+      <p class="count-items">
+    <%= @user.created_artworks.count %>
+    <% if @user.created_artworks.count < 2 %> oeuvre
+        <% else %> oeuvres
+      <%end%>
+    </p>
+    </li>
+
     <li class="tab2"><i class='far fa-map'></i>
       <p class="count-items">
       <%=@user.created_artworks.count %>
