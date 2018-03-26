@@ -8,24 +8,27 @@ $('.user_tabs .tab1').on( 'click', function () {
       $('.user_tabs .tab1').addClass('active_tab');
       $('.user_tabs li:not(.tab1)').removeClass('active_tab');
       $(".popup-container").hide();
+
+      $('.user_tabs').css("height","80px")
+      $('#map_user').css("height","54vh");
+      $('.count-items').show();
 });
 
 $('.user_tabs .tab2').on( 'click', function () {
       $('.artist_artworks_pictures').hide();
       $('.user_pictures').hide();
       
-      $('.user_tabs').slideUp('fast');
-      $('.user_map').show();
+      $('.count-items').hide();
+      $('.user_tabs').css("height","8vh")
+      $('.user_tabs').css("min-height","8vh")
       $('#map_user').css("height","63vh");
-      
+      $('.user_map').show();
+
       $('.user_tabs .tab2').addClass('active_tab');
       $('.user_tabs li:not(.tab2)').removeClass('active_tab');
       map._onResize();
 
-      $('.user_row').on('click', function(){
-        $('.user_tabs').slideDown('fast');
-        $('#map_user').css("height","54vh");
-      })
+
 });
 
 $('.user_tabs .tab0').on( 'click', function () {
@@ -36,7 +39,15 @@ $('.user_tabs .tab0').on( 'click', function () {
       $('.user_tabs li:not(.tab0)').removeClass('active_tab');
       $(".popup-container").hide();
 
+      $('.user_tabs').css("height","80px")
+      $('#map_user').css("height","54vh");
+      $('.count-items').show();
+
 });
+
+
+
+
 
 });
 

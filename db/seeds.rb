@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 user_admin = User.create(pseudo: "Admin", email:"admin@gmail.com", password: "admin2018", admin: true)
 
 user_regular = User.create(pseudo: "Nico", email:"nico@gmail.com", password: "coucou", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg")
@@ -14,24 +6,20 @@ user_regular3 = User.create(pseudo: "Justine", email:"justine@gmail.com", passwo
 user_regular4 = User.create(pseudo: "Sylvain", email:"sylvain@gmail.com", password: "coucou", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg")
 user_regular5 = User.create(pseudo: "Louis", email:"louis@gmail.com", password: "coucou", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg")
 
-user_dacruz = User.create(pseudo: "Dacruz", email:"dacruz@gmail.com", password:"coucou", artist: true, remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
-user_ren = User.create(pseudo: "Ren", email: "ren@gmail.com", password:"coucou", artist: true,  remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
-user_sanetwo = User.create(pseudo: "Sanetwo", email: "sanetwo@gmail.com", password:"coucou", artist: true, remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
+user_c215 = User.create(pseudo: "C215", email:"c215@gmail.com", password:"coucou", artist: true, status: "validated", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
+user_fake = User.create(pseudo: "Fake", email:"fake@gmail.com", password:"coucou", artist: true, status: "validated", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
+user_alice = User.create(pseudo: "Alice Pasqualini", email:"alicepasqualini@gmail.com", password:"coucou", artist: true, status: "validated", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
+user_findak = User.create(pseudo: "Fin Dak", email:"findak@gmail.com", password:"coucou", artist: true, status: "validated", remote_profile_picture_url: "https://res.cloudinary.com/creapolis/image/upload/v1521715684/default_profile_picture.jpg", status: "validated")
 
-artwork1 = Artwork.create(title:"Une super oeuvre d'art", lat: "48.8879012", long: "2.384519")
-artwork2 = Artwork.create(title:"Une chouette oeuvre d'art", lat: "48.8897974", long: "2.3846279")
-artwork3 = Artwork.create(title:"Une incroyable oeuvre d'art", lat: "48.8897424", long: "2.3844968")
-
-picture1 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1521038222/image1.jpg", artwork: artwork1, user: user_regular)
-picture2 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1521038228/image2.jpg", artwork: artwork2, user: user_regular)
-picture3 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1521038233/image3.jpg", artwork: artwork3, user: user_regular)
-picture4 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1521038233/image3.jpg", artwork: artwork1, user: user_regular2)
-picture5 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1521038222/image1.jpg", artwork: artwork1, user: user_regular3)
-picture6 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1521038222/image1.jpg", artwork: artwork1, user: user_regular4)
-
-artwork1.artists << user_dacruz
-artwork2.artists << user_ren
-artwork3.artists << user_sanetwo
+artwork8.artists << user_c215
+artwork8.artists << user_fake
+artwork7.artists << user_alice
+artwork15.artists << user_c215
+artwork27.artists << user_c215
+artwork32.artists << user_c215
+artwork34.artists << user_c215
+artwork10.artists << user_findak
+artwork28.artists << user_findak
 
 ########### Creation d'une premier itinéraire #########################
 
@@ -63,6 +51,7 @@ artwork31 = Artwork.create( lat:	"48.7937218",	long:"2.3973139", artist: "Indigo
 artwork32 = Artwork.create( lat:	"48.7938285",	long:"2.3972656", artist: "C215")
 artwork33 = Artwork.create( lat:	"48.7890078",	long:"2.3907706", artist: "Sly2", style:"Spray")
 artwork34 = Artwork.create( lat:	"48.7890078",	long:"2.3907706", artist: "C215", style:"Pochoir")
+
 
 
 picture7 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/DSC_0742.JPG",user: user_admin, artwork: artwork7)
