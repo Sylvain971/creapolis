@@ -16,7 +16,7 @@ $('.user_tabs .tab2').on( 'click', function () {
       
       $('.user_tabs').slideUp('fast');
       $('.user_map').show();
-      $('#map_user').css("height","59vh");
+      $('#map_user').css("height","63vh");
       
       $('.user_tabs .tab2').addClass('active_tab');
       $('.user_tabs li:not(.tab2)').removeClass('active_tab');

@@ -117,17 +117,17 @@
   <div class="user_pictures">
       <div class="user_tabs_description">
         <% if @user == current_user %>
-          Retrouvez ici les photos que vous avez prises.
+          Retrouvez les photos que vous avez prises.
         <% else %>
-          Retrouvez ici les photos prises par <%= @user.pseudo %>
+          Retrouvez les photos prises par <%= @user.pseudo %>
         <% end %>
       </div>
       <% if @user.pictures.count == 0 %>
       <div class="user_information_update">
         <% if @user == current_user %>
-          <p> Vous n'avez aucune image répertoriée pour l'instant.</p>
+          <p> Vous n'avez aucune photo répertoriée pour l'instant.</p>
           <% else %>
-          <p> <%= @user.pseudo %> n'a aucune image répertoriée pour l'instant.</p>
+          <p> <%= @user.pseudo %> n'a aucune photo répertoriée pour l'instant.</p>
           <% end %>
       </div>
 
@@ -230,7 +230,6 @@ map.addLayer(markers_clusters);
 
 // For each marker clicked, we get the show page > maybe better in ajax?
 up.forEach(function (markerConfig, index) {
-  console.log(up[index])
   marker = new L.Marker([up[index].artwork.lat,up[index].artwork.long]);
   markers_clusters.addLayer(marker);
   marker.on('click', function(){
@@ -270,7 +269,6 @@ map.addLayer(markers_clusters);
 
 // For each marker clicked, we get the show page > maybe better in ajax?
 ua.forEach(function (markerConfig, index) {
-  console.log(ua[index])
   marker = new L.Marker([ua[index].lat,ua[index].long]);
   markers_clusters.addLayer(marker);
   marker.on('click', function(){
@@ -286,6 +284,7 @@ ua.forEach(function (markerConfig, index) {
  map.on('click', function(){
   $(".popup-container").hide()
  });
+}
 
 
 </script>

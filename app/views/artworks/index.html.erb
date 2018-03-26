@@ -56,8 +56,6 @@
 
 <script type="text/javascript">
 
-
-
 getLocation();
 
 // This is a public token
@@ -87,7 +85,6 @@ map.addLayer(markers_clusters);
 var arr = <%= @artworks_js.html_safe %>
 var markers = {};
 
-console.log(arr)
 // For each marker clicked, we send an AJAX request to show a small version of show artwork
  arr.forEach(function (markerConfig, index) {
   if (arr[index].pictures.length >0){

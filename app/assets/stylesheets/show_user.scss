@@ -133,7 +133,9 @@
   padding: 0;
 }
 .user_pictures .row, .artist_artworks_pictures .row {
-  margin: 0;
+    margin: 0;
+    height: 50vh;
+    overflow: scroll;
 }
 .user_pictures .row div, .artist_artworks_pictures .row div{
   padding :3px;
