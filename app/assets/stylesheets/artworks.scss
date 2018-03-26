@@ -50,6 +50,7 @@ margin: 0 5px 0 0;
   padding-bottom: 10px;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
+  margin-top: 2vh
 }
 
 .artwork_info ul {
@@ -86,11 +87,17 @@ margin: 0 5px 0 0;
     padding-left: 15px;
 }
 
-.add-picture-artwork {
+.add-picture-to-artwork {
   display: flex;
   justify-content: flex-start;
-  color: #d85b74;
+  color: white;
   cursor: pointer;
+  background-color: #ec607e;
+  padding: 15px 0px 5px 10px;
+  width: 100%;
+  border: 0px;
+  border-radius: 3px;
+  margin-bottom: 1vh;
   .fas {
     margin-right: 7px;
     margin-top: -4px;
@@ -122,7 +129,7 @@ margin: 0 5px 0 0;
 .claim-artwork {
   text-align: center;
   width: 100%;
-  margin-bottom: 13vh;
+  margin-bottom: 6vh;
   margin-top: 3vh;
 }
 
@@ -134,12 +141,14 @@ margin: 0 5px 0 0;
   margin-bottom: 10vh;
 }
 
-.detail_signal{
-  width: 50%;
-  height: 30px;
-  /*background-color: green;*/
-  margin-left: 83%;
-  margin-top: -10px;
-  margin-bottom: -7px;
+
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 82vh;
+    overflow: scroll;
 }
+
 

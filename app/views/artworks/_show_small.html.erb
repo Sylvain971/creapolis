@@ -17,10 +17,10 @@
         <% end %>
       </p>
       <p><i class="fas fa-paint-brush"></i>
-        <% if !@artwork.style.nil? %>
-          <%= @artwork.style %>
-        <% else %>
+        <% if @artwork.style.nil? || @artwork.style == "" %>
           Technique non renseignée
+        <% else %>
+          <%= @artwork.style %>
         <% end %>
       </p>
       <p class="address-artwork"><i class="fas fa-location-arrow"></i>  <%=@artwork.address%> </i></p>

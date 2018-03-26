@@ -447,6 +447,7 @@ img {
   display: flex;
   height: 78vh;
   align-items: center;
+  justify-content: center;
 }
 
 .picture-new {
@@ -520,4 +521,8 @@ img {
     top: 8vh;
     padding: 3px;
     text-align: center;
+}
+
+.add-picture-artwork {
+  display: flex;
 }

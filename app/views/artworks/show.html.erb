@@ -65,18 +65,17 @@
                   <% end %>
               <% end %>
             </div>
-
-          </div>
-
           <div class="signal-picture-button detail_signal">
             <%= link_to content_tag(:i, nil, class: "fas fa-exclamation-triangle"), signal_picture_path(picture) %>
           </div>
+          </div>
+
+
 
         </div>
 
       <%end%>
 
-      <br>
 
       <% if @artwork.pictures.count > 1 %>
         <div class="scroll-group">
@@ -90,11 +89,8 @@
         </div>
       <%end%>
       <!-- Slideshow end -->
-
-      <br>
-
       <%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
-        <div class="add-picture-artwork">
+        <div class="add-picture-to-artwork">
           <i class="fas fa-plus-circle fa-2x" onclick="document.getElementById('upload').click();"> </i>
           <p onclick="document.getElementById('upload').click();"> Ajoutez votre photo de cette oeuvre pour la faire apparaître sur votre carte ! </p>
         </div>
@@ -135,7 +131,7 @@
           <ul>
             <li><i class="fas fa-paint-brush" style="margin-right: 15px;"></i></li>
             <li><span>
-              <% if @artwork.style.nil? %>
+              <% if @artwork.style.nil? || @artwork.style == "" %>
                 Technique non renseignée
               <% else %>
                 <%= @artwork.style %>
@@ -157,6 +153,14 @@
           </ul>
         </div>
       </div>
+
+
+
+  <div class="claim-artwork">
+    <% if !current_user.created_artworks.include?(@artwork)%>
+  <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %>
+    <%end %>
+   </div>
     </div>
       <!-- Artwork info end -->
         <!-- Right -->
@@ -166,11 +170,6 @@
     <!-- container-fluid -->
     
 
-  <div class="claim-artwork">
-    <% if !current_user.created_artworks.include?(@artwork)%>
-  <%= link_to "Je suis l'auteur de cette oeuvre", claim_artwork_path(@artwork) %>
-    <%end %>
-   </div>
 
 </div>
 

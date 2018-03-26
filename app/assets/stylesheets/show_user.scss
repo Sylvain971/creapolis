@@ -1,3 +1,4 @@
+
 .admin_row{
   width: 100vw;
   height: 50px;
@@ -136,6 +137,7 @@
     margin: 0;
     height: 50vh;
     overflow: scroll;
+    padding-bottom: 8vh
 }
 .user_pictures .row div, .artist_artworks_pictures .row div{
   padding :3px;
@@ -148,16 +150,12 @@
 .user_map{
   display: none;
 }
+
 #map_user{
   height: 54vh;
 }
 
-#map_artist{
-  height: 54vh;
-}
-
 .artist_artworks_pictures{
-  display: none;
   width: 100%;
   margin: 0;
 }
@@ -165,7 +163,6 @@
 .fa, .far, .fas {
     font-size: 1.8rem;
 }
-
 
 .user_information_update {
   text-align: center;

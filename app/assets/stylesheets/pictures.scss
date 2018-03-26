@@ -50,11 +50,12 @@
 
 .picture_informations{
   width: 100%;
-  /*background-color: red;*/
-  height: 20%;
+  /* background-color: red; */
+  /* height: 20%; */
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .picture_informations a:hover{
@@ -163,4 +164,13 @@ color: #E76262;
 */
 .btn-default{
   border-color: white;
+}
+
+.container-fluid-picture{
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 82vh;
+    overflow: scroll;
 }
