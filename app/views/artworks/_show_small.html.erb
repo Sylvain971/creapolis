@@ -4,15 +4,15 @@
 
 <div class = "artwork-infos">
       <p><i class="fas fa-user"></i>
-      <% if @artwork.artists.select{|a| a.status == "validated"} != "" %>
+        <% if @artwork.artists.select{|a| a.status == "validated"}.count > 0 %>
         <% @artwork.artists.select{|a| a.status == "validated"}.each do |artist| %>
           <%= link_to artist.pseudo, user_path(artist) %> &nbsp
             <% end %>
         <% else %>
-            <% if @artwork.artist == "" %>
-          Artiste non renseigné
+            <% if @artwork.artist == "" || @artwork.artist.nil?%>
+            Artiste non renseigné
             <% else %>
-          <%= @artwork.artist %>
+            <%= @artwork.artist %>
           <% end %>
         <% end %>
       </p>

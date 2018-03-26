@@ -117,15 +117,15 @@
         <div class="artwork_info_artist">
           <ul>
             <li><i class="fas fa-user" style="margin-right: 15px;"></i></li>
-              <% if @artwork.artists.select{|a| a.status == "validated"} != "" %>
+              <% if @artwork.artists.select{|a| a.status == "validated"}.count > 0 %>
               <% @artwork.artists.select{|a| a.status == "validated"}.each do |artist| %>
                 <%= link_to artist.pseudo, user_path(artist) %> &nbsp
                   <% end %>
               <% else %>
-                  <% if !@artwork.artist.nil?%>
-               <%= @artwork.artist %>
+                  <% if @artwork.artist == "" || @artwork.artist.nil?%>
+                  Artiste non renseigné
                   <% else %>
-                Artiste non renseigné
+                  <%= @artwork.artist %>
                 <% end %>
               <% end %>
           </ul>
