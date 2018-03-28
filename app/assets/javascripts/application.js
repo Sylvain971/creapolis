@@ -16,3 +16,4 @@
 //= require leaflet
 //= require algolia/v3/algoliasearch.min
 //= require_tree .
+//= require serviceworker-companion
