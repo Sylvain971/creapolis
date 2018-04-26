@@ -21,6 +21,15 @@
   background-color: #fff;
 }
 
+.powered {
+    position: relative;
+    width: 75vw;
+    top: -15px;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .ais-hits {
 	margin-left: 12.5vw;
 	margin-right: 12.5vw;
@@ -71,4 +80,3 @@
 	overflow: scroll;
     height: 73vh;
 }
-
