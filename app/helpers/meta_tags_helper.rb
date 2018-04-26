@@ -13,6 +13,6 @@ module MetaTagsHelper
     meta_image = (content_for?(:meta_image) ? content_for(:meta_image) : DEFAULT_META["meta_image"])
     # ajoutez la ligne ci-dessous pour que le helper fonctionne indifféremment
     # avec une image dans vos assets ou une url absolue
-    meta_image.starts_with?("http") ? meta_image : image_url(meta_image)
+    meta_image.starts_with?("https") ? meta_image : image_url(meta_image)
   end
 end
