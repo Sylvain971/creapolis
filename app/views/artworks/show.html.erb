@@ -65,17 +65,13 @@
                   <% end %>
               <% end %>
             </div>
-          <div class="signal-picture-button detail_signal">
-            <%= link_to content_tag(:i, nil, class: "fas fa-exclamation-triangle"), signal_picture_path(picture) %>
+            <div class="signal-picture-button detail_signal">
+              <%= link_to content_tag(:i, nil, class: "fas fa-exclamation-triangle"), signal_picture_path(picture) %>
+            </div>
           </div>
-          </div>
-
-
 
         </div>
-
       <%end%>
-
 
       <% if @artwork.pictures.count > 1 %>
         <div class="scroll-group">
@@ -89,18 +85,20 @@
         </div>
       <%end%>
       <!-- Slideshow end -->
-      <%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
-        <div class="add-picture-to-artwork">
-          <i class="fas fa-plus-circle fa-2x" onclick="document.getElementById('upload').click();"> </i>
-          <p onclick="document.getElementById('upload').click();"> Ajoutez votre photo de cette oeuvre pour la faire apparaître sur votre carte ! </p>
-        </div>
-        <%= file_field_tag :img_url, id:"upload", style:"display:none", onchange:"readURL(this);" %>
-        <div class= "center-picture-preview">
-          <img id="picture-preview" alt="your image" style="display:none;" />
-        </div>
-        <div class="submit-new-picture-button" style="display:none">
-          <%= submit_tag 'Valider'%>
-        </div>
+      <% if mobile_device? %><!-- Afficher l'ajout d'une image seulement depuis un device mobile -->
+        <%= form_tag (pictures_path(id: @artwork.id)), multipart: true do %>
+          <div class="add-picture-to-artwork">
+            <i class="fas fa-plus-circle fa-2x" onclick="document.getElementById('upload').click();"> </i>
+            <p onclick="document.getElementById('upload').click();"> Ajoutez votre photo de cette oeuvre pour la faire apparaître sur votre carte ! </p>
+          </div>
+          <%= file_field_tag :img_url, id:"upload", style:"display:none", onchange:"readURL(this);" %>
+          <div class= "center-picture-preview">
+            <img id="picture-preview" alt="your image" style="display:none;" />
+          </div>
+          <div class="submit-new-picture-button" style="display:none">
+            <%= submit_tag 'Valider'%>
+          </div>
+        <% end %>
       <% end %>
       </div>
       <!-- Class col sm 9 end -->
@@ -168,7 +166,7 @@
 
 
     <!-- container-fluid -->
-    
+
 
 
 </div>
