@@ -18,11 +18,26 @@ h2 {
 }
 
 .leaflet-control-attribution.leaflet-control {
-  display:none;
 }
 
 .body-container {
 }
+
+
+/*
+@media only screen and (min-width: 920px) {
+  .bottom_menu{
+    max-width: 600px;
+    margin: auto;
+  }
+  body{
+    max-width:600px;
+    margin: auto !important;
+    background-color: lightgrey;
+  }
+}
+*/
+
 
 /* -------- Barre de header --- */
 
@@ -80,7 +95,7 @@ h2 {
 
 #map_index {
   margin-bottom: 8vh;
-  height: 84vh;
+  height: 82vh;
 }
 
 .container{
@@ -98,10 +113,11 @@ h2 {
   width :100%;
   display: flex;
   flex-direction: row;
-  z-index: 999;
+  z-index: 1000;
   text-transform: uppercase;
   font-weight: 700;
   border-top: 1px solid #ccc;
+  justify-content: center;
 }
 
 .bottom_menu li{
@@ -146,6 +162,11 @@ h2 {
     padding-bottom: 3px;
 }
 
+@media screen and (min-width: 980px) {
+  .bottom_menu li{ width: 25%; }
+  .bottom_menu a { width: 25vw; }
+}
+
 .active_tab i{
   color: #09125A !important;
 }
@@ -184,6 +205,28 @@ h2 {
   background-color: rgba(255, 255, 255, 0.75);
   box-shadow: 0px -4px 20px 0px #585858;
 }
+@media screen and (min-width: 980px) {
+  .popup-container {
+      z-index: 999;
+      position: fixed;
+      bottom: 10vh;
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.75);
+      box-shadow: -10px 0px 7px -7px #585858;
+      width: 20%;
+      right: 0;
+      flex-direction: column;
+      top: 8vh;
+      min-width: 300px;
+      height: 82vh;
+  }
+  .artwork-image-likes img {
+    min-width: 300px;
+    height: auto !important;
+    width: 100% !important;
+  }
+}
+
 
 .artwork-image-likes {
   display: flex;
@@ -202,7 +245,7 @@ h2 {
   justify-content: flex-start;
   align-items: flex-start;
   height : 100%;
-  
+
   .fas {
   color: #ec607e;
   margin-right: 3px;
