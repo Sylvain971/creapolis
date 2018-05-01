@@ -32,7 +32,7 @@
           <% if picture.artwork.pictures.count == 1 %>
             <%= link_to content_tag(:i, nil, class: 'fas fa-trash-alt'), @artwork, data: { confirm: "Attention la suppression de cette photo entrainera la suppression de l'oeuvre !" }, method: :delete %>
           <% else %>
-            <%= link_to content_tag(:i, nil, class: 'fas fa-trash-alt'), @picture, data: { confirm: "Etes-vous sûr(e) ?" }, method: :delete %>
+            <%= link_to content_tag(:i, nil, class: 'fas fa-trash-alt'), picture_path(picture), data: { confirm: "Etes-vous sûr(e) ?" }, method: :delete %>
           <% end %>
           <%= link_to content_tag(:i, nil, class: 'far fa-thumbs-up'), moderate_picture_path(picture) %>
           </td>

@@ -22,6 +22,8 @@ gem "algoliasearch-rails"
 gem 'acts_as_votable', '~> 0.11.1'
 gem 'geocoder'
 gem 'omniauth-facebook'
+gem 'serviceworker-rails', '~> 0.5.5'
+
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

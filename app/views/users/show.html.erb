@@ -70,7 +70,7 @@
       </p>
     </li>
   </div>
-  
+
 
   <%else %>
   <div class="user_tabs">
@@ -101,7 +101,7 @@
   <div class="artist_artworks_pictures">
       <div class="user_tabs_description">
         <% if @user == current_user %>
-          Retrouvez toutes vos oeuvres 
+          Retrouvez toutes vos oeuvres
           <% else %>
           Retrouvez toutes les oeuvres de <%= @user.pseudo %>
           <% end %>
@@ -149,7 +149,7 @@
         <div class="row">
           <% @user.pictures.each do |picture| %>
 
-            <div class="col-xs-4">
+            <div class="col-xs-4 col-md-2">
               <%= link_to picture_path(picture) do %>
                 <%= cl_image_tag(picture.img_url, :width => 400, :height => 225, :crop => :fill, :secure => true, class: "img-responsive") %>
               <% end %>
@@ -159,7 +159,7 @@
         </div>
       <% end %>
     </div>
-  
+
 
 
   <% if !@user.artist %>
@@ -176,7 +176,7 @@
     <% else %>
     <div class="user_information_update">
       <% if @user == current_user %>
-        Vous n'avez aucune photo référencée pour le moment 
+        Vous n'avez aucune photo référencée pour le moment
       <% else %>
         <%= @user.pseudo %> n'a aucune photo référencée pour le moment
       <% end %>
@@ -185,12 +185,12 @@
   </div>
 
 
-  <% else %> 
+  <% else %>
   <div class="user_map">
     <div class="user_tabs_description">
       <% if @user == current_user %>
         Retrouvez les lieux de vos oeuvres
-      <% else %> 
+      <% else %>
         Retrouvez les lieux des oeuvres réalisées par <%= @user.pseudo %>
       <% end %>
     </div>
@@ -200,18 +200,19 @@
     <div class="user_information_update">
       <% if @user == current_user %>
         Vous n'avez aucune oeuvre référencée pour le moment
-      <% else %> 
+      <% else %>
       <%= @user.pseudo %> n'a aucune oeuvre référencée pour le moment
       <% end %>
     </div>
     <%end%>
   </div>
 <%end%>
+  <div class="popup-container" style="display: none">
+  </div>
 </div>
 
 
-<div class="popup-container" style="display: none">
-</div>
+
 
 
 <script type="text/javascript">
