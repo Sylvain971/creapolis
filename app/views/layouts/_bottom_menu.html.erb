@@ -9,10 +9,23 @@
         <%= link_to content_tag(:i, nil, class: 'fab fa-cloudsmith') + "Parcours", routes_path %>
       </li>
 
+
       <% if mobile_device? %>
         <!-- Image upload with a form -->
         <li class="tab3 <% if (request.fullpath.include?('/artworks/new') || request.fullpath.include?('/pictures/new')) %> selected <%end%>">
-          <%= link_to content_tag(:i, nil, class: 'fas fa-plus') + "Ajouter", new_picture_path, id:"new_artwork" %>
+
+          <%= form_tag (pictures_path(id: "0")), id:"picture-upload-form", multipart: true do %>
+
+          <div class="add-picture-footer">
+            <%= content_tag(:i, nil, class: "fas fa-plus", id:"new_artwork", onclick:"document.getElementById('upload').click();") + "Ajouter" %>
+          </div>
+
+          <%= file_field_tag :img_url, id:"upload", style:"display:none", onchange:"readURL(this);" %>
+
+          <%= submit_tag 'Valider', class: "btn btn-primary", id:"submit-picture", style:"display:none"%>
+
+          <% end %>
+
         </li>
       <% end %>
 
@@ -26,3 +39,17 @@
 
   </div>
 <%end%>
+
+
+
+<script type="text/javascript">
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    $("#picture-upload-form").submit();
+
+
+  }
+}
+
+</script>

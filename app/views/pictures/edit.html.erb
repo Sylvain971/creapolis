@@ -11,14 +11,14 @@
 <div class="body-container">
   <div class= "picture-new-container">
     <div class="picture-new">
-      <p>Vous vous apprêtez à créer une nouvelle oeuvre !</p>
+      <p>Satisfait de votre photo ?</p>
 
-      <%= form_tag (pictures_path(id: "0")), multipart: true do %>
+      <%= form_tag picture_path(@picture), method: :put, multipart: true do %>
 
       <div class="field">
         <div class= "add-picture">
           <i class="fas fa-plus-circle fa-2x" onclick="document.getElementById('upload').click();"> </i>
-          <p onclick="document.getElementById('upload').click();"> Ajoutez votre photo </p>
+          <p onclick="document.getElementById('upload').click();"> Modifier ma photo </p>
         </div>
         <%= file_field_tag :img_url, id:"upload", style:"display:none", onchange:"readURL(this);" %>
         <div class= "center-picture-preview">
@@ -35,30 +35,28 @@
 
 <script type="text/javascript">
 
-
-
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        $('#picture-preview')
-          .attr('src', e.target.result)
-          .height(200);
-    $('#picture-preview').show()         
-      };
-      reader.readAsDataURL(input.files[0]);
-    }
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $('#picture-preview')
+        .attr('src', e.target.result)
+        .height(200);
+  $('#picture-preview').show()         
+    };
+    reader.readAsDataURL(input.files[0]);
   }
+}
 
- $('#submit-picture').click(
-	function(){ 
-    if($('#upload').get(0).files.length === 0){ 
-        alert("Vous n'avez pas rentré de photo pour cette oeuvre !"); 
-        return false; 
-     } else {
-      return true;
-     }
-  }); 
+// $('#submit-picture').click(
+// function(){ 
+//   if($('#upload').get(0).files.length === 0){ 
+//       alert("Vous n'avez pas rentré de photo pour cette oeuvre !"); 
+//       return false; 
+//    } else {
+//     return true;
+//    }
+// }); 
 
  
 
