@@ -1,3 +1,9 @@
+@media screen and (min-width: 980px) {
+	.artwork-page{
+		display: flex;
+	}
+}
+
 /*User datas*/
 .user_avatar_small {
 width: 50px;
@@ -38,6 +44,41 @@ align-items: stretch;
 margin: 0 5px 0 0;
 }
 
+/*Artwork-slideshow*/
+@media screen and (min-width: 980px) {
+	.artwork-vizualisation {
+		height: auto;
+		width: 75%;
+	}
+}
+
+.artwork-slideshow .img-responsive {
+    max-height: 69vh;
+}
+
+@media screen and (min-width: 980px) {
+	.artwork-slideshow .img-responsive {
+	    max-height: 57vh;
+			margin: auto;
+	}
+	.mySlides.artwork-slideshow {
+	    background: #f3f3f3;
+	}
+	.numbertext {
+    color: black !important;
+	}
+}
+
+@media screen and (min-width: 980px) {
+	.artwork-meta {
+	    width: 25%;
+	    background-color: #26348b4d;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: space-between;
+	}
+}
+
 
 /*Artwork_info*/
 .artwork_info{
@@ -59,7 +100,6 @@ margin: 0 5px 0 0;
 }
 
 
-
 /* The heart of the matter */
 .scroll-group > .row {
   overflow-x: auto;
@@ -76,7 +116,6 @@ margin: 0 5px 0 0;
 
 .col-xs-4 {
     width: 33.333%;
-
 }
 
 .title-artwork{
@@ -126,6 +165,18 @@ margin: 0 5px 0 0;
   justify-content: space-between;
 }
 
+@media screen and (min-width: 980px) {
+	.artwork-picture-info {
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+			background-color: white;
+	}
+}
+
+
+
+
 .claim-artwork {
   text-align: center;
   width: 100%;
@@ -150,5 +201,3 @@ margin: 0 5px 0 0;
     height: 82vh;
     overflow: scroll;
 }
-
-

@@ -12,37 +12,36 @@
 <div class="body-container">
 
   <!-- Container-fluid FIRST beign -->
-  <div class="container-fluid-picture">
+  <div class="container-fluid-picture picture-page">
 
     <!-- Row content begin -->
-    <div class="row content">
+    <div class="picture-vizualisation">
 
-        <!-- Avatar + Pseudo begin -->
-        <div class="user_avatar_row_small">
+        <% if mobile_device? %><!-- Afficher le pseudo seulement depuis un device mobile -->
+          <!-- Avatar + Pseudo begin -->
+          <div class="user_avatar_row_small">
 
-            <div class="publish space-top-bot-10">
-
-              <%= link_to user_profile_path(@picture.user_id) do %>
-                <% if @picture.user.profile_picture.url.nil? %>
-                <%= image_tag "default_profile_picture.jpg"%>
-                <% else %>
-                <%= cl_image_tag @picture.user.profile_picture,:width => 200, :height => 200, :crop => :fill, :secure => true %>
+              <div class="publish space-top-bot-10">
+                <%= link_to user_profile_path(@picture.user_id) do %>
+                  <% if @picture.user.profile_picture.url.nil? %>
+                  <%= image_tag "default_profile_picture.jpg"%>
+                  <% else %>
+                  <%= cl_image_tag @picture.user.profile_picture,:width => 200, :height => 200, :crop => :fill, :secure => true %>
+                  <% end %>
                 <% end %>
-              <% end %>
-
                 <span style="padding-left: 5px;">
-                  Publié par :
-                    <span style="font-weight: bold;">
-                        <%= link_to user_profile_path(@picture.user_id) do %>
-                        <%= @picture.user.pseudo %>
-                      <% end %>
-                    </span>
+                  Publiée par :
+                  <span style="font-weight: bold;">
+                      <%= link_to user_profile_path(@picture.user_id) do %>
+                      <%= @picture.user.pseudo %>
+                    <% end %>
+                  </span>
                 </span>
-            </div>
+              </div>
 
-        </div>
-				<!-- Avatar + Pseudo end -->
-
+          </div>
+          <!-- Avatar + Pseudo end -->
+        <% end %>
 
         <!-- Big image -->
         <div class="col-sm-12">
@@ -52,38 +51,62 @@
         </div>
         <!-- Big image -->
 
+        <div class="picture_informations">
+
+          <% if mobile_device? %><!-- Ne pas afficher le pseudo ici depuis un device mobile -->
+            <div class="nothing"><!--Div vide pour le flex justify-content-->
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+          <% else %> <!-- Afficher le pseudo sur ordi -->
+            <!-- Avatar + Pseudo begin -->
+            <div class="user_avatar_row_small">
+
+                <div class="publish space-top-bot-10">
+                  <%= link_to user_profile_path(@picture.user_id) do %>
+                    <% if @picture.user.profile_picture.url.nil? %>
+                    <%= image_tag "default_profile_picture.jpg"%>
+                    <% else %>
+                    <%= cl_image_tag @picture.user.profile_picture,:width => 200, :height => 200, :crop => :fill, :secure => true %>
+                    <% end %>
+                  <% end %>
+                  <span style="padding-left: 5px;">
+                    Publiée par :
+                    <span style="font-weight: bold;">
+                        <%= link_to user_profile_path(@picture.user_id) do %>
+                        <%= @picture.user.pseudo %>
+                      <% end %>
+                    </span>
+                  </span>
+                </div>
+
+            </div>
+    				<!-- Avatar + Pseudo end -->
+          <% end %>
+
+          <div class="btn-group">
+              <% if current_user.voted_for? @picture %>
+                  <%= link_to unlike_picture_path(@picture), method: :put, class: "round-corner-ok" do %>
+                  <i class="fas fa-heart" style="color:#E76262"></i>
+                  <span style="font-size: 12px; color:#E76262; font-weight: 700; font-size: 16px;margin-left: 5px;">
+                    <%= @picture.get_upvotes.size %></span>
+                  <% end %>
+              <% else %>
+                  <%= link_to like_picture_path(@picture), method: :put, class: "round-corner-no" do %>
+                  <i class="far fa-heart"></i>
+                  <span style="font-size: 16px;margin-left: 5px;">
+                  <%= @picture.get_upvotes.size %></span>
+                  <% end %>
+              <% end %>
+          </div>
+          <div class="signal-picture-button">
+            <%= link_to content_tag(:i, nil, class: "fas fa-exclamation-triangle"), signal_picture_path(@picture) %>
+          </div>
+        </div>
 
     </div>
     <!-- Row content end -->
 
-
-
-    <div class="picture_informations">
-      <div class="nothing">
-        <i class="fas fa-exclamation-triangle"></i>
-
-      </div>
-      <div class="btn-group">
-          <% if current_user.voted_for? @picture %>
-              <%= link_to unlike_picture_path(@picture), method: :put, class: "round-corner-ok" do %>
-              <i class="fas fa-heart" style="color:#E76262"></i>
-              <span style="font-size: 12px; color:#E76262; font-weight: 700; font-size: 16px;margin-left: 5px;">
-                <%= @picture.get_upvotes.size %></span>
-              <% end %>
-          <% else %>
-              <%= link_to like_picture_path(@picture), method: :put, class: "round-corner-no" do %>
-              <i class="far fa-heart"></i>
-              <span style="font-size: 16px;margin-left: 5px;">
-              <%= @picture.get_upvotes.size %></span>
-              <% end %>
-          <% end %>
-      </div>
-      <div class="signal-picture-button">
-        <%= link_to content_tag(:i, nil, class: "fas fa-exclamation-triangle"), signal_picture_path(@picture) %>
-      </div>
-    </div>
-
-
+    <div class="picture-meta">
       <div class="col-sm-12 center-element">
         <span style="color: #09125A;margin-right: 5px"><i class="fas fa-plus"></i></span>
           <%= link_to "De détails sur l'oeuvre", artwork_path(@picture.artwork_id) %>
@@ -99,15 +122,12 @@
           <% end %>
       </div>
       <% end %>
+    </div>
 
-</div>
+  </div>
+
 </div>
 <hr>
-
-
-
-
-
 
 <%= render 'layouts/bottom_menu' %>
 
