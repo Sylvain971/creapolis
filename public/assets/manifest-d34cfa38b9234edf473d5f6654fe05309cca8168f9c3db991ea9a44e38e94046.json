@@ -1,0 +1,16 @@
+{
+  "name": "Creapolis, à la découverte de l'art urbain",
+  "short_name": "Creapolis",
+  "start_url": "/",
+  "description": "La première App pour découvrir des oeuvres d'art urbain autour de vous",
+  "icons": [{
+      "src": "/assets/favicon-b5e8bc3c0d8495f31595e0e51ca110feed9ff5521db78224d3cc05211094b1f3.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait"
+}

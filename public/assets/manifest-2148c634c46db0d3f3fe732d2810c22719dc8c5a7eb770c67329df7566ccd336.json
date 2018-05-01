@@ -4,40 +4,28 @@
   "start_url": "/",
   "description": "La première App pour découvrir des oeuvres d'art urbain autour de vous",
   "icons": [{
-    "src": "<%= image_path "test.png" %>",
+    "src": "/assets/favicon-b5e8bc3c0d8495f31595e0e51ca110feed9ff5521db78224d3cc05211094b1f3.png",
     "sizes": "48x48",
     "type": "image/png"
   }, {
-    "src": "<%= image_path "test.png" %>",
-    "sizes": "57x57",
-    "type": "image/png"
-  }, {
-    "src": "<%= image_path "test.png" %>",
+    "src": "/assets/favicon-b5e8bc3c0d8495f31595e0e51ca110feed9ff5521db78224d3cc05211094b1f3.png",
     "sizes": "72x72",
     "type": "image/png"
   }, {
-    "src": "<%= image_path "test.png" %>",
-    "sizes": "76x76",
-    "type": "image/png"
-  }, {
-    "src": "<%= image_path "test.png" %>",
+    "src": "/assets/favicon-b5e8bc3c0d8495f31595e0e51ca110feed9ff5521db78224d3cc05211094b1f3.png",
     "sizes": "96x96",
     "type": "image/png"
   }, {
-    "src": "<%= image_path "test.png" %>",
+    "src": "/assets/favicon-b5e8bc3c0d8495f31595e0e51ca110feed9ff5521db78224d3cc05211094b1f3.png",
     "sizes": "144x144",
     "type": "image/png"
   }, {
-    "src": "<%= image_path "test.png" %>",
+    "src": "/assets/favicon-b5e8bc3c0d8495f31595e0e51ca110feed9ff5521db78224d3cc05211094b1f3.png",
     "sizes": "168x168",
     "type": "image/png"
   }, {
-    "src": "<%= image_path "test.png" %>",
+    "src": "/assets/favicon-b5e8bc3c0d8495f31595e0e51ca110feed9ff5521db78224d3cc05211094b1f3.png",
     "sizes": "192x192",
-    "type": "image/png"
-  }, {
-    "src": "<%= image_path "test.png" %>",
-    "sizes": "120x120",
     "type": "image/png"
   }],
   "theme_color": "#ffffff",
