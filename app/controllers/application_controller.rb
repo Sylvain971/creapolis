@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
   end
   helper_method :mobile_device?
 
-  def default_url_options
-  { host: ENV['HOST'] || 'localhost:3000' }
-	end
+ #  def default_url_options
+ #  { host: ENV['HOST'] || 'localhost:3000' }
+	# end
 
   protected
 
