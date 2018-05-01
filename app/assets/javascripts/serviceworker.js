@@ -6,13 +6,6 @@ function onInstall(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function prefill(cache) {
       return cache.addAll([
-
-        // make sure serviceworker.js is not required by application.js
-        // if you want to reference application.js from here
-        '<%#= asset_path "application.js" %>',
-
-        '<%= asset_path "application.css" %>',
-
         '/offline.html',
 
       ]);
