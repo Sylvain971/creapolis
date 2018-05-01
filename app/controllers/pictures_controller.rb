@@ -22,7 +22,7 @@ class PicturesController < ApplicationController
   		redirect_to @picture
   	else
 	  	@picture.save
-	  	redirect_to new_artwork_path
+      redirect_to new_artwork_path
 	  end
   end
 
