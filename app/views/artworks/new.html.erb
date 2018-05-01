@@ -1,5 +1,5 @@
 <div class="my_header">
-    <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), root_path %> </li>
+    <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), new_picture_path %> </li>
     <%= link_to root_path do %>
       <div class="header_title">
         <div class="header_title_logo"></div>
@@ -10,8 +10,8 @@
 
 <div class="body-container">
 	<div class="artwork-new">
-		<p> Vous vous apprêtez à créer une oeuvre qui n'apparaît pas sur la carte. </p>
-		<%= form_tag (artworks_path) do %>
+		<p> Faites glisser le marqueur jusqu'à l'emplacement exact de l'oeuvre ! </p>
+		<%= form_tag artworks_path(@artwork) do %>
 		<% if @artwork.errors.any? %>
 		<div id="error_explanation">
 		  <h2>
@@ -24,18 +24,16 @@
 		</div>
 		<% end %>
 
+		<div id="small-map-index"></div>
+		<div id= "move-marker">
+			<div id="generate-location" style="display: none">Actualiser mon emplacement</div>
+		</div>
+
 		<div class="field input" >
 		  <%= text_field_tag :artist, nil, placeholder: "Nom de l'artiste (si vous le connaissez)" %>
 		</div>
 		<div class="field input">
 		  <%= text_field_tag :style, nil, placeholder: "Techniques utilisées par l'artiste" %>
-		</div>
-
-		<div id="small-map-index"></div>
-		<div id= "move-marker">
-			<p id="drag-marker"> Faites glisser le marqueur jusqu'à l'emplacement exact</p>
-
-			<div id="generate-location" style="display: none">Actualiser mon emplacement</div>
 		</div>
 		<div class="field input" style="display: none">
 		  <%= label_tag 'lat', "Latitude"  %>

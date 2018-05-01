@@ -21,11 +21,8 @@ class PicturesController < ApplicationController
       flash[:notice] = 'Votre photo a été ajoutée à votre carte !'
   		redirect_to @picture
   	else
-  		@picture.artwork = current_user.created_artworks.last
 	  	@picture.save
-      current_user.created_artworks.last.artists.delete(current_user)
-      flash[:notice] = 'Vous venez de créer une oeuvre !'
-	  	redirect_to @picture
+	  	redirect_to new_artwork_path
 	  end
   end
 

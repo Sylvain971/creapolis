@@ -8,9 +8,6 @@ class ArtworksController < ApplicationController
 
   def new
   	@artwork = Artwork.new
-   # respond_to do |format|
-   #   format.js
-    #end
   end
 
   def create
@@ -19,7 +16,15 @@ class ArtworksController < ApplicationController
   	@artwork.long = @artwork.long.to_f
   	@artwork.artists << current_user
     @artwork.save
-    redirect_to new_picture_path
+
+    @last_picture = current_user.pictures.last
+    @last_picture.artwork = @artwork
+    @last_picture.save
+
+    flash[:notice] = 'Félicitations, vous venez de créer une oeuvre !'
+    
+    redirect_to @artwork
+
   end
 
   def show

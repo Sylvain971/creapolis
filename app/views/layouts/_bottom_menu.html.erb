@@ -12,7 +12,7 @@
       <% if mobile_device? %>
         <!-- Image upload with a form -->
         <li class="tab3 <% if (request.fullpath.include?('/artworks/new') || request.fullpath.include?('/pictures/new')) %> selected <%end%>">
-          <%= link_to content_tag(:i, nil, class: 'fas fa-plus') + "Ajouter", new_artwork_path, id:"new_artwork" %>
+          <%= link_to content_tag(:i, nil, class: 'fas fa-plus') + "Ajouter", new_picture_path, id:"new_artwork" %>
         </li>
       <% end %>
 
