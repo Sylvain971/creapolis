@@ -58,7 +58,7 @@ h2 {
 
 .header_title{
   color: #09125A;
-  line-height: 10vh;
+  line-height: 8vh;
   background-repeat: no-repeat;
   margin:auto;
   /*background-color: green;*/
@@ -66,14 +66,18 @@ h2 {
   justify-content: center;
 }
 
+/*
 .header_title_logo{
   background-image: asset-data-url('creapolis_logo_temp.png');
   width: 107px;
   height: 51px;
 }
+*/
 
 .my_header a {
   color: #09125A;
+  width: 50vw;
+  text-align: center;
 }
 
 .my_header li{
@@ -107,6 +111,7 @@ h2 {
 
 .bottom_menu{
   height: 10vh;
+  min-height: 8vh;
   background-color: #fff;
   position: fixed;
   bottom: 0;

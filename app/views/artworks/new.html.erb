@@ -2,11 +2,9 @@
 
 <div class="my_header">
     <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), new_picture_path %> </li>
-    <%= link_to root_path do %>
-      <div class="header_title">
-        <div class="header_title_logo"></div>
-      </div>
-    <% end %>
+    <div class="header_title">
+      <%= link_to image_tag("creapolis_logo_temp.png"), root_path %>
+    </div>
     <li></li>
 </div>
 
@@ -87,7 +85,7 @@ if (sessionStorage.getItem('lat') === null) {
 	}).addTo(small_map);
 
 	var marker = L.marker([sessionStorage.getItem('lat'), sessionStorage.getItem('lng')],{draggable: true}).addTo(small_map);
-	
+
 	marker.on("drag", function(e) {
 	    var marker = e.target;
 	    //console.log(marker._latlng.lat)
@@ -107,6 +105,3 @@ $("#generate-location").on("click", function(){
 
 
 </script>
-
-
-

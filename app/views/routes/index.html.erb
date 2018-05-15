@@ -7,12 +7,10 @@
         <i class="fas fa-bars"></i>
       </span>
     </li>
-    
-    <%= link_to root_path do %>
-      <div class="header_title">
-        <div class="header_title_logo"></div>
-      </div>
-    <% end %>
+
+    <div class="header_title">
+      <%= link_to image_tag("creapolis_logo_temp.png"), root_path %>
+    </div>
 
     <!-- Don't remove this empty <li> -->
     <li></li>
@@ -35,10 +33,10 @@
 <% @routes.each do |route| %>
   <span class="list-group-item ">
   	<div class="list-group-item-inside">
-	
+
 		<%= link_to route.title, route_path(route)%>
 		<%= link_to content_tag(:i, nil, class: 'fas fa-chevron-right equilibre'), route_path(route)%>
-	
+
 	</div>
   </span>
   <% end %>
@@ -64,5 +62,3 @@ $('.nav-item').on("click", function(){
 
 
 </script>
-
-
