@@ -145,7 +145,7 @@
 
       <% else %>
         <div class="row">
-          <% @user.pictures.each do |picture| %>
+          <% @user.pictures.reverse_each do |picture| %>
 
             <div class="col-xs-4 col-md-2">
               <%= link_to picture_path(picture) do %>
