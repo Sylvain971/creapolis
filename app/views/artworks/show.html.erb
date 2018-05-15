@@ -76,7 +76,7 @@
       <% if @artwork.pictures.count > 1 %>
         <div class="scroll-group">
           <div class="row">
-            <% @artwork.pictures.each.with_index do |picture, index| %>
+            <% @artwork.pictures.reverse_each.with_index do |picture, index| %>
               <div class="col-xs-4 col-md-2">
               <%= cl_image_tag(picture.img_url, :crop => :fill, :width => 400, :height => 225, :secure => true, class: "img-responsive demo cursor", :onclick =>"currentSlide(#{index+1})")%>
               </div>

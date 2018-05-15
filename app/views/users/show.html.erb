@@ -20,7 +20,7 @@
       <div class="user_row_left">
         <div class="user_avatar_row">
             <% if @user.profile_picture.url.nil? %>
-            <%= image_tag "default_profile_picture.jpg"%>
+            <%= image_tag "default_profile_picture.png"%>
             <% else %>
             <%= cl_image_tag @user.profile_picture,:width => 200, :height => 200, :crop => :fill, :secure => true %>
             <% end %>
@@ -145,7 +145,7 @@
 
       <% else %>
         <div class="row">
-          <% @user.pictures.each do |picture| %>
+          <% @user.pictures.reverse_each do |picture| %>
 
             <div class="col-xs-4 col-md-2">
               <%= link_to picture_path(picture) do %>
