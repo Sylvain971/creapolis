@@ -33,7 +33,7 @@
               <div class="publish space-top-bot-10">
                 <%= link_to user_profile_path(picture.user_id) do %>
                   <% if picture.user.profile_picture.url.nil? %>
-                  <%= image_tag "default_profile_picture.jpg"%>
+                  <%= image_tag "default_profile_picture.png"%>
                   <% else %>
                   <%= cl_image_tag picture.user.profile_picture,:width => 200, :height => 200, :crop => :fill, :secure => true %>
                   <% end %>
@@ -151,7 +151,7 @@
             </span></li>
           </ul>
         </div>
- 
+
       </div><!-- Artwork info end -->
 
       <div class="claim-artwork">
