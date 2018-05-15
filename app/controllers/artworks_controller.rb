@@ -1,4 +1,5 @@
 class ArtworksController < ApplicationController
+	before_action :authenticate_user!
   attr_accessor :style, :artist
 
   def index
