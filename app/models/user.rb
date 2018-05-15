@@ -47,7 +47,7 @@ class User < ApplicationRecord
   	unless self.profile_picture_url.nil?
   		self.profile_picture_url :secure => true, :crop => :fill, :width => 200, :height => 200
   	else
-  		"https://res.cloudinary.com/creapolis/image/upload/c_fill,h_200,w_200/v1521803841/App/default_profile_picture.jpg"
+  		"https://res.cloudinary.com/creapolis/image/upload/c_fill/v1526396581/default_profile_picture.png"
   	end
   end
 
