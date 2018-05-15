@@ -49,79 +49,106 @@
             <%= cl_image_tag @picture.img_url, :secure => true, class: "img-responsive" %>
           <% end %>
         </div>
-        <!-- Big image -->
+        <!-- FIN Big image -->
 
-        <div class="picture_informations">
+        <% if mobile_device? %> <!-- Pour afficher la partie information en dessous de l'image  dans le cas d'un mobile seulement -->
+          <div class="picture_informations">
 
-          <% if mobile_device? %><!-- Ne pas afficher le pseudo ici depuis un device mobile -->
             <div class="nothing"><!--Div vide pour le flex justify-content-->
               <i class="fas fa-exclamation-triangle"></i>
             </div>
-          <% else %> <!-- Afficher le pseudo sur ordi -->
-            <!-- Avatar + Pseudo begin -->
-            <div class="user_avatar_row_small">
 
-                <div class="publish space-top-bot-10">
-                  <%= link_to user_profile_path(@picture.user_id) do %>
-                    <% if @picture.user.profile_picture.url.nil? %>
-                    <%= image_tag "default_profile_picture.jpg"%>
-                    <% else %>
-                    <%= cl_image_tag @picture.user.profile_picture,:width => 200, :height => 200, :crop => :fill, :secure => true %>
+            <div class="btn-group">
+                <% if current_user.voted_for? @picture %>
+                    <%= link_to unlike_picture_path(@picture), method: :put, class: "round-corner-ok" do %>
+                    <i class="fas fa-heart" style="color:#E76262"></i>
+                    <span style="font-size: 12px; color:#E76262; font-weight: 700; font-size: 16px;margin-left: 5px;">
+                      <%= @picture.get_upvotes.size %></span>
                     <% end %>
-                  <% end %>
-                  <span style="padding-left: 5px;">
-                    Publiée par :
-                    <span style="font-weight: bold;">
-                        <%= link_to user_profile_path(@picture.user_id) do %>
-                        <%= @picture.user.pseudo %>
-                      <% end %>
-                    </span>
-                  </span>
-                </div>
-
-            </div>
-    				<!-- Avatar + Pseudo end -->
-          <% end %>
-
-          <div class="btn-group">
-              <% if current_user.voted_for? @picture %>
-                  <%= link_to unlike_picture_path(@picture), method: :put, class: "round-corner-ok" do %>
-                  <i class="fas fa-heart" style="color:#E76262"></i>
-                  <span style="font-size: 12px; color:#E76262; font-weight: 700; font-size: 16px;margin-left: 5px;">
+                <% else %>
+                    <%= link_to like_picture_path(@picture), method: :put, class: "round-corner-no" do %>
+                    <i class="far fa-heart"></i>
+                    <span style="font-size: 16px;margin-left: 5px;">
                     <%= @picture.get_upvotes.size %></span>
-                  <% end %>
-              <% else %>
-                  <%= link_to like_picture_path(@picture), method: :put, class: "round-corner-no" do %>
-                  <i class="far fa-heart"></i>
-                  <span style="font-size: 16px;margin-left: 5px;">
-                  <%= @picture.get_upvotes.size %></span>
-                  <% end %>
-              <% end %>
+                    <% end %>
+                <% end %>
+            </div>
+            <div class="signal-picture-button">
+              <%= link_to content_tag(:i, nil, class: "fas fa-exclamation-triangle"), signal_picture_path(@picture) %>
+            </div>
           </div>
-          <div class="signal-picture-button">
-            <%= link_to content_tag(:i, nil, class: "fas fa-exclamation-triangle"), signal_picture_path(@picture) %>
-          </div>
-        </div>
+        <% end %> <!-- FIN bloc IF picture_informations pour mobile -->
 
     </div>
     <!-- Row content end -->
 
     <div class="picture-meta">
-      <div class="col-sm-12 center-element">
-        <span style="color: #09125A;margin-right: 5px"><i class="fas fa-plus"></i></span>
-          <%= link_to "De détails sur l'oeuvre", artwork_path(@picture.artwork_id) %>
-      </div>
-      <% if @picture.user == current_user %>
-      <br>
-      <div class="col-sm-12 center-element">
-        <span style="color: #09125A;margin-right: 5px"><i class="fas fa-trash-alt"></i></span>
-          <% if @picture.artwork.pictures.count == 1 %>
-            <%= link_to "Supprimer cette photo", @artwork, data: { confirm: "Attention la suppression de cette photo entrainera la suppression de l'oeuvre !" }, method: :delete %>
-          <% else %>
-            <%= link_to "Supprimer cette photo", @picture, data: { confirm: "Etes-vous sûr(e) ?" }, method: :delete %>
-          <% end %>
-      </div>
+
+      <% if !mobile_device? %> <!-- Presentation desktop de l'image avec pictures_informations inséré ici -->
+        <!-- Avatar + Pseudo begin -->
+        <div class="user_avatar_row_small">
+
+            <div class="publish space-top-bot-10">
+              <%= link_to user_profile_path(@picture.user_id) do %>
+                <% if @picture.user.profile_picture.url.nil? %>
+                <%= image_tag "default_profile_picture.jpg"%>
+                <% else %>
+                <%= cl_image_tag @picture.user.profile_picture,:width => 200, :height => 200, :crop => :fill, :secure => true %>
+                <% end %>
+              <% end %>
+              <span style="padding-left: 5px;">
+                Publiée par :
+                <span style="font-weight: bold;">
+                    <%= link_to user_profile_path(@picture.user_id) do %>
+                    <%= @picture.user.pseudo %>
+                  <% end %>
+                </span>
+              </span>
+            </div>
+        </div>
+        <!-- Avatar + Pseudo end -->
       <% end %>
+
+
+      <div class="picture-meta-buttons"> <!-- Zone de boutons pour la meta -->
+        <% if !mobile_device? %> <!-- LIKE pour desktop -->
+            <!-- Liker la photo -->
+            <div class="btn-group">
+                <% if current_user.voted_for? @picture %>
+                    <%= link_to unlike_picture_path(@picture), method: :put, class: "round-corner-ok" do %>
+                    <i class="fas fa-heart" style="color:#E76262"></i>
+                    <span style="font-size: 12px; color:#E76262; font-weight: 700; font-size: 16px;margin-left: 5px;">
+                      <%= @picture.get_upvotes.size %></span>
+                    <% end %>
+                <% else %>
+                    <%= link_to like_picture_path(@picture), method: :put, class: "round-corner-no" do %>
+                    <i class="far fa-heart"></i>
+                    <span style="font-size: 16px;margin-left: 5px;">
+                    <%= @picture.get_upvotes.size %></span>
+                    <% end %>
+                <% end %>
+            </div>
+            <!-- fin LIKE -->
+        <% end %> <!-- FIN LIKE pour desktop -->
+
+        <div class="">
+          <span style="color: #09125A;margin-right: 5px"><i class="fas fa-plus"></i></span>
+            <%= link_to "De détails sur l'oeuvre", artwork_path(@picture.artwork_id) %>
+        </div>
+        <% if @picture.user == current_user %>
+        <br>
+        <div class="">
+          <span style="color: #09125A;margin-right: 5px"><i class="fas fa-trash-alt"></i></span>
+            <% if @picture.artwork.pictures.count == 1 %>
+              <%= link_to "Supprimer cette photo", @artwork, data: { confirm: "Attention la suppression de cette photo entrainera la suppression de l'oeuvre !" }, method: :delete %>
+            <% else %>
+              <%= link_to "Supprimer cette photo", @picture, data: { confirm: "Etes-vous sûr(e) ?" }, method: :delete %>
+            <% end %>
+        </div>
+        <% end %>
+
+      </div><!-- FIN Zone de boutons pour la meta -->
+
     </div>
 
   </div>
