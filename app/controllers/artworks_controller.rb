@@ -23,7 +23,7 @@ class ArtworksController < ApplicationController
     @last_picture.save
 
     flash[:notice] = 'Félicitations, vous venez de créer une oeuvre !'
-    
+
     redirect_to @artwork
 
   end
@@ -56,7 +56,11 @@ class ArtworksController < ApplicationController
   def destroy
   	@artwork = Artwork.find(params[:id])
   	@artwork.destroy
-  	redirect_to artworks_path
+  	if current_user.admin = true
+			redirect_to art_moderation_path
+		else
+			redirect_to artworks_path
+		end
   end
 
   def claim_artwork

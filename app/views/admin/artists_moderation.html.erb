@@ -1,11 +1,9 @@
 <div class="my_header">
   <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), admin_path %> </li>
     </li>
-    <%= link_to root_path do %>
-      <div class="header_title">
-        <div class="header_title_logo"></div>
-      </div>
-    <% end %>
+    <div class="header_title">
+      <%= link_to image_tag("creapolis_logo_temp.png"), root_path %>
+    </div>
     <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt'), destroy_user_session_path, method: :delete  %>
     </li>
 </div>
@@ -19,7 +17,8 @@
         <th>ID</th>
         <th>Pseudo</th>
         <th>Email</th>
-        <th>Oeuvre sur la(les)quelle(s) <br>la demande a été effectuée </th>
+        <th>Ville</th>
+        <th>Oeuvre(s) sur la(les)quelle(s) <br>la demande a été effectuée </th>
       </tr>
       <br>
       <% @pending_users.each do |user| %>
@@ -27,6 +26,7 @@
               <td><%= user.id %></td>
               <td><%= user.pseudo %></td>
               <td><%= user.email %></td>
+              <td><%= user.city %></td>
               <td><% user.created_artworks.each do |artwork| %>
                 <%= artwork.id %>
                 <% end %>
@@ -50,6 +50,10 @@
         <th>ID</th>
         <th>Pseudo</th>
         <th>Email</th>
+        <th>Ville</th>
+        <th>Oeuvres créées par l'artiste</th>
+        <th>Retrait statut</th>
+
       </tr>
       <% @validated_users.each do |user| %>
           <tr>
@@ -62,9 +66,11 @@
                 <% end %>
               </td>
               <td>
-
+                <% if user.artist == true %>
+                  <%= link_to content_tag(:i, nil, class: 'far fa-thumbs-down', alt:'Retirer le statut artiste'), unvalidate_artist_path(user), method: :put %>
+                <% else %> N'est pas artiste
+                <% end %>
               </td>
-
           </tr>
 
       <% end %>

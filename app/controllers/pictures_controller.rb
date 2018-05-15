@@ -40,7 +40,11 @@ class PicturesController < ApplicationController
 
   def destroy
     @picture = Picture.find(params[:id])
-    if @picture.user.id = current_user.id
+		if current_user.admin = true
+			@picture.destroy
+			flash[:notice] = 'Image supprimée !'
+			redirect_to admin_path
+		elsif @picture.user.id = current_user.id
       if @picture.artwork.pictures.count == 1
         @picture.artwork.destroy
         flash[:notice] = 'Oeuvre supprimée !'
@@ -50,10 +54,11 @@ class PicturesController < ApplicationController
         flash[:notice] = 'Image supprimée !'
         redirect_to root_path
       end
-    else
+    elsif
       flash[:danger] = 'Accès refusé !'
       redirect_to picture_path
     end
+
   end
 
   def signal
@@ -64,7 +69,7 @@ class PicturesController < ApplicationController
     redirect_to @picture
   end
 
-  def moderate 
+  def moderate
     @picture = Picture.find(params[:id])
     @picture.moderated = true
     @picture.save
