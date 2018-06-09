@@ -35,18 +35,17 @@
 
 .list-group-item {
     padding: 0 !important;
-    height: 200px;
+    height: 160px;
     display: flex !important;
 		margin-bottom: 10px !important;
 		overflow: hidden;
 }
 .list-group-item img {
 	position: relative;
-	left: -2%;
 	width: 60%;
 	min-width: 400px;
 	overflow: hidden;
-	filter: grayscale(50%) blur(1px) opacity(55%);
+	filter: blur(1px);
 	transform: rotate(5deg);
 	height: 150%;
 	top: -15%;
@@ -58,19 +57,21 @@
     position: absolute;
     display: flex;
     align-items: center;
-    height: 200px;
-    padding-left: 30px;
-		padding-right: 30px;
+    padding-left: 20px;
+		padding-right: 20px;
 		width: 100%;
+		min-height: 30%;
     background: #f0f8ff80;
+		bottom: 0;
+		text-align: center;
 }
 
 
 .list-group-item-inside a{
 	width: 100%;
-	font-size: 1.6em;
+	font-size: 1.4em;
   text-decoration: none;
-  color: black;
+  color: #09125A;
 }
 .list-group-item-inside a:hover {
     text-decoration: none !important;

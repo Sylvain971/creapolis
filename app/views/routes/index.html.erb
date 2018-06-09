@@ -32,9 +32,9 @@
 <div class="list-group list-special">
 <% @routes.each do |route| %>
   <span class="list-group-item">
-    <%= image_tag(route.artworks.first.pictures.first.img_url, :crop => :fill)%>
+    <%= link_to image_tag(route.artworks.first.pictures.first.img_url), route_path(route)%>
   	<div class="list-group-item-inside">
-  	<%= link_to route.title, route_path(route)%><i class="fas fa-angle-right"></i>
+  	<%= link_to route.title, route_path(route)%>
 	  </div>
   </span>
   <% end %>
