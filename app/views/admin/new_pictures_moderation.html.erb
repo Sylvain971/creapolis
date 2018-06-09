@@ -1,11 +1,9 @@
 <div class="my_header">
   <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), admin_path %> </li>
     </li>
-    <%= link_to root_path do %>
-      <div class="header_title">
-        <div class="header_title_logo"></div>
-      </div>
-    <% end %>
+    <div class="header_title">
+      <%= link_to image_tag("creapolis_logo_temp.png"), root_path %>
+    </div>
     <li></li>
 </div>
 
@@ -28,7 +26,7 @@
           <%= cl_image_tag picture.img_url_url,:width => 200, :crop => :fill, :secure => true%>
         </td>
         <td><%= picture.user.id %></td>
-        <td> 
+        <td>
           <% if picture.artwork.pictures.count == 1 %>
             <%= link_to content_tag(:i, nil, class: 'fas fa-trash-alt'), @artwork, data: { confirm: "Attention la suppression de cette photo entrainera la suppression de l'oeuvre !" }, method: :delete %>
           <% else %>

@@ -36,4 +36,12 @@ class AdminController < ApplicationController
     redirect_to artists_moderation_path
   end
 
+	def unvalidate_artist
+		@user = User.find(params[:id])
+    @user.status = "unvalidated"
+    @user.artist = false
+    @user.save
+    redirect_to artists_moderation_path
+	end
+
 end

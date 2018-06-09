@@ -1,10 +1,8 @@
 <div class="my_header">
     <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), root_path %> </li>
-    <%= link_to root_path do %>
-      <div class="header_title">
-        <div class="header_title_logo"></div>
-      </div>
-    <% end %>
+    <div class="header_title">
+      <%= link_to image_tag("creapolis_logo_temp.png"), root_path %>
+    </div>
     <li></li>
 </div>
 
@@ -27,7 +25,7 @@
         <div class="add-picture-artwork">
             <i class="fas fa-plus-circle fa-2x" onclick="document.getElementById('upload').click();"> </i>
             <p onclick="document.getElementById('upload').click();"> Ajoutez votre photo de profil </p>
-          
+
           <%= f.file_field :profile_picture, id:"upload", style:"display:none", onchange:"readURL(this);" %>
           <div class= "center-picture-preview">
             <img id="picture-preview" alt="your image" style="display:none;" />
@@ -76,12 +74,11 @@ function readURL(input) {
         .attr('src', e.target.result)
         .height(30);
     $('#picture-preview').show();
-    $(".submit-new-picture-button").show();   
+    $(".submit-new-picture-button").show();
     };
     reader.readAsDataURL(input.files[0]);
   }
-  
+
 }
 
 </script>
-

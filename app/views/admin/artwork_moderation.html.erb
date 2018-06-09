@@ -1,11 +1,9 @@
 <div class="my_header">
   <li> <%= link_to content_tag(:i, nil, class: 'fas fa-chevron-left'), admin_path %> </li>
     </li>
-    <%= link_to root_path do %>
-      <div class="header_title">
-        <div class="header_title_logo"></div>
-      </div>
-    <% end %>
+    <div class="header_title">
+      <%= link_to image_tag("creapolis_logo_temp.png"), root_path %>
+    </div>
     <li><%= link_to content_tag(:i, nil, class: 'fas fa-sign-out-alt'), destroy_user_session_path, method: :delete  %>
     </li>
 </div>
@@ -60,9 +58,15 @@
               <td>
                 <%= form_tag artwork_path(artwork), method: :put do  %>
                   <%= label_tag 'Technique :' %><%= text_field_tag(:style, artwork.style) %>
-                  <br>
-                  <%= label_tag 'Artiste :' %><%= select_tag 'artists', options_from_collection_for_select(User.where(artist:true).all, "id", "pseudo") %>
-                  <%= submit_tag "Mettre à jour", class: "btn btn-primary" %>
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-check-circle"></i>
+                  </button>
+                <% end %>
+                  <%= form_tag artwork_path(artwork), method: :put do  %>
+                  <%= label_tag 'Artiste :' %><%= select_tag 'artists', options_from_collection_for_select(User.where(artist:true).all, "id", "pseudo"), prompt: "Ajouter un artiste" %>
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-check-circle"></i>
+                  </button>
                 <% end %>
               </td>
               <td>
