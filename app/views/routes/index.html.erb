@@ -31,13 +31,11 @@
 
 <div class="list-group list-special">
 <% @routes.each do |route| %>
-  <span class="list-group-item ">
+  <span class="list-group-item">
+    <%= image_tag(route.artworks.first.pictures.first.img_url, :crop => :fill)%>
   	<div class="list-group-item-inside">
-
-		<%= link_to route.title, route_path(route)%>
-		<%= link_to content_tag(:i, nil, class: 'fas fa-chevron-right equilibre'), route_path(route)%>
-
-	</div>
+  	<%= link_to route.title, route_path(route)%><i class="fas fa-angle-right"></i>
+	  </div>
   </span>
   <% end %>
 
