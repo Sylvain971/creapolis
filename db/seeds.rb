@@ -14,7 +14,7 @@ user_roa = User.create(pseudo: "Roa", email:"roa@gmail.com", password:"coucou", 
 
 
 
-########### Creation d'une premier itinéraire #########################
+########### Creation d'un premier itinéraire #########################
 
 artwork7 = Artwork.create(lat:	"48.7957898",	long:"2.3999439", artist: "Alice Pasqualini", style:"Spray")
 artwork8 = Artwork.create(lat:	"48.797455", long:"2.3996301", artist: "Fake et C215", style: "Spray, Pochoir, Acrylique")
@@ -119,3 +119,65 @@ artwork28.artists << user_findac
 artwork32.artists << user_c215
 artwork34.artists << user_c215
 
+########### Creation d'un second itinéraire #########################
+
+artwork235 = Artwork.create(lat:	"48.8888246",	long:"2.3862783", artist: "Kan", style:"Pointillisme")
+artwork236 = Artwork.create(lat:	"48.8888929",	long:"2.3862783", artist: "Hopare", style:"Spray")
+artwork237	= Arwtork.create(lat:"48.8889147", long:"2.3866363", artist: "Sanetwo", style:"Spray")
+artwork238	= Arwtork.create(lat:"48.8889498", long:"2.3867836", artist: "dACruZ", style:"Spray")
+artwork239	= Arwtork.create(lat:"48.8889498", long:"2.3867836", artist: "Marko 93", style:"Spray")
+artwork240	= Arwtork.create(lat:"48.889015", long:"2.3870513", artist: "Batsh", style:"Spray")
+artwork241	= Arwtork.create(lat:"48.8890441", long:"2.3871679", artist: "Astro", style:"3D")
+artwork242	= Arwtork.create(lat:"48.8890703", long:"2.387267	", artist: "Kouka")
+artwork243	= Arwtork.create(lat:"48.8891041", long:"2.3873925", artist: "Shaka")
+artwork244	= Arwtork.create(lat:"48.8877467", long:"2.3845599", artist: "dACruZ", style:"Spray")
+artwork245	= Arwtork.create(lat:"48.8898873", long:"2.3839414", artist: "Ren1", style:"Spray")
+artwork246	= Arwtork.create(lat:"48.8869263", long:"2.3847632", artist: "Big Bruno", style:"Spray")
+artwork247	= Arwtork.create(lat:"48.8870072", long:"2.3847442", artist: "Marko 93")
+artwork248	= Arwtork.create(lat:"48.8870797", long:"2.3847258", artist: "Doudou Style")
+artwork249 = Artwork.create(lat:"48.8888247", long:"2.3840232", artist:	"dACruZ",style:"Spray")
+artwork250	= Arwtork.create(lat:"48.8888247", long:"2.3840232", artist: "dACruZ",style:"Spray")
+artwork251	= Arwtork.create(lat:"48.890078", long:"2.3850632", artist: "Kan",style:"Spray")
+artwork252	= Arwtork.create(lat:"48.8901641", long:"2.3849997", artist: "Shaka",style:"Spray")
+artwork253	= Arwtork.create(lat:"48.8902543", long:"2.3849333", artist: "Pittore",style:"Spray, Acrylique")
+
+picture235 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534459/IMG_01.jpg", user: user_admin, artwork: artwork235)
+picture236 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534455/IMG_02.jpg", user: user_admin, artwork: artwork236)
+picture237 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534455/IMG_03.jpg", user: user_admin, artwork: artwork237)
+picture238 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534455/IMG_04.jpg", user: user_admin, artwork: artwork238)
+picture239 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534456/IMG_05.jpg", user: user_admin, artwork: artwork239)
+picture240 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534455/IMG_06.jpg", user: user_admin, artwork: artwork240)
+picture241 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534456/IMG_07.jpg", user: user_admin, artwork: artwork241)
+picture242 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534456/IMG_08.jpg", user: user_admin, artwork: artwork242)
+picture243 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534457/IMG_09.jpg", user: user_admin, artwork: artwork243)
+picture244 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534458/IMG_10.jpg", user: user_admin, artwork: artwork244)
+picture245 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534461/IMG_11.jpg", user: user_admin, artwork: artwork245)
+picture246 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534458/IMG_12.jpg", user: user_admin, artwork: artwork246)
+picture247 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534460/IMG_13.jpg", user: user_admin, artwork: artwork247)
+picture248 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534459/IMG_14.jpg", user: user_admin, artwork: artwork248)
+picture249 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534461/IMG_17.jpg", user: user_admin, artwork: artwork249)
+picture250 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534467/IMG_18.jpg", user: user_admin, artwork: artwork250)
+picture251 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534458/IMG_20.jpg", user: user_admin, artwork: artwork252)
+picture252 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534457/IMG_21.jpg", user: user_admin, artwork: artwork253)
+picture253 = Picture.create(remote_img_url_url: "https://res.cloudinary.com/creapolis/image/upload/v1528534517/IMG_22.jpg", user: user_admin, artwork: artwork254)
+
+route2 = Route.create(title:"Ourcq living Colors par Cultures Pas Sages", description: "dACruZ et son association interviennent depuis de nombreuses années à Ourcq, partez à la découverte de ce coin haut en couleur du XIXe arrondissement.")
+route2.artworks << artwork235
+route2.artworks << artwork236
+route2.artworks << artwork237
+route2.artworks << artwork238
+route2.artworks << artwork239
+route2.artworks << artwork240
+route2.artworks << artwork241
+route2.artworks << artwork242
+route2.artworks << artwork243
+route2.artworks << artwork244
+route2.artworks << artwork245
+route2.artworks << artwork246
+route2.artworks << artwork247
+route2.artworks << artwork248
+route2.artworks << artwork249
+route2.artworks << artwork250
+route2.artworks << artwork251
+route2.artworks << artwork252
+route2.artworks << artwork253
